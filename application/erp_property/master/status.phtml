@@ -1,0 +1,67 @@
+<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+	<form name="form" method="post" id="edit" action='erp_property/master/status/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Propery Status
+		</h4>
+	</div>
+	<div class="modal-body">
+		<?php if($this->propertyDet['psts_prop_id']):?>
+			<table class="table table-bordered">
+				<tr>
+					<th>Building Name</th>
+					<th>Property No</th>
+					<th>File No</th>
+				</tr>
+				<tr>
+					<th><?=$this->propertyDet['bld_name']?></th>
+					<th><?=$this->propertyDet['prop_no']?></th>
+					<th><?=$this->propertyDet['prop_fileno']?></th>
+				</tr>
+			</table>
+		<?php endif?>
+			<div class="form-group row" style="margin-top: 15px;">
+					<label class="col-sm-3 form-control-label" >Status</label>
+					<div class="col-sm-9">
+                    <?=$this->form->status->show()?>
+                  </div>
+				</div>
+				<div id="div_prop" class="form-group row" style="margin-top: 15px;">
+					<label class="col-sm-3 form-control-label" >Attached Property</label>
+					<div class="col-sm-9">
+                    <?=$this->form->property->show()?>
+                  </div>
+				</div>
+				<div class="form-group row" style="margin-top: 15px;">
+					<label class="col-sm-3 form-control-label" >Note</label>
+					<div class="col-sm-9">
+                    <?=$this->form->note->show()?>
+                  </div>
+				</div>
+	</div>
+	<div class="modal-footer popup-footer">
+		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+</form>	
+</div>
+<script>
+toggleProp();
+$('#status').on('change',function() {
+	toggleProp();
+});
+
+function toggleProp(){
+	if($('#status').val()==4){
+		$('#div_prop').show();
+	}
+	else{
+		$('#div_prop').hide();
+	}
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function($) {
+	$('.modal-dialog').css('width', '40%');
+})
+</script>

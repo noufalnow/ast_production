@@ -1,0 +1,33 @@
+
+<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+	<form name="form" method="post" id="reset" name="reset" action='admin/users/reset/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Reset Password</h4>
+	</div>
+	<div class="modal-body">
+				<div class="form-group row">
+					<label class="col-sm-3 form-control-label" >Name of user</label>
+					<div class="col-sm-9">
+					<?=$this->userDetail['user_fname']?>-<?=$this->userDetail['user_lname']?>
+                  </div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 form-control-label" >Password</label>
+					<div class="col-sm-9">
+                    <?=$this->form->password->show()?>
+                  </div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3 form-control-label" >Confirm Password</label>
+					<div class="col-sm-9">
+                    <?=$this->form->conPassword->show()?>
+                  </div>
+				</div>
+	</div>
+	<div class="modal-footer popup-footer">
+		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Reset</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+</form>	
+</div>

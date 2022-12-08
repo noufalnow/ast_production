@@ -1,0 +1,118 @@
+<div class="col-md-12" style="padding-top: 3%;">
+	<div class="card">
+		<div class="card-block">
+			<h5>Update property details</h5>
+			<div class="card-block">
+				<form name="form" method="post" id="edit" action='erp_property/master/edit/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;">
+						<div class="form-group row" style="margin-top: 15px;">
+					<label class="col-sm-2 form-control-label" >Building</label>
+					<div class="col-sm-4">
+                    <?=$this->form->building->show()?>
+                  </div>
+					<label class="col-sm-2 form-control-label" >Property No</label>
+					<div class="col-sm-4">
+                    <?=$this->form->propno->show()?>
+                  </div>
+			</div>
+				<div class="form-group row">
+					<label class="col-sm-2 form-control-label" >Property Name
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->propname->show()?>
+                  </div>
+                   <label class="col-sm-2 form-control-label" >Property</label>
+				 <div class="col-sm-4">
+                    <?=$this->form->prop_build->show()?>
+                  </div>
+				</div>
+				<div id="prop_build">
+					<div class="form-group row">
+						<label class="col-sm-2 form-control-label" style="">Category
+							</label>
+						<div class="col-sm-3" style="width: 18%;">
+	                    <?=$this->form->prop_cat->show()?>
+	                  </div>
+
+						<label class="col-sm-2 form-control-label" style="width: 7%;">Type
+							</label>
+						<div class="col-sm-3">
+	                    <?=$this->form->prop_type->show()?>
+	                  </div>
+						<label class="col-sm-2 form-control-label" style="width: 7%;">Level
+							</label>
+						<div class="col-sm-3">
+	                    <?=$this->form->prop_level->show()?>
+	                  </div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-2 form-control-label">Electric Meter</label>
+										<div class="col-sm-4">
+                    <?=$this->form->prop_elec1->show()?>
+                  </div>
+                  					<div class="col-sm-3">
+                    <?=$this->form->prop_elec2->show()?>
+                  </div>
+                  					<div class="col-sm-3">
+                    <?=$this->form->prop_elec3->show()?>
+                  </div>
+                 </div>
+				<div class="form-group row">
+					<label class="col-sm-2 form-control-label" >Water Meter No
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->prop_water->show()?>
+                  </div>
+					<label class="col-sm-2 form-control-label" >Remarks
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->remarks->show()?>
+                  </div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-2 form-control-label" >File No
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->fileno->show()?>
+                  </div>
+					<label class="col-sm-2 form-control-label" >Bank Account
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->bank_account->show()?>
+                  </div>
+				</div>
+        	<div class="modal-footer popup-footer">
+        		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
+        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        	</div>
+
+			</form>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">           
+$(document).ready(function() {
+	if($('#prop_build1').prop('checked') === true)
+		$('#prop_build').hide();
+	else
+		$('#prop_build').show();
+	
+	$('#prop_build1').on('click',function() {
+		typetoggle($('#prop_build1').is(':checked') );
+	});
+	function typetoggle(type){
+
+		if($('#prop_build1').prop('checked') === true)
+			$('#prop_build').hide();
+		else
+			$('#prop_build').show();
+	}
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function($) {
+	$('.modal-dialog').css('width', '70%');
+})
+</script>

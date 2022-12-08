@@ -1,0 +1,20 @@
+<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+	<form name="form" method="post" id="edit" action='erp_employee/master/empdocdelete/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;" enctype="multipart/form-data">
+	<input type="hidden" value="<?=$this->param['ref']?>" name="hidden">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Delete document form the system</h4>
+	</div>
+	<div class="modal-body">
+		<b>Document : <?=$this->documentDetail['doc_no']?></b>
+		</br>
+		The delete action cannot be revert !!,
+			Are you sure to delete the document permanently from the system?
+		</br>
+	</div>
+	<div class="modal-footer popup-footer">
+		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Confirm</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+</form>	
+</div>

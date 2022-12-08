@@ -1,0 +1,39 @@
+<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+<form name="docform" method="post" id="docform" action="erp_employee/master/vehiclereg/ref/<?=$this->param['ref']?>"	style="margin-bottom: 0px;" enctype="multipart/form-data">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Vehicle Registration Details</h4>
+	</div>
+	<div class="modal-body">
+				<div class="form-group row" style="margin-top: 15px;">
+					<label class="col-sm-2 form-control-label" >Mulkia No
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->mulkia->show()?>
+                  </div>
+				<label class="col-sm-2 form-control-label" >Chassis No
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->chasis->show()?>
+                  </div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-2 form-control-label" >Reference No
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->refno->show()?>
+                  </div>
+
+					<label class="col-sm-2 form-control-label" >Remarks
+						</label>
+					<div class="col-sm-4">
+                    <?=$this->form->remarks->show()?>
+                  </div>
+				</div>				
+	</div>
+	<div class="modal-footer popup-footer">
+		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+</form>	
+</div>

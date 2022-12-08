@@ -1,0 +1,20 @@
+<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+	<form name="form" method="post" id="delete" name="delete" action='admin/users/delete/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;">
+	<input type="hidden" value="<?=$ref?>" name="hidden">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Delete user form the system</h4>
+	</div>
+	<div class="modal-body">
+		<b>User Name : <?=$this->userDetail['user_fname']." ".$this->userDetail['user_lname']?></b>
+		</br>
+		The delete action cannot be revert !!,
+			Are you sure to delete the user permanently from the system?
+		</br>
+	</div>
+	<div class="modal-footer popup-footer">
+		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Confirm</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+</form>	
+</div>

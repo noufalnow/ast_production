@@ -1,0 +1,37 @@
+<?php
+session_start ();
+echo('
+<!doctype html><html itemscope="" itemtype="http://schema.org/SearchResultsPage" lang="en">
+<head>
+<title>creativeSol Information Management System</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="http://'.$_SERVER ['HTTP_HOST'].'/css/jquery-ui.min.css" rel="stylesheet">
+<link href="http://'.$_SERVER ['HTTP_HOST'].'/css/bootstrap.css" rel="stylesheet">
+<link href="http://'.$_SERVER ['HTTP_HOST'].'/css/general.css" rel="stylesheet">
+</head>
+');
+if(@$_SESSION['feedback']):?>
+		<?php echo('
+			<div class="card-block" id="feedback_container">
+				<div role="alert" class="alert alert-success">
+					<strong>Success! </strong>'
+		.$_SESSION['feedback'].'</div>
+			</div>
+		');
+$_SESSION['feedback'] = '';		
+endif;
+?>
+<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+<div class="modal-body">
+<div class="col-md-5">
+	<button onclick="self.close()" class="btn  btn-success  btn-block btn-rounded align-button" style="font-size: 120%;">Close</button>
+			</div>
+</div>
+</div>
+<script>
+window.onunload = refreshParent;
+function refreshParent() {
+    window.opener.location.reload();
+}
+</script>
