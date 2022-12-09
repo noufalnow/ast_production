@@ -38,7 +38,7 @@
 					<td><?=$comp['doc_expiry_date']?></td>
 					<td>
 					<?php if($comp['doc_id']):?>
-					<?=x(array('link'=>'default/default/protected','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-file text-info">'.$comp['file_name'].'</i>',array("param"=>'class="facebox"')))?></td>
+					<?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-file text-info">'.$comp['file_name'].'</i>',array("param"=>'class="facebox"')))?></td>
 					<?php endif;?> 			
 					<td align ="center">
 						<?php if($comp['doc_id']):?>

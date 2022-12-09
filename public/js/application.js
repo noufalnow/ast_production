@@ -85,6 +85,10 @@ function getContent(postlink,refId,target) {
 			$('#'+target).html(data.view);
 			
 		}
+		else if(data.view==null) {
+			
+			location.reload();
+		}
 		else {
 			
 			

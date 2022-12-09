@@ -118,6 +118,20 @@
 					<resource>default</resource>
 					<type>view</type>
 				</action>
+				<action>
+					<name>backup</name>
+					<label>Generate Backup</label>
+					<description>Generate Backup</description>
+					<resource>default</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>notify</name>
+					<label>Home Notification</label>
+					<description>Home Notification</description>
+					<resource>default</resource>
+					<type>view</type>
+				</action>
 			</controller>
 		</module>
 		<module>
@@ -907,5 +921,427 @@
 				</action>
 			</controller>
 		</module>
+		<module>
+			<name>erp_fund</name>
+			<label>Cash and Fund Flow Module</label>
+			<description>Cash and Fund Flow Module</description>
+			<controller>
+				<name>cashflow</name>
+				<label>Cash Flow Management</label>
+				<description>Cash Flow Related activity</description>
+				<action>
+					<name>list</name>
+					<label>Cash Flow List</label>
+					<description>Cash Flow List</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>flow</name>
+					<label>Cash Flow Entry</label>
+					<description>Cash Flow Entry</description>
+					<resource>application</resource>
+					<type>create</type>
+				</action>
+				<action>
+					<name>fedit</name>
+					<label>Modify Cash Flow Entry</label>
+					<description>Modify Cash Flow Entry</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>
+				<action>
+					<name>billview</name>
+					<label>Cash flow Expense View</label>
+					<description>Cash flow Expense View</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>fviewmini</name>
+					<label>View Cashflow </label>
+					<description>View Cashflow Entry</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>fview</name>
+					<label>View and Print Cashflow </label>
+					<description>View Cashflow Entry</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>cashfreport</name>
+					<label>Cash Flow Report </label>
+					<description>Cash Flow Report</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>toggle</name>
+					<label>Cash Flow Entry Approval [MD] </label>
+					<description>Cash Flow Report</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>
+			</controller>
+
+			<controller>
+				<name>cashbook</name>
+				<label>Cash Book Management</label>
+				<description>Cash Book Management</description>
+				<action>
+					<name>list</name>
+					<label>Cash Book List</label>
+					<description>Cash Book List</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>add</name>
+					<label>Add Cash Book Entry</label>
+					<description>Add Cash Book Entry</description>
+					<resource>application</resource>
+					<type>create</type>
+				</action>
+
+				<action>
+					<name>cashreport</name>
+					<label>Cash Book Report</label>
+					<description>Cash Book Report</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+			</controller>
+		</module>
+		<module>
+			<name>erp_masters</name>
+			<label>Common Masters </label>
+			<description>Common Masters</description>
+			<controller>
+				<name>customer</name>
+				<label>Customer Management</label>
+				<description>Customer Related activity</description>
+				<action>
+					<name>list</name>
+					<label>List Customers</label>
+					<description>List Customers</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>add</name>
+					<label>Add New Customers</label>
+					<description>Add New Customers</description>
+					<resource>application</resource>
+					<type>create</type>
+				</action>
+				<action>
+					<name>edit</name>
+					<label>Edit Customer Details</label>
+					<description>Edit Customer Details</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>
+				<action>
+					<name>view</name>
+					<label>View Customer Details</label>
+					<description>View Customer Details</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+			</controller>
+			<controller>
+				<name>vendor</name>
+				<label>Vendor Management</label>
+				<description>Vendor Related activity</description>
+				<action>
+					<name>list</name>
+					<label>List Vendor</label>
+					<description>List Vendor</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>add</name>
+					<label>Add New Vendor</label>
+					<description>Add New Vendor</description>
+					<resource>application</resource>
+					<type>create</type>
+				</action>
+				<action>
+					<name>edit</name>
+					<label>Edit Vendor Details</label>
+					<description>Edit Vendor Details</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>
+				<action>
+					<name>view</name>
+					<label>View Vendor Details</label>
+					<description>View Vendor Details</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+			</controller>
+			<controller>
+				<name>item</name>
+				<label>Item Management</label>
+				<description>Item Related activity</description>
+				<action>
+					<name>list</name>
+					<label>List Item</label>
+					<description>List Item</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>add</name>
+					<label>Add New Item</label>
+					<description>Add New Item</description>
+					<resource>application</resource>
+					<type>create</type>
+				</action>
+				<action>
+					<name>edit</name>
+					<label>Edit Item Details</label>
+					<description>Edit Item Details</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>
+				<action>
+					<name>view</name>
+					<label>View Item Details</label>
+					<description>View Item Details</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>srvadd</name>
+					<label>Machine Service Related Item Add</label>
+					<description>Machine Service Related Item Add</description>
+					<resource>application</resource>
+					<type>Create</type>
+				</action>
+			</controller>
+		</module>
+
+		<module>
+			<name>erp_report</name>
+			<label>ERP Reports </label>
+			<description>ERP Reports</description>
+			<controller>
+				<name>employee</name>
+				<label>Employee/ HR Reports</label>
+				<description>Employee/ HR Reports</description>
+				<action>
+					<name>employee</name>
+					<label>Report : Employees</label>
+					<description>Report : Employees</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>empdocument</name>
+					<label>Report : Employees Documents</label>
+					<description>Report : Employees</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>empcontract</name>
+					<label>Report : Drivers / Operators Contract</label>
+					<description>Report : Drivers / Operators Contract</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+			</controller>
+			<controller>
+				<name>property</name>
+				<label>Property/ Rental and Collection Reports</label>
+				<description>Property and Rental Reports</description>
+				<action>
+					<name>property</name>
+					<label>Report : Properties</label>
+					<description>Report : Properties</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>propdocument</name>
+					<label>Report : Properties Documents</label>
+					<description>Report : Properties</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>propertymeter</name>
+					<label>Report : Property Electrical and Water Meter</label>
+					<description>Report : Property Electrical and Water Meter
+					</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>propvacant</name>
+					<label>Report : Vacant Property Report</label>
+					<description>Report : Vacant Property Report</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>paymentcollection</name>
+					<label>Report : Payment Collection Rent and Invoice</label>
+					<description>Report : Payment Collection Rent and Invoice
+					</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+			</controller>
+
+
+			<controller>
+				<name>vehicle</name>
+				<label>Vehicles Contract and Expenses Reports</label>
+				<description>Vehicles and Contract Reports</description>
+				<action>
+					<name>vehicle</name>
+					<label>Report : Vehicles</label>
+					<description>Report : Vehicles</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>vhldocument</name>
+					<label>Report : Vehicles Documents</label>
+					<description>Report : Vehicles</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>commveh</name>
+					<label>Report : Commercial Vehicles</label>
+					<description>Report : Commercial Vehicles</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>commveh</name>
+					<label>Report : Commercial Vehicles</label>
+					<description>Report : Commercial Vehicles</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+
+
+				<action>
+					<name>vehiclecontract</name>
+					<label>Report : Vehicle Contract</label>
+					<description>Report : Vehicle Contract</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>vhlexpense</name>
+					<label>Report : Vehicles Expense Report</label>
+					<description>Report : Vehicles Expense Report</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+
+			</controller>
+
+			<controller>
+				<name>expense</name>
+				<label>Expenses and PAyments Reports</label>
+				<description>Expenses Reports</description>
+				<action>
+					<name>expense</name>
+					<label>Report : Expenses With Detailed Consolidation</label>
+					<description>Report : Vehicles</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>expensecategory</name>
+					<label>Report : Expenses Category Wise</label>
+					<description>Report : Expenses Category Wise</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>expvendoroutstanding</name>
+					<label>Report: Pending Credit Statement</label>
+					<description>Report: Pending Credit Statement</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>expvensummary</name>
+					<label>Report: Pending Credit Summary</label>
+					<description>Report: Pending Credit Summary</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>expvensummary</name>
+					<label>Report: Credit Payments</label>
+					<description>Report: Credit Payments</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+			</controller>
+
+
+			<controller>
+				<name> invoice</name>
+				<label>Invoice and Collection Reports</label>
+				<description>Invoice and Collection Reports</description>
+				<action>
+					<name>billbycustomer</name>
+					<label>Report: Outstanding Summary Statement</label>
+					<description>Report: Outstanding Statement</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>billcustoutstanding</name>
+					<label>Report: Outstanding Detailed Statement</label>
+					<description>Report: Outstanding Detailed Statement</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>billlisting</name>
+					<label>Report: List of Invoices</label>
+					<description>Report: List of Invoices</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+				<action>
+					<name>billoutstanding</name>
+					<label>Report: Outstanding Statement</label>
+					<description>Report: Outstanding Statement</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+
+			</controller>
+
+		</module>
+
+
 	</acl>
 </access>
