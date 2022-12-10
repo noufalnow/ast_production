@@ -95,9 +95,7 @@
 					<th width="3%" class="center">Credit</th>
 					<th width="2%" class="center">Edit</th>
 					<th width="4%" class="center">View</th>
-					<?php if($_SESSION['user_type']==4):?>
 					<th width="2%" class="center">Approve</th>
-					<?php endif?>
 				</tr>
 			</thead>
 			<tbody>
@@ -133,13 +131,11 @@
 						<?=x(array('link'=>'erp_invoice/bill/miniview','ref'=>$encBillId,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("param"=>'class="facebox"')))?>
 						<?=x(array('link'=>'erp_invoice/bill/view','ref'=>$encBillId,'label'=>'<i class="glyphicon glyphicon glyphicon-print text-info" style="margin-left: 2px;"></i>',array("param"=>'wide_opener')))?> 
 					</td>
-					<?php if($_SESSION['user_type']==4):?>
 					<td class="center">
 						<?php if($bill['bill_app_status']==''):?>
 							<?=x(array('link'=>'erp_invoice/bill/approval','ref'=>$encBillId,'label'=>'<span class="glyphicon glyphicon-ok-circle" style="color:#31708f;font-size: 1.2em;"> </span>',array("param"=>'class="facebox"')))?>
 						<?php endif?>
 					</td>
-					<?php endif?>
 				</tr>
 				<?php endforeach?>
 			<?endif?>

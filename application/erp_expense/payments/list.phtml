@@ -36,9 +36,7 @@
 					<th width="6%" class="center">Date</th>
 					<th width="8%" class="center">Amount</th>
 					<th width="6%" class="center">Edit</th>
-					<?php if($_SESSION['user_type']==4):?>
-						<th width="6%" class="center">Approve</th>
-					<?php endif?>
+					<th width="6%" class="center">Approve</th>
 					<th width="6%" class="center">Voucher</th>
 					<th width="6%" class="center">View</th>
 					<th width="6%" class="center">File No</th>
@@ -63,7 +61,6 @@
 					<?php endif?>					
 					
 					</td>
-					<?php if($_SESSION['user_type']==4):?>
 					<td class="center">
 					
 					<?php if($pay['pay_app_status']==0):?>
@@ -71,7 +68,7 @@
 					<?php endif?>
 					
 					</td>
-					<?php endif?>
+
 					
 					<td class="center">
 					<?php if($pay['pay_pay_status']==2):?>

@@ -107,10 +107,8 @@
 					<th width="4%" class="center">Credit</th>
 					<th width="4%" class="center">Mode</th>
 					<th width="5%" class="center"><i class="glyphicon glyphicon-search"></i><i class="glyphicon glyphicon-edit"></i> </th>
-					<?php if($_SESSION['user_type']==4):?>
-						<th width="3%" class="center"><i class="glyphicon glyphicon-ok"></i></th>
-						<th width="5%" class="center"><i class="glyphicon glyphicon-transfer"></i></th>
-					<?php endif?>
+					<th width="3%" class="center"><i class="glyphicon glyphicon-ok"></i></th>
+					<th width="5%" class="center"><i class="glyphicon glyphicon-transfer"></i></th>
 					<th width="8%" class="center"><i class="glyphicon glyphicon-open-file"></i></th>
 					<!--  <th width="6%" class="center">Delete</th>-->
 				</tr>
@@ -151,7 +149,7 @@
 							<?=x(array('link'=>'erp_expense/expense/edit','ref'=>$encExpId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>
 						</td>
 					<?php endif?>
-					<?php if($_SESSION['user_type']==4 && $expense['file_id']):?>
+					<?php if($expense['file_id']):?>
 					<td class="center">
 						<?php if($expense['exp_app_status']==''):?>
 							<?=x(array('link'=>'erp_expense/expense/approval','ref'=>$encExpId,'label'=>'<span class="glyphicon glyphicon-ok-circle" style="color:#31708f;font-size: 1.2em;"> </span>',array("param"=>'class="facebox"')))?>
