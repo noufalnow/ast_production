@@ -104,7 +104,7 @@
 						<?php endif?>  
 					</td>
 					<td class="center">
-						<?=x(array('link'=>'erp_report/property/paymentcollection/f_property/'.$property['prop_id'],'label'=>'<i class="glyphicon glyphicon-tasks text-info"></i>',array("param"=>'wide_opener')))?>  
+						<?=x(array('link'=>'erp_report/property/paymentcollection','ref'=>array('f_property'=>$property['prop_id']),'label'=>'<i class="glyphicon glyphicon-tasks text-info"></i>',array("param"=>'opener')))?>  
 					</td>
 					<td class="center">
 						<?=x(array('link'=>'erp_property/master/edit','ref'=>$encPropId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>  
