@@ -156,7 +156,9 @@
 						<?php endif?>
 					</td>
 					<td class="center">
-						<?=x(array('link'=>'erp_expense/expense/update','ref'=>$encExpId,'label'=>'<i class="glyphicon glyphicon-transfer text-info"></i>',array("param"=>'class="facebox"')))?>
+    					<?php if($expense['exp_app_status']=='1'):?>
+    						<?=x(array('link'=>'erp_expense/expense/update','ref'=>$encExpId,'label'=>'<i class="glyphicon glyphicon-transfer text-info"></i>',array("param"=>'class="facebox"')))?>
+    					<?php endif;?>
 					</td>
 					<?php endif?>
 					<td class="center" <?php if($expense['exp_cash_flow']): $cellstyle = "background-color: bisque;";  endif;?>
