@@ -131,7 +131,7 @@ function formSubmit(source, target) {
 	$.ajax({
 		type: "POST",
 		cache: false,
-		async: false,
+		async: true,
 		processData: (fileCount == 0) ? true : false,
 		contentType: (fileCount == 0) ? 'application/x-www-form-urlencoded; charset=UTF-8' : false,
 		url: act_url,
