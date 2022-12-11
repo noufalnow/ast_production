@@ -1225,6 +1225,14 @@ div.acclink a:hover {
   text-decoration: none;
 }
 
+.modal {
+  z-index: 1500;
+}
+
+.swal2-container {
+  z-index: 2500 !important;
+}
+
 
 /*.form-group label {
   margin-bottom: 2px;
