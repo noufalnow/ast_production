@@ -38,7 +38,9 @@
 					<th width="4%" class="center">Debit</th>
 					<th width="4%" class="center">Credit</th>
 					<th width="3%" class="center">Edit</th>
+					<?php if($_SESSION['user_acl']['erp_fund/cashflow/fview']):?>
 					<th width="3%" class="center">View</th>
+					<?php endif;?>
 				</tr>
 			</thead>
 			<tbody>
@@ -62,11 +64,13 @@
 
 					<td class="center"><?=x(array('link'=>'erp_fund/cashflow/fedit','ref'=>$encCbId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?> 
 					</td>
+					<?php if($_SESSION['user_acl']['erp_fund/cashflow/fview']):?>
 					<td class="center">
 						<?=x(array('link'=>'erp_fund/cashflow/fview','ref'=>$encCbId,'label'=>'<button type="button" class="btn btn-default btn-lg" style="padding-top: 1px;padding-bottom: 0px;">
 						  '.$icon.'
 						</button>',array("param"=>'wide_opener')))?> 						
 					</td>
+					<?php endif;?>
 				</tr>
 				<?php endforeach?>
 			<?endif?>

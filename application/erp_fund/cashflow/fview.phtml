@@ -77,7 +77,9 @@
 						<th class="text-center" style="padding-bottom: 5px;" width="10%">Amount (RO)</th>
 						<th class="text-center" style="padding-bottom: 5px;" width="20%">Assigned To</th>
 						<th class="text-center" style="padding-bottom: 5px;" width="10%">Progress</th>
+						<?php if($_SESSION['user_acl']['erp_fund/cashflow/toggle']):?>
 						<th class="text-center" style="padding-bottom: 5px;" width="5%">Approve</th>
+						<?php endif;?>
 					</tr>
 				</tbody>
 				<tbody >
@@ -112,19 +114,16 @@
 							<?=x(array('link'=>'erp_fund/cashflow/billview','ref'=>$encCfDetId,'label'=>'<progress value="'.$det['pro_percentage'].'" min="0" max="100"></progress>',array("param"=>'class="facebox"')))?>
 							
 						</td>
+						<?php if($_SESSION['user_acl']['erp_fund/cashflow/toggle']):?>
 						<td>
-						<?php  $checked =  $det['cf_approve']==1?"":"checked" ;?>
-
-						<?=lx(array('link'=>'erp_fund/cashflow/toggle','ref'=>$encCfDetId,'label'=>'
-						<label class="switch" style="margin-left: 7px;margin-bottom: 0px;">
-						  <input type="checkbox" '.$checked.' onclick="return false;">
-						  <span class="slider round"></span>
-						</label>',array("param"=>'class="facebox"' )))?>
-						  
-						  
-
-						
+    						<?php  $checked =  $det['cf_approve']==1?"":"checked" ;?>
+    						<?=lx(array('link'=>'erp_fund/cashflow/toggle','ref'=>$encCfDetId,'label'=>'
+    						<label class="switch" style="margin-left: 7px;margin-bottom: 0px;">
+    						  <input type="checkbox" '.$checked.' onclick="return false;">
+    						  <span class="slider round"></span>
+    						</label>',array("param"=>'class="facebox"' )))?>
 						</td>
+						<?php endif;?>
 						
 					</tr>
 					<?php endforeach;?>

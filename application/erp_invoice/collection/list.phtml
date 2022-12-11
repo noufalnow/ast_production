@@ -56,7 +56,9 @@
 					<th width="5%" class="center">Amount</th>
 					<th width="22%" class="center">Particulares</th>
 					<th width="4%" class="center">Edit</th>
+					<?php if($_SESSION['user_acl']['erp_invoice/collection/approva']):?>
 					<th width="4%" class="center">Approve</th>
+					<?php endif;?>
 					<th width="4%" class="center">View</th>
 					<th width="4%" class="center">File No</th>
 				</tr>
@@ -77,13 +79,13 @@
 						<?=x(array('link'=>'erp_invoice/collection/edit','ref'=>$encPayId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>  
 					<?php endif?>					
 					</td>
+					<?php if($_SESSION['user_acl']['erp_invoice/collection/approva']):?>
 					<td class="center">
-					
 					<?php if($pay['coll_app_status']==0):?>
 						<?=x(array('link'=>'erp_invoice/collection/approval','ref'=>$encPayId,'label'=>'<span class="glyphicon glyphicon-ok-circle" style="color:#31708f;font-size: 1.2em;"> </span>',array("param"=>'class="facebox"')))?>  
 					<?php endif?>
 					</td>
-										
+					<?php endif;?>					
 					<td class="center">
 						<?=x(array('link'=>'erp_invoice/collection/view','ref'=>$encPayId,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("param"=>'class="facebox"')))?> 
 					</td>

@@ -36,7 +36,9 @@
 					<th width="6%" class="center">Date</th>
 					<th width="8%" class="center">Amount</th>
 					<th width="6%" class="center">Edit</th>
+					<?php if($_SESSION['user_acl']['erp_expense/payments/approval']):?>
 					<th width="6%" class="center">Approve</th>
+					<?php endif;?>
 					<th width="6%" class="center">Voucher</th>
 					<th width="6%" class="center">View</th>
 					<th width="6%" class="center">File No</th>
@@ -61,14 +63,13 @@
 					<?php endif?>					
 					
 					</td>
+					<?php if($_SESSION['user_acl']['erp_expense/payments/approval']):?>
 					<td class="center">
-					
 					<?php if($pay['pay_app_status']==0):?>
 						<?=x(array('link'=>'erp_expense/payments/approval','ref'=>$encPayId,'label'=>'<span class="glyphicon glyphicon-ok-circle" style="color:#31708f;font-size: 1.2em;"> </span>',array("param"=>'class="facebox"')))?>  
 					<?php endif?>
-					
 					</td>
-
+					<?php endif;?>
 					
 					<td class="center">
 					<?php if($pay['pay_pay_status']==2):?>
