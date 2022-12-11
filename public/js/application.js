@@ -36,6 +36,8 @@ $(document).ready(function($) {
 
 	$(document).on('click', '.livepost', function() {
 		/*$('#myModal').modal('hide');*/
+		displayOverlay('Loading...');
+		
 		var ptarget = $(this).attr('ptarget');
 		if(ptarget!='')
 			{
@@ -125,6 +127,7 @@ function formSubmit(source, target) {
 	}
 	var act_url = baseurl + $(form).attr('action');
 	$(form).attr('action', '##');
+	//displayOverlay('Loading...');
 	$.ajax({
 		type: "POST",
 		cache: false,
@@ -133,8 +136,10 @@ function formSubmit(source, target) {
 		contentType: (fileCount == 0) ? 'application/x-www-form-urlencoded; charset=UTF-8' : false,
 		url: act_url,
 		data: dataArray,
-		beforeSend: function () { displayOverlay('Loading...'); },
+		//beforeSend: function () { displayOverlay('Loading...'); },
 		success: function(response) {
+			removeOverlay();
+			
 			var data = $.parseJSON(response);
 
 			if (data.status == 11) { 
@@ -184,7 +189,7 @@ function formSubmit(source, target) {
 				});*/
 				//show_widget(data.target,'',data.refId);
 			}
-			removeOverlay();
+			
 		}
 	});
 }
