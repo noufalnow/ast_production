@@ -36,16 +36,37 @@ $(document).ready(function($) {
 
 	$(document).on('click', '.livepost', function() {
 		/*$('#myModal').modal('hide');*/
-		displayOverlay('Loading...');
-		
-		var ptarget = $(this).attr('ptarget');
-		if(ptarget!='')
-			{
-				//console.log(ptarget);
-				$('#page_'+ptarget).val($(this).val());
-			}
+
 		//console.log(ptarget);
-		livePost(this,ptarget);
+		
+		
+		Swal.fire({
+			  title: 'Do you want to save the changes?',
+			  showDenyButton: false,
+			  showCancelButton: true,
+			  confirmButtonText: 'Save',
+			  denyButtonText: `Don't save`,
+			}).then((result) => {
+			  /* Read more about isConfirmed, isDenied below */
+			  if (result.isConfirmed) {
+		    	  console.log()
+		    	  
+		  		displayOverlay('Loading...');
+
+				var ptarget = $(this).attr('ptarget');
+				if(ptarget!='')
+					{
+						//console.log(ptarget);
+						$('#page_'+ptarget).val($(this).val());
+					}
+		    	  livePost(this,ptarget);
+			  } 
+			})
+		
+		
+
+		
+		
 	});
 
 	$('#tel').keyup(function(e) {
@@ -143,6 +164,9 @@ function formSubmit(source, target) {
 			var data = $.parseJSON(response);
 
 			if (data.status == 11) { 
+				
+				if (data.feedback!=null) 
+					Swal.fire('Saved!', data.feedback, 'success');
 
 				if(data.target==null)
 				{
@@ -173,20 +197,23 @@ function formSubmit(source, target) {
 			else {
 				$("#modal-target").html('')
 				$('#myModal').modal('hide');
-				location.reload();
-				/*swal({
-					title: "Success",
-					closeOnClickOutside: false,
-					text: data.feedback,
-					icon: 'success',
-					buttons: {
-						delete: 'Ok'
-					}
-				}).then(function(willDelete) {
-					if (willDelete) {
-						show_widget(data.target, '', data.refId, '', $("#page_x").val());
-					}
-				});*/
+
+
+				if (data.feedback!=null) 	
+				Swal.fire({
+				       title: "Saved", 
+				       text: data.feedback,
+				       type: "success"
+				}).then((result) => {
+					  /* Read more about isConfirmed, isDenied below */
+					  if (result.isConfirmed) 
+						  location.reload();
+				});
+
+				
+				
+				//location.reload();
+				
 				//show_widget(data.target,'',data.refId);
 			}
 			
@@ -400,7 +427,7 @@ function displayOverlay(text) {
         "width": "100%",
         "height": "100%",
         "background-color": "rgba(0,0,0,.5)",
-        "z-index": "10000",
+        "z-index": "1000",
         "vertical-align": "middle",
         "text-align": "center",
         "color": "#fff",
