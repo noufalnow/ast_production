@@ -38,8 +38,7 @@
 	         ?> 
 	         	<tr>
 	         		<td><div class="acclink">
-	         		<a>
-	         		<?=lb(array('link'=>'acl/config/setcontrollers','ref'=>array('ref'=>$encryptedModuleId),'label'=>strtoupper($modules['module_label'])))?></a>
+						<?=accx('acl/config/setcontrollers','<a href="javascript:;" onclick="window.location.href=\''.APPURL.'acl/config/setcontrollers/ref/'.$encryptedModuleId.'/usergroup/\'+$(\'#module_ug\').val()+\'/users/\'+$(\'#module_usr\').val()">'.strtoupper($modules['module_label']).'</a>');?>
 	         		</div>
 					</td>
 		            <td align="center"><input class="create" id="create_<?=$modules['module_id']?>" type="checkbox" value="1" name="create_<?=$modules['module_id']?>"></td>

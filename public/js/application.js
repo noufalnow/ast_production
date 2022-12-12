@@ -178,7 +178,23 @@ function formSubmit(source, target) {
 				initDatePicker();
 			}
 			else if (data.target != null) {
-				$("#"+data.target).html(data.view)
+				
+				if (data.feedback!=null) { 	
+				Swal.fire({
+				       title: "Saved", 
+				       text: data.feedback,
+				       type: "success",
+				       icon: 'success',
+				}).then((result) => {
+					  /* Read more about isConfirmed, isDenied below */
+					  if (result.isConfirmed) 
+							$("#"+data.target).html(data.view);
+				});
+				}else {
+					$("#"+data.target).html(data.view);
+				}
+				
+
 				$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
 				initDatePicker();
 			}
