@@ -1270,7 +1270,7 @@
 					<type>view</type>
 				</action>
 				<action>
-					<name>expensecategory</name>
+					<name>expensecategorywise</name>
 					<label>Report : Expenses Category Wise</label>
 					<description>Report : Expenses Category Wise</description>
 					<resource>application</resource>
@@ -1293,7 +1293,7 @@
 				</action>
 
 				<action>
-					<name>expvensummary</name>
+					<name>payments</name>
 					<label>Report: Credit Payments</label>
 					<description>Report: Credit Payments</description>
 					<resource>application</resource>
