@@ -1303,7 +1303,7 @@
 
 
 			<controller>
-				<name> invoice</name>
+				<name>invoice</name>
 				<label>Invoice and Collection Reports</label>
 				<description>Invoice and Collection Reports</description>
 				<action>

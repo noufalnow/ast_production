@@ -37,35 +37,29 @@ $(document).ready(function($) {
 	$(document).on('click', '.livepost', function() {
 		/*$('#myModal').modal('hide');*/
 
-		//console.log(ptarget);
+  		displayOverlay('Loading...');
+
+		var ptarget = $(this).attr('ptarget');
+		if(ptarget!='')
+			$('#page_'+ptarget).val($(this).val());
 		
-		
+		if($(this).hasClass("no-confirm"))
+			livePost(this,ptarget);
+		else {
 		Swal.fire({
 			  title: 'Do you want to save the changes?',
 			  showDenyButton: false,
 			  showCancelButton: true,
 			  confirmButtonText: 'Save',
 			  denyButtonText: `Don't save`,
+			  icon: 'info',
 			}).then((result) => {
 			  /* Read more about isConfirmed, isDenied below */
-			  if (result.isConfirmed) {
-		    	  console.log()
-		    	  
-		  		displayOverlay('Loading...');
-
-				var ptarget = $(this).attr('ptarget');
-				if(ptarget!='')
-					{
-						//console.log(ptarget);
-						$('#page_'+ptarget).val($(this).val());
-					}
+			  if (result.isConfirmed) 
 		    	  livePost(this,ptarget);
-			  } 
+			   
 			})
-		
-		
-
-		
+		}
 		
 	});
 
@@ -203,7 +197,8 @@ function formSubmit(source, target) {
 				Swal.fire({
 				       title: "Saved", 
 				       text: data.feedback,
-				       type: "success"
+				       type: "success",
+				       icon: 'success',
 				}).then((result) => {
 					  /* Read more about isConfirmed, isDenied below */
 					  if (result.isConfirmed) 
