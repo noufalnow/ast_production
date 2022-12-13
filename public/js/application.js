@@ -57,7 +57,8 @@ $(document).ready(function($) {
 			  /* Read more about isConfirmed, isDenied below */
 			  if (result.isConfirmed) 
 		    	  livePost(this,ptarget);
-			   
+			  else
+				  removeOverlay();  	 	 	
 			})
 		}
 		
@@ -355,7 +356,7 @@ function initDatePicker()
 			 	);
 }
 function setDatePicker(dateElement){
-	dateElement.datepicker({ dateFormat: 'dd/mm/yy',changeMonth: true,changeYear: true,yearRange: '-100:+0' });
+	dateElement.datepicker({ dateFormat: 'dd/mm/yy',changeMonth: true,changeYear: true,yearRange: '-70:+30' });
 	if(dateElement.attr('maxdate')!= undefined && dateElement.attr('maxdate')!= null)
 	{
 		 var maxDate = dateElement.attr('maxdate');

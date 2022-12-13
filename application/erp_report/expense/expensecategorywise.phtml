@@ -144,7 +144,13 @@
 					<td><?=$expense['scat']?></td>
 					<td><?=$expense['ccat']?></td>
 					<td align="right"><?$sum+=$expense['sum'];?>
-						<?=x(array('link'=>'erp_report/expense/expense/f_mainhead/'.$expense['exp_mainh'].'/f_pCatSelect/'.$expense['pcat_id'].'/f_sCatSelect/'.$expense['scat_id'].'/f_cCatSelect/'.$expense['ccat_id'].'/f_mode/'.$this->f_mode,'label'=>$expense['sum']))?>			
+						<?=x(array('link'=>'erp_report/expense/expense','ref'=>array(
+                            'f_mainhead'=>$expense['exp_mainh'],
+						    'f_pCatSelect'=>$expense['pcat_id'],
+						    'f_sCatSelect'=>$expense['scat_id'],
+						    'f_cCatSelect'=>$expense['ccat_id'],
+						    'f_mode'=>$this->f_mode),
+						    'label'=>$expense['sum']))?>			
 					</td>
 				</tr>
 				<?php endforeach?>
