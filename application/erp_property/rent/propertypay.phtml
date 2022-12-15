@@ -148,7 +148,7 @@
 				<?php endif;?>
 				<tr>
 					<td class="center"><?=@$sl++;?> </td>
-					<td><?=x(array('link'=>'erp_report/property/paymentcollection/f_property/'.$property['prop_id'],'label'=>$property['prop_fileno']))?> </td>
+					<td><?=x(array('link'=>'erp_report/property/paymentcollection', 'ref'=>array('f_property'=>$property['prop_id']),'label'=>$property['prop_fileno'],array("param"=>"opener")))?> </td>
 					<td><?=$property['bld_name']?></td>
 					<td><? echo $property['prop_cat']==1?"Shop":"Flat";?></td>
 					<td><?=$property['agr_tenant']?></td>
