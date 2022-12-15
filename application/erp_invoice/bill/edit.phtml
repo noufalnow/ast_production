@@ -182,7 +182,9 @@ function addRow(elemId) {
 					'name', arr[0] + '[' + index + ']');
 		}
 		$(".chosen-select").chosen({
-			no_results_text : "Oops, nothing found!"
+			no_results_text : "Oops, nothing found!",
+		    search_contains: true,
+		    enable_split_word_search: true
 		});
 	});
 

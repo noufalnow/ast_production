@@ -140,7 +140,9 @@ function addRow(elemId) {
 		}
 		$('.chosen-select').chosen('destroy');  
 		$(".chosen-select").chosen({
-			no_results_text : "Oops, nothing found!"
+			no_results_text : "Oops, nothing found!",
+		    search_contains: true,
+		    enable_split_word_search: true
 		});
 	});
 	initDatePicker();

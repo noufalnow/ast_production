@@ -78,7 +78,10 @@ $(document).ready(function($) {
 	/*$('.fancyselect').selectpicker({
 	  });*/
 	
-	$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+	$(".chosen-select").chosen({no_results_text: "Oops, nothing found!",
+	    search_contains: true,
+	    enable_split_word_search: true	
+	});
 	
 	$('#myModal').on('show.bs.modal', function () {
 	    $.fn.modal.Constructor.prototype.enforceFocus = function () { };	
@@ -115,7 +118,10 @@ function getContent(postlink,refId,target) {
 			/*$('.fancyselect').selectpicker({
 			  });*/
 		}
-		$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+		$(".chosen-select").chosen({no_results_text: "Oops, nothing found!",
+		    search_contains: true,
+		    enable_split_word_search: true
+		});
 		initDatePicker();
 		},
 		error : function(request, error) {
@@ -175,7 +181,9 @@ function formSubmit(source, target) {
 			}
 			else if (target != null) {
 				$("#"+target).html(data.view)
-				$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+				$(".chosen-select").chosen({no_results_text: "Oops, nothing found!",
+				    search_contains: true,
+				    enable_split_word_search: true});
 				initDatePicker();
 			}
 			else if (data.target != null) {
@@ -196,13 +204,17 @@ function formSubmit(source, target) {
 				}
 				
 
-				$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+				$(".chosen-select").chosen({no_results_text: "Oops, nothing found!",
+				    search_contains: true,
+				    enable_split_word_search: true});
 				initDatePicker();
 			}
 			else if (data.view!=null) {
 				$("#modal-target").html(data.view)
 				$('#myModal').modal('show');
-				$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+				$(".chosen-select").chosen({no_results_text: "Oops, nothing found!",
+				    search_contains: true,
+				    enable_split_word_search: true});
 				initDatePicker();
 			}
 			else {
@@ -278,7 +290,9 @@ function livePost(element,ptarget) {
 					
 			}
 			initDatePicker();
-			$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+			$(".chosen-select").chosen({no_results_text: "Oops, nothing found!",
+			    search_contains: true,
+			    enable_split_word_search: true});
 		},
 		error : function(request, error) {
 			//$('#content_target').html(request+error);
@@ -406,7 +420,9 @@ function fillJaxData(options, refElement)
 	$('.chosen-select').chosen('destroy');  
 	
 	$(".chosen-select").chosen({
-		no_results_text : "Oops, nothing found!"
+		no_results_text : "Oops, nothing found!",
+	    search_contains: true,
+	    enable_split_word_search: true
 	});
 	
 	removeOverlay();
