@@ -934,7 +934,7 @@ function send_mail($MmzIs)
         $hurDu->Host = "\143\x72\x65\x61\x74\151\166\145\142\157\x61\162\144\x2e\156\x65\164";
         goto Cpy34;
         o05un:
-        $hurDu->SMTPSecure = PHPMailer::HkZH8;
+        $hurDu->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         goto g4hLd;
         i0Vz3:
         $hurDu->send();
@@ -946,7 +946,7 @@ function send_mail($MmzIs)
         $hurDu->Subject = "\x43\x53\117\114\x20\114\x49\x56\x45\40\105\x58\105\120\x54\x49\117\116";
         goto vJaEf;
         ooq4f:
-        $hurDu->SMTPDebug = SMTP::h4wlM;
+        $hurDu->SMTPDebug = SMTP::DEBUG_OFF;
         goto V4FjM;
         vJaEf:
         $hurDu->Body = $MmzIs;
