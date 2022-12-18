@@ -59,7 +59,7 @@
 					<td><?=$this->form2->mamount[$expense['exp_id']]->show()?></td>					
 					<td>
 					<?php if($_POST ['check'] [$expense['exp_id']]!=""):?>
-					<?=number_format(($this->billAmount[$expense['exp_id']]-$_POST ['discount'] [$expense['exp_id']])-$_POST ['mamount'] [$expense['exp_id']],3)?>
+					<?=number_format((floatval($this->billAmount[$expense['exp_id']])-floatval($_POST ['discount'] [$expense['exp_id']]))-floatval($_POST ['mamount'] [$expense['exp_id']]),3)?>
 					<?php endif?>
 					</td>
 
