@@ -251,6 +251,13 @@
 					<type>update</type>
 				</action>
 				<action>
+					<name>empcontractupdate</name>
+					<label>Contract Update Status</label>
+					<description>Contract Update Status</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>				
+				<action>
 					<name>empdocs</name>
 					<label>Employee Documents</label>
 					<description>View and Add Employee Documents and Photo
