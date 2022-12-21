@@ -1,6 +1,2245 @@
 <?php
-/*   __________________________________________________
-    |  ##CreativeSol Management Information System##   |
-    |__________________________________________________|
-*/
- class paymentsController extends mvc { function addAction() { goto FgaJc; zUw_z: $this->view->formRender = $UFPhr; goto WGyId; XzPZd: $V0UUv->f_selVendor->setValue($_POST["\x66\137\163\145\154\x56\x65\x6e\144\157\162"]); goto OCxRv; C9jAv: $V0UUv->addErrorMsg("\141\x6d\157\x75\x6e\x74", "\151\156\166\141\x6c\x69\144", "\x28" . ($b54T1 - floatval($_POST["\x61\x6d\157\x75\x6e\164"])) . "\51\40\x4d\151\x73\155\141\x74\x63\150\40\167\151\164\x68\x20\x74\x6f\x74\141\154\40\x61\155\157\x75\156\164\x20\50" . $b54T1 . "\51"); goto Qy5Up; K95FZ: $V0UUv->addElement("\x66\137\163\145\154\x56\145\x6e\x64\157\162", "\x56\x65\156\x64\157\162", "\150\151\x64\x64\x65\156", "\162\x65\161\165\x69\x72\x65\x64"); goto CTot4; Jfmmy: $hpNLA = []; goto nH2bm; lQ0vz: CXY2C: goto MGVuY; SIzOy: $F5Frd = array("\x70\141\171\x5f\166\x65\156\x64\x6f\x72" => $ueMso["\146\137\x73\x65\154\x56\145\x6e\x64\x6f\x72"], "\160\141\171\x5f\x61\155\157\165\x6e\164" => $ueMso["\141\x6d\x6f\x75\x6e\164"], "\x70\x61\x79\x5f\x70\141\x79\x64\x61\164\145" => $DILQY, "\160\x61\171\137\x70\x61\171\137\155\157\144\145" => $ueMso["\x70\x61\x79\155\x6f\x64"], "\160\141\171\137\x63\150\x71\x6e\157" => $ueMso["\x63\x68\161\156\157"], "\x70\x61\x79\137\162\145\155\x61\x72\153\163" => $ueMso["\156\157\164\x65"]); goto ptG0d; c7JmA: $DILQY = date_format($DILQY, DFS_DB); goto SIzOy; iekJH: $this->view->form2 = $V0UUv; goto BLTGn; cdupV: $V0UUv->addRules("\143\150\x71\156\x6f", "\x72\x65\x71\x75\x69\162\145\144"); goto YCyiS; rSiyK: $V0UUv->addMultiElement("\155\x61\155\x6f\x75\x6e\x74", "\x50\141\171\155\145\x6e\164", "\x66\x6c\157\x61\x74", "\x6e\165\x6d\x65\x72\151\x63", '', array("\x63\x6c\141\x73\163" => "\146\157\x72\155\x2d\143\157\156\164\162\157\x6c\x2d\162\x6f\167"), $hpNLA); goto yV83i; WJH_e: $V0UUv->addMultiElement("\x63\150\145\x63\153", "\123\145\x6c\145\x63\x74\x20\x62\151\154\x6c", "\x63\x68\x65\143\153\x62\x6f\x78", '', array("\157\x70\164\151\157\x6e\x73" => array(1 => '')), array('' => "\x6f\x6e\103\154\x69\143\x6b\75\x27\x74\x6f\147\x67\x6c\145\110\x65\151\x67\150\x74\50\164\x68\x69\163\51\47", "\x63\154\x61\x73\163" => "\142\x69\x6c\x6c\x2d\163\x65\154\145\143\164"), $hpNLA); goto rSiyK; Wn5RC: $V0UUv->addRules("\141\x6d\x6f\x75\x6e\164", "\x69\156\166\141\x6c\151\144"); goto C9jAv; Uq40u: $ll2VR = new form(); goto p4YEg; BAvxJ: require_once __DIR__ . "\57\x2e\56\57\141\x64\155\151\156\57\41\x6d\x6f\x64\145\x6c\57\160\141\171\155\145\156\164\56\x70\150\160"; goto gudZb; PHB__: $xf3CG = new cashflow(); goto Cyv6D; JFgT_: i9ipS: goto oXUam; ZgnSU: $ueMso = $ll2VR->vaidate($_POST, $_FILES); goto oK2Cj; WHiHd: if (!isset($_SERVER["\x48\124\x54\120\137\x58\137\x52\x45\121\x55\105\x53\x54\x45\104\x5f\127\111\x54\x48"]) and strtolower($_SERVER["\110\124\x54\x50\x5f\x58\x5f\x52\105\121\x55\105\x53\x54\105\x44\137\x57\x49\124\x48"]) != "\170\x6d\x6c\150\x74\x74\160\162\x65\x71\165\145\x73\164") { goto CXY2C; } goto XzPZd; FgaJc: $this->view->response("\141\152\x61\170"); goto yStbE; ptG0d: if (!$ueMso["\143\141\163\x68\106\x6c\x6f\x77"]) { goto PA29_; } goto Y1OP5; Ns2jm: foreach ($i2JZx as $d8rwD) { goto TCzeY; Z2SjL: sucuE: goto MrWAL; q3lv4: if (!(!$DX1_5 && $CTyrL[$d8rwD] - $WIjyf - $s3swB > 0)) { goto sucuE; } goto TUOG9; GdvBW: $V0UUv->addErrorMsg("\155\x61\x6d\157\165\x6e\x74", "\x69\x6e\x76\141\x6c\151\x64", "\40"); goto LrW_D; xgV74: xO1wP: goto jieZ_; aEPBj: $WIjyf = $_POST["\x64\151\x73\143\x6f\x75\156\164"][$d8rwD] == '' ? 0 : $_POST["\x64\x69\163\143\x6f\165\156\x74"][$d8rwD]; goto hx6CQ; hFPAD: if (!(bcsub($CTyrL[$d8rwD], $_POST["\144\x69\163\143\x6f\165\156\164"][$d8rwD], 3) < $_POST["\x6d\141\155\x6f\165\156\x74"][$d8rwD])) { goto WkUWR; } goto CbH9X; MrWAL: WsrHe: goto xgV74; TUOG9: $DX1_5 = true; goto BJXAm; hx6CQ: $s3swB = $_POST["\x6d\141\155\x6f\x75\156\164"][$d8rwD] == '' ? 0 : $_POST["\x6d\141\155\x6f\165\156\164"][$d8rwD]; goto q3lv4; TCzeY: if (!($_POST["\143\x68\x65\x63\153"][$d8rwD] != '')) { goto WsrHe; } goto Hs633; Hs633: if (!($_POST["\x6d\x61\x6d\157\x75\156\164"][$d8rwD] == '')) { goto v8t2o; } goto sumQG; JgPUN: $V0UUv->addErrorMsg("\155\x61\x6d\157\x75\156\164", "\151\156\x76\x61\x6c\151\x64", "\x21\x21\x20\x69\x73\40\x3e\x20\x28\142\151\154\x6c\x2d\x64\x69\x73\51\40\141\x6d\157\x75\x6e\x74"); goto v0MkP; CbH9X: $V0UUv->addmRules("\x6d\141\155\157\165\156\164", $d8rwD, "\151\x6e\166\141\x6c\x69\144"); goto JgPUN; sumQG: $V0UUv->addmRules("\x6d\x61\x6d\x6f\165\156\x74", $d8rwD, "\x69\x6e\166\x61\x6c\151\x64"); goto GdvBW; BJXAm: $V0UUv->addRules("\x63\157\x6e\146\x69\162\x6d", "\x72\x65\x71\x75\x69\162\x65\x64", "\x50\154\x65\141\163\145\40\143\157\x6e\x66\x69\x72\155\40\41\41"); goto Z2SjL; LrW_D: v8t2o: goto hFPAD; v0MkP: WkUWR: goto aEPBj; jieZ_: } goto JFgT_; AAhzp: WKgVN: goto iAWhe; Il3Z8: f4K1X: goto JArgN; xJbZ_: kIdaN: goto kOw2_; U9i4B: $CTyrL = $GFDm4->getExpenseAmountPair(@$AzvOO); goto wfZPO; MVH5b: goto yrUes; goto KqCRF; Y1OP5: $F5Frd["\160\141\x79\x5f\x63\141\163\x68\x5f\x66\x6c\x6f\167"] = $ueMso["\x63\x61\x73\150\106\x6c\x6f\167"]; goto ZBBmZ; ZBBmZ: PA29_: goto BQvz9; BQvz9: $oQSHX = $N_oH4->add($F5Frd); goto fyoxm; MGVuY: die("\55\x2d\55"); goto uULyD; K_62b: $V0UUv->addElement("\156\x6f\164\145", "\116\157\x74\145", "\164\x65\170\164\141\162\x65\x61", ''); goto K95FZ; yotXU: $ll2VR->addElement("\x66\x5f\x73\x65\x6c\x56\x65\x6e\144\157\x72", "\x56\145\156\x64\157\162", "\163\145\154\145\x63\164", "\x72\x65\161\x75\151\x72\145\144", array("\157\x70\164\151\157\x6e\x73" => $Cylu_)); goto ntpK2; D4fIs: if (!($ueMso == true)) { goto d71rh; } goto BAvxJ; yV83i: $V0UUv->addMultiElement("\144\x69\x73\143\157\165\156\164", "\104\151\x73\143\157\x75\156\164", "\x66\x6c\157\x61\x74", "\x6e\165\x6d\x65\x72\x69\143", '', array("\x63\x6c\x61\x73\x73" => "\146\x6f\x72\155\x2d\143\157\x6e\164\x72\157\x6c\55\x72\x6f\x77"), $hpNLA); goto OoySg; oK2Cj: $ueMso = $ueMso[0]; goto sQjYt; K16IK: $V0UUv->addElement("\141\x6d\x6f\x75\x6e\164", "\x41\155\157\165\156\164", "\146\x6c\x6f\x61\164", "\x72\145\161\165\x69\162\x65\144\x7c\x6e\x75\155\x65\162\x69\x63", '', array("\143\x6c\141\163\163" => "\146\151\x67")); goto K3rUG; xGd_q: $UFPhr = true; goto Uq40u; RAsoo: $Nvbqo = new paymentdet(); goto CCjnv; nxHoh: require_once __DIR__ . "\x2f\x2e\x2e\x2f\x61\144\x6d\151\x6e\57\x21\155\157\x64\145\154\x2f\166\x65\156\144\157\x72\x2e\x70\x68\160"; goto LLQn3; sQjYt: $QwDPS = []; goto Jfmmy; LLQn3: $XmN32 = new vendor(); goto kHCX0; NNg5A: mHX3U: goto pDlsK; xxXhg: $ueMso = $V0UUv->vaidate($_POST, $_FILES); goto iTy9V; xTY0p: $V0UUv->addElement("\x63\142\141\155\x6f\165\x6e\x74", "\x43\102\40\101\155\157\x75\156\x74", "\x66\x6c\157\141\x74", "\x6e\165\x6d\x65\x72\151\x63", '', array("\x63\154\x61\x73\163" => "\x66\x69\x67")); goto VJzjZ; KULIy: xMatH: goto n_Kmb; Fn2IK: $pjE_b = array("\x63\x62\x5f\164\171\x70\145" => CASH_BOOK_PER, "\x63\142\x5f\164\x79\160\x65\137\162\145\146" => USER_ID, "\143\x62\x5f\x65\x78\160\x5f\151\x64" => $oQSHX, "\143\x62\x5f\x65\x78\x70\x5f\164\x79\x70\145" => 2, "\143\x62\x5f\x63\x72\145\x64\151\164" => $ueMso["\x63\142\141\155\x6f\x75\156\x74"] != '' ? $ueMso["\143\x62\x61\155\157\x75\x6e\164"] : $ueMso["\x61\155\157\165\156\x74"], "\143\x62\137\144\x61\164\x65" => $DILQY); goto TdEst; TdEst: $MI1ag->add($pjE_b); goto DVDed; EGn7b: if ($_POST) { goto NfSI3; } goto Dq6Tt; N32uZ: $this->view->balanceConfirm = $DX1_5; goto Z6biP; esRzm: $AzvOO = array("\146\x5f\x73\x65\x6c\126\145\156\x64\157\x72" => @$_POST["\x66\x5f\x73\145\154\126\x65\x6e\x64\157\162"], "\x66\x5f\155\x6f\144\145" => 2, "\145\170\160\137\x70\163\164\x61\x74\165\163" => 2); goto ZgnSU; mNbuv: B94KW: goto Il3Z8; QoSEk: $this->view->NoViewRender = true; goto x5frz; pCMcm: RkZ2a: goto KULIy; M_1tL: if (!(count($QwDPS) > 0)) { goto mHX3U; } goto U6sbo; x5frz: $w3Iq6 = array("\x66\145\x65\144\x62\141\143\153" => "\120\x61\x79\x6d\145\156\x74\x20\x64\145\x74\141\x69\x6c\163\x20\141\144\144\x65\144\40\163\x75\x63\x63\145\163\163\x66\x75\154\154\171"); goto BXC7w; DKc2b: $V0UUv->addElement("\x70\x61\x79\142\171", "\120\x61\x79\x20\x44\141\x74\145", "\164\x65\170\164", "\144\141\x74\x65\x7c\x72\145\x71\x75\151\x72\x65\x64", '', array("\x63\154\x61\x73\163" => "\x64\141\x74\x65\x5f\160\151\143\153\145\x72")); goto YUVjN; OoySg: $i2JZx = array_keys($V0UUv->_elements["\143\150\x65\143\153"]); goto ZKB7w; ZKB7w: $V0UUv->addErrorMsg("\x6d\141\155\x6f\165\156\164", "\162\145\x71\165\x69\162\145\144", "\x20"); goto IwEad; uULyD: qM8PL: goto tJq9R; gudZb: $N_oH4 = new payment(); goto JlVfS; iTy9V: $ueMso = $ueMso[0]; goto D4fIs; Cyv6D: $OAe5B = $xf3CG->getCashFlowPair(); goto YhyhH; SkOxE: $DX1_5 = ''; goto nxHoh; DVDed: zEdTv: goto QoSEk; BXC7w: $w3Iq6 = json_encode($w3Iq6); goto lN0sw; sTZ4f: goto qM8PL; goto lQ0vz; yZgNA: foreach ($ueMso["\143\150\145\x63\x6b"] as $tcvl7 => $mqInl) { goto SjssA; zk_AC: $F5Frd = array(); goto zwGLW; cUubp: if (!($mqInl != '')) { goto bmD0h; } goto zk_AC; zwGLW: $F5Frd = array("\160\x64\145\x74\137\x70\x61\x79\x5f\151\x64" => $oQSHX, "\160\144\145\x74\137\x65\x78\x70\x5f\x69\x64" => $tcvl7, "\160\144\145\x74\137\x61\155\164\137\164\x6f\160\141\171" => $CTyrL[$tcvl7], "\x70\x64\145\164\137\x61\x6d\164\137\160\141\x69\x64" => $ueMso["\x6d\141\x6d\x6f\165\x6e\x74"][$tcvl7], "\x70\144\145\x74\x5f\141\x6d\x74\137\x64\x69\163" => $ueMso["\144\151\163\x63\x6f\165\x6e\164"][$tcvl7] == '' ? NULL : $ueMso["\x64\x69\163\x63\x6f\165\156\164"][$tcvl7], "\160\144\x65\x74\137\x61\x6d\164\x5f\x62\x61\x6c" => $CTyrL[$tcvl7] - $dtSIX - $o1Zka); goto vnxVG; QbRLC: ERwlE: goto G20EG; Sczx4: $o1Zka = $_POST["\155\x61\x6d\157\x75\156\164"][$d8rwD] == '' ? 0 : $_POST["\x6d\141\155\x6f\x75\x6e\164"][$tcvl7]; goto cUubp; E3CIq: bmD0h: goto QbRLC; SjssA: $dtSIX = $_POST["\x64\x69\163\143\x6f\x75\156\164"][$d8rwD] == '' ? 0 : $_POST["\x64\x69\x73\143\157\x75\x6e\x74"][$tcvl7]; goto Sczx4; vnxVG: $RSNEV = $J3ntK->add($F5Frd); goto E3CIq; G20EG: } goto mNbuv; BAWb2: $this->view->billAmount = $CTyrL; goto N32uZ; wfZPO: if (!(count($hpNLA) > 0)) { goto xMatH; } goto WJH_e; JlVfS: $DILQY = DateTime::createFromFormat(DF_DD, $ueMso["\x70\x61\171\142\171"]); goto c7JmA; BLTGn: $this->view->form1 = $ll2VR; goto zUw_z; YUVjN: $V0UUv->addElement("\160\x61\171\x6d\x6f\x64", "\x43\141\163\150\57\x43\150\x65\x71\165\x65", "\x72\141\144\x69\x6f", "\162\145\x71\x75\x69\x72\x65\144", array("\157\160\x74\151\157\156\163" => array(1 => "\x43\x61\163\150", 2 => "\x43\150\145\161\165\x65"))); goto K16IK; Bq266: if (!(count($ueMso["\143\x68\145\143\153"]) > 0)) { goto f4K1X; } goto yZgNA; JArgN: if (!($ueMso["\160\x65\x72\x63\142"] == 1)) { goto zEdTv; } goto w8ieV; pDlsK: $PIT1q = $GFDm4->geExpenseReport(@$AzvOO, "\x64\141\x74\145"); goto XMK9D; oXUam: foreach ($_POST["\x63\150\145\143\153"] as $VI3wT => $PRont) { $b54T1 += $_POST["\155\141\x6d\157\x75\x6e\x74"][$VI3wT]; rn92n: } goto AAhzp; iAWhe: if (!((string) $b54T1 != $_POST["\141\155\157\x75\156\164"] && $_POST["\x61\155\157\165\x6e\164"] != '')) { goto p90lm; } goto Wn5RC; Qy5Up: p90lm: goto xxXhg; C95R0: require_once __DIR__ . "\57\x2e\56\x2f\x61\x64\x6d\151\x6e\x2f\41\x6d\x6f\144\x65\154\x2f\160\x61\171\155\x65\x6e\x74\144\145\164\56\x70\x68\160"; goto BQLeE; KqCRF: NfSI3: goto WHiHd; Sto_i: require_once __DIR__ . "\57\x2e\56\57\141\x64\155\x69\156\x2f\41\x6d\157\x64\145\154\x2f\x70\141\x79\155\x65\156\x74\144\145\164\56\160\x68\x70"; goto RAsoo; YhyhH: $V0UUv->addElement("\143\141\163\150\106\154\x6f\167", "\x43\141\163\150\40\x46\x6c\x6f\x77", "\163\145\x6c\x65\143\x74", '', array("\x6f\160\164\151\157\156\163" => $OAe5B)); goto DKc2b; OCxRv: $ueMso = $ll2VR->vaidate($_POST, $_FILES); goto esRzm; kHCX0: $Cylu_ = $XmN32->getVendorPair(); goto yotXU; ntpK2: $V0UUv->addElement("\x70\145\x72\143\x62", "\x50\145\x72\163\x6f\156\141\x6c\40\103\141\x73\x68\x20\x42\x6f\x6f\x6b", "\143\x68\145\143\x6b\x62\157\x78", '', array("\157\160\x74\151\157\x6e\x73" => array(1 => "\120\145\162\163\157\x6e\x6e\x61\154\x20\103\141\x73\x68\x20\x42\157\157\x6b"))); goto xTY0p; nH2bm: if (!($ueMso == true)) { goto iIeRz; } goto Sto_i; n_Kmb: iIeRz: goto sTZ4f; K3rUG: $V0UUv->addElement("\143\x68\161\156\x6f", "\103\x68\145\x71\165\x65\x20\x4e\157\x20", "\164\x65\170\x74", ''); goto K_62b; U6sbo: $AzvOO["\x65\170\143\154\x75\x64\x65"] = implode("\x2c", $QwDPS); goto NNg5A; eL66e: if (!(is_array($_POST["\x63\150\x65\x63\x6b"]) && count($_POST["\143\150\x65\x63\153"]) > 0)) { goto RkZ2a; } goto Ns2jm; WGyId: $this->view->expenseList = $PIT1q; goto BAWb2; tJq9R: yrUes: goto iekJH; CCjnv: $QwDPS = $Nvbqo->getPaymentDetByApproval(array("\160\144\x65\x74\x5f\x73\x74\141\164\x75\163" => 1)); goto M_1tL; w8ieV: require_once __DIR__ . "\57\56\56\x2f\x61\144\155\x69\156\57\x21\155\157\x64\x65\x6c\x2f\143\x61\163\150\x62\157\157\x6b\56\x70\x68\x70"; goto cXo1j; kOw2_: d71rh: goto pCMcm; yStbE: require_once __DIR__ . "\x2f\x2e\56\x2f\141\x64\x6d\x69\x6e\57\x21\x6d\x6f\x64\145\x6c\57\x65\170\x70\x65\x6e\163\x65\x2e\160\150\160"; goto xGd_q; BQLeE: $J3ntK = new paymentdet(); goto Bq266; VJzjZ: require_once __DIR__ . "\x2f\56\x2e\57\x61\144\155\151\156\x2f\41\x6d\x6f\144\145\x6c\57\x63\141\163\x68\x66\x6c\157\167\x2e\160\150\160"; goto PHB__; CTot4: $V0UUv->addElement("\143\x6f\x6e\146\151\x72\155", "\103\157\x6e\146\151\x72\155", "\143\150\145\x63\x6b\x62\x6f\x78", '', array("\x6f\x70\x74\151\x6f\156\163" => array(1 => "\117\x4b"))); goto m3eG9; lN0sw: die($w3Iq6); goto xJbZ_; IwEad: if (!($_POST["\160\x61\171\155\x6f\144"] == "\x32")) { goto bh5Uq; } goto cdupV; p4YEg: $V0UUv = new form(); goto SkOxE; XMK9D: $hpNLA = $GFDm4->getExpenseVendorPair(@$AzvOO); goto U9i4B; fyoxm: if (!$oQSHX) { goto kIdaN; } goto C95R0; m3eG9: $GFDm4 = new expense(); goto EGn7b; Dq6Tt: $PIT1q = []; goto MVH5b; cXo1j: $MI1ag = new cashbook(); goto Fn2IK; YCyiS: bh5Uq: goto eL66e; Z6biP: } function editAction() { goto l7T0Z; MfcKU: if (!(count($QwDPS) > 0)) { goto Wev2I; } goto MTbz8; crrSO: BG8bS: goto McDNL; hMETK: $MI1ag->modify($pjE_b, $Nvbqo["\x63\x62\x5f\x69\144"]); goto OtQ0S; J5zQn: qrdV7: goto pmro9; thxIu: tcSe2: goto t9YCf; STmxT: $V0UUv->f_selVendor->setValue($Nvbqo["\x70\x61\x79\137\166\x65\156\144\157\162"]); goto fuaEw; QMn0i: $F5Frd = array("\160\x61\171\137\166\145\x6e\144\x6f\162" => $ueMso["\x66\x5f\x73\145\154\126\145\x6e\x64\157\x72"], "\160\x61\171\137\x61\155\157\165\156\164" => $ueMso["\141\x6d\x6f\165\x6e\x74"], "\160\141\171\137\160\141\171\144\141\x74\145" => $DILQY, "\x70\x61\171\137\x70\x61\x79\x5f\155\157\144\x65" => $ueMso["\160\141\171\x6d\157\144"], "\x70\141\171\137\143\150\x71\156\157" => $ueMso["\143\150\161\156\157"], "\x70\141\171\x5f\162\x65\155\x61\162\153\163" => $ueMso["\156\x6f\x74\x65"]); goto rlfYa; bvDCz: $V0UUv->payby->setValue($JXkLH); goto HyDP2; Fv0k1: $PIT1q = $GFDm4->geExpenseReport(@$AzvOO, "\144\141\164\x65"); goto foxaw; PKJRz: $DX1_5 = ''; goto arj2F; M8rX4: require_once __DIR__ . "\57\x2e\56\x2f\x61\144\x6d\151\x6e\57\41\x6d\x6f\x64\x65\x6c\x2f\x70\141\171\155\145\156\x74\144\x65\164\x2e\160\x68\160"; goto aTJyC; uHX8v: $QwDPS = $q8uOc->getPaymentDetByApproval(array("\160\144\145\164\x5f\163\164\141\x74\165\x73" => 1, "\160\x64\x65\164\137\160\x61\x79\137\151\144\x5f\145\170\143\x6c\165\144\145" => $AUtQV)); goto hG1k4; dU5kt: if (!($ueMso == true)) { goto KKj75; } goto CC6aD; uZp2s: $AzvOO = array("\146\137\x73\145\154\126\145\x6e\144\157\162" => $Nvbqo["\x70\141\x79\137\166\145\x6e\144\157\162"], "\146\137\x6d\x6f\144\x65" => 2, "\x70\144\x65\x74\137\160\141\171\137\x69\144" => $AUtQV, "\145\x78\x70\137\160\163\x74\x61\x74\x75\x73" => 2); goto MfcKU; OhuD9: $this->view->balanceConfirm = $DX1_5; goto guSu6; RRrbU: if (!(count($QwDPS) > 0)) { goto TMEXi; } goto pfkj2; BP0Vz: f2SVw: goto eqEO1; Njd7B: if (!($ueMso == true)) { goto EuyPD; } goto o4q22; R0PXd: Tf30O: goto Q58Q5; kuK1q: $UFPhr = true; goto uzerN; Ibacj: goto EUhvf; goto u_cbk; pmro9: goto NAZk3; goto hzSOH; o8LlV: $xf3CG = new cashflow(); goto ETgpv; XeAUs: $sQnRb = $N_oH4->modify($F5Frd, $AUtQV); goto pHN1u; Pp5mn: $ueMso = $V0UUv->vaidate($_POST, $_FILES); goto PGm7l; C9REv: uc4Mg: goto hMETK; pM8jK: g7Foa: goto GZi7p; bagNF: $V0UUv->addErrorMsg("\141\155\157\x75\x6e\164", "\151\156\x76\141\154\151\x64", "\x28" . ($b54T1 - floatval($_POST["\x61\x6d\157\165\156\164"])) . "\51\40\115\x69\x73\155\141\x74\143\150\x20\x77\x69\164\150\x20\164\x6f\x74\x61\154\x20\141\x6d\157\165\x6e\x74\x20\50" . $b54T1 . "\51"); goto B8nAA; N3U7k: $PIT1q = $GFDm4->getPaymentExpDet($AzvOO, "\x64\x61\x74\x65"); goto Q2os0; OtQ0S: goto PEESh; goto xzGU7; arj2F: $AUtQV = $this->view->decode($this->view->param["\x72\145\x66"]); goto erceG; qMsLw: $DILQY = date_format($DILQY, DFS_DB); goto QMn0i; tutkk: $V0UUv->addElement("\143\x61\x73\x68\106\154\157\x77", "\103\141\x73\150\40\106\154\x6f\167", "\163\x65\154\145\143\x74", '', array("\157\160\164\151\157\156\163" => $OAe5B)); goto DK1jm; wHRVX: $N_oH4 = new payment(); goto Vlh8R; kmmQy: if (!($_POST["\160\141\x79\155\x6f\x64"] == "\x32")) { goto HF2XH; } goto QHMfs; juiq0: $JXkLH = DateTime::createFromFormat(DFS_DB, $Nvbqo["\160\x61\x79\x5f\160\141\x79\x64\x61\x74\x65"]); goto QnzR5; PyT99: foreach ($_POST["\x63\150\145\143\x6b"] as $d8rwD => $wQtsD) { goto JXbJq; cUOHZ: $V0UUv->addErrorMsg("\143\x6f\x6e\x66\151\x72\155", "\x72\145\161\x75\151\162\x65\x64"); goto f3BTa; axnVO: bmVCj: goto m9uQB; GKMGG: $DX1_5 = true; goto k6xpe; jra3C: CyzIt: goto uBBQa; W_CGW: $V0UUv->addErrorMsg("\x6d\141\x6d\x6f\165\156\x74", "\x69\x6e\x76\141\x6c\x69\x64", "\40"); goto axnVO; m9uQB: if (!(bcsub($CTyrL[$d8rwD], $_POST["\x64\x69\163\x63\157\x75\x6e\164"][$d8rwD], 3) < $_POST["\155\x61\x6d\x6f\x75\156\x74"][$d8rwD])) { goto mp8WZ; } goto YTAL4; fLyKZ: $s3swB = $_POST["\x6d\x61\x6d\x6f\165\156\164"][$d8rwD] == '' ? 0 : $_POST["\x6d\141\155\x6f\x75\x6e\164"][$d8rwD]; goto o2xL8; YTAL4: $V0UUv->addmRules("\155\141\x6d\157\x75\x6e\x74", $d8rwD, "\151\x6e\166\x61\x6c\151\144"); goto wqBgh; U9Y3T: mp8WZ: goto oIAyq; f3BTa: VSzBQ: goto jra3C; wqBgh: $V0UUv->addErrorMsg("\155\x61\x6d\x6f\x75\x6e\164", "\151\156\166\141\154\151\x64", "\x21\41\x20\x69\x73\40\x3e\x20\50\x62\x69\154\x6c\x2d\x64\151\163\51\40\x61\x6d\157\165\x6e\164"); goto U9Y3T; oIAyq: $WIjyf = $_POST["\x64\x69\163\143\x6f\x75\156\x74"][$d8rwD] == '' ? 0 : $_POST["\144\151\163\143\x6f\x75\x6e\164"][$d8rwD]; goto fLyKZ; o2xL8: if (!(!$DX1_5 && $CTyrL[$d8rwD] - $WIjyf - $s3swB > 0)) { goto VSzBQ; } goto GKMGG; uBBQa: Vi8_e: goto yKCN3; JXbJq: if (!($_POST["\143\150\145\143\x6b"][$d8rwD] != '')) { goto CyzIt; } goto JAh4c; JAh4c: if (!($_POST["\x6d\141\x6d\x6f\165\x6e\164"][$d8rwD] == '')) { goto bmVCj; } goto X9jQ7; X9jQ7: $V0UUv->addmRules("\x6d\x61\x6d\157\x75\156\164", $d8rwD, "\151\x6e\x76\141\x6c\x69\x64"); goto W_CGW; k6xpe: $V0UUv->addRules("\x63\x6f\x6e\x66\x69\162\155", "\x72\x65\161\165\x69\x72\x65\144", "\120\154\x65\141\163\x65\40\x63\157\x6e\x66\151\x72\155\x20\x21\x21"); goto cUOHZ; yKCN3: } goto wE6_F; QUTsv: $F5Frd["\x70\141\171\x5f\143\141\163\x68\x5f\146\154\157\167"] = $ueMso["\143\x61\163\x68\x46\154\x6f\x77"]; goto SX_Pq; Vdiam: $V0UUv->addElement("\143\157\156\x66\151\162\155", "\103\x6f\x6e\146\x69\162\155", "\143\x68\x65\x63\153\142\x6f\x78", '', array("\x6f\160\x74\x69\x6f\x6e\x73" => array("\x31" => "\117\113"))); goto xTowb; RCrJP: NAZk3: goto Gh5PM; MTbz8: $AzvOO["\x65\x78\143\154\165\x64\145"] = implode("\x2c", $QwDPS); goto oMljH; Q2os0: unset($AzvOO["\x70\x64\145\164\137\x70\141\x79\137\151\144"]); goto o3q14; FIKXD: $V0UUv->percb->setValue(1); goto VYQ55; Vi4j9: die($w3Iq6); goto R0PXd; ihEp3: $ll2VR->f_selVendor->setValue($Nvbqo["\160\x61\x79\x5f\166\x65\156\144\x6f\x72"]); goto STmxT; cDFTy: require_once __DIR__ . "\x2f\x2e\x2e\57\141\144\x6d\151\156\x2f\x21\155\157\144\x65\154\x2f\x63\x61\x73\150\x66\x6c\x6f\167\x2e\x70\150\160"; goto o8LlV; To3Wy: die("\55\x2d\55"); goto RCrJP; qNGwC: nba5V: goto b1cXT; ty4D0: if (!(is_array($hpNLA) && count($hpNLA) > 0)) { goto L8N7s; } goto kmmQy; VC7DG: x5gtW: goto c2292; lfNiW: LUUDQ: goto raRIi; ern4k: $V0UUv->addElement("\160\x61\x79\155\157\x64", "\103\141\x73\x68\x2f\103\x68\145\161\165\145", "\162\x61\144\x69\x6f", "\x72\145\161\x75\151\x72\x65\x64", array("\x6f\160\164\151\157\156\163" => array(1 => "\x43\141\163\x68", 2 => "\x43\150\145\161\x75\145"))); goto UDClD; L_NoT: $J3ntK = new paymentdet(); goto sfeOr; M097H: $V0UUv->cashFlow->setValue($Nvbqo["\160\141\x79\x5f\x63\141\x73\150\x5f\146\x6c\x6f\167"]); goto YmjPF; EEqRo: if (!(count($_POST["\143\150\x65\143\153"]) > 0)) { goto YCvql; } goto uf9KJ; UZuDv: $this->view->expenseList = $PIT1q; goto Bl8uw; qceEB: $MI1ag->deleteCashBook($Nvbqo["\x63\x62\x5f\151\144"]); goto BP0Vz; pSPvs: $V0UUv->addMultiElement("\x64\151\x73\143\157\x75\156\164", "\x44\x69\x73\143\157\x75\x6e\164", "\x66\x6c\157\141\x74", "\156\165\x6d\145\x72\151\x63", '', array("\143\x6c\x61\x73\x73" => "\146\x6f\162\155\55\143\157\x6e\164\162\x6f\154\x2d\162\157\x77"), $hpNLA); goto xdkkJ; f6DAX: $V0UUv->addMultiElement("\x63\x68\145\143\x6b", "\123\x65\x6c\145\143\164\x20\x62\151\154\x6c", "\x63\150\145\143\x6b\142\x6f\x78", '', array("\x6f\160\x74\x69\157\x6e\163" => array(1 => '')), array('' => "\157\x6e\x43\154\x69\143\153\75\x27\164\157\147\147\x6c\x65\x48\145\151\x67\x68\164\50\x74\x68\151\x73\x29\x27", "\x63\154\x61\163\x73" => "\142\151\x6c\x6c\x2d\163\x65\154\x65\x63\164"), $hpNLA); goto ETVPK; EWJ2u: if (!isset($_SERVER["\x48\124\x54\120\x5f\130\137\122\x45\x51\125\105\123\124\105\104\x5f\127\111\124\110"]) and strtolower($_SERVER["\x48\x54\124\x50\x5f\130\x5f\122\x45\121\x55\105\123\124\x45\x44\x5f\x57\111\x54\110"]) != "\170\x6d\x6c\x68\x74\164\160\162\145\161\165\x65\x73\164") { goto a0Hin; } goto IOJUr; aXKl8: $V0UUv->addElement("\143\x62\141\x6d\x6f\165\156\x74", "\103\x42\x20\x41\155\x6f\x75\x6e\164", "\146\x6c\157\x61\x74", "\x6e\x75\155\x65\x72\x69\x63", '', array("\x63\154\141\163\163" => "\x66\x69\x67")); goto zzoO1; Vlh8R: require_once __DIR__ . "\57\x2e\56\x2f\x61\x64\155\151\x6e\57\x21\155\x6f\x64\145\154\57\160\141\x79\x6d\145\156\x74\144\145\164\x2e\x70\x68\x70"; goto L_NoT; zwchV: vBqYH: goto lGVzp; t9YCf: require_once __DIR__ . "\x2f\56\x2e\57\x61\144\x6d\151\156\x2f\41\x6d\x6f\x64\x65\x6c\x2f\x76\x65\156\144\x6f\162\x2e\x70\x68\160"; goto f_bub; PGm7l: $ueMso = $ueMso[0]; goto Njd7B; o4q22: $DILQY = DateTime::createFromFormat(DF_DD, $ueMso["\x70\x61\x79\142\x79"]); goto qMsLw; pzJh4: TMEXi: goto Fv0k1; rlfYa: if (!$ueMso["\x63\141\163\150\106\154\157\167"]) { goto RXP12; } goto QUTsv; vCuDB: if (!(is_array($_POST["\143\x68\145\143\153"]) && count($_POST["\x63\150\x65\x63\x6b"]) > 0)) { goto vBqYH; } goto PyT99; rm3ao: if (!($ueMso == true)) { goto qrdV7; } goto ty4D0; quh1F: goto PEESh; goto C9REv; ISneF: $Cylu_ = $XmN32->getVendorPair(); goto na_Xt; pHN1u: if (!$sQnRb) { goto Tf30O; } goto NoMk_; guSu6: $this->view->formPostStatus = $cltaS; goto bld5f; xTowb: $GFDm4 = new expense(); goto M8rX4; u_cbk: ZwtnV: goto EWJ2u; Gh5PM: EUhvf: goto UzmZy; QHMfs: $V0UUv->addRules("\143\x68\161\x6e\157", "\162\145\x71\x75\x69\162\145\144"); goto Rogpc; l7T0Z: $this->view->response("\141\152\x61\x78"); goto s8EGN; kb68a: $V0UUv->note->setValue($Nvbqo["\160\141\171\x5f\x72\x65\x6d\141\162\153\163"]); goto M097H; f_bub: $XmN32 = new vendor(); goto ISneF; cKXjp: require_once __DIR__ . "\57\56\56\x2f\x61\144\155\151\x6e\x2f\41\155\157\144\145\x6c\x2f\143\x61\x73\150\x62\157\157\153\x2e\x70\150\x70"; goto V_S7U; xzGU7: HntJH: goto Up910; C1Na4: if (!count($PIT1q)) { goto BG8bS; } goto WOzIm; BSqm0: goto hxDwj; goto thxIu; IOJUr: $V0UUv->f_selVendor->setValue($_POST["\x66\x5f\163\x65\154\126\x65\x6e\144\157\162"]); goto cAjh_; erceG: if ($AUtQV) { goto LUUDQ; } goto Cmf7E; g3Tfh: $pjE_b = array("\143\142\137\x74\x79\x70\145" => CASH_BOOK_PER, "\x63\142\x5f\x74\x79\160\x65\x5f\162\x65\x66" => USER_ID, "\143\142\137\145\170\x70\137\x69\x64" => $AUtQV, "\143\x62\x5f\145\x78\x70\137\164\x79\x70\145" => 2, "\x63\142\x5f\x63\162\x65\144\151\164" => $ueMso["\x63\142\141\155\x6f\x75\156\x74"] != '' ? $ueMso["\x63\x62\141\155\157\165\156\164"] : $ueMso["\141\155\157\165\156\164"], "\x63\142\137\144\x61\164\x65" => $DILQY); goto w0vRi; nNRvH: $this->view->form2 = $V0UUv; goto KEzTc; vYn8L: Y0Gp1: goto YMJfp; Up910: $MI1ag->add($pjE_b); goto KOu0y; fX9Ln: cCwjn: goto rT2eU; aTJyC: $q8uOc = new paymentdet(); goto uHX8v; zzoO1: $V0UUv->addElement("\x70\141\171\x62\171", "\x50\x61\171\40\x44\x61\164\145", "\x74\145\x78\x74", "\x64\x61\x74\145\174\x72\145\x71\165\151\162\x65\x64", '', array("\x63\154\141\x73\163" => "\144\141\x74\x65\137\x70\x69\x63\x6b\x65\x72")); goto ern4k; DgtVf: $cltaS = true; goto u3yDU; DK1jm: $V0UUv->addElement("\x70\145\x72\x63\142", "\x50\145\x72\x73\x6f\x6e\141\154\x20\x43\141\163\150\40\x42\x6f\x6f\x6b", "\143\x68\145\x63\153\142\157\x78", '', array("\157\160\164\x69\x6f\156\x73" => array(1 => "\x50\145\x72\x73\x6f\x6e\x6e\x61\154\x20\103\x61\163\x68\40\102\x6f\157\x6b"))); goto aXKl8; YmjPF: foreach ($PIT1q as $sU2o3) { goto X6Sjl; Q9zNx: $V0UUv->mamount[$sU2o3["\145\x78\160\x5f\x69\x64"]]->setValue($sU2o3["\x70\144\x65\x74\x5f\141\x6d\164\137\160\x61\x69\144"]); goto bxa6f; X6Sjl: if (!($sU2o3["\160\144\145\164\x5f\141\155\x74\137\x70\x61\x69\x64"] + $sU2o3["\x70\144\x65\164\137\141\155\164\137\x64\x69\163"] > 0)) { goto ylV1M; } goto JTeek; SljlX: ylV1M: goto tnvdP; tnvdP: $V0UUv->discount[$sU2o3["\x65\170\x70\137\x69\144"]]->setValue($sU2o3["\160\144\145\x74\x5f\141\155\164\137\144\x69\163"]); goto Q9zNx; JTeek: $V0UUv->check[$sU2o3["\145\x78\x70\137\x69\x64"]]->setValue(1); goto SljlX; bxa6f: UQM0Y: goto iDfWH; iDfWH: } goto qNGwC; c2292: die("\x2d\55\55"); goto vYn8L; Q58Q5: EuyPD: goto zwchV; NoMk_: $q57eo = $J3ntK->deletePayDetByExpId(array("\x70\144\x65\x74\x5f\x70\x61\x79\x5f\x69\144" => $AUtQV)); goto EEqRo; bYNlI: $w3Iq6 = json_encode($w3Iq6); goto Vi4j9; GZi7p: YCvql: goto cKXjp; G0yBc: $V0UUv->addElement("\146\137\163\x65\x6c\x56\x65\156\x64\157\x72", "\x56\x65\156\x64\x6f\162", "\150\x69\144\x64\x65\x6e", "\162\x65\161\165\151\x72\145\144"); goto Vdiam; raRIi: require_once __DIR__ . "\57\56\56\x2f\x61\x64\155\151\x6e\57\x21\155\x6f\144\145\154\x2f\x70\141\171\x6d\145\x6e\x74\x2e\160\x68\160"; goto wHRVX; WOzIm: $hpNLA = $GFDm4->getExpenseVendorPair($AzvOO); goto qq_Gy; ZIUoN: if ($ueMso["\x70\x65\162\143\142"] == 1 && $Nvbqo["\143\142\x5f\151\x64"] == '') { goto HntJH; } goto quh1F; SX_Pq: RXP12: goto XeAUs; YjKkt: if (!($ueMso["\x70\x65\x72\143\x62"] == '' && $Nvbqo["\x63\142\x5f\151\144"] != '' && $Nvbqo["\x63\x62\x5f\x74\x79\160\x65\x5f\162\145\146"] == USER_ID)) { goto f2SVw; } goto qceEB; b1cXT: if (!($Nvbqo["\x63\142\x5f\151\x64"] != '')) { goto olrR5; } goto FIKXD; QnzR5: $JXkLH = $JXkLH->format(DF_DD); goto ihEp3; Rogpc: HF2XH: goto vCuDB; na_Xt: $ll2VR->addElement("\x66\137\x73\145\x6c\126\x65\x6e\144\157\162", "\x56\x65\x6e\x64\x6f\x72", "\163\x65\x6c\x65\143\x74", "\x72\x65\161\x75\x69\162\x65\144", array("\157\160\x74\151\x6f\156\163" => $Cylu_)); goto cDFTy; EqX1t: olrR5: goto Ibacj; CC6aD: $AzvOO = array("\146\137\x73\145\x6c\126\x65\156\144\x6f\x72" => $ueMso["\146\x5f\x73\x65\x6c\126\145\x6e\x64\157\162"], "\146\x5f\x6d\x6f\144\145" => 2, "\x65\x78\160\137\160\x73\x74\141\164\x75\x73" => 2); goto RRrbU; oFtun: Xo98V: goto DYu_B; lGVzp: L8N7s: goto J5zQn; fQaNK: $PIT1q = []; goto BSqm0; sfeOr: $Nvbqo = $N_oH4->getPaymentDetByPaymentId(array("\160\141\171\137\x69\144" => $AUtQV)); goto BKfmI; UzmZy: hxDwj: goto nNRvH; QmfYq: $this->view->formRender = $UFPhr; goto UZuDv; u3yDU: $ueMso = $ll2VR->vaidate($_POST, $_FILES); goto SVVxZ; B8nAA: TVYeo: goto Pp5mn; KEzTc: $this->view->form1 = $ll2VR; goto QmfYq; CHrrz: foreach ($_POST["\x63\x68\145\x63\x6b"] as $VI3wT => $PRont) { $b54T1 += $_POST["\155\x61\x6d\157\x75\156\164"][$VI3wT]; eUxZc: } goto fX9Ln; qq_Gy: $CTyrL = $GFDm4->getExpenseAmountPair($AzvOO); goto f6DAX; cAjh_: $ueMso = $ll2VR->vaidate($_POST, $_FILES); goto S0QrQ; o3q14: goto AcONK; goto oFtun; nG86W: $V0UUv = new form(); goto PKJRz; McDNL: if ($_POST) { goto ZwtnV; } goto juiq0; iWpas: $V0UUv->addElement("\156\x6f\164\145", "\116\x6f\x74\x65", "\164\x65\170\x74\x61\x72\x65\141", ''); goto G0yBc; V_S7U: $MI1ag = new cashbook(); goto g3Tfh; gifoM: $V0UUv->chqno->setValue($Nvbqo["\x70\141\x79\x5f\x63\x68\x71\x6e\157"]); goto kb68a; w0vRi: if ($ueMso["\160\x65\x72\x63\142"] == 1 && $Nvbqo["\143\x62\x5f\x69\144"] != '' && $Nvbqo["\143\142\137\164\171\x70\145\x5f\162\145\146"] == USER_ID) { goto uc4Mg; } goto ZIUoN; hzSOH: a0Hin: goto To3Wy; ZIrfu: $V0UUv->addRules("\141\x6d\x6f\165\x6e\x74", "\151\156\x76\141\x6c\151\144"); goto bagNF; Cmf7E: die("\x74\x61\x6d\160\x65\x72\145\144"); goto lfNiW; uzerN: $ll2VR = new form(); goto nG86W; BKfmI: if ($Nvbqo["\160\141\x79\137\x61\x70\160\137\x73\x74\x61\x74\x75\x73"] == 0) { goto tcSe2; } goto fQaNK; VYQ55: $V0UUv->cbamount->setValue($Nvbqo["\x63\142\x5f\x63\x72\x65\x64\151\x74"]); goto EqX1t; ETgpv: $OAe5B = $xf3CG->getCashFlowPair(); goto tutkk; foxaw: KKj75: goto EMi3D; r9wau: $V0UUv->addElement("\x63\x68\x71\x6e\x6f", "\x43\150\145\161\x75\x65\x20\116\x6f\40", "\x74\145\170\x74", ''); goto iWpas; EMi3D: goto Y0Gp1; goto VC7DG; UDClD: $V0UUv->addElement("\141\155\157\165\156\x74", "\101\x6d\157\165\156\164", "\146\x6c\x6f\x61\164", "\162\145\x71\x75\x69\x72\x65\144\174\x6e\x75\155\x65\162\151\x63", '', array("\x63\154\141\163\163" => "\146\151\147")); goto r9wau; fuaEw: $V0UUv->amount->setValue($Nvbqo["\x70\x61\171\137\141\x6d\x6f\165\x6e\164"]); goto bvDCz; Bl8uw: $this->view->billAmount = $CTyrL; goto OhuD9; DYu_B: if (!isset($_SERVER["\110\x54\x54\120\137\130\x5f\122\x45\121\x55\x45\123\x54\105\x44\137\x57\111\124\110"]) and strtolower($_SERVER["\x48\124\124\120\137\x58\137\122\x45\121\x55\105\123\124\105\x44\137\127\x49\124\110"]) != "\x78\x6d\x6c\150\164\164\160\162\145\161\165\145\163\164") { goto x5gtW; } goto DgtVf; wE6_F: m5Iyj: goto CHrrz; eqEO1: $this->view->NoViewRender = true; goto p1wMx; hG1k4: if ($_POST) { goto Xo98V; } goto uZp2s; uf9KJ: foreach ($_POST["\143\150\145\143\153"] as $tcvl7 => $mqInl) { goto qwyzM; QZQpB: btCvD: goto qRP6d; dJqz2: $F5Frd = array("\160\144\145\x74\137\160\141\x79\x5f\x69\x64" => $AUtQV, "\160\144\145\x74\137\x65\170\x70\x5f\x69\x64" => $tcvl7, "\160\x64\145\x74\137\x61\155\164\137\164\x6f\x70\141\x79" => $CTyrL[$tcvl7], "\160\x64\x65\x74\x5f\x61\155\x74\x5f\160\141\x69\x64" => $ueMso["\x6d\141\155\157\165\156\x74"][$tcvl7], "\x70\144\x65\x74\137\141\155\x74\x5f\144\x69\x73" => $ueMso["\x64\151\x73\143\157\165\156\x74"][$tcvl7] == '' ? NULL : $ueMso["\144\x69\x73\143\x6f\x75\x6e\x74"][$tcvl7], "\160\144\x65\x74\137\x61\155\164\137\142\141\154" => $CTyrL[$tcvl7] - $dtSIX - $o1Zka); goto TfGyZ; TfGyZ: $RSNEV = $J3ntK->add($F5Frd); goto G5bGe; T_tLv: $o1Zka = $_POST["\x6d\141\x6d\157\165\156\164"][$d8rwD] == '' ? 0 : $_POST["\155\141\x6d\x6f\165\156\x74"][$tcvl7]; goto AJ9Bu; G5bGe: cuMA9: goto QZQpB; AC07k: $F5Frd = array(); goto dJqz2; qwyzM: $dtSIX = $_POST["\x64\151\x73\143\x6f\165\156\x74"][$d8rwD] == '' ? 0 : $_POST["\x64\x69\x73\143\x6f\x75\156\164"][$tcvl7]; goto T_tLv; AJ9Bu: if (!($mqInl != '')) { goto cuMA9; } goto AC07k; qRP6d: } goto pM8jK; SVVxZ: $ueMso = $ueMso[0]; goto dU5kt; ETVPK: $V0UUv->addMultiElement("\x6d\x61\x6d\x6f\165\x6e\x74", "\x50\x61\171\x6d\x65\156\x74", "\x66\x6c\157\141\164", "\156\x75\x6d\x65\162\x69\143", '', array("\x63\154\141\163\163" => "\146\x6f\x72\x6d\x2d\x63\x6f\156\x74\162\157\154\x2d\162\x6f\167"), $hpNLA); goto pSPvs; S0QrQ: $ueMso = $ueMso[0]; goto rm3ao; KOu0y: PEESh: goto YjKkt; p1wMx: $w3Iq6 = array("\146\x65\145\144\x62\x61\x63\x6b" => "\120\x61\171\x6d\x65\156\164\40\x64\145\x74\141\151\154\x73\x20\165\160\144\x61\164\x65\x64\40\x73\165\143\143\x65\x73\x73\146\x75\x6c\154\171"); goto bYNlI; HyDP2: $V0UUv->paymod->setValue($Nvbqo["\x70\141\171\x5f\160\x61\171\137\155\157\144\x65"]); goto gifoM; YMJfp: AcONK: goto C1Na4; oMljH: Wev2I: goto N3U7k; xdkkJ: $V0UUv->addErrorMsg("\x6d\x61\155\157\x75\156\x74", "\162\x65\x71\165\x69\x72\145\144", "\40"); goto crrSO; s8EGN: require_once __DIR__ . "\x2f\x2e\x2e\x2f\141\x64\x6d\x69\x6e\x2f\41\155\157\144\145\x6c\x2f\x65\x78\x70\x65\156\x73\x65\56\160\150\x70"; goto kuK1q; pfkj2: $AzvOO["\x65\170\143\154\x75\144\145"] = implode("\54", $QwDPS); goto pzJh4; rT2eU: if (!((string) $b54T1 != $_POST["\141\155\157\165\x6e\x74"] && $_POST["\x61\155\157\x75\x6e\x74"] != '')) { goto TVYeo; } goto ZIrfu; bld5f: } function listAction() { goto Arav7; WvtA0: $this->view->paymentList = $kmjWm; goto KK_Cj; aP_7D: $this->view->form = $HdP19; goto QFIZY; Arav7: require_once __DIR__ . "\x2f\56\x2e\57\141\144\155\x69\156\57\x21\155\x6f\x64\x65\x6c\57\x70\x61\171\155\145\156\164\x2e\x70\x68\x70"; goto KvHD7; QFIZY: $this->view->filter_class = $N7DbC; goto Huy5k; d5Zyx: DUqqj: goto Gcg8o; hAhze: $AzvOO = array("\x66\x5f\163\x65\x6c\126\x65\156\x64\157\x72" => @$ueMso["\x66\137\x73\x65\154\x56\145\156\x64\x6f\x72"]); goto qMaD8; rW2d6: $ueMso = $HdP19->vaidate($_GET); goto t4T2H; V8Tst: require_once __DIR__ . "\57\56\x2e\57\x61\144\x6d\151\156\57\41\155\157\144\x65\x6c\57\x76\145\x6e\x64\157\162\x2e\x70\x68\160"; goto ukIk0; Ut5Gd: $N7DbC = "\142\164\156\55\151\x6e\x66\157"; goto Ps8n_; Y5mwD: $kmjWm = $N_oH4->getPaymentPaginate(@$AzvOO); goto VGvB5; KK_Cj: $this->view->paymentObj = $N_oH4; goto aP_7D; jrcI5: $HdP19->addElement("\x66\137\163\x65\x6c\126\x65\x6e\x64\157\x72", "\x56\x65\x6e\144\x6f\162", "\163\x65\x6c\x65\143\164", '', array("\x6f\x70\x74\151\x6f\156\163" => $Cylu_)); goto qp48s; t4T2H: $ueMso = $ueMso[0]; goto BqMNi; qp48s: if (!(isset($_GET) && $_GET["\143\154\x65\141\162"] == "\x41\154\x6c")) { goto DUqqj; } goto epd9P; VGvB5: $this->view->offset = $N_oH4->_voffset; goto WvtA0; Ps8n_: d7Czh: goto Y5mwD; BqMNi: if (!($ueMso == true)) { goto Hl3NF; } goto hAhze; KvHD7: $N_oH4 = new payment(); goto kYIUc; qMaD8: Hl3NF: goto Ut5Gd; AIWRo: if (!(is_array($_GET) && count(array_filter($_GET)) > 0)) { goto d7Czh; } goto rW2d6; Gcg8o: $N7DbC = "\142\164\156\55\x73\x65\143\157\x6e\x64\x61\x72\171"; goto AIWRo; kYIUc: $HdP19 = new form(); goto V8Tst; qQRuR: $Cylu_ = $XmN32->getVendorPair(); goto jrcI5; JNn6P: unset($_GET); goto d5Zyx; epd9P: $HdP19->reset(); goto JNn6P; ukIk0: $XmN32 = new vendor(); goto qQRuR; Huy5k: } function viewAction() { goto lPra7; trwMr: $J3ntK = new paymentdet(); goto TlGfL; jQ7kE: require_once __DIR__ . "\x2f\56\56\57\x61\144\155\x69\x6e\x2f\41\155\157\x64\x65\x6c\57\160\141\x79\155\x65\x6e\x74\x2e\160\150\160"; goto NOWsc; bnBX8: YLPL5: goto j2xWD; lPra7: $this->view->response("\141\x6a\141\170"); goto jQ7kE; NgCws: $kmjWm = $J3ntK->getPaymentExpDet(array("\x70\x64\x65\x74\137\160\x61\x79\137\x69\144" => $AUtQV)); goto GCicJ; TlGfL: $AUtQV = $this->view->decode($this->view->param["\162\145\x66"]); goto LeXw6; j2xWD: $this->view->paymentList = $kmjWm; goto YVeYM; K5_hq: die("\164\141\x6d\160\145\162\145\x64"); goto bnBX8; NOWsc: $N_oH4 = new payment(); goto k5Y5M; YVeYM: $this->view->payDet = $Nvbqo; goto sAPnx; k5Y5M: require_once __DIR__ . "\x2f\56\56\57\141\144\x6d\x69\x6e\57\x21\155\x6f\x64\145\x6c\x2f\x70\141\171\x6d\145\156\x74\x64\145\x74\x2e\160\x68\160"; goto trwMr; GCicJ: if ($AUtQV) { goto YLPL5; } goto K5_hq; LeXw6: $Nvbqo = $N_oH4->getPaymentDetByPayId(array("\x70\141\x79\x5f\x69\144" => $AUtQV)); goto NgCws; sAPnx: } function approvalAction() { goto gW6Yu; d2kLO: $HdP19 = new form(); goto eYXYk; Sua2y: $ueMso = $ueMso[0]; goto F18Z0; Jg9Gr: $this->view->formRender = $UFPhr; goto aHzsm; UcsCm: if ($AUtQV) { goto xkVbE; } goto Ci3u4; o28TS: a5GYh: goto Qd62P; K7Gsy: $W42k3["\160\144\x65\164\137\x73\164\x61\164\x75\163"] = 2; goto tNPVG; ZG0ta: $this->view->form = $HdP19; goto Jg9Gr; xjgEI: require_once __DIR__ . "\x2f\56\x2e\x2f\x61\x64\155\x69\156\x2f\41\x6d\157\144\145\x6c\57\x65\170\160\145\156\163\x65\x2e\x70\x68\160"; goto LC5X4; MRFTz: require_once __DIR__ . "\x2f\56\56\57\x61\x64\x6d\151\156\x2f\41\x6d\x6f\x64\145\x6c\x2f\160\141\x79\155\x65\x6e\x74\56\160\x68\160"; goto mcGTK; aHzsm: $this->view->paymentList = $kmjWm; goto Y2m83; xuh_F: ivYvM: goto drWaK; LxdPP: die("\x2d\x2d\55"); goto KIInI; tNPVG: $J3ntK->modify($W42k3, array("\x70\x64\145\164\x5f\160\141\x79\137\151\x64" => $AUtQV)); goto E0O2a; cxg_p: if (!$sQnRb) { goto K0J9_; } goto xjgEI; gW6Yu: $this->view->response("\141\152\141\170"); goto MRFTz; Ci3u4: die("\x74\141\155\x70\145\162\x65\x64"); goto KPoRR; o3HmD: die($w3Iq6); goto WSa9B; mcGTK: $N_oH4 = new payment(); goto av55l; pQMts: if (!isset($_SERVER["\x48\124\x54\x50\137\130\x5f\122\x45\x51\x55\x45\x53\x54\105\x44\137\x57\x49\124\x48"]) and strtolower($_SERVER["\x48\124\124\120\x5f\130\137\122\105\121\x55\105\123\x54\x45\x44\x5f\127\111\124\110"]) != "\x78\x6d\x6c\x68\x74\x74\160\162\145\161\x75\145\x73\164") { goto yitQL; } goto EHFqF; U9iMW: $this->view->NoViewRender = true; goto YDuzS; YQj8e: $sQnRb = $N_oH4->modify($F5Frd, $AUtQV); goto cxg_p; s5PAK: $kmjWm = $GFDm4->getPaymentExpDet($AzvOO); goto UcsCm; drWaK: LL1QI: goto ZG0ta; ldxRk: $Nvbqo = $N_oH4->getPaymentDetById($AUtQV); goto gnzNz; E0O2a: $CGGv5 = "\x50\x61\171\155\x65\156\x74\x73\x20\x73\164\x61\164\165\x73\40\165\x70\x64\141\164\x65\144\40\163\x75\x63\x63\145\x73\x73\x66\x75\x6c\x6c\171"; goto U9iMW; Y2m83: $this->view->payDet = $Nvbqo; goto yZvgT; hVlux: $GFDm4 = new expense(); goto NIdWE; KIInI: Bq0h7: goto xuh_F; OFrRJ: $w3Iq6 = json_encode($w3Iq6); goto o3HmD; WSa9B: K0J9_: goto o28TS; gnzNz: if (!($Nvbqo["\x70\141\x79\x5f\x61\160\x70\137\163\x74\141\x74\x75\x73"] == 0)) { goto LL1QI; } goto EQivp; RnVwx: $HdP19->addElement("\156\157\x74\x65", "\x4e\x6f\x74\145\40", "\164\x65\x78\x74\x61\x72\145\x61", "\x72\145\161\x75\151\x72\x65\144\174\141\x6c\x70\x68\x61\137\x73\x70\x61\x63\x65"); goto adPeT; EQivp: $AzvOO = array("\146\x5f\163\x65\154\126\145\156\144\157\162" => $Nvbqo["\160\141\171\137\166\x65\x6e\x64\x6f\x72"], "\146\x5f\x6d\157\144\x65" => 2, "\160\x64\145\x74\137\160\141\171\137\x69\144" => $AUtQV, "\x65\x78\x70\x5f\160\x73\164\141\164\x75\163" => 2); goto s5PAK; taP73: foreach ($kmjWm as $byzzP) { goto V_w_w; pLNUl: $C4UEA = $NdIPg->modify($dmW1F, $byzzP["\x70\x64\145\164\137\x65\x78\160\x5f\151\144"]); goto OYJ2g; G12ub: CByZn: goto kOBEG; OYJ2g: GiQ7r: goto G12ub; hcAco: if (!($byzzP["\x70\x64\145\x74\137\x61\155\x74\137\x62\141\x6c"] <= 0)) { goto Uj5OH; } goto wMsyA; wMsyA: $dmW1F["\x65\x78\x70\137\160\x73\164\x61\164\165\163"] = 1; goto eHUeP; V_w_w: $dmW1F = array(); goto PLjJP; eHUeP: Uj5OH: goto GpTMD; GpTMD: $dmW1F["\x65\x78\x70\137\x63\162\x65\x64\151\164\137\141\155\x74"] = $byzzP["\x70\x64\145\x74\137\x61\x6d\x74\x5f\142\x61\154"]; goto pLNUl; PLjJP: if (!$byzzP["\160\x64\x65\x74\137\151\144"]) { goto GiQ7r; } goto hcAco; kOBEG: } goto YkMRt; qjmL7: yitQL: goto LxdPP; YDuzS: $w3Iq6 = array("\x66\x65\x65\x64\142\141\x63\153" => $CGGv5); goto W3rxH; OKuyh: $HdP19->addElement("\x73\x74\141\164\x75\163", "\123\x74\x61\x74\165\x73", "\x63\150\145\143\x6b\142\x6f\170", "\162\145\x71\x75\x69\x72\145\x64", array("\x6f\160\164\151\x6f\156\163" => array("\x31" => "\x41\x70\x70\x72\x6f\x76\x65\144"))); goto RnVwx; Qd62P: goto Bq0h7; goto qjmL7; mPJXd: $J3ntK = new paymentdet(); goto G95vl; YkMRt: NGo4a: goto K7Gsy; ewdUp: $F5Frd = array("\x70\141\x79\x5f\x61\x70\x70\x5f\x64\x61\x74\x65" => date_format(new DateTime(), "\131\55\155\x2d\x64\40\110\x3a\151\x3a\x73"), "\160\141\x79\x5f\141\x70\x70\x5f\x73\164\141\x74\x75\163" => $ueMso["\163\164\141\x74\x75\x73"], "\160\141\x79\137\x61\x70\160\x5f\156\x6f\164\145" => $ueMso["\156\x6f\164\145"], "\160\141\171\x5f\x66\x69\154\x65\137\156\x6f" => "\120\x41\131" . "\57" . $AUtQV, "\x70\x61\x79\137\x61\x70\x70\x5f\x62\171" => $_SESSION["\165\x73\x65\162\137\151\x64"]); goto YQj8e; EHFqF: $ueMso = $HdP19->vaidate($_POST, $_FILES); goto Sua2y; KPoRR: xkVbE: goto OKuyh; G95vl: require_once __DIR__ . "\x2f\56\x2e\57\x61\x64\x6d\x69\156\57\41\x6d\x6f\x64\145\154\57\x65\170\x70\x65\x6e\163\x65\56\160\150\x70"; goto hVlux; W3rxH: $_SESSION["\x66\145\145\x64\x62\x61\143\x6b"] = $CGGv5; goto OFrRJ; NIdWE: $UFPhr = true; goto d2kLO; adPeT: if (!$_POST) { goto ivYvM; } goto pQMts; LC5X4: $NdIPg = new expense(); goto taP73; eYXYk: $AUtQV = $this->view->decode($this->view->param["\162\145\x66"]); goto ldxRk; av55l: require_once __DIR__ . "\x2f\x2e\56\57\141\x64\155\151\156\x2f\41\155\157\x64\x65\154\57\x70\141\x79\155\145\x6e\164\x64\x65\164\56\x70\x68\160"; goto mPJXd; F18Z0: if (!($ueMso == true)) { goto a5GYh; } goto ewdUp; yZvgT: } function closeAction() { goto gR6_q; MSGCk: if (!($ueMso == true)) { goto J7osk; } goto Ui4RJ; D_lbZ: $this->view->NoViewRender = true; goto M3JeA; Ui4RJ: $F5Frd = array("\160\x61\171\137\x70\141\171\x5f\x73\x74\x61\164\x75\x73" => 2, "\160\141\171\137\160\141\171\x5f\x6e\x6f\x74\145" => $ueMso["\x6e\157\x74\145"], "\160\x61\x79\137\x70\x61\171\x5f\x61\160\x70\137\144\x61\164\x65" => date_format(new DateTime(), "\131\55\x6d\x2d\x64\x20\x48\x3a\151\72\x73")); goto BEcwr; SBNn0: $this->view->paymentList = $kmjWm; goto OIUk4; dylqp: $ueMso = $HdP19->vaidate($_POST, $_FILES); goto DD_d_; DD_d_: $ueMso = $ueMso[0]; goto MSGCk; OIUk4: $this->view->payDet = $Nvbqo; goto YgJ6Z; Xkoai: $CGGv5 = "\120\x61\x79\155\x65\x6e\164\x73\40\163\x74\x61\x74\x75\163\40\x75\x70\x64\x61\164\x65\144\40\163\165\x63\x63\x65\163\x73\146\165\154\154\171"; goto x7ZgO; uLh_D: $HdP19->note->setValue($Nvbqo["\x70\141\171\x5f\x70\141\x79\137\156\x6f\164\x65"]); goto ODdlQ; yNlGg: die("\164\x61\x6d\x70\145\x72\x65\x64"); goto oyof4; Xli3I: $w3Iq6 = array("\146\145\145\144\x62\141\x63\153" => $CGGv5); goto L9yTv; T5eIW: Buo5B: goto DlULZ; QZyd4: require_once __DIR__ . "\57\x2e\x2e\x2f\141\x64\155\151\156\57\x21\x6d\157\144\145\154\x2f\144\157\x63\x75\155\145\x6e\164\x73\x2e\x70\x68\160"; goto Nh9Ki; OvFhw: $kmjWm = $GFDm4->getPaymentExpDet($AzvOO); goto uDZMd; Whvv6: $AzvOO = array("\146\137\163\x65\x6c\x56\x65\156\x64\157\x72" => $Nvbqo["\x70\x61\171\x5f\166\x65\156\144\157\162"], "\x66\x5f\155\x6f\x64\145" => 2, "\x70\x64\x65\x74\x5f\x70\141\171\x5f\x69\144" => $AUtQV, "\160\x64\x65\x74\137\163\x74\141\x74\165\x73" => 2); goto OvFhw; gR6_q: $this->view->response("\x61\152\x61\170"); goto X2BlY; lbdAF: $HdP19->addElement("\156\x6f\164\x65", "\116\x6f\x74\145\x20", "\164\145\170\164\141\x72\145\x61", ''); goto Whvv6; fkEDp: $Nvbqo = $N_oH4->getPaymentDetByPayId(array("\160\141\171\x5f\151\x64" => $AUtQV)); goto wH141; GFGmS: x2Zv4: goto h2qRx; viaju: die($w3Iq6); goto T5eIW; x7ZgO: $this->view->NoViewRender = true; goto Xli3I; QAtlu: $N_oH4 = new payment(); goto AKfts; ODdlQ: goto x2Zv4; goto UU4Mt; AKfts: require_once __DIR__ . "\x2f\x2e\x2e\57\141\144\x6d\151\156\57\x21\x6d\x6f\144\145\x6c\57\x65\170\160\145\156\163\x65\x2e\160\x68\160"; goto BTpnY; BEcwr: $sQnRb = $N_oH4->modify($F5Frd, $Nvbqo["\160\141\171\137\151\x64"]); goto Xljbk; DlULZ: J7osk: goto GFGmS; L9yTv: $_SESSION["\146\145\145\144\x62\x61\x63\153"] = $CGGv5; goto IJ2l7; uDZMd: if (isset($_POST) && count($_POST) > 0) { goto BBCOM; } goto uLh_D; M3JeA: goto m5CdD; goto TWtHL; IL0CK: $this->view->form = $HdP19; goto SBNn0; TWtHL: rSZsf: goto lbdAF; QLmfc: if ($AUtQV) { goto K59_N; } goto yNlGg; oyof4: K59_N: goto fkEDp; IJ2l7: $w3Iq6 = json_encode($w3Iq6); goto viaju; C1akU: $AUtQV = $this->view->decode($this->view->param["\x72\145\x66"]); goto QLmfc; ORNCc: $HdP19->reset(); goto Xkoai; wH141: if ($Nvbqo["\x70\141\x79\137\x70\141\x79\137\163\164\x61\x74\165\x73"] == 1) { goto rSZsf; } goto D_lbZ; h2qRx: m5CdD: goto IL0CK; RYTm9: $HdP19 = new form(); goto C1akU; Xljbk: if (!$sQnRb) { goto Buo5B; } goto ORNCc; Nh9Ki: $UFPhr = true; goto RYTm9; X2BlY: require_once __DIR__ . "\x2f\x2e\x2e\57\141\144\155\151\x6e\57\41\155\x6f\144\145\154\57\x70\x61\x79\x6d\145\156\x74\x2e\x70\x68\x70"; goto QAtlu; UU4Mt: BBCOM: goto dylqp; BTpnY: $GFDm4 = new expense(); goto QZyd4; YgJ6Z: } function editoptionAction() { goto mfnjk; OoWdc: require_once __DIR__ . "\x2f\56\x2e\x2f\141\x64\x6d\x69\156\x2f\x21\155\157\144\145\x6c\x2f\143\141\x73\x68\x66\154\157\x77\56\x70\x68\160"; goto UUu6G; OafXH: XnXqx: goto buzjB; IcQpt: $ueMso = $ueMso[0]; goto uHrEF; huOGl: FiYEm: goto rS1SU; aEbJE: $Nvbqo = $N_oH4->getPaymentDetByPaymentId(array("\x70\x61\x79\137\x69\x64" => $AUtQV)); goto PxHHs; Spsr_: $ueMso = $V0UUv->vaidate($_POST, $_FILES); goto IcQpt; ExXBU: $w3Iq6 = json_encode($w3Iq6); goto uxXwG; DZXXA: IbfDL: goto sPkVj; G5tbS: $w3Iq6 = array("\146\145\145\144\142\x61\x63\x6b" => $CGGv5); goto Y_w_M; NEEtD: goto RJ6Jc; goto DZXXA; UUu6G: $xf3CG = new cashflow(); goto dj8AY; O7aXd: $N_oH4 = new payment(); goto fa0DZ; fa0DZ: require_once __DIR__ . "\57\56\56\x2f\x61\144\155\x69\x6e\57\x21\155\157\144\145\154\x2f\160\x61\171\x6d\x65\x6e\x74\x64\145\x74\56\160\150\x70"; goto DHTMU; ISLxw: $F5Frd["\x70\141\x79\x5f\x63\x61\x73\150\137\146\154\157\x77"] = $ueMso["\143\x61\163\x68\x46\154\157\167"]; goto OafXH; rUA1h: if (!$ueMso["\x63\x61\163\150\x46\x6c\157\x77"]) { goto XnXqx; } goto ISLxw; mfnjk: $this->view->response("\x61\x6a\141\x78"); goto oBLHR; k4zja: $this->view->paymentList = $kmjWm; goto DyhQb; n2HEL: wgHu1: goto PuF0m; hPjY7: $this->view->NoViewRender = true; goto G5tbS; dS5ux: $V0UUv = new form(); goto yDc8f; X2ooW: $V0UUv->addElement("\143\x61\x73\x68\106\x6c\x6f\167", "\x43\141\x73\150\40\x46\154\157\x77", "\163\145\x6c\145\x63\x74", '', array("\x6f\x70\x74\151\157\x6e\163" => $OAe5B)); goto ob2OL; e5831: $UFPhr = true; goto dS5ux; aRcoO: RJ6Jc: goto DBw6Y; jsvCc: die("\164\x61\155\160\145\162\145\x64"); goto n2HEL; DBw6Y: A1Wyp: goto COf04; O7jt7: kRiyM: goto hfN8h; UPyZl: $this->view->form2 = $V0UUv; goto k4zja; ob2OL: if ($_POST) { goto FiYEm; } goto AhcIN; gohH1: if ($AUtQV) { goto wgHu1; } goto jsvCc; yDc8f: $AUtQV = $this->view->decode($this->view->param["\x72\145\x66"]); goto gohH1; AhcIN: $V0UUv->cashFlow->setValue($Nvbqo["\160\x61\171\x5f\x63\141\163\x68\137\x66\154\x6f\x77"]); goto CEFUk; uxXwG: die($w3Iq6); goto O7jt7; hfN8h: eb5Na: goto NEEtD; Y_w_M: $_SESSION["\146\x65\x65\x64\x62\141\x63\x6b"] = $CGGv5; goto ExXBU; CEFUk: goto A1Wyp; goto huOGl; DyhQb: $this->view->payDet = $Nvbqo; goto OuS0C; buzjB: $sQnRb = $N_oH4->modify($F5Frd, $AUtQV); goto MKaUh; uHrEF: if (!($ueMso == true)) { goto eb5Na; } goto rUA1h; DHTMU: $J3ntK = new paymentdet(); goto aEbJE; dj8AY: $OAe5B = $xf3CG->getCashFlowPair(); goto X2ooW; N19p4: $CGGv5 = "\x49\164\145\x6d\x20\144\145\x74\141\151\154\x73\x20\x61\144\144\x65\x64\x20\163\x75\143\143\145\163\163\146\x75\154\154\x79"; goto hPjY7; PxHHs: $kmjWm = $J3ntK->getPaymentExpDet(array("\x70\x64\x65\164\137\x70\141\x79\x5f\x69\x64" => $AUtQV)); goto nZLsP; sPkVj: die("\x2d\55\55"); goto aRcoO; PuF0m: require_once __DIR__ . "\x2f\x2e\56\x2f\x61\144\155\151\x6e\x2f\x21\x6d\157\x64\145\154\57\x70\141\171\155\x65\156\164\x2e\x70\x68\x70"; goto O7aXd; rS1SU: if (!isset($_SERVER["\110\124\124\x50\137\x58\x5f\122\105\x51\x55\x45\x53\124\x45\104\x5f\x57\111\124\110"]) and strtolower($_SERVER["\110\x54\124\x50\x5f\130\137\122\105\x51\125\x45\x53\x54\105\104\x5f\x57\111\124\110"]) != "\170\155\154\x68\164\x74\x70\162\x65\161\x75\x65\x73\x74") { goto IbfDL; } goto Spsr_; nZLsP: if (!($Nvbqo["\160\x61\x79\x5f\x61\x70\160\x5f\163\x74\141\x74\x75\x73"] == 1)) { goto nxDJV; } goto OoWdc; MKaUh: if (!$sQnRb) { goto kRiyM; } goto N19p4; oBLHR: require_once __DIR__ . "\57\56\x2e\x2f\141\x64\x6d\x69\x6e\57\x21\x6d\x6f\144\145\154\x2f\145\x78\x70\x65\x6e\x73\x65\x2e\x70\150\x70"; goto e5831; COf04: nxDJV: goto UPyZl; OuS0C: } function remittanceAction() { goto VO3c3; OIZ9m: $GFDm4 = new expense(); goto Zfr5W; Zfr5W: $AUtQV = $this->view->decode($this->view->param["\x72\x65\146"]); goto fjLae; fjLae: $Nvbqo = $N_oH4->getPaymentDetByPayId(array("\x70\x61\x79\x5f\151\x64" => $AUtQV)); goto JwNZF; wo25A: $this->view->payDet = $Nvbqo; goto yVQHw; VO3c3: $this->view->response("\x77\x69\156\144\157\x77"); goto NW2jb; kB1EK: GMR0H: goto TWZgJ; Sx4dP: $N_oH4 = new payment(); goto O7r4i; TWZgJ: $this->view->paymentList = $kmjWm; goto wo25A; iThOI: die("\164\x61\155\160\x65\x72\x65\x64"); goto kB1EK; NW2jb: require_once __DIR__ . "\x2f\x2e\x2e\57\x61\x64\155\x69\x6e\x2f\41\155\x6f\144\x65\154\x2f\160\x61\x79\155\x65\156\164\x2e\x70\150\160"; goto Sx4dP; KvO3X: if ($AUtQV) { goto GMR0H; } goto iThOI; O7r4i: require_once __DIR__ . "\x2f\x2e\56\57\x61\x64\x6d\151\156\x2f\x21\x6d\157\x64\x65\x6c\57\145\x78\x70\145\156\x73\x65\56\x70\x68\160"; goto OIZ9m; JwNZF: $kmjWm = $GFDm4->getPaymentExpDet(array("\x70\144\145\164\137\160\141\171\137\x69\144" => $Nvbqo["\x70\x61\x79\x5f\151\x64"], "\146\x5f\163\145\154\126\x65\156\144\x6f\162" => $Nvbqo["\160\141\171\137\166\x65\x6e\x64\x6f\162"], "\145\x78\160\137\160\141\x79\137\x6d\157\x64\x65" => 2)); goto KvO3X; yVQHw: } function voucherAction() { goto hbUHX; bsJLl: oAVUw: goto LLXFs; Q6c_e: $this->view->NoViewRender = true; goto jGFIB; i0Smr: koE1f: goto qhC4N; OZRNL: if (!$sQnRb) { goto uP6vQ; } goto prpKQ; A7u9A: JFuFU: goto PXq2z; iOkbz: if (isset($_POST) && count($_POST) > 0) { goto JFuFU; } goto KHjDY; bLIbz: $HdP19->addElement("\156\x6f\164\x65", "\x4e\x6f\164\x65\x20", "\164\145\170\164\x61\162\x65\x61", ''); goto sK6LS; CbYx3: goto hP36L; goto AKBaL; VT0FA: $N5hLW->deleteFile($Nvbqo["\x66\151\154\x65\137\151\144"]); goto rC_Q2; vDTcy: require_once __DIR__ . "\57\x2e\56\57\141\x64\x6d\x69\x6e\57\41\155\x6f\x64\x65\154\57\145\170\160\x65\156\x73\x65\x2e\x70\x68\x70"; goto EV0Y7; lKxtg: hP36L: goto roEyL; sK6LS: $HdP19->addElement("\160\141\x79\144\x61\164\x65", "\x44\x61\x74\x65", "\164\145\170\x74", "\x64\x61\164\x65\x7c\x72\x65\x71\x75\x69\162\145\x64", '', array("\x63\x6c\x61\163\x73" => "\x64\x61\164\145\137\160\x69\143\153\145\162")); goto QNqWr; zVaYx: $kmjWm = $GFDm4->getPaymentExpDet($AzvOO); goto iOkbz; L9V0f: if (!($ueMso == true)) { goto oAVUw; } goto BZBRj; prpKQ: if (empty($Nvbqo["\x66\151\154\x65\137\x69\x64"])) { goto OK83j; } goto zqW7y; CJkj3: $F5Frd = array("\160\141\x79\x5f\x70\141\x79\137\163\x74\x61\164\165\x73" => 1, "\160\x61\x79\x5f\x70\x61\171\137\x6e\x6f\x74\145" => $ueMso["\156\x6f\164\145"], "\x70\x61\x79\137\x70\141\x79\137\x64\141\164\145" => $KObax); goto VIIn2; QNqWr: $HdP19->addFile("\155\x79\137\146\x69\154\145\x73", "\104\157\143\x75\x6d\x65\x6e\164", array("\x72\145\x71\165\151\x72\x65\x64" => true, "\145\x78\x74\x65\156" => "\160\144\146", "\x73\x69\x7a\x65" => 5375000)); goto MQOMo; nPFx0: die($w3Iq6); goto kVAxH; v3MCV: require_once __DIR__ . "\x2f\56\x2e\x2f\x61\x64\x6d\151\x6e\57\x21\155\157\x64\145\x6c\57\x64\157\x63\x75\155\145\x6e\164\x73\x2e\160\x68\x70"; goto Qm0JO; rC_Q2: OK83j: goto nkm6g; KHjDY: if (!$Nvbqo["\160\x61\171\x5f\160\x61\171\137\x64\141\x74\x65"]) { goto koE1f; } goto BH91n; qG3KX: deleteFile($Nvbqo["\146\151\x6c\145\137\x69\x64"]); goto VT0FA; ivZ1v: $KObax = date_format($KObax, DFS_DB); goto CJkj3; n4pKm: $this->view->payDet = $Nvbqo; goto sRLMD; jGFIB: $w3Iq6 = array("\x66\x65\145\144\x62\x61\143\x6b" => $CGGv5); goto NQOiZ; VIIn2: $sQnRb = $N_oH4->modify($F5Frd, $Nvbqo["\x70\x61\171\x5f\151\144"]); goto OZRNL; hbUHX: $this->view->response("\141\152\x61\170"); goto MgCRU; I0m34: XZxH1: goto zmVEh; K9HUB: die("\x74\x61\155\x70\x65\x72\145\x64"); goto I0m34; tYi_H: $CGGv5 = "\x50\x61\171\155\x65\x6e\x74\x20\163\x74\x61\164\165\x73\x20\x75\x70\144\141\x74\x65\x64\40\x73\x75\143\143\145\x73\x73\146\165\x6c\x6c\x79"; goto Q6c_e; tBqYx: $AUtQV = $this->view->decode($this->view->param["\x72\145\x66"]); goto Fa2i6; sFrlR: $HdP19->paydate->setValue($wb_bN); goto hZKyE; hZKyE: goto SEIqz; goto A7u9A; MgCRU: require_once __DIR__ . "\57\x2e\56\57\x61\144\155\x69\x6e\57\x21\155\x6f\x64\x65\x6c\57\160\x61\171\155\145\x6e\x74\x2e\x70\150\160"; goto LazQD; EV0Y7: $GFDm4 = new expense(); goto v3MCV; fU7Gp: $this->view->paymentList = $kmjWm; goto n4pKm; kVAxH: Ync2J: goto nJcJi; Qm0JO: $UFPhr = true; goto lzJ05; nef0K: $this->view->formRender = $UFPhr; goto fU7Gp; Fa2i6: if ($AUtQV) { goto XZxH1; } goto K9HUB; LLXFs: SEIqz: goto lKxtg; nJcJi: uP6vQ: goto bsJLl; NQOiZ: $_SESSION["\146\145\x65\x64\x62\141\x63\x6b"] = $CGGv5; goto YkOmx; lzJ05: $HdP19 = new form(); goto tBqYx; zqW7y: $N5hLW = new files(); goto qG3KX; twMaB: if ($Nvbqo["\x70\x61\171\x5f\141\x70\160\x5f\x73\164\141\x74\165\163"] == 1) { goto tLASz; } goto BH3WR; MQOMo: $AzvOO = array("\146\137\163\x65\x6c\126\145\x6e\x64\157\162" => $Nvbqo["\x70\x61\x79\137\166\145\x6e\x64\157\162"], "\x66\137\155\157\144\x65" => 2, "\160\144\145\x74\x5f\x70\141\x79\137\151\x64" => $AUtQV, "\160\x64\145\x74\x5f\163\x74\141\x74\x75\x73" => 2); goto zVaYx; roEyL: $this->view->form = $HdP19; goto nef0K; BH91n: $wb_bN = DateTime::createFromFormat(DFS_DB, $Nvbqo["\x70\141\171\137\160\x61\171\137\x64\x61\x74\x65"]); goto I7p6Z; I7p6Z: $wb_bN = $wb_bN->format(DF_DD); goto i0Smr; PXq2z: $ueMso = $HdP19->vaidate($_POST, $_FILES); goto lLTOz; YkOmx: $w3Iq6 = json_encode($w3Iq6); goto nPFx0; BZBRj: $KObax = DateTime::createFromFormat(DF_DD, $ueMso["\160\141\171\144\x61\164\x65"]); goto ivZ1v; zmVEh: $Nvbqo = $N_oH4->getPaymentDetByPayId(array("\x70\x61\171\137\x69\x64" => $AUtQV)); goto twMaB; L_xhY: $HdP19->reset(); goto tYi_H; LazQD: $N_oH4 = new payment(); goto vDTcy; nkm6g: $iLcZ2 = uploadFiles(DOC_TYPE_PAY, $Nvbqo["\160\141\x79\137\151\144"], $ueMso["\x6d\x79\137\x66\x69\154\x65\163"]); goto diAFw; BH3WR: $this->view->NoViewRender = true; goto CbYx3; AKBaL: tLASz: goto bLIbz; lLTOz: $ueMso = $ueMso[0]; goto L9V0f; diAFw: if (!$iLcZ2) { goto Ync2J; } goto L_xhY; qhC4N: $HdP19->note->setValue($Nvbqo["\x70\141\x79\x5f\x70\x61\x79\x5f\x6e\157\164\x65"]); goto sFrlR; sRLMD: } }
+
+/*
+ * __________________________________________________
+ * | ##CreativeSol Management Information System## |
+ * |__________________________________________________|
+ */
+class paymentsController extends mvc
+{
+
+    function addAction()
+    {
+        goto py8En;
+        RGq8y:
+        $DILQY = date_format($DILQY, DFS_DB);
+        goto MY5iI;
+        NHwtP:
+        $V0UUv->addElement("\x63\142\x61\x6d\157\165\156\164", "\x43\x42\x20\101\155\157\165\156\164", "\x66\154\x6f\141\x74", "\156\165\x6d\145\x72\x69\143", '', array(
+            "\x63\x6c\141\163\x73" => "\146\151\x67"
+        ));
+        goto rS_0B;
+        CwkY0:
+        $V0UUv->addElement("\x70\x61\171\142\171", "\120\x61\x79\x20\x44\x61\164\145", "\x74\x65\x78\164", "\x64\141\x74\x65\174\162\145\161\165\x69\162\145\x64", '', array(
+            "\143\x6c\141\x73\163" => "\144\141\164\x65\137\x70\151\143\153\145\x72"
+        ));
+        goto e03gU;
+        R91sL:
+        $PIT1q = $GFDm4->geExpenseReport(@$AzvOO, "\x64\x61\164\145");
+        goto tnebJ;
+        Q32sl:
+        foreach ($i2JZx as $d8rwD) {
+            goto NUcF8;
+            NUcF8:
+            if (! ($_POST["\x63\150\x65\143\x6b"][$d8rwD] != '')) {
+                goto gCm1b;
+            }
+            goto xx2qX;
+            qG2OW:
+            $V0UUv->addErrorMsg("\155\x61\x6d\x6f\x75\156\164", "\151\156\x76\x61\154\151\x64", "\x20");
+            goto hjrrw;
+            gg8ZE:
+            M4nzZ:
+            goto N00x8;
+            gDSVs:
+            $V0UUv->addErrorMsg("\x6d\141\x6d\x6f\x75\156\x74", "\151\x6e\x76\x61\x6c\151\144", "\x21\41\x20\151\x73\x20\76\x20\50\142\151\154\x6c\55\144\x69\163\51\x20\141\x6d\x6f\165\x6e\x74");
+            goto gg8ZE;
+            FZ7lz:
+            if (! (bcsub($CTyrL[$d8rwD], $_POST["\x64\151\x73\x63\x6f\165\156\164"][$d8rwD], 3) < $_POST["\155\x61\x6d\157\x75\x6e\164"][$d8rwD])) {
+                goto M4nzZ;
+            }
+            goto XTpkU;
+            t732G:
+            $V0UUv->addmRules("\155\x61\155\x6f\165\156\164", $d8rwD, "\x69\x6e\x76\141\x6c\151\144");
+            goto qG2OW;
+            b5vWX:
+            $DX1_5 = true;
+            goto oEgvD;
+            xx2qX:
+            if (! ($_POST["\x6d\141\155\x6f\x75\x6e\x74"][$d8rwD] == '')) {
+                goto uipPA;
+            }
+            goto t732G;
+            feqCE:
+            $s3swB = $_POST["\155\x61\155\157\165\156\x74"][$d8rwD] == '' ? 0 : $_POST["\x6d\x61\155\x6f\165\156\164"][$d8rwD];
+            goto mZ3tB;
+            oEgvD:
+            $V0UUv->addRules("\x63\157\x6e\x66\151\x72\155", "\x72\x65\161\x75\x69\x72\145\x64", "\120\154\x65\141\x73\x65\x20\143\157\156\146\x69\162\155\x20\41\x21");
+            goto kiTYT;
+            nlnGL:
+            gCm1b:
+            goto GE3Db;
+            kiTYT:
+            AfOfk:
+            goto nlnGL;
+            XTpkU:
+            $V0UUv->addmRules("\x6d\141\155\x6f\165\x6e\x74", $d8rwD, "\x69\x6e\x76\141\x6c\151\144");
+            goto gDSVs;
+            hjrrw:
+            uipPA:
+            goto FZ7lz;
+            N00x8:
+            $WIjyf = $_POST["\x64\151\163\143\157\x75\156\164"][$d8rwD] == '' ? 0 : $_POST["\144\x69\163\143\157\165\x6e\x74"][$d8rwD];
+            goto feqCE;
+            GE3Db:
+            qj4tA:
+            goto e6XwM;
+            mZ3tB:
+            if (! (! $DX1_5 && $CTyrL[$d8rwD] - $WIjyf - $s3swB > 0)) {
+                goto AfOfk;
+            }
+            goto b5vWX;
+            e6XwM:
+        }
+        goto c4tmn;
+        gv2gc:
+        die($w3Iq6);
+        goto o6Q8K;
+        qUTSF:
+        $V0UUv->addMultiElement("\x6d\141\155\157\x75\156\164", "\120\141\x79\155\145\x6e\x74", "\146\x6c\x6f\141\164", "\x6e\x75\155\x65\x72\x69\x63", '', array(
+            "\143\154\141\163\x73" => "\x66\157\x72\155\55\143\157\156\x74\162\x6f\154\55\x72\x6f\x77"
+        ), $hpNLA);
+        goto slyKA;
+        U42H3:
+        $XmN32 = new vendor();
+        goto PseP7;
+        nx1cP:
+        if (! isset($_SERVER["\110\124\124\x50\137\130\x5f\122\105\x51\x55\105\x53\124\x45\x44\x5f\127\x49\124\x48"]) and strtolower($_SERVER["\x48\124\124\x50\x5f\130\137\x52\105\121\125\x45\123\124\x45\104\x5f\127\111\124\x48"]) != "\170\x6d\x6c\x68\x74\x74\160\162\145\161\165\145\x73\x74") {
+            goto bT14V;
+        }
+        goto zeRdi;
+        RSneH:
+        require_once __DIR__ . "\x2f\x2e\56\57\141\144\x6d\x69\x6e\x2f\41\155\x6f\x64\145\x6c\57\x65\x78\x70\145\x6e\x73\x65\56\x70\x68\160";
+        goto Q2B3c;
+        ptdMV:
+        $QwDPS = $Nvbqo->getPaymentDetByApproval(array(
+            "\160\x64\145\164\x5f\x73\x74\x61\x74\x75\163" => 1
+        ));
+        goto c3P27;
+        zbeih:
+        $V0UUv->addElement("\156\x6f\x74\x65", "\x4e\157\164\145", "\x74\145\170\x74\141\162\x65\x61", '');
+        goto c9IvL;
+        IG3qD:
+        require_once __DIR__ . "\57\x2e\x2e\57\x61\144\x6d\151\156\57\x21\155\157\x64\x65\x6c\57\160\141\x79\155\145\156\164\144\x65\x74\56\160\150\x70";
+        goto baroy;
+        qaEwb:
+        $w3Iq6 = json_encode($w3Iq6);
+        goto gv2gc;
+        gpCnF:
+        $this->view->expenseList = $PIT1q;
+        goto ndyDf;
+        zVt90:
+        $MI1ag = new cashbook();
+        goto cCY_S;
+        NXJYd:
+        $GFDm4 = new expense();
+        goto rh0N5;
+        CCVte:
+        if (! $oQSHX) {
+            goto DwQup;
+        }
+        goto YxwoW;
+        FoJMz:
+        $N_oH4 = new payment();
+        goto WrIme;
+        TWND0:
+        die("\x2d\55\55");
+        goto hwe0T;
+        kKRNT:
+        $V0UUv = new form();
+        goto ksqph;
+        mklk5:
+        $ueMso = $ueMso[0];
+        goto ufysj;
+        cvmbW:
+        foreach ($ueMso["\143\x68\145\x63\x6b"] as $tcvl7 => $mqInl) {
+            goto EHvB2;
+            IB_dw:
+            yOlYl:
+            goto kVJRp;
+            AP0Bf:
+            if (! ($mqInl != '')) {
+                goto OqnrZ;
+            }
+            goto fXSew;
+            EHvB2:
+            $dtSIX = $_POST["\144\x69\x73\143\x6f\x75\x6e\x74"][$d8rwD] == '' ? 0 : $_POST["\x64\151\x73\x63\x6f\165\x6e\x74"][$tcvl7];
+            goto sM7hw;
+            sM7hw:
+            $o1Zka = $_POST["\155\x61\x6d\x6f\165\156\x74"][$d8rwD] == '' ? 0 : $_POST["\x6d\141\x6d\x6f\165\x6e\x74"][$tcvl7];
+            goto AP0Bf;
+            UZpYF:
+            $RSNEV = $J3ntK->add($F5Frd);
+            goto hZNxg;
+            hZNxg:
+            OqnrZ:
+            goto IB_dw;
+            C4l10:
+            $F5Frd = array(
+                "\x70\144\145\164\137\x70\141\171\137\x69\x64" => $oQSHX,
+                "\x70\x64\145\x74\x5f\145\x78\x70\137\151\144" => $tcvl7,
+                "\x70\144\145\x74\137\141\x6d\x74\137\164\157\x70\141\x79" => $CTyrL[$tcvl7],
+                "\160\x64\x65\164\137\x61\155\164\x5f\160\141\151\144" => $ueMso["\x6d\x61\155\x6f\165\x6e\x74"][$tcvl7],
+                "\x70\144\x65\x74\137\x61\x6d\164\137\x64\151\163" => $ueMso["\x64\151\x73\x63\x6f\x75\x6e\x74"][$tcvl7] == '' ? NULL : $ueMso["\144\151\163\143\x6f\x75\x6e\164"][$tcvl7],
+                "\160\x64\145\x74\137\x61\x6d\x74\137\x62\141\x6c" => $CTyrL[$tcvl7] - $dtSIX - $o1Zka
+            );
+            goto UZpYF;
+            fXSew:
+            $F5Frd = array();
+            goto C4l10;
+            kVJRp:
+        }
+        goto dtpcc;
+        zpgK0:
+        $V0UUv->addErrorMsg("\x61\x6d\x6f\x75\x6e\x74", "\151\x6e\166\141\x6c\151\x64", "\50" . ($b54T1 - floatval($_POST["\x61\155\157\165\156\x74"])) . "\x29\x20\115\151\163\155\141\164\143\150\40\167\151\x74\x68\40\164\157\164\x61\x6c\40\141\155\x6f\x75\156\164\40\x28" . $b54T1 . "\51");
+        goto tbUMG;
+        MY5iI:
+        $F5Frd = array(
+            "\x70\x61\171\137\x76\145\x6e\144\157\162" => $ueMso["\146\x5f\x73\145\x6c\126\x65\x6e\144\157\x72"],
+            "\160\141\x79\137\x61\155\x6f\165\156\164" => $ueMso["\141\x6d\x6f\x75\156\x74"],
+            "\160\x61\171\x5f\x70\141\x79\x64\141\x74\145" => $DILQY,
+            "\160\x61\171\137\160\141\171\x5f\155\x6f\x64\145" => $ueMso["\x70\x61\x79\x6d\157\144"],
+            "\x70\141\171\x5f\143\150\161\x6e\157" => $ueMso["\143\150\161\x6e\157"],
+            "\x70\x61\x79\x5f\x72\145\x6d\141\x72\x6b\163" => $ueMso["\156\x6f\164\x65"]
+        );
+        goto BJDZS;
+        chLPU:
+        if (! (is_array($_POST["\x63\x68\145\143\x6b"]) && count($_POST["\x63\x68\145\x63\x6b"]) > 0)) {
+            goto Sjyi4;
+        }
+        goto Q32sl;
+        PseP7:
+        $Cylu_ = $XmN32->getVendorPair();
+        goto ktpZZ;
+        QGkQ1:
+        $V0UUv->addElement("\x70\145\x72\x63\x62", "\120\145\x72\163\x6f\156\141\154\40\103\x61\x73\150\40\x42\x6f\x6f\x6b", "\143\150\145\143\153\x62\157\170", '', array(
+            "\x6f\160\x74\x69\157\156\163" => array(
+                1 => "\x50\145\x72\x73\157\x6e\156\x61\x6c\40\103\141\163\150\40\102\157\x6f\x6b"
+            )
+        ));
+        goto NHwtP;
+        BdRIC:
+        if (! ((string) $b54T1 != $_POST["\141\x6d\157\165\x6e\x74"] && $_POST["\141\x6d\x6f\x75\156\x74"] != '')) {
+            goto HvJhw;
+        }
+        goto kl32E;
+        WrIme:
+        $DILQY = DateTime::createFromFormat(DF_DD, $ueMso["\160\141\171\142\x79"]);
+        goto RGq8y;
+        ECCOf:
+        if (! ($ueMso == true)) {
+            goto FmfRe;
+        }
+        goto KFZHE;
+        c4tmn:
+        JHKGh:
+        goto YvRj7;
+        zeRdi:
+        $V0UUv->f_selVendor->setValue($_POST["\146\137\163\x65\x6c\x56\x65\156\144\157\162"]);
+        goto lxLgB;
+        jGCaU:
+        $PIT1q = [];
+        goto dxcT5;
+        yG2cW:
+        WgLku:
+        goto Mq8HT;
+        hwe0T:
+        EuHCu:
+        goto xe44Y;
+        o6Q8K:
+        DwQup:
+        goto DuPv2;
+        DscmG:
+        wEczr:
+        goto d5yCw;
+        dtpcc:
+        X3lMH:
+        goto DscmG;
+        Q2B3c:
+        $UFPhr = true;
+        goto CYT9C;
+        SAoX_:
+        bT14V:
+        goto TWND0;
+        lPqSF:
+        $V0UUv->addErrorMsg("\x6d\x61\155\x6f\x75\x6e\x74", "\162\145\161\x75\151\x72\x65\144", "\40");
+        goto XumRp;
+        KFZHE:
+        require_once __DIR__ . "\57\56\56\x2f\141\x64\155\151\156\x2f\x21\x6d\157\144\x65\x6c\x2f\x70\141\171\x6d\145\x6e\164\x2e\x70\150\160";
+        goto FoJMz;
+        rh0N5:
+        if ($_POST) {
+            goto ukaJC;
+        }
+        goto jGCaU;
+        baroy:
+        $Nvbqo = new paymentdet();
+        goto ptdMV;
+        h6g4M:
+        $this->view->form1 = $ll2VR;
+        goto BI4JX;
+        lzqUB:
+        $oQSHX = $N_oH4->add($F5Frd);
+        goto CCVte;
+        YxwoW:
+        require_once __DIR__ . "\x2f\56\x2e\x2f\141\x64\x6d\151\156\x2f\41\155\157\x64\145\154\x2f\160\x61\x79\155\145\156\164\144\x65\x74\x2e\x70\150\x70";
+        goto QwYJG;
+        XumRp:
+        if (! ($_POST["\x70\x61\171\x6d\x6f\x64"] == "\x32")) {
+            goto TMyvw;
+        }
+        goto zxXVz;
+        baHou:
+        $AzvOO["\x65\x78\143\x6c\x75\x64\x65"] = implode("\54", $QwDPS);
+        goto ejdFV;
+        oiAuf:
+        $CTyrL = $GFDm4->getExpenseAmountPair(@$AzvOO);
+        goto APPvM;
+        AF1AM:
+        $V0UUv->addMultiElement("\143\x68\x65\143\153", "\123\145\154\145\x63\x74\40\142\151\x6c\154", "\x63\150\x65\143\153\142\x6f\x78", '', array(
+            "\x6f\x70\164\x69\157\156\x73" => array(
+                1 => ''
+            )
+        ), array(
+            '' => "\157\x6e\103\x6c\x69\x63\x6b\75\x27\164\x6f\x67\x67\x6c\x65\x48\x65\151\x67\x68\164\x28\164\150\151\163\51\x27",
+            "\143\x6c\141\163\163" => "\142\151\x6c\154\55\x73\x65\x6c\x65\x63\x74"
+        ), $hpNLA);
+        goto qUTSF;
+        hssIx:
+        $V0UUv->addElement("\143\x68\161\156\157", "\103\x68\145\x71\x75\x65\40\x4e\157\40", "\x74\x65\170\164", '');
+        goto zbeih;
+        beo92:
+        $V0UUv->addElement("\143\x61\163\x68\106\154\x6f\167", "\103\x61\163\150\x20\x46\154\x6f\167", "\163\x65\x6c\145\143\164", '', array(
+            "\x6f\160\164\x69\157\156\x73" => $OAe5B
+        ));
+        goto CwkY0;
+        d5yCw:
+        if (! ($ueMso["\x70\x65\x72\x63\142"] == 1)) {
+            goto f23to;
+        }
+        goto Ltt1A;
+        kl32E:
+        $V0UUv->addRules("\141\x6d\x6f\165\x6e\164", "\151\156\166\x61\x6c\x69\144");
+        goto zpgK0;
+        hwCMX:
+        ukaJC:
+        goto nx1cP;
+        ZFILs:
+        F56p8:
+        goto BdRIC;
+        rS_0B:
+        require_once __DIR__ . "\x2f\56\56\57\x61\144\x6d\151\156\57\x21\x6d\x6f\144\x65\154\57\143\x61\x73\x68\146\154\157\x77\x2e\160\150\x70";
+        goto JaPUT;
+        NX8Do:
+        $i2JZx = array_keys($V0UUv->_elements["\143\x68\x65\143\x6b"]);
+        goto lPqSF;
+        ndyDf:
+        $this->view->billAmount = $CTyrL;
+        goto haWbI;
+        YvRj7:
+        foreach ($_POST["\x63\x68\x65\143\x6b"] as $VI3wT => $PRont) {
+            $b54T1 += $_POST["\155\x61\155\x6f\165\156\164"][$VI3wT];
+            SFarX:
+        }
+        goto ZFILs;
+        ejdFV:
+        L3KAC:
+        goto R91sL;
+        tbUMG:
+        HvJhw:
+        goto UiL33;
+        Sbt8P:
+        $OAe5B = $xf3CG->getCashFlowPair();
+        goto beo92;
+        JaPUT:
+        $xf3CG = new cashflow();
+        goto Sbt8P;
+        slyKA:
+        $V0UUv->addMultiElement("\144\151\x73\x63\157\165\156\x74", "\104\x69\x73\143\157\165\x6e\x74", "\146\x6c\157\x61\x74", "\x6e\x75\155\x65\x72\151\143", '', array(
+            "\x63\154\141\163\x73" => "\x66\x6f\162\155\x2d\143\x6f\x6e\164\162\157\154\x2d\x72\157\167"
+        ), $hpNLA);
+        goto NX8Do;
+        NOkO3:
+        $this->view->NoViewRender = true;
+        goto pXmNh;
+        QwYJG:
+        $J3ntK = new paymentdet();
+        goto IhOhL;
+        tnebJ:
+        $hpNLA = $GFDm4->getExpenseVendorPair(@$AzvOO);
+        goto oiAuf;
+        N38qu:
+        $this->view->form2 = $V0UUv;
+        goto h6g4M;
+        Ltt1A:
+        require_once __DIR__ . "\57\56\56\x2f\x61\x64\155\151\156\57\x21\155\x6f\x64\x65\x6c\x2f\x63\141\x73\x68\142\157\x6f\153\x2e\x70\x68\160";
+        goto zVt90;
+        gaL3R:
+        Sjyi4:
+        goto B9QSI;
+        I2THN:
+        require_once __DIR__ . "\57\56\x2e\x2f\x61\x64\x6d\x69\156\57\x21\155\157\x64\x65\x6c\57\166\x65\x6e\x64\157\x72\56\x70\150\x70";
+        goto U42H3;
+        AOMOI:
+        f23to:
+        goto NOkO3;
+        c7Z4s:
+        TMyvw:
+        goto chLPU;
+        dxcT5:
+        goto dsd9n;
+        goto hwCMX;
+        BI4JX:
+        $this->view->formRender = $UFPhr;
+        goto gpCnF;
+        lxLgB:
+        $ueMso = $ll2VR->vaidate($_POST, $_FILES);
+        goto qSgwy;
+        DuPv2:
+        FmfRe:
+        goto gaL3R;
+        JCMl4:
+        $V0UUv->addElement("\x63\157\156\146\151\x72\x6d", "\103\157\156\x66\151\x72\x6d", "\143\x68\145\x63\x6b\x62\x6f\170", '', array(
+            "\x6f\160\x74\x69\x6f\156\163" => array(
+                1 => "\117\113"
+            )
+        ));
+        goto NXJYd;
+        A9hgS:
+        if (! ($ueMso == true)) {
+            goto WgLku;
+        }
+        goto IG3qD;
+        pXmNh:
+        $w3Iq6 = array(
+            "\146\x65\145\144\142\x61\x63\153" => "\120\x61\171\155\145\156\x74\x20\x64\x65\x74\x61\151\x6c\163\x20\141\144\144\x65\144\40\x73\165\x63\143\145\163\x73\x66\165\x6c\154\171"
+        );
+        goto qaEwb;
+        c9IvL:
+        $V0UUv->addElement("\146\x5f\x73\x65\154\126\145\156\x64\x6f\x72", "\x56\145\156\144\157\x72", "\150\x69\x64\144\145\156", "\x72\x65\161\165\151\x72\145\x64");
+        goto JCMl4;
+        APPvM:
+        if (! (count($hpNLA) > 0)) {
+            goto wbB4G;
+        }
+        goto AF1AM;
+        Mq8HT:
+        goto EuHCu;
+        goto SAoX_;
+        c3P27:
+        if (! (count($QwDPS) > 0)) {
+            goto L3KAC;
+        }
+        goto baHou;
+        qSgwy:
+        $AzvOO = array(
+            "\146\x5f\163\x65\154\126\x65\156\x64\x6f\162" => @$_POST["\x66\137\x73\145\154\126\145\x6e\x64\x6f\x72"],
+            "\146\137\155\157\144\x65" => 2,
+            "\x65\x78\160\x5f\160\x73\x74\x61\x74\165\163" => 2
+        );
+        goto waG9B;
+        BJDZS:
+        if (! $ueMso["\143\141\x73\x68\106\x6c\157\167"]) {
+            goto amegt;
+        }
+        goto WlDWN;
+        ufysj:
+        $QwDPS = [];
+        goto d4GGi;
+        zxXVz:
+        $V0UUv->addRules("\143\x68\161\x6e\x6f", "\162\x65\161\x75\151\x72\x65\x64");
+        goto c7Z4s;
+        haWbI:
+        $this->view->balanceConfirm = $DX1_5;
+        goto SxshL;
+        CYT9C:
+        $ll2VR = new form();
+        goto kKRNT;
+        ksqph:
+        $DX1_5 = '';
+        goto I2THN;
+        d4GGi:
+        $hpNLA = [];
+        goto A9hgS;
+        B9QSI:
+        wbB4G:
+        goto yG2cW;
+        WlDWN:
+        $F5Frd["\x70\141\x79\x5f\x63\141\163\150\x5f\x66\154\x6f\x77"] = $ueMso["\x63\x61\x73\x68\106\x6c\157\167"];
+        goto eXRMD;
+        ktpZZ:
+        $ll2VR->addElement("\146\x5f\x73\145\x6c\x56\145\156\x64\157\162", "\x56\145\x6e\x64\157\x72", "\x73\x65\154\x65\143\x74", "\162\145\161\165\151\x72\x65\144", array(
+            "\157\160\x74\x69\x6f\156\163" => $Cylu_
+        ));
+        goto QGkQ1;
+        waG9B:
+        $ueMso = $ll2VR->vaidate($_POST, $_FILES);
+        goto mklk5;
+        IhOhL:
+        if (! (count($ueMso["\x63\150\145\143\x6b"]) > 0)) {
+            goto wEczr;
+        }
+        goto cvmbW;
+        c7NvU:
+        $MI1ag->add($pjE_b);
+        goto AOMOI;
+        py8En:
+        $this->view->response("\141\152\x61\x78");
+        goto RSneH;
+        eXRMD:
+        amegt:
+        goto lzqUB;
+        cWyDX:
+        $V0UUv->addElement("\x61\x6d\x6f\x75\156\x74", "\101\x6d\157\165\x6e\x74", "\x66\x6c\x6f\141\164", "\162\x65\161\165\151\162\x65\x64\174\156\x75\155\145\x72\151\x63", '', array(
+            "\x63\x6c\141\x73\163" => "\x66\151\147"
+        ));
+        goto hssIx;
+        xe44Y:
+        dsd9n:
+        goto N38qu;
+        cCY_S:
+        $pjE_b = array(
+            "\x63\x62\x5f\164\x79\160\x65" => CASH_BOOK_PER,
+            "\x63\x62\x5f\x74\171\x70\145\137\x72\145\x66" => USER_ID,
+            "\143\142\137\x65\170\160\137\x69\144" => $oQSHX,
+            "\143\142\x5f\x65\170\160\137\164\x79\x70\145" => 2,
+            "\x63\142\137\x63\162\x65\x64\x69\x74" => $ueMso["\x63\142\x61\155\157\x75\156\164"] != '' ? $ueMso["\143\x62\141\x6d\x6f\x75\156\164"] : $ueMso["\x61\155\157\x75\x6e\x74"],
+            "\143\142\137\144\x61\164\145" => $DILQY
+        );
+        goto c7NvU;
+        e03gU:
+        $V0UUv->addElement("\x70\x61\171\155\157\144", "\x43\141\163\x68\57\103\150\145\161\165\x65", "\162\141\x64\x69\x6f", "\x72\x65\x71\x75\151\162\145\x64", array(
+            "\157\160\x74\x69\x6f\156\163" => array(
+                1 => "\103\x61\163\x68",
+                2 => "\x43\150\x65\161\x75\x65"
+            )
+        ));
+        goto cWyDX;
+        UiL33:
+        $ueMso = $V0UUv->vaidate($_POST, $_FILES);
+        goto NPT4d;
+        NPT4d:
+        $ueMso = $ueMso[0];
+        goto ECCOf;
+        SxshL:
+    }
+
+    function editAction()
+    {
+        goto Xq2VN;
+        oV2iz:
+        $AzvOO = array(
+            "\x66\137\163\145\154\126\145\x6e\x64\x6f\162" => $Nvbqo["\160\x61\171\137\166\x65\x6e\144\157\x72"],
+            "\146\x5f\155\157\x64\145" => 2,
+            "\x70\144\145\x74\137\160\x61\x79\137\x69\x64" => $AUtQV,
+            "\x65\170\160\x5f\160\x73\164\x61\164\165\x73" => 2
+        );
+        goto Ywi9f;
+        tsl0w:
+        zpjQL:
+        goto LkMTH;
+        WJNay:
+        $AUtQV = $this->view->decode($this->view->param["\x72\145\146"]);
+        goto Q3ncF;
+        tK2b_:
+        if (! (is_array($_POST["\143\x68\145\143\153"]) && count($_POST["\143\150\x65\x63\153"]) > 0)) {
+            goto oCu9l;
+        }
+        goto LFI7W;
+        gmqD9:
+        $DX1_5 = '';
+        goto WJNay;
+        LkMTH:
+        if (! ($ueMso["\160\145\162\143\142"] == '' && $Nvbqo["\x63\142\137\151\x64"] != '' && $Nvbqo["\x63\x62\x5f\164\x79\160\x65\137\x72\145\x66"] == USER_ID)) {
+            goto qC2gM;
+        }
+        goto zjQba;
+        jDQH_:
+        $JXkLH = $JXkLH->format(DF_DD);
+        goto dfFeP;
+        Ckjce:
+        if ($_POST) {
+            goto l0Ue4;
+        }
+        goto vE17_;
+        ggcPQ:
+        $ueMso = $ll2VR->vaidate($_POST, $_FILES);
+        goto GmtFV;
+        PCNpI:
+        if (! isset($_SERVER["\x48\x54\124\120\137\x58\x5f\122\x45\x51\x55\x45\x53\x54\x45\104\137\x57\x49\124\x48"]) and strtolower($_SERVER["\x48\x54\x54\x50\x5f\130\x5f\x52\105\x51\x55\x45\x53\124\105\x44\137\127\111\x54\x48"]) != "\x78\x6d\x6c\150\164\x74\x70\x72\x65\161\165\145\x73\x74") {
+            goto QyFJ6;
+        }
+        goto t5wiJ;
+        cK2Uo:
+        $V0UUv->addElement("\156\x6f\164\145", "\x4e\x6f\x74\145", "\x74\145\170\164\x61\162\145\x61", '');
+        goto nCQvO;
+        qg5b5:
+        $PIT1q = $GFDm4->getPaymentExpDet($AzvOO, "\144\x61\x74\145");
+        goto iNJCs;
+        raqKU:
+        $this->view->NoViewRender = true;
+        goto DM5nF;
+        r8rGK:
+        $V0UUv->addElement("\160\x61\171\142\x79", "\120\141\171\40\x44\141\x74\145", "\164\x65\x78\164", "\x64\x61\164\145\174\162\x65\x71\165\x69\x72\145\144", '', array(
+            "\x63\154\x61\163\163" => "\x64\x61\164\x65\137\160\x69\143\x6b\x65\162"
+        ));
+        goto UuxwU;
+        tUHnm:
+        $MI1ag->add($pjE_b);
+        goto tsl0w;
+        R15FP:
+        $V0UUv->cashFlow->setValue($Nvbqo["\160\141\171\x5f\x63\x61\163\x68\x5f\x66\x6c\x6f\167"]);
+        goto MeZJZ;
+        o8IkO:
+        DwNMS:
+        goto oC1FK;
+        YabJ5:
+        if (! ($ueMso == true)) {
+            goto OoXOr;
+        }
+        goto FV25r;
+        oC1FK:
+        require_once __DIR__ . "\57\56\56\x2f\x61\x64\155\x69\x6e\57\x21\x6d\157\x64\x65\154\x2f\x63\141\163\150\x62\x6f\157\153\56\160\x68\160";
+        goto D_xlg;
+        MBR3G:
+        $F5Frd = array(
+            "\160\x61\171\137\x76\145\x6e\144\x6f\x72" => $ueMso["\x66\137\163\145\154\x56\x65\156\x64\x6f\x72"],
+            "\x70\x61\171\137\x61\x6d\157\165\x6e\164" => $ueMso["\141\155\157\x75\x6e\164"],
+            "\x70\x61\x79\x5f\160\141\x79\x64\x61\x74\145" => $DILQY,
+            "\160\x61\x79\x5f\x70\141\x79\x5f\155\x6f\x64\x65" => $ueMso["\x70\x61\x79\x6d\157\144"],
+            "\x70\141\171\137\x63\150\161\156\157" => $ueMso["\143\150\x71\x6e\157"],
+            "\160\x61\171\x5f\162\145\x6d\141\x72\153\x73" => $ueMso["\156\x6f\164\145"]
+        );
+        goto pO52G;
+        A5Q7u:
+        goto Y_GlY;
+        goto ZekSu;
+        dph7F:
+        Bz2lD:
+        goto BaFLL;
+        pjoyv:
+        pnKf_:
+        goto cDAyp;
+        hHCZU:
+        la38B:
+        goto tK2b_;
+        pO52G:
+        if (! $ueMso["\143\141\163\x68\106\154\157\x77"]) {
+            goto DE4wH;
+        }
+        goto OE3oo;
+        DUaZI:
+        $N_oH4 = new payment();
+        goto a96RM;
+        sLUxH:
+        $PIT1q = [];
+        goto C5v9G;
+        d3KGX:
+        foreach ($_POST["\x63\x68\145\x63\153"] as $tcvl7 => $mqInl) {
+            goto nT_Am;
+            b2aC5:
+            egp0A:
+            goto BijxU;
+            ThffI:
+            if (! ($mqInl != '')) {
+                goto egp0A;
+            }
+            goto uxbUn;
+            BijxU:
+            tqbv1:
+            goto eWJ5y;
+            nT_Am:
+            $dtSIX = $_POST["\144\x69\x73\x63\x6f\x75\156\164"][$d8rwD] == '' ? 0 : $_POST["\x64\151\163\143\x6f\165\x6e\164"][$tcvl7];
+            goto o35OJ;
+            oRngS:
+            $RSNEV = $J3ntK->add($F5Frd);
+            goto b2aC5;
+            o35OJ:
+            $o1Zka = $_POST["\x6d\141\x6d\157\165\156\164"][$d8rwD] == '' ? 0 : $_POST["\x6d\x61\x6d\157\x75\156\x74"][$tcvl7];
+            goto ThffI;
+            uxbUn:
+            $F5Frd = array();
+            goto RNfOx;
+            RNfOx:
+            $F5Frd = array(
+                "\160\x64\145\164\x5f\x70\141\171\137\151\144" => $AUtQV,
+                "\x70\x64\145\x74\x5f\145\170\160\137\x69\144" => $tcvl7,
+                "\160\x64\x65\164\137\x61\155\164\137\164\157\160\141\x79" => $CTyrL[$tcvl7],
+                "\160\x64\145\x74\137\141\x6d\x74\x5f\160\141\x69\144" => $ueMso["\x6d\x61\x6d\157\165\156\x74"][$tcvl7],
+                "\160\x64\145\x74\137\141\155\x74\x5f\144\x69\163" => $ueMso["\144\x69\x73\x63\x6f\x75\x6e\164"][$tcvl7] == '' ? NULL : $ueMso["\x64\x69\163\x63\x6f\165\156\x74"][$tcvl7],
+                "\160\x64\x65\x74\x5f\141\x6d\x74\x5f\142\x61\154" => $CTyrL[$tcvl7] - $dtSIX - $o1Zka
+            );
+            goto oRngS;
+            eWJ5y:
+        }
+        goto wM05L;
+        vE17_:
+        $JXkLH = DateTime::createFromFormat(DFS_DB, $Nvbqo["\160\141\x79\x5f\160\141\x79\x64\x61\x74\145"]);
+        goto jDQH_;
+        tsqQj:
+        $V0UUv->addElement("\143\x68\x71\156\157", "\x43\150\145\x71\x75\145\40\116\x6f\x20", "\164\x65\170\x74", '');
+        goto cK2Uo;
+        MZkfj:
+        $ll2VR->addElement("\x66\137\163\145\154\126\145\x6e\x64\157\162", "\x56\145\x6e\144\157\162", "\x73\145\154\x65\143\x74", "\x72\145\x71\165\x69\x72\145\x64", array(
+            "\157\x70\x74\151\157\156\x73" => $Cylu_
+        ));
+        goto yTd1j;
+        AdMvx:
+        $QwDPS = $q8uOc->getPaymentDetByApproval(array(
+            "\160\x64\x65\x74\x5f\163\164\x61\x74\x75\163" => 1,
+            "\160\144\x65\x74\x5f\160\141\171\x5f\151\x64\137\145\x78\x63\x6c\x75\144\x65" => $AUtQV
+        ));
+        goto qVMLU;
+        HopQH:
+        require_once __DIR__ . "\x2f\x2e\56\x2f\x61\x64\155\151\x6e\x2f\x21\155\157\x64\145\x6c\x2f\145\170\160\145\156\x73\x65\x2e\160\x68\160";
+        goto cx8zM;
+        pCktM:
+        $V0UUv->addElement("\x63\142\x61\x6d\157\165\156\164", "\103\x42\x20\101\x6d\157\x75\x6e\x74", "\x66\154\x6f\141\x74", "\156\x75\x6d\x65\x72\151\143", '', array(
+            "\143\x6c\141\163\163" => "\146\151\x67"
+        ));
+        goto r8rGK;
+        ru4lb:
+        $V0UUv->cbamount->setValue($Nvbqo["\x63\x62\x5f\x63\x72\145\x64\151\x74"]);
+        goto sdUBD;
+        C5v9G:
+        goto m_7xF;
+        goto lUbWl;
+        OE3oo:
+        $F5Frd["\x70\x61\171\x5f\143\141\163\150\137\146\x6c\157\167"] = $ueMso["\x63\141\x73\x68\106\x6c\157\x77"];
+        goto F_xkp;
+        sEZ5y:
+        if (! ($Nvbqo["\x63\x62\137\151\144"] != '')) {
+            goto lcfNN;
+        }
+        goto vLmAr;
+        c3JPj:
+        G3L_6:
+        goto bZuRK;
+        cDAyp:
+        Y_GlY:
+        goto MpwzJ;
+        dfFeP:
+        $ll2VR->f_selVendor->setValue($Nvbqo["\x70\x61\171\x5f\x76\145\x6e\x64\x6f\162"]);
+        goto noMh4;
+        C_2_o:
+        $V0UUv->note->setValue($Nvbqo["\x70\x61\171\x5f\x72\145\155\x61\x72\153\x73"]);
+        goto R15FP;
+        YYz8H:
+        $q8uOc = new paymentdet();
+        goto AdMvx;
+        vLmAr:
+        $V0UUv->percb->setValue(1);
+        goto ru4lb;
+        xp5kV:
+        require_once __DIR__ . "\x2f\56\56\x2f\141\144\x6d\x69\x6e\x2f\41\x6d\x6f\144\x65\154\57\x76\x65\156\144\x6f\162\x2e\160\x68\160";
+        goto o_yfT;
+        F_xkp:
+        DE4wH:
+        goto gQYAO;
+        Oa432:
+        $ueMso = $ueMso[0];
+        goto XCCv8;
+        lUbWl:
+        c6_4s:
+        goto xp5kV;
+        yp00I:
+        RE72j:
+        goto eud2b;
+        K5juJ:
+        $w3Iq6 = json_encode($w3Iq6);
+        goto SUafr;
+        GmtFV:
+        $ueMso = $ueMso[0];
+        goto YabJ5;
+        sdUBD:
+        lcfNN:
+        goto yZ6YE;
+        Q3ncF:
+        if ($AUtQV) {
+            goto vyB4l;
+        }
+        goto Ie5Ou;
+        yTd1j:
+        require_once __DIR__ . "\x2f\x2e\x2e\57\x61\144\155\x69\x6e\x2f\41\155\157\x64\x65\x6c\57\143\x61\163\x68\x66\154\x6f\167\x2e\x70\x68\x70";
+        goto KRYne;
+        o41GC:
+        l0Ue4:
+        goto Rcmtf;
+        irfhf:
+        if (! ($ueMso == true)) {
+            goto lgjI7;
+        }
+        goto YI2Wp;
+        BaFLL:
+        goto pnKf_;
+        goto wPtId;
+        wPtId:
+        QyFJ6:
+        goto hC2kW;
+        nXN7Z:
+        goto zpjQL;
+        goto oRpOh;
+        Ie5Ou:
+        die("\x74\141\155\x70\145\162\x65\144");
+        goto XT4bg;
+        k0JsU:
+        $V0UUv->addMultiElement("\155\x61\x6d\x6f\x75\x6e\164", "\x50\141\x79\155\145\x6e\x74", "\146\154\157\141\164", "\156\x75\x6d\x65\x72\x69\x63", '', array(
+            "\x63\x6c\x61\163\x73" => "\x66\x6f\x72\x6d\55\143\x6f\156\x74\x72\x6f\x6c\55\x72\157\x77"
+        ), $hpNLA);
+        goto NNQJl;
+        UuxwU:
+        $V0UUv->addElement("\160\x61\x79\155\157\x64", "\103\141\x73\x68\57\103\x68\145\161\165\145", "\162\x61\144\151\157", "\x72\x65\161\165\x69\162\145\144", array(
+            "\157\x70\164\x69\157\156\163" => array(
+                1 => "\103\141\x73\150",
+                2 => "\103\150\145\x71\165\145"
+            )
+        ));
+        goto Zqvqi;
+        PBd3V:
+        $hpNLA = $GFDm4->getExpenseVendorPair($AzvOO);
+        goto s3ofm;
+        zOScB:
+        OuXnr:
+        goto t1kVZ;
+        MpwzJ:
+        if (! count($PIT1q)) {
+            goto BsauL;
+        }
+        goto PBd3V;
+        ihnp9:
+        if (! (count($QwDPS) > 0)) {
+            goto RE72j;
+        }
+        goto qFp1h;
+        RcD_H:
+        RZwgR:
+        goto fCCDd;
+        oRpOh:
+        JQjDP:
+        goto Stky8;
+        QS7pi:
+        $AzvOO = array(
+            "\146\137\x73\x65\x6c\126\145\x6e\x64\157\162" => $ueMso["\x66\137\x73\145\x6c\126\x65\156\x64\157\x72"],
+            "\x66\x5f\x6d\157\144\x65" => 2,
+            "\x65\170\x70\137\x70\163\164\141\164\x75\163" => 2
+        );
+        goto ihnp9;
+        zfJcc:
+        $V0UUv->addErrorMsg("\x61\x6d\157\165\156\164", "\151\x6e\x76\x61\x6c\x69\x64", "\x28" . ($b54T1 - floatval($_POST["\x61\x6d\157\x75\x6e\164"])) . "\x29\x20\115\151\x73\155\141\164\143\150\x20\167\x69\x74\150\40\164\157\164\x61\x6c\40\x61\155\157\x75\156\164\x20\x28" . $b54T1 . "\51");
+        goto TmSbD;
+        kcZ9X:
+        vJIQ5:
+        goto BSaKg;
+        s3ofm:
+        $CTyrL = $GFDm4->getExpenseAmountPair($AzvOO);
+        goto xyDHF;
+        KRYne:
+        $xf3CG = new cashflow();
+        goto Y6u1A;
+        q45c7:
+        $ueMso = $ueMso[0];
+        goto irfhf;
+        qVMLU:
+        if ($_POST) {
+            goto V21ad;
+        }
+        goto oV2iz;
+        HsQM5:
+        $ueMso = $V0UUv->vaidate($_POST, $_FILES);
+        goto q45c7;
+        gOj2_:
+        goto UbdRI;
+        goto An6kn;
+        yNOQu:
+        JGSEm:
+        goto sEZ5y;
+        NMBZm:
+        if ($ueMso["\160\x65\162\x63\x62"] == 1 && $Nvbqo["\143\142\137\x69\144"] != '' && $Nvbqo["\143\x62\137\164\171\160\145\x5f\x72\145\x66"] == USER_ID) {
+            goto JQjDP;
+        }
+        goto JNtsz;
+        AgOwE:
+        $Nvbqo = $N_oH4->getPaymentDetByPaymentId(array(
+            "\x70\x61\171\137\x69\144" => $AUtQV
+        ));
+        goto IabXE;
+        SLVjb:
+        BsauL:
+        goto Ckjce;
+        Stky8:
+        $MI1ag->modify($pjE_b, $Nvbqo["\143\x62\137\x69\144"]);
+        goto VIiRz;
+        VFDRs:
+        $this->view->form1 = $ll2VR;
+        goto Tp95q;
+        XCCv8:
+        if (! ($ueMso == true)) {
+            goto Bz2lD;
+        }
+        goto QS7pi;
+        ZekSu:
+        V21ad:
+        goto PCNpI;
+        iwkjg:
+        $Cylu_ = $XmN32->getVendorPair();
+        goto MZkfj;
+        X7UuB:
+        OoXOr:
+        goto gOj2_;
+        xyDHF:
+        $V0UUv->addMultiElement("\143\150\145\143\153", "\x53\x65\154\145\x63\164\x20\x62\x69\x6c\154", "\143\150\x65\143\x6b\x62\x6f\170", '', array(
+            "\157\160\x74\151\157\x6e\x73" => array(
+                1 => ''
+            )
+        ), array(
+            '' => "\x6f\x6e\x43\x6c\x69\x63\x6b\x3d\x27\x74\157\147\x67\154\x65\x48\145\151\x67\x68\x74\x28\x74\x68\151\x73\x29\47",
+            "\143\x6c\141\x73\163" => "\x62\151\x6c\x6c\55\x73\x65\x6c\145\x63\164"
+        ), $hpNLA);
+        goto k0JsU;
+        sCttD:
+        $V0UUv->addElement("\160\145\162\143\142", "\x50\145\162\163\157\x6e\141\154\40\103\x61\163\150\x20\x42\x6f\x6f\153", "\143\x68\x65\x63\x6b\x62\x6f\170", '', array(
+            "\157\x70\x74\x69\157\x6e\x73" => array(
+                1 => "\x50\145\162\x73\157\156\x6e\x61\154\x20\x43\x61\x73\150\40\102\x6f\x6f\153"
+            )
+        ));
+        goto pCktM;
+        FA_ZO:
+        die("\x2d\x2d\55");
+        goto NlczR;
+        aOg9f:
+        $GFDm4 = new expense();
+        goto gxacf;
+        JNtsz:
+        if ($ueMso["\160\x65\x72\x63\x62"] == 1 && $Nvbqo["\143\142\137\x69\x64"] == '') {
+            goto WfTEW;
+        }
+        goto nXN7Z;
+        SUafr:
+        die($w3Iq6);
+        goto kcZ9X;
+        Zqvqi:
+        $V0UUv->addElement("\x61\x6d\157\x75\x6e\x74", "\x41\x6d\157\165\x6e\x74", "\146\x6c\x6f\141\164", "\162\145\161\165\x69\x72\145\144\174\156\x75\x6d\x65\x72\x69\143", '', array(
+            "\143\x6c\141\163\163" => "\146\151\x67"
+        ));
+        goto tsqQj;
+        o_yfT:
+        $XmN32 = new vendor();
+        goto iwkjg;
+        SC5he:
+        $this->view->formPostStatus = $cltaS;
+        goto wJ561;
+        mLa_A:
+        $V0UUv->addErrorMsg("\x6d\141\155\157\165\156\164", "\162\x65\x71\165\x69\x72\x65\x64", "\40");
+        goto SLVjb;
+        FV25r:
+        if (! (is_array($hpNLA) && count($hpNLA) > 0)) {
+            goto HIq7m;
+        }
+        goto xr3S4;
+        X5vAn:
+        $V0UUv->addElement("\x63\141\x73\150\x46\x6c\x6f\x77", "\x43\x61\x73\x68\x20\x46\154\157\x77", "\163\x65\x6c\x65\143\164", '', array(
+            "\x6f\x70\x74\x69\x6f\156\x73" => $OAe5B
+        ));
+        goto sCttD;
+        jP6Sc:
+        if (! (count($_POST["\x63\150\145\x63\x6b"]) > 0)) {
+            goto DwNMS;
+        }
+        goto d3KGX;
+        dqMG2:
+        require_once __DIR__ . "\57\56\x2e\x2f\x61\144\x6d\x69\x6e\x2f\41\x6d\x6f\x64\145\x6c\x2f\160\x61\171\x6d\x65\x6e\164\56\x70\150\x70";
+        goto DUaZI;
+        Vj9Fj:
+        $V0UUv->amount->setValue($Nvbqo["\160\x61\x79\137\141\155\x6f\165\156\x74"]);
+        goto SkLBa;
+        SkLBa:
+        $V0UUv->payby->setValue($JXkLH);
+        goto O82dj;
+        BSaKg:
+        lgjI7:
+        goto cWuS0;
+        Y6u1A:
+        $OAe5B = $xf3CG->getCashFlowPair();
+        goto X5vAn;
+        a96RM:
+        require_once __DIR__ . "\x2f\56\56\57\141\x64\155\x69\156\x2f\41\155\x6f\x64\145\154\57\x70\141\x79\155\145\156\x74\144\145\164\x2e\x70\x68\160";
+        goto yA756;
+        IabXE:
+        if ($Nvbqo["\160\x61\x79\x5f\x61\160\160\137\x73\x74\x61\x74\x75\163"] == 0) {
+            goto c6_4s;
+        }
+        goto sLUxH;
+        McVhr:
+        $DILQY = date_format($DILQY, DFS_DB);
+        goto MBR3G;
+        OLMxm:
+        $ueMso = $ll2VR->vaidate($_POST, $_FILES);
+        goto Oa432;
+        QKG6N:
+        HIq7m:
+        goto X7UuB;
+        sQ3ol:
+        $V0UUv->addElement("\x63\157\156\x66\x69\x72\155", "\103\157\156\146\x69\162\155", "\143\150\x65\143\153\x62\x6f\x78", '', array(
+            "\x6f\160\164\151\157\156\x73" => array(
+                "\61" => "\x4f\x4b"
+            )
+        ));
+        goto aOg9f;
+        Xq2VN:
+        $this->view->response("\141\x6a\x61\x78");
+        goto HopQH;
+        O82dj:
+        $V0UUv->paymod->setValue($Nvbqo["\160\x61\x79\x5f\x70\141\171\137\155\157\x64\145"]);
+        goto PM5Z6;
+        PNVgg:
+        $this->view->expenseList = $PIT1q;
+        goto GeiJS;
+        zkvq9:
+        DkTN_:
+        goto qg5b5;
+        hC2kW:
+        die("\55\55\x2d");
+        goto pjoyv;
+        kEb2l:
+        if (! $sQnRb) {
+            goto vJIQ5;
+        }
+        goto gyI62;
+        YI2Wp:
+        $DILQY = DateTime::createFromFormat(DF_DD, $ueMso["\160\x61\x79\142\x79"]);
+        goto McVhr;
+        DM5nF:
+        $w3Iq6 = array(
+            "\146\x65\x65\144\142\141\x63\153" => "\x50\x61\x79\x6d\x65\156\164\x20\x64\145\x74\x61\151\154\163\40\x75\x70\144\x61\164\145\x64\40\x73\165\x63\143\x65\x73\163\146\x75\154\154\x79"
+        );
+        goto K5juJ;
+        Tp95q:
+        $this->view->formRender = $UFPhr;
+        goto PNVgg;
+        qFp1h:
+        $AzvOO["\145\170\143\154\165\144\145"] = implode("\x2c", $QwDPS);
+        goto yp00I;
+        VIiRz:
+        goto zpjQL;
+        goto xLk9M;
+        yZ6YE:
+        goto OuXnr;
+        goto o41GC;
+        nCQvO:
+        $V0UUv->addElement("\146\137\163\145\154\x56\x65\156\x64\x6f\162", "\126\145\156\144\x6f\x72", "\150\x69\x64\x64\145\156", "\162\x65\161\165\151\x72\x65\x64");
+        goto sQ3ol;
+        MeZJZ:
+        foreach ($PIT1q as $sU2o3) {
+            goto k54g8;
+            ksU85:
+            TxTHy:
+            goto KA4oK;
+            qt2Qi:
+            $V0UUv->check[$sU2o3["\x65\170\x70\137\x69\x64"]]->setValue(1);
+            goto zF7DP;
+            zF7DP:
+            rV03s:
+            goto XQa7B;
+            k54g8:
+            if (! ($sU2o3["\160\x64\145\x74\137\x61\155\x74\x5f\x70\141\x69\144"] + $sU2o3["\x70\144\145\x74\x5f\x61\x6d\x74\x5f\144\151\x73"] > 0)) {
+                goto rV03s;
+            }
+            goto qt2Qi;
+            XQa7B:
+            $V0UUv->discount[$sU2o3["\145\170\x70\137\x69\x64"]]->setValue($sU2o3["\x70\x64\145\164\137\141\155\x74\137\144\151\163"]);
+            goto kDhTg;
+            kDhTg:
+            $V0UUv->mamount[$sU2o3["\145\x78\x70\137\151\x64"]]->setValue($sU2o3["\x70\x64\x65\164\x5f\141\x6d\164\137\x70\x61\x69\x64"]);
+            goto ksU85;
+            KA4oK:
+        }
+        goto yNOQu;
+        bhTRh:
+        $pjE_b = array(
+            "\x63\142\x5f\164\171\160\145" => CASH_BOOK_PER,
+            "\x63\x62\137\x74\171\160\x65\137\x72\x65\146" => USER_ID,
+            "\x63\142\x5f\x65\170\x70\x5f\x69\144" => $AUtQV,
+            "\x63\x62\x5f\x65\x78\160\137\164\x79\160\145" => 2,
+            "\x63\142\137\x63\162\x65\144\x69\x74" => $ueMso["\x63\x62\141\155\x6f\165\156\x74"] != '' ? $ueMso["\x63\x62\141\x6d\x6f\165\156\164"] : $ueMso["\141\x6d\x6f\165\x6e\x74"],
+            "\143\x62\x5f\144\x61\164\x65" => $DILQY
+        );
+        goto NMBZm;
+        t1kVZ:
+        m_7xF:
+        goto NjGqY;
+        Gg5XV:
+        $V0UUv->addRules("\143\x68\161\156\x6f", "\x72\x65\x71\165\x69\162\145\144");
+        goto hHCZU;
+        PM5Z6:
+        $V0UUv->chqno->setValue($Nvbqo["\x70\x61\171\x5f\x63\150\161\x6e\157"]);
+        goto C_2_o;
+        zjQba:
+        $MI1ag->deleteCashBook($Nvbqo["\x63\142\137\151\144"]);
+        goto IPu53;
+        xLk9M:
+        WfTEW:
+        goto tUHnm;
+        gxacf:
+        require_once __DIR__ . "\x2f\x2e\56\57\x61\x64\155\x69\156\x2f\41\x6d\x6f\144\x65\x6c\57\x70\141\171\155\x65\156\x74\144\x65\164\56\160\x68\160";
+        goto YYz8H;
+        bZuRK:
+        if (! ((string) $b54T1 != $_POST["\x61\155\157\x75\156\164"] && $_POST["\x61\155\x6f\165\156\x74"] != '')) {
+            goto OY5Mu;
+        }
+        goto IUIoY;
+        STXvN:
+        $ll2VR = new form();
+        goto Mb6RP;
+        iNJCs:
+        unset($AzvOO["\160\144\145\x74\137\160\x61\171\137\x69\x64"]);
+        goto A5Q7u;
+        TmSbD:
+        OY5Mu:
+        goto HsQM5;
+        gQYAO:
+        $sQnRb = $N_oH4->modify($F5Frd, $AUtQV);
+        goto kEb2l;
+        NjGqY:
+        $this->view->form2 = $V0UUv;
+        goto VFDRs;
+        IUIoY:
+        $V0UUv->addRules("\x61\155\x6f\x75\x6e\x74", "\151\156\166\x61\154\x69\x64");
+        goto zfJcc;
+        D_xlg:
+        $MI1ag = new cashbook();
+        goto bhTRh;
+        yA756:
+        $J3ntK = new paymentdet();
+        goto AgOwE;
+        mflfp:
+        $AzvOO["\145\170\143\154\165\144\145"] = implode("\54", $QwDPS);
+        goto zkvq9;
+        Mb6RP:
+        $V0UUv = new form();
+        goto gmqD9;
+        NlczR:
+        UbdRI:
+        goto zOScB;
+        wM05L:
+        RJFv9:
+        goto o8IkO;
+        t5wiJ:
+        $cltaS = true;
+        goto OLMxm;
+        fupG4:
+        $this->view->balanceConfirm = $DX1_5;
+        goto SC5he;
+        epLU8:
+        $V0UUv->f_selVendor->setValue($_POST["\x66\137\163\x65\x6c\x56\145\x6e\144\157\x72"]);
+        goto ggcPQ;
+        xr3S4:
+        if (! ($_POST["\160\x61\171\x6d\x6f\x64"] == "\62")) {
+            goto la38B;
+        }
+        goto Gg5XV;
+        cWuS0:
+        oCu9l:
+        goto QKG6N;
+        NNQJl:
+        $V0UUv->addMultiElement("\x64\151\x73\x63\x6f\x75\156\164", "\104\x69\163\x63\157\x75\x6e\x74", "\146\154\x6f\141\x74", "\156\x75\x6d\145\x72\x69\x63", '', array(
+            "\x63\154\141\163\163" => "\146\157\162\x6d\55\143\157\x6e\164\162\157\x6c\55\162\x6f\x77"
+        ), $hpNLA);
+        goto mLa_A;
+        Ywi9f:
+        if (! (count($QwDPS) > 0)) {
+            goto DkTN_;
+        }
+        goto mflfp;
+        gyI62:
+        $q57eo = $J3ntK->deletePayDetByExpId(array(
+            "\160\144\145\x74\x5f\160\141\171\137\x69\x64" => $AUtQV
+        ));
+        goto jP6Sc;
+        noMh4:
+        $V0UUv->f_selVendor->setValue($Nvbqo["\160\x61\x79\137\x76\x65\156\x64\x6f\x72"]);
+        goto Vj9Fj;
+        LFI7W:
+        foreach ($_POST["\143\x68\145\143\x6b"] as $d8rwD => $wQtsD) {
+            goto u3UjZ;
+            Qst9d:
+            $DX1_5 = true;
+            goto zNNmP;
+            TVERl:
+            $V0UUv->addErrorMsg("\143\157\x6e\x66\151\x72\155", "\x72\145\161\165\151\162\145\x64");
+            goto akl25;
+            qc6h5:
+            $V0UUv->addmRules("\155\141\x6d\x6f\x75\156\164", $d8rwD, "\x69\x6e\166\x61\154\151\x64");
+            goto pQQin;
+            zNNmP:
+            $V0UUv->addRules("\143\x6f\156\146\151\x72\x6d", "\162\145\x71\x75\x69\162\145\144", "\120\x6c\145\141\163\145\x20\143\x6f\156\146\x69\x72\x6d\x20\41\x21");
+            goto TVERl;
+            FipKB:
+            if (! (! $DX1_5 && $CTyrL[$d8rwD] - $WIjyf - $s3swB > 0)) {
+                goto NUkFx;
+            }
+            goto Qst9d;
+            pQQin:
+            $V0UUv->addErrorMsg("\155\x61\x6d\157\x75\x6e\164", "\151\x6e\166\x61\x6c\151\144", "\x21\41\x20\x69\163\40\76\x20\50\142\x69\154\154\x2d\x64\x69\163\x29\x20\x61\x6d\x6f\165\156\164");
+            goto ZP7FS;
+            AfK8L:
+            AYDSG:
+            goto ZJfcB;
+            lkgzz:
+            $WIjyf = $_POST["\x64\x69\x73\143\x6f\x75\156\x74"][$d8rwD] == '' ? 0 : $_POST["\144\151\163\x63\x6f\x75\x6e\164"][$d8rwD];
+            goto bVI_g;
+            ZJfcB:
+            K2AQm:
+            goto wmalb;
+            Cy889:
+            if (! (bcsub($CTyrL[$d8rwD], $_POST["\x64\x69\163\143\157\165\x6e\164"][$d8rwD], 3) < $_POST["\155\141\155\x6f\165\x6e\x74"][$d8rwD])) {
+                goto FNYQC;
+            }
+            goto qc6h5;
+            ZP7FS:
+            FNYQC:
+            goto lkgzz;
+            u3UjZ:
+            if (! ($_POST["\143\150\145\143\153"][$d8rwD] != '')) {
+                goto AYDSG;
+            }
+            goto mtli_;
+            mtli_:
+            if (! ($_POST["\155\x61\x6d\x6f\165\x6e\x74"][$d8rwD] == '')) {
+                goto zpyl2;
+            }
+            goto H_lFd;
+            H_lFd:
+            $V0UUv->addmRules("\x6d\141\x6d\x6f\165\156\x74", $d8rwD, "\151\156\x76\x61\154\x69\x64");
+            goto Y5BPw;
+            bVI_g:
+            $s3swB = $_POST["\155\x61\x6d\x6f\165\156\164"][$d8rwD] == '' ? 0 : $_POST["\155\141\x6d\x6f\165\x6e\x74"][$d8rwD];
+            goto FipKB;
+            Y5BPw:
+            $V0UUv->addErrorMsg("\155\141\155\157\x75\156\164", "\x69\x6e\x76\x61\154\x69\144", "\40");
+            goto FJlPw;
+            akl25:
+            NUkFx:
+            goto AfK8L;
+            FJlPw:
+            zpyl2:
+            goto Cy889;
+            wmalb:
+        }
+        goto RcD_H;
+        Rcmtf:
+        if (! isset($_SERVER["\x48\124\x54\x50\137\130\137\122\x45\121\x55\105\123\x54\x45\x44\x5f\x57\x49\124\x48"]) and strtolower($_SERVER["\110\124\x54\x50\137\130\x5f\122\x45\x51\125\x45\123\124\105\x44\137\127\x49\124\x48"]) != "\x78\155\x6c\150\x74\x74\x70\x72\x65\161\165\145\163\164") {
+            goto B8wvV;
+        }
+        goto epLU8;
+        XT4bg:
+        vyB4l:
+        goto dqMG2;
+        An6kn:
+        B8wvV:
+        goto FA_ZO;
+        IPu53:
+        qC2gM:
+        goto raqKU;
+        cx8zM:
+        $UFPhr = true;
+        goto STXvN;
+        fCCDd:
+        foreach ($_POST["\x63\150\145\x63\153"] as $VI3wT => $PRont) {
+            $b54T1 += $_POST["\x6d\141\155\157\165\156\164"][$VI3wT];
+            f0z9C:
+        }
+        goto c3JPj;
+        eud2b:
+        $PIT1q = $GFDm4->geExpenseReport(@$AzvOO, "\144\x61\x74\145");
+        goto dph7F;
+        GeiJS:
+        $this->view->billAmount = $CTyrL;
+        goto fupG4;
+        wJ561:
+    }
+
+    function listAction()
+    {
+        goto YmOfx;
+        PQhX9:
+        if (! (is_array($_GET) && count(array_filter($_GET)) > 0)) {
+            goto FL4Cs;
+        }
+        goto wsEj2;
+        l8hDy:
+        $AzvOO = array(
+            "\146\x5f\x73\145\154\126\x65\x6e\x64\157\162" => @$ueMso["\x66\x5f\163\145\x6c\126\x65\x6e\144\157\x72"]
+        );
+        goto ONjtc;
+        TgG_q:
+        $HdP19->reset();
+        goto Io8NS;
+        x3Xd6:
+        $N7DbC = "\x62\164\156\x2d\x69\156\146\x6f";
+        goto FhFbA;
+        ONjtc:
+        wS_uW:
+        goto x3Xd6;
+        Rhfex:
+        $this->view->filter_class = $N7DbC;
+        goto crrLL;
+        OeIZy:
+        $this->view->offset = $N_oH4->_voffset;
+        goto BbGEi;
+        z5GtI:
+        $HdP19 = new form();
+        goto jpo8D;
+        sO98J:
+        $N7DbC = "\x62\164\156\x2d\163\x65\143\157\x6e\x64\141\x72\x79";
+        goto PQhX9;
+        jpo8D:
+        require_once __DIR__ . "\x2f\x2e\56\x2f\x61\144\x6d\x69\x6e\x2f\x21\155\x6f\144\x65\154\57\166\145\156\144\157\162\x2e\160\150\160";
+        goto K70Pb;
+        A8ZhB:
+        $this->view->form = $HdP19;
+        goto Rhfex;
+        CUme0:
+        $HdP19->addElement("\146\137\163\x65\x6c\126\x65\x6e\144\x6f\x72", "\126\145\156\144\157\x72", "\x73\x65\154\x65\143\164", '', array(
+            "\x6f\160\164\151\x6f\x6e\x73" => $Cylu_
+        ));
+        goto IJK0Z;
+        vh3Mx:
+        $Cylu_ = $XmN32->getVendorPair();
+        goto CUme0;
+        Io8NS:
+        unset($_GET);
+        goto WQrUV;
+        vzg8l:
+        if (! ($ueMso == true)) {
+            goto wS_uW;
+        }
+        goto l8hDy;
+        XBHeB:
+        $kmjWm = $N_oH4->getPaymentPaginate(@$AzvOO);
+        goto OeIZy;
+        BbGEi:
+        $this->view->paymentList = $kmjWm;
+        goto G1n3z;
+        FhFbA:
+        FL4Cs:
+        goto XBHeB;
+        WQrUV:
+        fqYRk:
+        goto sO98J;
+        wsEj2:
+        $ueMso = $HdP19->vaidate($_GET);
+        goto I1Pdd;
+        K70Pb:
+        $XmN32 = new vendor();
+        goto vh3Mx;
+        m7l5S:
+        $N_oH4 = new payment();
+        goto z5GtI;
+        I1Pdd:
+        $ueMso = $ueMso[0];
+        goto vzg8l;
+        G1n3z:
+        $this->view->paymentObj = $N_oH4;
+        goto A8ZhB;
+        IJK0Z:
+        if (! (isset($_GET) && $_GET["\x63\x6c\x65\141\162"] == "\101\154\x6c")) {
+            goto fqYRk;
+        }
+        goto TgG_q;
+        YmOfx:
+        require_once __DIR__ . "\x2f\56\56\57\141\x64\x6d\151\x6e\x2f\x21\x6d\x6f\144\x65\154\57\x70\141\x79\x6d\x65\156\164\x2e\160\x68\x70";
+        goto m7l5S;
+        crrLL:
+    }
+
+    function viewAction()
+    {
+        goto tqxDT;
+        hPMxg:
+        $this->view->payDet = $Nvbqo;
+        goto iDUru;
+        tqxDT:
+        $this->view->response("\141\152\x61\170");
+        goto zzIYy;
+        eSgbz:
+        $J3ntK = new paymentdet();
+        goto AY2QM;
+        nZQy3:
+        $Nvbqo = $N_oH4->getPaymentDetByPayId(array(
+            "\160\x61\x79\137\151\144" => $AUtQV
+        ));
+        goto pPaE3;
+        Y2_2a:
+        require_once __DIR__ . "\x2f\x2e\56\57\141\144\155\x69\x6e\57\x21\155\157\144\x65\x6c\x2f\x70\141\x79\x6d\145\x6e\x74\144\x65\x74\56\160\150\x70";
+        goto eSgbz;
+        sY1e1:
+        die("\x74\141\155\x70\x65\162\x65\144");
+        goto Rpl54;
+        hoKlq:
+        $N_oH4 = new payment();
+        goto Y2_2a;
+        Rpl54:
+        oO3kb:
+        goto YziYy;
+        zzIYy:
+        require_once __DIR__ . "\57\56\56\57\141\x64\155\x69\156\57\x21\x6d\x6f\x64\x65\154\57\x70\141\171\155\x65\x6e\164\56\x70\150\x70";
+        goto hoKlq;
+        pPaE3:
+        $kmjWm = $J3ntK->getPaymentExpDet(array(
+            "\160\144\x65\x74\x5f\x70\x61\171\x5f\x69\144" => $AUtQV
+        ));
+        goto w3sAK;
+        w3sAK:
+        if ($AUtQV) {
+            goto oO3kb;
+        }
+        goto sY1e1;
+        YziYy:
+        $this->view->paymentList = $kmjWm;
+        goto hPMxg;
+        AY2QM:
+        $AUtQV = $this->view->decode($this->view->param["\x72\x65\146"]);
+        goto nZQy3;
+        iDUru:
+    }
+
+    function approvalAction()
+    {
+        goto a7bip;
+        fzeWZ:
+        PWk52:
+        goto BuS7C;
+        fbN1u:
+        $kmjWm = $GFDm4->getPaymentExpDet($AzvOO);
+        goto aN9sL;
+        MYNCw:
+        $this->view->paymentList = $kmjWm;
+        goto f4OrM;
+        hj__V:
+        $GFDm4 = new expense();
+        goto P9rFX;
+        wzewJ:
+        mESSH:
+        goto dPLT1;
+        hR3zA:
+        foreach ($kmjWm as $byzzP) {
+            goto kAxu7;
+            bnbDr:
+            xbpkj:
+            goto focgF;
+            ZKawC:
+            k9QJI:
+            goto cuoPO;
+            oDhIe:
+            $dmW1F["\145\x78\160\x5f\160\x73\x74\141\x74\165\163"] = 1;
+            goto bnbDr;
+            focgF:
+            $dmW1F["\145\170\160\x5f\x63\x72\x65\144\x69\x74\137\141\x6d\x74"] = $byzzP["\160\144\x65\x74\x5f\x61\x6d\x74\x5f\x62\141\x6c"];
+            goto DeWQP;
+            d8PRd:
+            if (! ($byzzP["\160\144\x65\x74\137\x61\155\x74\x5f\x62\x61\x6c"] <= 0)) {
+                goto xbpkj;
+            }
+            goto oDhIe;
+            cuoPO:
+            BYbia:
+            goto uUheK;
+            kAxu7:
+            $dmW1F = array();
+            goto vBZFM;
+            DeWQP:
+            $C4UEA = $NdIPg->modify($dmW1F, $byzzP["\x70\x64\145\164\x5f\x65\170\160\137\x69\x64"]);
+            goto ZKawC;
+            vBZFM:
+            if (! $byzzP["\x70\x64\x65\x74\137\x69\x64"]) {
+                goto k9QJI;
+            }
+            goto d8PRd;
+            uUheK:
+        }
+        goto fzeWZ;
+        TkHk_:
+        $ueMso = $ueMso[0];
+        goto JL7La;
+        Z96I8:
+        $this->view->form = $HdP19;
+        goto EO6su;
+        gOhfF:
+        if (! $_POST) {
+            goto mdsSg;
+        }
+        goto OsE2b;
+        a7bip:
+        $this->view->response("\141\152\141\x78");
+        goto nzEyr;
+        kENWv:
+        die("\x74\141\x6d\160\x65\162\x65\144");
+        goto d7mUi;
+        BrY7X:
+        $w3Iq6 = json_encode($w3Iq6);
+        goto ftZDK;
+        nzEyr:
+        require_once __DIR__ . "\x2f\56\56\57\x61\x64\155\151\x6e\x2f\x21\155\157\x64\x65\154\57\x70\x61\171\x6d\145\156\x74\x2e\x70\x68\160";
+        goto ddouP;
+        OsE2b:
+        if (! isset($_SERVER["\x48\x54\x54\x50\137\130\137\x52\105\x51\125\x45\123\124\105\x44\137\127\111\x54\x48"]) and strtolower($_SERVER["\x48\x54\x54\120\137\x58\137\122\x45\121\125\105\123\124\x45\104\137\127\x49\x54\x48"]) != "\x78\x6d\x6c\x68\164\164\x70\162\145\x71\x75\145\x73\164") {
+            goto AQONL;
+        }
+        goto udA3D;
+        aliGk:
+        $NdIPg = new expense();
+        goto hR3zA;
+        BuS7C:
+        $W42k3["\x70\144\x65\164\x5f\163\164\141\164\165\x73"] = 2;
+        goto b9ui0;
+        ftZDK:
+        die($w3Iq6);
+        goto hWS0t;
+        aN9sL:
+        if ($AUtQV) {
+            goto RqMEg;
+        }
+        goto kENWv;
+        KqPUc:
+        $w3Iq6 = array(
+            "\x66\145\145\144\x62\x61\143\153" => $CGGv5
+        );
+        goto NCAed;
+        t3NxL:
+        if (! ($Nvbqo["\160\141\171\x5f\x61\160\160\x5f\163\x74\141\x74\165\x73"] == 0)) {
+            goto tuQFW;
+        }
+        goto sXfhU;
+        EE5_R:
+        mdsSg:
+        goto xvxM_;
+        LDRid:
+        die("\x2d\x2d\x2d");
+        goto SNfVK;
+        N1eFm:
+        $HdP19->addElement("\x73\x74\x61\164\x75\x73", "\123\164\x61\x74\x75\163", "\143\x68\145\143\x6b\142\157\170", "\x72\x65\x71\x75\151\x72\x65\144", array(
+            "\157\x70\164\x69\x6f\x6e\163" => array(
+                "\x31" => "\x41\160\x70\x72\157\166\145\x64"
+            )
+        ));
+        goto K1fGZ;
+        r5mD2:
+        require_once __DIR__ . "\x2f\56\x2e\x2f\x61\144\155\x69\156\x2f\41\x6d\x6f\144\x65\x6c\x2f\160\x61\171\155\145\156\164\x64\145\164\x2e\160\x68\x70";
+        goto tfA5b;
+        SNfVK:
+        fDdd8:
+        goto EE5_R;
+        tfA5b:
+        $J3ntK = new paymentdet();
+        goto TUUTk;
+        miXqK:
+        $CGGv5 = "\x50\141\x79\x6d\145\156\x74\x73\40\163\x74\x61\164\165\163\40\x75\160\144\141\164\145\144\x20\x73\165\143\x63\145\x73\x73\146\165\154\x6c\171";
+        goto Y1fEK;
+        Xh3dT:
+        $AUtQV = $this->view->decode($this->view->param["\162\145\x66"]);
+        goto h_GCM;
+        Y1fEK:
+        $this->view->NoViewRender = true;
+        goto KqPUc;
+        Fqr1a:
+        $HdP19 = new form();
+        goto Xh3dT;
+        d7mUi:
+        RqMEg:
+        goto N1eFm;
+        udA3D:
+        $ueMso = $HdP19->vaidate($_POST, $_FILES);
+        goto TkHk_;
+        EO6su:
+        $this->view->formRender = $UFPhr;
+        goto MYNCw;
+        QQJI0:
+        $F5Frd = array(
+            "\160\x61\x79\x5f\141\x70\x70\137\x64\x61\164\145" => date_format(new DateTime(), "\131\55\x6d\55\144\40\x48\72\x69\x3a\x73"),
+            "\160\x61\171\x5f\141\160\x70\137\163\164\x61\x74\x75\x73" => $ueMso["\163\164\141\164\x75\163"],
+            "\x70\x61\x79\137\x61\160\x70\x5f\x6e\157\x74\145" => $ueMso["\x6e\x6f\164\x65"],
+            "\160\x61\171\x5f\146\x69\x6c\x65\137\156\x6f" => "\120\x41\131" . "\x2f" . $AUtQV,
+            "\x70\x61\171\137\x61\160\160\x5f\142\171" => $_SESSION["\165\x73\145\x72\137\x69\x64"]
+        );
+        goto DbWgm;
+        h_GCM:
+        $Nvbqo = $N_oH4->getPaymentDetById($AUtQV);
+        goto t3NxL;
+        K1fGZ:
+        $HdP19->addElement("\156\157\164\x65", "\116\157\x74\x65\40", "\164\145\170\164\141\x72\x65\141", "\x72\x65\x71\165\151\x72\x65\x64\174\141\x6c\x70\150\141\137\163\160\x61\x63\x65");
+        goto gOhfF;
+        TUUTk:
+        require_once __DIR__ . "\57\x2e\x2e\x2f\141\x64\155\151\156\x2f\x21\155\157\144\x65\154\57\x65\170\160\x65\x6e\163\x65\56\160\x68\x70";
+        goto hj__V;
+        JL7La:
+        if (! ($ueMso == true)) {
+            goto mESSH;
+        }
+        goto QQJI0;
+        EsG1s:
+        AQONL:
+        goto LDRid;
+        f4OrM:
+        $this->view->payDet = $Nvbqo;
+        goto uLz_l;
+        P9rFX:
+        $UFPhr = true;
+        goto Fqr1a;
+        IqLE7:
+        if (! $sQnRb) {
+            goto J4N30;
+        }
+        goto hKw_f;
+        dPLT1:
+        goto fDdd8;
+        goto EsG1s;
+        ddouP:
+        $N_oH4 = new payment();
+        goto r5mD2;
+        sXfhU:
+        $AzvOO = array(
+            "\x66\137\163\145\x6c\x56\x65\156\x64\157\162" => $Nvbqo["\160\x61\171\137\166\145\156\144\157\162"],
+            "\146\x5f\155\x6f\144\145" => 2,
+            "\x70\144\145\x74\137\160\x61\171\x5f\x69\x64" => $AUtQV,
+            "\x65\x78\160\137\x70\163\164\141\x74\165\x73" => 2
+        );
+        goto fbN1u;
+        xvxM_:
+        tuQFW:
+        goto Z96I8;
+        NCAed:
+        $_SESSION["\x66\x65\145\144\x62\141\143\153"] = $CGGv5;
+        goto BrY7X;
+        DbWgm:
+        $sQnRb = $N_oH4->modify($F5Frd, $AUtQV);
+        goto IqLE7;
+        hWS0t:
+        J4N30:
+        goto wzewJ;
+        hKw_f:
+        require_once __DIR__ . "\x2f\x2e\56\x2f\x61\x64\155\x69\x6e\x2f\x21\x6d\157\x64\x65\154\57\x65\170\160\x65\156\x73\x65\56\x70\150\160";
+        goto aliGk;
+        b9ui0:
+        $J3ntK->modify($W42k3, array(
+            "\160\x64\x65\x74\137\x70\x61\x79\x5f\x69\144" => $AUtQV
+        ));
+        goto miXqK;
+        uLz_l:
+    }
+
+    function closeAction()
+    {
+        goto MJ3KZ;
+        nL0ll:
+        require_once __DIR__ . "\57\x2e\56\57\141\144\155\x69\x6e\x2f\x21\x6d\x6f\144\145\x6c\57\x70\141\171\x6d\145\156\x74\56\x70\150\160";
+        goto Nknvk;
+        C9mH2:
+        $this->view->NoViewRender = true;
+        goto ZAbCl;
+        n7Xaf:
+        if (isset($_POST) && count($_POST) > 0) {
+            goto YP6Rp;
+        }
+        goto dZq20;
+        HgfCj:
+        require_once __DIR__ . "\x2f\x2e\x2e\x2f\x61\144\x6d\151\156\57\x21\155\157\144\145\154\x2f\145\x78\x70\145\156\x73\x65\56\x70\150\x70";
+        goto n5ydu;
+        P29mn:
+        YP6Rp:
+        goto DgoHz;
+        Nknvk:
+        $N_oH4 = new payment();
+        goto HgfCj;
+        MMOXB:
+        $HdP19->addElement("\156\x6f\164\145", "\x4e\157\x74\x65\40", "\x74\145\170\164\x61\162\145\141", '');
+        goto JXCN_;
+        AF9rD:
+        $kmjWm = $GFDm4->getPaymentExpDet($AzvOO);
+        goto n7Xaf;
+        ZUgze:
+        if ($AUtQV) {
+            goto sSJhg;
+        }
+        goto UPR_o;
+        saroh:
+        $this->view->NoViewRender = true;
+        goto NAbTZ;
+        Vdv20:
+        $F5Frd = array(
+            "\160\x61\171\x5f\x70\141\171\137\x73\x74\x61\x74\x75\x73" => 2,
+            "\160\x61\x79\137\160\x61\x79\x5f\x6e\x6f\x74\145" => $ueMso["\x6e\157\164\x65"],
+            "\x70\x61\171\137\x70\141\x79\x5f\x61\x70\x70\x5f\x64\x61\164\x65" => date_format(new DateTime(), "\x59\x2d\x6d\x2d\144\40\x48\x3a\151\x3a\x73")
+        );
+        goto jgWDD;
+        C4d6x:
+        $CGGv5 = "\120\141\171\155\145\x6e\x74\x73\x20\163\164\x61\164\x75\163\40\x75\x70\144\141\x74\145\144\x20\x73\165\x63\x63\x65\x73\x73\146\165\x6c\x6c\171";
+        goto saroh;
+        JB_Af:
+        if (! $sQnRb) {
+            goto FjMMt;
+        }
+        goto sYgJB;
+        jgWDD:
+        $sQnRb = $N_oH4->modify($F5Frd, $Nvbqo["\x70\141\x79\137\x69\144"]);
+        goto JB_Af;
+        fA7Bw:
+        $this->view->payDet = $Nvbqo;
+        goto PxkLa;
+        NAbTZ:
+        $w3Iq6 = array(
+            "\x66\145\x65\x64\x62\x61\143\153" => $CGGv5
+        );
+        goto UM5Zo;
+        jhJlE:
+        J4Inu:
+        goto w1eSV;
+        r6GMl:
+        p3ThN:
+        goto uhJu3;
+        uhJu3:
+        $this->view->form = $HdP19;
+        goto K4Ee3;
+        kww3y:
+        $Nvbqo = $N_oH4->getPaymentDetByPayId(array(
+            "\160\x61\x79\x5f\151\x64" => $AUtQV
+        ));
+        goto TN8EY;
+        ZAbCl:
+        goto p3ThN;
+        goto QnZsA;
+        sYgJB:
+        $HdP19->reset();
+        goto C4d6x;
+        n5ydu:
+        $GFDm4 = new expense();
+        goto g6_6i;
+        UPR_o:
+        die("\x74\141\155\x70\x65\162\145\144");
+        goto YAMq8;
+        DgoHz:
+        $ueMso = $HdP19->vaidate($_POST, $_FILES);
+        goto sAvEU;
+        w1eSV:
+        QASn7:
+        goto r6GMl;
+        lK0pu:
+        FjMMt:
+        goto jhJlE;
+        sAvEU:
+        $ueMso = $ueMso[0];
+        goto FSoLj;
+        xWkKw:
+        $UFPhr = true;
+        goto cVyES;
+        FSoLj:
+        if (! ($ueMso == true)) {
+            goto J4Inu;
+        }
+        goto Vdv20;
+        dZq20:
+        $HdP19->note->setValue($Nvbqo["\x70\141\x79\x5f\160\141\x79\137\x6e\157\x74\x65"]);
+        goto fhoZu;
+        JXCN_:
+        $AzvOO = array(
+            "\x66\x5f\x73\x65\154\126\145\x6e\x64\x6f\162" => $Nvbqo["\x70\141\x79\x5f\166\x65\156\144\x6f\162"],
+            "\146\137\x6d\x6f\144\x65" => 2,
+            "\x70\144\145\x74\x5f\x70\x61\171\137\151\x64" => $AUtQV,
+            "\160\x64\x65\x74\137\163\x74\x61\164\x75\x73" => 2
+        );
+        goto AF9rD;
+        nfzyz:
+        $AUtQV = $this->view->decode($this->view->param["\x72\145\x66"]);
+        goto ZUgze;
+        QnZsA:
+        z241_:
+        goto MMOXB;
+        fhoZu:
+        goto QASn7;
+        goto P29mn;
+        UM5Zo:
+        $_SESSION["\146\145\145\144\142\141\143\153"] = $CGGv5;
+        goto cTIv6;
+        K4Ee3:
+        $this->view->paymentList = $kmjWm;
+        goto fA7Bw;
+        TIQBf:
+        die($w3Iq6);
+        goto lK0pu;
+        cTIv6:
+        $w3Iq6 = json_encode($w3Iq6);
+        goto TIQBf;
+        TN8EY:
+        if ($Nvbqo["\160\141\x79\x5f\x70\141\171\x5f\x73\x74\141\x74\165\163"] == 1) {
+            goto z241_;
+        }
+        goto C9mH2;
+        g6_6i:
+        require_once __DIR__ . "\57\x2e\56\57\x61\144\155\x69\156\x2f\41\155\x6f\144\145\x6c\57\x64\157\143\165\x6d\145\156\164\x73\x2e\160\150\160";
+        goto xWkKw;
+        cVyES:
+        $HdP19 = new form();
+        goto nfzyz;
+        MJ3KZ:
+        $this->view->response("\x61\x6a\141\x78");
+        goto nL0ll;
+        YAMq8:
+        sSJhg:
+        goto kww3y;
+        PxkLa:
+    }
+
+    function editoptionAction()
+    {
+        goto gBiDW;
+        JeOXO:
+        $this->view->payDet = $Nvbqo;
+        goto IjwdU;
+        Icolo:
+        die("\55\55\x2d");
+        goto cBtOq;
+        d2nAl:
+        lDNGC:
+        goto F8VlQ;
+        N017a:
+        $N_oH4 = new payment();
+        goto SYuKG;
+        HaSCX:
+        goto JFaWj;
+        goto QTDOn;
+        eyK5J:
+        $J3ntK = new paymentdet();
+        goto Wctlm;
+        rT8Qb:
+        $sQnRb = $N_oH4->modify($F5Frd, $AUtQV);
+        goto EKU_o;
+        T_wuw:
+        $CGGv5 = "\111\x74\145\155\40\144\145\164\x61\151\x6c\x73\40\x61\x64\x64\145\x64\x20\163\x75\143\143\145\163\163\146\x75\154\x6c\171";
+        goto eCLOB;
+        SnLnR:
+        wkERw:
+        goto d2nAl;
+        GyvPV:
+        $w3Iq6 = array(
+            "\x66\145\x65\x64\x62\141\143\x6b" => $CGGv5
+        );
+        goto PwG5p;
+        fnJaz:
+        if (! isset($_SERVER["\110\x54\x54\x50\x5f\130\x5f\122\105\121\x55\x45\123\x54\x45\x44\x5f\x57\x49\x54\x48"]) and strtolower($_SERVER["\x48\124\124\120\x5f\x58\137\122\105\121\x55\105\123\x54\105\104\137\127\x49\x54\x48"]) != "\x78\x6d\x6c\x68\x74\164\160\x72\145\161\165\145\x73\x74") {
+            goto eO3Oc;
+        }
+        goto A2_Rp;
+        XEobo:
+        if (! ($Nvbqo["\x70\141\171\x5f\141\160\x70\137\163\x74\x61\164\165\x73"] == 1)) {
+            goto lDNGC;
+        }
+        goto MrXTN;
+        VTjq0:
+        $AUtQV = $this->view->decode($this->view->param["\162\145\146"]);
+        goto Ldcxf;
+        QTDOn:
+        eO3Oc:
+        goto Icolo;
+        Xl2CD:
+        gve1c:
+        goto p5r3I;
+        b_JsJ:
+        die("\x74\x61\x6d\160\145\162\145\144");
+        goto Xl2CD;
+        AhqJ8:
+        EDyO6:
+        goto rT8Qb;
+        EKU_o:
+        if (! $sQnRb) {
+            goto lkgbG;
+        }
+        goto T_wuw;
+        EpoDd:
+        $kmjWm = $J3ntK->getPaymentExpDet(array(
+            "\x70\144\x65\164\x5f\160\141\171\137\151\x64" => $AUtQV
+        ));
+        goto XEobo;
+        KCVnb:
+        acs5V:
+        goto HaSCX;
+        Wctlm:
+        $Nvbqo = $N_oH4->getPaymentDetByPaymentId(array(
+            "\x70\x61\x79\x5f\x69\x64" => $AUtQV
+        ));
+        goto EpoDd;
+        p5r3I:
+        require_once __DIR__ . "\x2f\56\x2e\x2f\x61\144\x6d\x69\156\57\x21\x6d\x6f\144\x65\x6c\x2f\x70\141\x79\155\145\x6e\x74\x2e\x70\x68\160";
+        goto N017a;
+        atpBY:
+        goto wkERw;
+        goto X9v7L;
+        F8VlQ:
+        $this->view->form2 = $V0UUv;
+        goto mSgwW;
+        iG2No:
+        $OAe5B = $xf3CG->getCashFlowPair();
+        goto KbPwy;
+        gBiDW:
+        $this->view->response("\x61\x6a\x61\170");
+        goto uyesK;
+        q3Ses:
+        if (! ($ueMso == true)) {
+            goto acs5V;
+        }
+        goto FK_uf;
+        Ldcxf:
+        if ($AUtQV) {
+            goto gve1c;
+        }
+        goto b_JsJ;
+        eQMlK:
+        $xf3CG = new cashflow();
+        goto iG2No;
+        KbPwy:
+        $V0UUv->addElement("\x63\x61\163\x68\106\x6c\x6f\x77", "\103\x61\x73\x68\40\x46\x6c\x6f\167", "\163\145\154\145\x63\164", '', array(
+            "\x6f\160\x74\151\157\156\x73" => $OAe5B
+        ));
+        goto kMT__;
+        S9E5Z:
+        $ueMso = $ueMso[0];
+        goto q3Ses;
+        dgvRk:
+        $V0UUv = new form();
+        goto VTjq0;
+        mSgwW:
+        $this->view->paymentList = $kmjWm;
+        goto JeOXO;
+        TO3gy:
+        lkgbG:
+        goto KCVnb;
+        PH9zY:
+        die($w3Iq6);
+        goto TO3gy;
+        uyesK:
+        require_once __DIR__ . "\x2f\56\x2e\x2f\141\x64\x6d\151\x6e\57\x21\x6d\157\x64\x65\x6c\x2f\x65\x78\160\x65\x6e\163\x65\56\x70\150\x70";
+        goto FBSBS;
+        cBtOq:
+        JFaWj:
+        goto SnLnR;
+        kMT__:
+        if ($_POST) {
+            goto WmmWg;
+        }
+        goto FLfBX;
+        jRNH4:
+        $w3Iq6 = json_encode($w3Iq6);
+        goto PH9zY;
+        FLfBX:
+        $V0UUv->cashFlow->setValue($Nvbqo["\x70\x61\x79\137\x63\141\163\x68\137\146\154\x6f\167"]);
+        goto atpBY;
+        eCLOB:
+        $this->view->NoViewRender = true;
+        goto GyvPV;
+        PwG5p:
+        $_SESSION["\x66\145\x65\144\142\x61\x63\x6b"] = $CGGv5;
+        goto jRNH4;
+        A2_Rp:
+        $ueMso = $V0UUv->vaidate($_POST, $_FILES);
+        goto S9E5Z;
+        X9v7L:
+        WmmWg:
+        goto fnJaz;
+        FBSBS:
+        $UFPhr = true;
+        goto dgvRk;
+        FK_uf:
+        if (! $ueMso["\143\x61\163\x68\x46\154\x6f\x77"]) {
+            goto EDyO6;
+        }
+        goto G2lCj;
+        SYuKG:
+        require_once __DIR__ . "\x2f\56\x2e\57\x61\144\155\151\x6e\57\41\155\x6f\x64\145\x6c\57\160\x61\171\155\x65\x6e\x74\144\x65\x74\56\160\150\x70";
+        goto eyK5J;
+        G2lCj:
+        $F5Frd["\160\141\171\137\x63\x61\163\x68\137\146\154\x6f\x77"] = $ueMso["\x63\x61\x73\150\106\x6c\157\167"];
+        goto AhqJ8;
+        MrXTN:
+        require_once __DIR__ . "\x2f\56\x2e\x2f\x61\144\x6d\151\x6e\57\x21\155\157\144\145\x6c\57\143\x61\x73\150\x66\154\x6f\x77\56\x70\x68\160";
+        goto eQMlK;
+        IjwdU:
+    }
+
+    function remittanceAction()
+    {
+        goto TrsBG;
+        l0qKX:
+        if ($AUtQV) {
+            goto LQFLz;
+        }
+        goto b2rDz;
+        WVwg5:
+        $this->view->payDet = $Nvbqo;
+        goto qiOIr;
+        Gcoqx:
+        $N_oH4 = new payment();
+        goto RTnH_;
+        TrsBG:
+        $this->view->response("\167\151\156\x64\x6f\167");
+        goto rIWJ7;
+        b2rDz:
+        die("\164\141\x6d\160\145\162\145\x64");
+        goto fwtFG;
+        qKP2V:
+        $AUtQV = $this->view->decode($this->view->param["\162\x65\146"]);
+        goto B2pnZ;
+        fwtFG:
+        LQFLz:
+        goto hIsn9;
+        DcF7M:
+        $GFDm4 = new expense();
+        goto qKP2V;
+        hIsn9:
+        $this->view->paymentList = $kmjWm;
+        goto WVwg5;
+        RyGmu:
+        $kmjWm = $GFDm4->getPaymentExpDet(array(
+            "\x70\144\145\164\x5f\160\141\171\x5f\x69\144" => $Nvbqo["\x70\141\171\x5f\151\x64"],
+            "\146\137\x73\145\x6c\126\x65\156\144\157\x72" => $Nvbqo["\160\141\x79\x5f\166\145\x6e\144\x6f\x72"],
+            "\145\170\160\137\x70\x61\x79\137\x6d\157\144\x65" => 2
+        ));
+        goto l0qKX;
+        rIWJ7:
+        require_once __DIR__ . "\57\56\x2e\x2f\141\144\x6d\151\156\57\x21\155\x6f\144\x65\x6c\57\x70\141\171\155\145\156\x74\x2e\160\150\x70";
+        goto Gcoqx;
+        RTnH_:
+        require_once __DIR__ . "\57\x2e\x2e\x2f\x61\x64\155\x69\x6e\x2f\41\x6d\157\144\x65\x6c\57\x65\x78\x70\x65\156\163\145\56\x70\x68\160";
+        goto DcF7M;
+        B2pnZ:
+        $Nvbqo = $N_oH4->getPaymentDetByPayId(array(
+            "\160\141\x79\x5f\151\x64" => $AUtQV
+        ));
+        goto RyGmu;
+        qiOIr:
+    }
+
+    function voucherAction()
+    {
+        goto jkUgJ;
+        vVUjE:
+        $this->view->formRender = $UFPhr;
+        goto cdrby;
+        ogY31:
+        $ueMso = $ueMso[0];
+        goto FYxC2;
+        l9n1s:
+        require_once __DIR__ . "\x2f\x2e\x2e\x2f\141\144\x6d\x69\156\x2f\41\x6d\157\144\x65\x6c\57\145\x78\160\145\x6e\163\x65\56\160\x68\x70";
+        goto rSlE7;
+        ASfW4:
+        dBOIL:
+        goto KVzxM;
+        xEqOj:
+        $HdP19->note->setValue($Nvbqo["\x70\141\x79\x5f\x70\x61\171\137\156\157\164\145"]);
+        goto EdVHc;
+        Bnnrk:
+        $F5Frd = array(
+            "\160\x61\x79\137\160\x61\x79\137\163\x74\141\x74\165\x73" => 1,
+            "\x70\141\x79\137\x70\x61\171\137\x6e\157\x74\x65" => $ueMso["\x6e\x6f\x74\x65"],
+            "\160\141\x79\137\x70\141\171\137\144\x61\164\x65" => $KObax
+        );
+        goto jqV_s;
+        OQUlG:
+        if ($Nvbqo["\160\141\x79\137\x61\x70\x70\x5f\x73\x74\141\164\165\x73"] == 1) {
+            goto OYhh7;
+        }
+        goto s0wAl;
+        s0wAl:
+        $this->view->NoViewRender = true;
+        goto vDTqB;
+        mj2rW:
+        $Nvbqo = $N_oH4->getPaymentDetByPayId(array(
+            "\160\x61\x79\x5f\151\x64" => $AUtQV
+        ));
+        goto OQUlG;
+        ld_F6:
+        UzM2x:
+        goto wjR37;
+        d4PJ8:
+        $HdP19->addElement("\x6e\157\164\145", "\116\157\x74\145\40", "\x74\x65\170\x74\x61\x72\x65\x61", '');
+        goto kpXpU;
+        ROZWU:
+        $CGGv5 = "\x50\141\x79\155\145\156\x74\40\163\164\141\164\165\163\x20\x75\x70\x64\x61\x74\x65\x64\40\x73\x75\143\x63\145\163\163\146\x75\x6c\154\x79";
+        goto AjnB5;
+        oBF2E:
+        deleteFile($Nvbqo["\x66\x69\x6c\145\x5f\x69\x64"]);
+        goto KXOzI;
+        Ohskv:
+        $AzvOO = array(
+            "\146\x5f\x73\145\x6c\126\145\x6e\x64\x6f\x72" => $Nvbqo["\160\141\171\x5f\x76\145\156\x64\157\162"],
+            "\x66\137\x6d\157\x64\145" => 2,
+            "\x70\144\x65\164\x5f\x70\141\x79\x5f\x69\144" => $AUtQV,
+            "\x70\144\x65\x74\137\x73\164\141\164\165\x73" => 2
+        );
+        goto fxY6N;
+        oYgSG:
+        $wb_bN = $wb_bN->format(DF_DD);
+        goto UXqpz;
+        UXqpz:
+        aNj88:
+        goto xEqOj;
+        HMEIN:
+        require_once __DIR__ . "\57\56\56\57\141\x64\155\151\x6e\57\41\x6d\x6f\144\x65\x6c\57\x70\x61\x79\155\145\x6e\164\56\160\x68\160";
+        goto KztqK;
+        Fljhf:
+        die($w3Iq6);
+        goto rLLAd;
+        h_lJv:
+        if ($AUtQV) {
+            goto V_nIv;
+        }
+        goto oOek1;
+        H6wE1:
+        $iLcZ2 = uploadFiles(DOC_TYPE_PAY, $Nvbqo["\x70\141\171\137\x69\x64"], $ueMso["\155\x79\137\146\151\x6c\145\163"]);
+        goto Pg6UU;
+        puYEB:
+        $N5hLW = new files();
+        goto oBF2E;
+        jkUgJ:
+        $this->view->response("\141\x6a\x61\x78");
+        goto HMEIN;
+        XzwIP:
+        $AUtQV = $this->view->decode($this->view->param["\162\x65\x66"]);
+        goto h_lJv;
+        u02Kw:
+        OYhh7:
+        goto d4PJ8;
+        nbwGE:
+        require_once __DIR__ . "\57\x2e\56\57\141\144\155\x69\156\x2f\41\x6d\157\x64\x65\154\x2f\144\157\143\x75\155\145\156\x74\163\56\x70\150\160";
+        goto McaNa;
+        fxY6N:
+        $kmjWm = $GFDm4->getPaymentExpDet($AzvOO);
+        goto v4iK3;
+        McaNa:
+        $UFPhr = true;
+        goto kYF9V;
+        nGRPu:
+        if (empty($Nvbqo["\x66\151\154\145\137\151\144"])) {
+            goto ZWqNv;
+        }
+        goto puYEB;
+        kpXpU:
+        $HdP19->addElement("\x70\141\x79\x64\x61\x74\x65", "\104\141\164\145", "\x74\145\x78\164", "\x64\141\164\x65\x7c\x72\x65\x71\165\x69\162\x65\x64", '', array(
+            "\x63\x6c\141\163\x73" => "\x64\x61\164\145\137\x70\151\x63\x6b\x65\x72"
+        ));
+        goto SXP1_;
+        s4vr4:
+        $wb_bN = DateTime::createFromFormat(DFS_DB, $Nvbqo["\x70\x61\x79\137\x70\141\171\137\144\x61\x74\145"]);
+        goto oYgSG;
+        ppsoN:
+        $HdP19->reset();
+        goto ROZWU;
+        FYxC2:
+        if (! ($ueMso == true)) {
+            goto hqJ3L;
+        }
+        goto LQFBy;
+        s4PqV:
+        $_SESSION["\x66\145\x65\144\142\x61\143\x6b"] = $CGGv5;
+        goto EArIg;
+        LQFBy:
+        $KObax = DateTime::createFromFormat(DF_DD, $ueMso["\x70\141\171\144\141\x74\145"]);
+        goto oqGr_;
+        l4kaJ:
+        ZWqNv:
+        goto H6wE1;
+        oOek1:
+        die("\164\141\x6d\160\x65\162\x65\144");
+        goto Or486;
+        jqV_s:
+        $sQnRb = $N_oH4->modify($F5Frd, $Nvbqo["\x70\x61\x79\x5f\151\144"]);
+        goto HGa7A;
+        cdrby:
+        $this->view->paymentList = $kmjWm;
+        goto ZAMgl;
+        wjR37:
+        $ueMso = $HdP19->vaidate($_POST, $_FILES);
+        goto ogY31;
+        oqGr_:
+        $KObax = date_format($KObax, DFS_DB);
+        goto Bnnrk;
+        Or486:
+        V_nIv:
+        goto mj2rW;
+        KVzxM:
+        AL6BC:
+        goto ssI81;
+        HGa7A:
+        if (! $sQnRb) {
+            goto SyIVh;
+        }
+        goto nGRPu;
+        vDTqB:
+        goto AL6BC;
+        goto u02Kw;
+        xWirO:
+        SyIVh:
+        goto P0kCo;
+        ZAMgl:
+        $this->view->payDet = $Nvbqo;
+        goto cVc5s;
+        LIXXs:
+        if (! $Nvbqo["\x70\x61\x79\x5f\x70\x61\x79\x5f\144\141\x74\x65"]) {
+            goto aNj88;
+        }
+        goto s4vr4;
+        EArIg:
+        $w3Iq6 = json_encode($w3Iq6);
+        goto Fljhf;
+        rNwxI:
+        $w3Iq6 = array(
+            "\146\x65\x65\144\142\141\x63\x6b" => $CGGv5
+        );
+        goto s4PqV;
+        KztqK:
+        $N_oH4 = new payment();
+        goto l9n1s;
+        P0kCo:
+        hqJ3L:
+        goto ASfW4;
+        SXP1_:
+        $HdP19->addFile("\x6d\x79\137\x66\151\x6c\145\163", "\104\157\143\165\155\x65\x6e\164", array(
+            "\x72\x65\x71\x75\x69\x72\x65\x64" => true,
+            "\x65\x78\x74\x65\156" => "\x70\x64\x66",
+            "\x73\151\x7a\145" => 5375000
+        ));
+        goto Ohskv;
+        rLLAd:
+        FcFsv:
+        goto xWirO;
+        EdVHc:
+        $HdP19->paydate->setValue($wb_bN);
+        goto aiXQE;
+        Pg6UU:
+        if (! $iLcZ2) {
+            goto FcFsv;
+        }
+        goto ppsoN;
+        KXOzI:
+        $N5hLW->deleteFile($Nvbqo["\146\x69\x6c\x65\x5f\x69\x64"]);
+        goto l4kaJ;
+        v4iK3:
+        if (isset($_POST) && count($_POST) > 0) {
+            goto UzM2x;
+        }
+        goto LIXXs;
+        AjnB5:
+        $this->view->NoViewRender = true;
+        goto rNwxI;
+        ssI81:
+        $this->view->form = $HdP19;
+        goto vVUjE;
+        kYF9V:
+        $HdP19 = new form();
+        goto XzwIP;
+        rSlE7:
+        $GFDm4 = new expense();
+        goto nbwGE;
+        aiXQE:
+        goto dBOIL;
+        goto ld_F6;
+        cVc5s:
+    }
+}

@@ -87,7 +87,7 @@
 					<td><?=$this->form2->mamount[$demand['cdmd_id']]->show()?></td>					
 					<td>
 					<?php if($_POST ['check'] [$demand['cdmd_id']]!=""):?>
-					<?=number_format(($this->billAmount[$demand['cdmd_id']]-$_POST ['discount'] [$demand['cdmd_id']])-$_POST ['mamount'] [$demand['cdmd_id']],3)?>
+					<?=number_format( (floatval($this->billAmount[$demand['cdmd_id']])-floatval($_POST ['discount'] [$demand['cdmd_id']]))-floatval($_POST ['mamount'] [$demand['cdmd_id']]),3)?>
 					<?php endif?>
 					</td>
 

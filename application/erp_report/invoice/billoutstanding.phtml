@@ -121,7 +121,7 @@ $date = $date->format('d/m/Y')?>
 				
 				<tr>
 					<th colspan="7" style="text-align: right;"> TOTAL FOR :<?=$custName?>  </th>		
-					<th ><?=number_format(@$vhlTotal,3);?></th>														
+					<th style="text-align: right;" ><?=number_format(@$vhlTotal,3);?></th>														
 				</tr>
 				<?php if($due):?>
 				<tr>
@@ -173,13 +173,13 @@ $date = $date->format('d/m/Y')?>
 				<?php $vhlTotal = 0; endif?>
 				<tr>
 					<td class="center"><?=@++$offset;?></td>
-					<td><?=x(array('link'=>'erp_invoice/bill/view','ref'=>$encBillId,'label'=>$bill['bill_book_no']<>''?$bill['bill_book_no']." (AST/".sprintf("%04s", $bill['bill_id']).")": "AST/".sprintf("%04s", $bill['bill_id']),array("param"=>'opener'))) ?> </td>
-					<td><?=$bill['bill_refno']?></td>
-					<td><?=$bill['bill_disp_date']?></td>
-					<td><?=$bill['bill_due_date']?></td>
-					<td><?=$bill['bill_month']?></td>
-					<td><?=number_format($bill['bill_total'],3)?></td>	
-					<td><?=number_format($bill['bill_credit_amt'],3)?></td>													
+					<td align="center"><?=x(array('link'=>'erp_invoice/bill/view','ref'=>$encBillId,'label'=>$bill['bill_book_no']<>''?$bill['bill_book_no']." (AST/".sprintf("%04s", $bill['bill_id']).")": "AST/".sprintf("%04s", $bill['bill_id']),array("param"=>'opener'))) ?> </td>
+					<td align="center"><?=$bill['bill_refno']?></td>
+					<td align="center"><?=$bill['bill_disp_date']?></td>
+					<td align="center"><?=$bill['bill_due_date']?></td>
+					<td align="center"><?=$bill['bill_month']?></td>
+					<td align="right"><?=number_format($bill['bill_total'],3)?></td>	
+					<td align="right"><?=number_format($bill['bill_credit_amt'],3)?></td>													
 				</tr>
 				<?php  $pvhl = $bill['bill_customer_id'];
 						$custName = $bill['cust_name'];
@@ -197,7 +197,7 @@ $date = $date->format('d/m/Y')?>
 				<?php endforeach?>
 				<tr>
 					<th colspan="7" style="text-align: right;"> TOTAL FOR :<?=$custName?>  </th>		
-					<th ><?=number_format(@$vhlTotal,3);?></th>													
+					<th style="text-align: right;" ><?=number_format(@$vhlTotal,3);?></th>													
 				</tr>
 				<?php if($due):?>
 				<tr>
@@ -224,7 +224,7 @@ $date = $date->format('d/m/Y')?>
 				</tr>
 				<tr>
 					<th style="text-align: right;" colspan="7"> Grand Total </th>		
-					<th ><?=number_format(@$grndTotal,3);?></th>													
+					<th style="text-align: right;" ><?=number_format(@$grndTotal,3);?></th>													
 				</tr>
 			<?endif?>
 			</tbody>
