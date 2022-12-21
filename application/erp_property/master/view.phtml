@@ -78,8 +78,11 @@
 										<div>
 										<table class="" style="max-width: 40%; display: table;">
 											<thead>
-												<tr >
-													<th class="center"><div>  <img alt="" src="<?=IMAGEURL?><?=$this->encode($this->propImage['file_id']);?>" width="300"></div></th>
+												<tr style="padding-left: 1em;" >
+													<th class="center" style="padding-left: 15px;"><div style="margin-top: 1em;border-style: double;">  
+													<a href = '<?=IMAGEURL?><?=$this->encode($this->propImage['file_id']);?>' class='lightbox' >								
+														<img style="padding-left: 0%; "width="380" alt="" src="<?=IMAGEURL?><?=$this->encode($this->propImage['file_id']);?>"></a>
+													</div></th>
 												</tr>
 												</thead>
 										</table></div>
