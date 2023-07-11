@@ -1,6 +1,7 @@
 <div class="card-block" style="padding-top: 2%;">
 	<div class="full-width">
 		<?=x(array('link'=>'erp_property/master/add','label'=>'<button class="btn btn-success pull-right" >Add</button>',array("param"=>'class="facebox"')),'<br><br>')?>
+		<?=x(array('link'=>'erp_masters/building/list','label'=>'<button class="btn btn-success pull-right" >Buildings</button>',''),'<br><br>')?>
 	</div>
 	<h5 class="title-margin">List of Property</h5>
 </div>
@@ -205,6 +206,21 @@
 				<div class="card-block" style="background-color: ;">
 				<div class="card-block">
 					<h4 class="card-title center">Property Meter</h4>
+					<p class="card-text">
+						<small class="text-muted"></small>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+', array("param"=>'wide_opener')),'<br><br>')?>
+
+	<?=x(array('link'=>'erp_report/property/tenantagreements','label'=>'
+	<div class="col-md-3">
+		<div class="card">
+				<div class="card-block" style="background-color: ;">
+				<div class="card-block">
+					<h4 class="card-title center">Tenant Agreements</h4>
 					<p class="card-text">
 						<small class="text-muted"></small>
 					</p>

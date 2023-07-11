@@ -6,47 +6,15 @@
 	</div>
 	<div class="modal-body">
 				<div class="form-group row" style="margin-top: 15px;">
+					<label class="col-sm-2 form-control-label" >Tenant</label>
+					<div class="col-sm-4">
+                    <?=$this->form->agr_tenant->show()?>
+                 	 </div>
 					<label class="col-sm-2 form-control-label" >Agreement No.</label>
 					<div class="col-sm-4">
                     <?=$this->form->docno->show()?>
                   </div>
 				</div>
-								
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Contract By/Tenant Name</label>
-					<div class="col-sm-4">
-                    <?=$this->form->agr_tenant->show()?>
-                  </div>
-
-					<label class="col-sm-2 form-control-label" >Mobile No</label>
-					<div class="col-sm-4">
-                    <?=$this->form->agr_mobile->show()?>
-                  </div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Telephone No</label>
-					<div class="col-sm-4">
-                    <?=$this->form->agr_tele->show()?>
-                  </div>
-
-					<label class="col-sm-2 form-control-label" >Passport/Labour ID</label>
-					<div class="col-sm-4">
-                    <?=$this->form->agr_idno->show()?>
-                  </div>
-				</div>
-				
-				
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Company/ Individual</label>
-					<div class="col-sm-4">
-                    <?=$this->form->agr_comp->show()?>
-                  </div>
-
-					<label class="col-sm-2 form-control-label" >National/Expart</label>
-					<div class="col-sm-4">
-                    <?=$this->form->agr_expat->show()?>
-                  </div>
-				</div>	
 				<div class="form-group row">
 					<label class="col-sm-2 form-control-label" >Agreement Start Date</label>
 					<div class="col-sm-4">
@@ -70,27 +38,15 @@
                   </div>
 				</div>
 				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >CR No</label>
-					<div class="col-sm-4">
-                    <?=$this->form->agr_crno->show()?>
-                  </div>
-
 					<label class="col-sm-2 form-control-label" >Payment Details</label>
 					<div class="col-sm-4">
                     <?=$this->form->agr_paydet->show()?>
                   </div>
-				</div>														
-				<div class="form-group row">
 					<label class="col-sm-2 form-control-label" >Remarks</label>
 					<div class="col-sm-4">
                     <?=$this->form->docremark->show()?>
                   </div>
-
-					<label class="col-sm-2 form-control-label" >Alert days</label>
-					<div class="col-sm-2">
-                    <?=$this->form->alert->show()?>
-                  </div>
-				</div>
+				</div>		
 			<div class="form-group row">
 				<div id="" class="col-sm-3">
 					<div class="">
@@ -103,9 +59,13 @@
                  		<?=$this->form->my_files->show()?>
                  	</div>
 				</div>
+			<label class="col-sm-2 form-control-label" >Alert days</label>
+				<div class="col-sm-2">
+                <?=$this->form->alert->show()?>
+            </div>
 				
 			</div>
-		</div>
+			</div>
 	<div class="modal-footer popup-footer">
 		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
 		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

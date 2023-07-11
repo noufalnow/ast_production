@@ -249,6 +249,10 @@ if ($this->employeeDetail['emp_doj'] != '') {
 						<h4 class="panel-title">
 							<a href="#collapse2" data-parent="#" data-toggle="collapse">Employee Status</a>
 						</h4>
+						<h4 class="panel-title" style="float: right;">
+							<?=x(array('link'=>'erp_employee/master/leavestatus','ref'=>$this->param['ref'],'label'=>'<button class="btn pull-right" style="margin-bottom: 10px;    margin-right: 1em;    margin-top: -16%;">Leave Summary</button>',array("param"=>'class="facebox"')))?>
+						</h4>
+						
 					</div>
 					<div class="panel-collapse collapse" id="collapse2">
 						<div class="panel-body">
@@ -258,14 +262,16 @@ if ($this->employeeDetail['emp_doj'] != '') {
 									<tr>
 										<th class="center" width="5%">Type</th>
 										<th class="center" width="15%">Remarks</th>
-										<th class="center" width="8%">Start Date</th>
+										<th class="center" width="8%">With Effect From</th>
 										<th class="center" width="8%">End Date</th>
 										<th class="center" width="8%">Appl Date</th>
 										<th class="center" width="8%">Approval Date</th>
+										<th class="center" width="8%">Edit</th>
 									</tr>
 								</thead>
 								<tbody>
-								<?php foreach ($this->empStatus as $this->status):?>
+								<?php foreach ($this->empStatus as $this->status):
+								$encStsId = $this->encode($this->status['sts_id']);?>
 									<tr>
 										<td align="center"><?=$this->status['emp_mstatus']?></td>
 										<td><?=$this->status['sts_remarks']?></td>
@@ -273,6 +279,9 @@ if ($this->employeeDetail['emp_doj'] != '') {
 										<td align="center"><?=$this->status['sts_end_date']?></td>
 										<td align="center"><?=$this->status['sts_apply_date']?></td>
 										<td align="center"><?=$this->status['sts_approval_date']?></td>
+										<td align="center">
+										<?=x(array('link'=>'erp_employee/master/statusedit','ref'=>$encStsId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>
+										</td>										
 									</tr>
 								<?php endforeach;?>
 								</tbody>

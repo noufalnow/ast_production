@@ -137,6 +137,11 @@ function formSubmit(source, target) {
 		var dataArray = new FormData(form[0]);
 		dataArray.append("my_files", $('input[name="my_files"]')[0].files[0]);
 		fileCount = 1;
+	}
+	else if ($("input[name='my_files2']").length > 0) {
+		var dataArray = new FormData(form[0]);
+		dataArray.append("my_files2", $('input[name="my_files2"]')[0].files[0]);
+		fileCount = 1;
 	} 
 	else if($("input[name='photo']").length > 0) {
 		var dataArray = new FormData(form[0]);

@@ -223,6 +223,20 @@
 					<type>update</type>
 				</action>
 				<action>
+					<name>statusedit</name>
+					<label>Edit Status</label>
+					<description>Edit Status</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>		
+				<action>
+					<name>leavestatus</name>
+					<label>Leave Summary</label>
+					<description>Leave Summary</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>		
+				<action>
 					<name>empcontact</name>
 					<label>Employee Contact</label>
 					<description>View and Add Employee Contact</description>
@@ -479,6 +493,46 @@
 					<resource>application</resource>
 					<type>update</type>
 				</action>
+			</controller>
+			<controller>
+				<name>tenants</name>
+				<label>Tenants Management</label>
+				<description>Tenants Related activity</description>
+				<action>
+					<name>list</name>
+					<label>List Tenants</label>
+					<description>List Tenants</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>add</name>
+					<label>Add New Tenants</label>
+					<description>Add New Tenants</description>
+					<resource>application</resource>
+					<type>create</type>
+				</action>
+				<action>
+					<name>edit</name>
+					<label>Edit Tenants Details</label>
+					<description>Edit Building Tenants</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>
+				<action>
+					<name>view</name>
+					<label>View Tenants Details</label>
+					<description>View Tenants Details</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>tenant_agr</name>
+					<label>View Tenants Agreements</label>
+					<description>View Tenants Agreements</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>				
 			</controller>
 		</module>
 		<module>
@@ -1134,8 +1188,40 @@
 					<type>Create</type>
 				</action>
 			</controller>
+			<controller>
+				<name>building</name>
+				<label>Building Master</label>
+				<description>Building Related activity</description>
+				<action>
+					<name>list</name>
+					<label>List Building</label>
+					<description>List Building</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+				<action>
+					<name>add</name>
+					<label>Add New Building</label>
+					<description>Add New Building</description>
+					<resource>application</resource>
+					<type>create</type>
+				</action>
+				<action>
+					<name>edit</name>
+					<label>Edit Building Details</label>
+					<description>Edit Building Details</description>
+					<resource>application</resource>
+					<type>update</type>
+				</action>
+				<action>
+					<name>view</name>
+					<label>View Building Details</label>
+					<description>View Building Details</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
+			</controller>
 		</module>
-
 		<module>
 			<name>erp_report</name>
 			<label>ERP Reports </label>
@@ -1207,9 +1293,15 @@
 					<resource>application</resource>
 					<type>view</type>
 				</action>
+				<action>
+					<name>tenantagreements</name>
+					<label>Report : Agreements By Tenants</label>
+					<description>Report : Report : Agreements By Tenants
+					</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
 			</controller>
-
-
 			<controller>
 				<name>vehicle</name>
 				<label>Vehicles Contract and Expenses Reports</label>
