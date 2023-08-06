@@ -532,6 +532,13 @@
 					<description>View Tenants Agreements</description>
 					<resource>application</resource>
 					<type>view</type>
+				</action>
+				<action>
+					<name>tenant_payments</name>
+					<label>View Tenants Payments</label>
+					<description>View Tenants Payments</description>
+					<resource>application</resource>
+					<type>view</type>
 				</action>				
 			</controller>
 		</module>
