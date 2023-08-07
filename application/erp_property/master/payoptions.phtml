@@ -42,9 +42,11 @@
 		                	</div>
 						</td>
 						<td valign="middle">
+						<?php if(empty($this->payDemand[$i])):?>
 			              <div>
 							<a style="color: blue; margin: 1px;" title="Remove" href="#" onclick="delRow(this);return false;" class="glyphicon glyphicon-remove"></a>
 			              </div>
+			              <?php endif;?>
 						</td>
 					</tr>
 					<?php endforeach;?>
@@ -84,8 +86,9 @@ function addRow(elemId) {
 	$('#' + elemId + ' tbody>tr:last').find('.error_text').remove();
 	$('#' + elemId + ' tbody>tr:last').attr('index',index);
 
+	$('#' + elemId + ' tbody>tr:last td:last-child').html('<div><a style="color: blue; margin: 1px;" title="Remove" href="#" onclick="delRow(this);return false;" class="glyphicon glyphicon-remove"></a></div>');
 	$.each($('#' + elemId + ' tr:last').find(':input'), function() {
-
+		$(this). removeAttr('readonly');
 		if ($(this).is(':radio')) {
 	        //code here
 	    }
