@@ -228,6 +228,13 @@ $(document).ready(function(){
 		            		<?=$oxyh2s['oxyh2s']?>,
 							<?php endforeach?>],
 					
+		        },
+		        {
+		            name: 'Work Contract',
+		            data: [<?foreach($this->expList as $workContract):?>
+		            		<?=$workContract['workContract']?>,
+							<?php endforeach?>],
+					
 		        }]
 		    });
 		});

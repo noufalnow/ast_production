@@ -149,7 +149,7 @@ $encFileId = $this->encode($this->billInfo['file_id']);?>
 
 											<td style="border-color: #ababab;font-size:9pt" class="left" valign="top">Buyer's Order No. : <?=$this->billInfo['bill_refno']?></td>
 											<td style="border-color: #ababab;font-size:9pt" class="left" valign="top" width="25%">
-											Note : <span style="background-color:yellow"> <?=$this->billInfo['bill_remarks'];?> </span>
+											Note : <span style="background-color:"> <?=$this->billInfo['bill_remarks'];?> </span>
 											<?if($this->billInfo['bill_cancellation_status']):?> 
  												<span style="color:red">C A N C E L L E D </span> <?php endif?>
 											</td>

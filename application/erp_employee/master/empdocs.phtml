@@ -679,6 +679,58 @@
 					</div>
 				</div>
 				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#collapse10" data-parent="#" data-toggle="collapse">Work Contract </a>
+						</h4>
+					</div>
+					<div class="panel-collapse " id="collapse10">
+						<div class="panel-body">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th width="5%"class="center"> Work Contract No.</th>
+										<th width="15%"class="center">Desc</th>
+										<th width="10%"class="center">Issue Date </th>
+										<th width="10%"class="center">Expiry Date</th>
+										<th width="5%"class="center">View</th>
+										<th width="5%"class="center">Delete</th>
+										<th width="5%"class="center">Download</th>
+									</tr>
+								</thead>
+								<tbody>
+								<?php foreach ($this->workContrDocs as $docEmpContr):  
+								if($docEmpContr['doc_issue_date']){
+								$doi = DateTime::createFromFormat(DFS_DB,$docEmpContr['doc_issue_date']);
+								$doi = $doi->format(DF_DD);
+								}
+								$doe = DateTime::createFromFormat(DFS_DB,$docEmpContr['doc_expiry_date']);
+								$doe = $doe->format(DF_DD);
+								$encFileId8 = $this->encode($docEmpContr['file_id']);
+								$encDocId8 = $this->encode($docEmpContr['doc_id']);
+								?>
+									<tr>
+										<td><?=x(array('link'=>'erp_employee/master/empdocview','ref'=>$encDocId8,'label'=>$docEmpContr['doc_no'],array("param"=>'class="facebox"')))?></td>
+										<td><?=$docEmpContr['doc_desc']?></td>
+										<td class="center"><?=$doi?></td>
+										<td class="center"><?=$doe?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId8,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$docEmpContr['file_exten'])))?></td>
+										<td class="center">
+										<?if(!$delete11Off):?>
+											<?=x(array('link'=>'erp_employee/master/empdocdelete','ref'=>$encDocId8,'label'=>'<i class="glyphicon glyphicon-trash text-danger"></i>',array("param"=>'class="facebox"')))?>
+										<?endif?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId8,'label'=>'<i class="glyphicon glyphicon-download-alt text-info"></i>'))?></td>
+									</tr>
+								<?php 
+								$delete11Off = true;
+								endforeach;?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</div>
