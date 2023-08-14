@@ -40,7 +40,7 @@
 										<td class="center"><?=$doc['agr_rent']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td align="center"> <?if(!$delete1Off):?><?=x(array('link'=>'erp_property/master/payoptions','ref'=>$encDocId1,'label'=>'<i style="font-size: 25px;" class="glyphicon glyphicon-usd text-info"></i>',array("param"=>'class="facebox"')))?><?endif?></td>
+										<td align="center"> <?if(true):?><?=x(array('link'=>'erp_property/master/payoptions','ref'=>$encDocId1,'label'=>'<i style="font-size: 25px;" class="glyphicon glyphicon-usd text-info"></i>',array("param"=>'class="facebox"')))?><?endif?></td>
 										<td class="center"><?php if($doc['to_collect']):?> <?=x(array('link'=>'erp_property/tenants/tenant_payments','ref'=>$encDocId1,'label'=>"<b>".$doc['collected']." / ".$doc['to_collect']."</b></td>",array("param"=>'class="facebox"')))?><?php endif;?></td>										
 										<td class="center"> <?if(!$delete1Off):?><?=x(array('link'=>'erp_property/master/propdocsedit','ref'=>$encDocId1,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?><?endif?></td>
 										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$doc['file_exten'])))?></td>
