@@ -3,4 +3,4 @@
     |  ##CreativeSol Management Information System##   |
     |__________________________________________________|
 */
- class actionlog extends db_table { protected $_table = "\143\157\162\x65\x5f\141\143\x74\151\x6f\156\x5f\x6c\x6f\x67"; protected $_pkey = "\x61\x6c\157\x67\x5f\x69\144"; public function add($F5Frd) { $this->_nolog = true; return parent::insert($F5Frd); } }
+ class actionlog extends db_table { protected $_table = "\143\x6f\x72\x65\137\x61\x63\x74\x69\157\x6e\137\x6c\157\147"; protected $_pkey = "\141\154\x6f\x67\x5f\151\144"; public function add($WUkwG) { $this->_nolog = true; return parent::insert($WUkwG); } }

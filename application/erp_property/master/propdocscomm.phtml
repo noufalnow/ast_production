@@ -41,50 +41,50 @@
 		<div class="card-block">
 			<h5>Add Documents</h5>
 			<form name="docform" method="post" id="docform" action='erp_property/master/propdocscomm/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;" enctype="multipart/form-data">
-				<div class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-2 form-control-label" >Document Type</label>
+				<div class="row mb-4" style="margin-top: 15px;">
+					<label class="col-sm-2 form-label" >Document Type</label>
 					<div class="col-sm-4">
                     <?=$this->form->doctype->show()?>
                   </div>
 
-					<label class="col-sm-2 form-control-label" >Document No.</label>
+					<label class="col-sm-2 form-label" >Document No.</label>
 					<div class="col-sm-4">
                     <?=$this->form->docno->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Start Date</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Start Date</label>
 					<div class="col-sm-4">
                     <?=$this->form->doi->show()?>
                   </div>
 
-					<label class="col-sm-2 form-control-label" >End Date</label>
+					<label class="col-sm-2 form-label" >End Date</label>
 					<div class="col-sm-4">
                     <?=$this->form->doe->show()?>
                   </div>
 				</div>															
 							
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Remarks</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Remarks</label>
 					<div class="col-sm-4">
                     <?=$this->form->docremark->show()?>
                   </div>
 
-					<label class="col-sm-2 form-control-label" >Upload Document</label>
+					<label class="col-sm-2 form-label" >Upload Document</label>
 					<div class="col-sm-4">
                     <?=$this->form->my_files->show()?>
                   </div>
 				</div>
 
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Alert days</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Alert days</label>
 					<div class="col-sm-4">
                     <?=$this->form->alert->show()?>
                   </div>
 
 					<div class="col-md-2"></div>
 					<div class="col-md-4">	
-						<button type="button" onclick="formSubmit(this,'menu2');return false;" style="padding-left: 15px;" class="btn  btn-success  btn-block btn-rounded align-button">Add</button>
+						<button type="button" onclick="formSubmit(this,'menu2');return false;" style="padding-left: 15px;" class="btn  btn-primary align-button">Add</button>
 				</div>
 				</div>
 				<input type="hidden" name="tab" value="doc">
@@ -96,7 +96,7 @@
 			<div id="accordion" class="panel-group">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse2" data-parent="#" data-toggle="collapse">Fire safety Certificate</a>
 						</h4>
 					</div>
@@ -127,7 +127,7 @@
 										<td><?=x(array('link'=>'erp_property/master/propdocsview','ref'=>$encDocId1,'label'=>$doc['doc_no'],array("param"=>'class="facebox"')))?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$doc['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$doc['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete1Off):?>
 											<?=x(array('link'=>'erp_property/master/propdocsdelete','ref'=>$encDocId1,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>
@@ -146,7 +146,7 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse6" data-parent="#" data-toggle="collapse">Building Insurance</a>
 						</h4>
 					</div>
@@ -178,7 +178,7 @@
 										<td><?=$docIn['doc_desc']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encDocId2,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$docIn['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encDocId2,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$docIn['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete5Off):?>
 											<?=x(array('link'=>'erp_property/master/propdocsdelete','ref'=>$encDocId2,'label'=>'<i class="glyphicon glyphicon-trash text-danger"></i>',array("param"=>'class="facebox"')))?>

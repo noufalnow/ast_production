@@ -3,7 +3,7 @@
 	<?php if($this->param['docview']==''):?>
 		<?=x(array('link'=>'erp_manage/documents/add','ref'=>$this->encode($this->param['ref']).'/type/'.$this->encode($this->param['type']),'label'=>'<button class="btn btn-success pull-right" >Add</button>',array("param"=>'class="facebox"')))?>
 	<?php endif?>
-	<h5>Related Documents</h5>
+	<h5 style="padding-bottom: 1.5rem;">Related Documents</h5>
 </div></div>
 <?if(count( $this->documentList)>0):?>
 <div class="col-md-12">
@@ -38,7 +38,7 @@
            			<?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-file text-info">'.$document['agr_idno'].'</i>',array("param"=>'wide_opener')))?>
 				</td>
 				<?php if($this->param['docview']==''):?><td align="center">
-					<?=x(array('link'=>'erp_manage/documents/edit','ref'=>$encDocId.'/type/'.$this->encode($this->param['type']),'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>  
+					<?=x(array('link'=>'erp_manage/documents/edit','ref'=>$encDocId.'/type/'.$this->encode($this->param['type']),'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>  
 				</td><?php endif?>
 			</tr>
 			<?php endforeach;?>

@@ -1,54 +1,57 @@
-<div class="dynamic-popup" id="dynamic-popup"><!--  -->
-	<form name="form" method="post" id="edit" name="edit" action='erp_vehicle/master/vhldocsedit/ref/<?=$this->param['ref'];?>' style="margin-bottom: 0px;">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title">Modify Documet Details</h4>
-	</div>
-	<div class="modal-body">		
-				<div class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-2 form-control-label" >Document No.</label>
+<div class="dynamic-popup" id="dynamic-popup">
+	<form name="form" method="post" id="edit" action='erp_vehicle/master/vhldocsedit/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;" enctype="multipart/form-data">
+		<div class="modal-content modal-content-demo">
+			<div class="modal-header">
+				<h4 class="card-title">Modify Document Details</h4>
+				<button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+		<div class="modal-body"> 	
+				<div class="row mb-4" style="margin-top: 15px;">
+					<label class="col-sm-2 form-label" >Document No.</label>
 					<div class="col-sm-4">
                     <?=$this->form->docno->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Description</label>
+					<label class="col-sm-2 form-label" >Description</label>
 					<div class="col-sm-4">
                     <?=$this->form->docdesc->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Remarks</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Remarks</label>
 					<div class="col-sm-4">
                     <?=$this->form->docremark->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Issue Authority</label>
+					<label class="col-sm-2 form-label" >Issue Authority</label>
 					<div class="col-sm-4">
                     <?=$this->form->auth->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Date of apply</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Date of apply</label>
 					<div class="col-sm-4">
                     <?=$this->form->doa->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Date of Issue</label>
+					<label class="col-sm-2 form-label" >Date of Issue</label>
 					<div class="col-sm-4">
                     <?=$this->form->doi->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Date of expiry</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Date of expiry</label>
 					<div class="col-sm-4">
                     <?=$this->form->doe->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Alert days</label>
+					<label class="col-sm-2 form-label" >Alert days</label>
 					<div class="col-sm-2">
                     <?=$this->form->alert->show()?>
                   </div>
 				</div>
-			<div class="form-group row">
+			<div class="row mb-4">
 				<div id="" class="col-sm-3">
 					<div class="">
-						<label class="form-control-label">Upload Document <?=$this->form->docUpdate->show()?></label>
+						<label class="form-label">Upload Document <?=$this->form->docUpdate->show()?></label>
 	                     
 	                  </div>
 				</div>
@@ -57,10 +60,10 @@
                  		<?=$this->form->my_files->show()?>
                  	</div>
 				</div>
-	</div>
-	<div class="modal-footer popup-footer">
-		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary submit-alias livepost" >Update</button>
+		<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
 	</div>
 </form>	
 </div>

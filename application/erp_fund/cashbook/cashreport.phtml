@@ -125,13 +125,13 @@ $title = 'Cash Book Transactions '.$month;
 						$encExpId = $this->encode($cashBook['exp_id']); ?>
 						<?=x(array('link'=>'erp_expense/expense/view','ref'=>$encExpId,'label'=>$cashBook['exp_details'].$cashBook['exp_refno'],array("param"=>'class="facebox"')))?>
 					<?php if($cashBook['exp_id']):?>
-						<?=x(array('link'=>'erp_expense/expense/catedit','ref'=>$encExpId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>
+						<?=x(array('link'=>'erp_expense/expense/catedit','ref'=>$encExpId,'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>
 					<?php endif?>
 					<?php elseif($cashBook['cb_exp_type'] ==2):
 										
 						$encPayId = $this->encode($cashBook['cb_exp_id']); ?>
 						<?=x(array('link'=>'erp_expense/payments/view','ref'=>$encPayId,'label'=>$cashBook['pay_remarks'],array("param"=>'class="facebox"')))?>	
-						<?=x(array('link'=>'erp_expense/payments/editoption','ref'=>$encPayId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>  	
+						<?=x(array('link'=>'erp_expense/payments/editoption','ref'=>$encPayId,'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>  	
 						
 					<?php else:?>
 						<?=$cashBook['exp_details']?>  

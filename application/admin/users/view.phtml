@@ -1,46 +1,49 @@
-<div class="dynamic-popup" id="dynamic-popup"><!--  -->
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title">User details</h4>
-	</div>
-	<div class="modal-body">
-				<div class="form-group row">
-					<label class="col-sm-3 form-control-label" >First
+<div class="dynamic-popup" id="dynamic-popup">
+		<div class="modal-content modal-content-demo">
+			<div class="modal-header">
+				<h4 class="card-title">User details</h4>
+				<button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row mb-4">
+					<label class="col-sm-3 form-label" >First
 						Name</label>
 					<div class="col-sm-9">
                     <?=$this->userDetail['user_fname']?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-3 form-control-label" >Last
+				<div class="row mb-4">
+					<label class="col-sm-3 form-label" >Last
 						Name</label>
 					<div class="col-sm-9">
                     <?=$this->userDetail['user_lname']?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-3 form-control-label" >User
+				<div class="row mb-4">
+					<label class="col-sm-3 form-label" >User
 						Name</label>
 					<div class="col-sm-9">
                     <?=$this->userDetail['user_uname']?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-3 form-control-label" >User Type</label>
+				<div class="row mb-4">
+					<label class="col-sm-3 form-label" >User Type</label>
 					<div class="col-sm-9">
                     <?=$this->roll[$this->userDetail['user_type']]?>
                   </div>
 				</div>
 
-				<div class="form-group row">
-					<label class="col-sm-3 form-control-label" >Status</label>
+				<div class="row mb-4">
+					<label class="col-sm-3 form-label" >Status</label>
 					<div class="col-sm-9">
                      <?=$this->status[$this->userDetail['user_status']]?>
                   </div>
 				</div>
 	</div>
-	<div class="modal-footer popup-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
 	</div>
 </div>
 <script type="text/javascript">

@@ -57,9 +57,9 @@
 					<td align="center"><?=$item['category']?></td>
 					<td align="center"><?=$item['parent_cat']?></td>
 					<td class="center">
-						<?=x(array('link'=>'manage/item/edit','ref'=>array('ref'=>$encItemId),'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>'))?></td>
+						<?=x(array('link'=>'manage/item/edit','ref'=>array('ref'=>$encItemId),'label'=>'<i class="fas fa-edit"></i>'))?></td>
 					<td class="center">
-						<?=x(array('link'=>'manage/item/view','ref'=>array('ref'=>$encItemId),'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("param"=>'class="facebox"')))?></td>
+						<?=x(array('link'=>'manage/item/view','ref'=>array('ref'=>$encItemId),'label'=>'<i class="fas fa-search"></i>',array("param"=>'class="facebox"')))?></td>
 				</tr>
 				<?php endforeach?>
 			<?endif?>

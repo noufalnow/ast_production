@@ -15,7 +15,7 @@
 						<tr>
 							<td>
 								<input type="hidden" name="image" value="image">
-								<button type="button" onclick="formSubmit(this,'menu2');return false;" class="btn  btn-success btn-rounded" style="font-size: 120%; height: 33px; padding-top: 2px; padding-bottom: 2px; margin-top: 8px; float: left;">Upload</button>
+								<button type="button" onclick="formSubmit(this,'menu2');return false;" class="btn  btn-primary align-button" style="float: left;">Upload</button>
 							</td>
 							</tr>
 					</thead>
@@ -40,73 +40,73 @@
 		<div class="card-block">
 			<h5>Add Documents</h5>
 			<form name="docform" method="post" id="docform" action='erp_vehicle/master/vhldocs/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;" enctype="multipart/form-data">
-				<div class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-2 form-control-label" >Document Type</label>
+				<div class="row mb-4" style="margin-top: 15px;">
+					<label class="col-sm-2 form-label" >Document Type</label>
 					<div class="col-sm-4">
                     <?=$this->form->doctype->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Document No.</label>
+					<label class="col-sm-2 form-label" >Document No.</label>
 					<div class="col-sm-4">
                     <?=$this->form->docno->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Description</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Description</label>
 					<div class="col-sm-4">
                     <?=$this->form->docdesc->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Remarks</label>
+					<label class="col-sm-2 form-label" >Remarks</label>
 					<div class="col-sm-4">
                     <?=$this->form->docremark->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Issue Authority</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Issue Authority</label>
 					<div class="col-sm-4">
                     <?=$this->form->auth->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Date of apply</label>
+					<label class="col-sm-2 form-label" >Date of apply</label>
 					<div class="col-sm-4">
                     <?=$this->form->doa->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Date of Issue</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Date of Issue</label>
 					<div class="col-sm-4">
                     <?=$this->form->doi->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Date of expiry</label>
+					<label class="col-sm-2 form-label" >Date of expiry</label>
 					<div class="col-sm-4">
                     <?=$this->form->doe->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Upload Document</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Upload Document</label>
 					<div class="col-sm-4">
                     <?=$this->form->my_files->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Alert days</label>
+					<label class="col-sm-2 form-label" >Alert days</label>
 					<div class="col-sm-4">
                     <?=$this->form->alert->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
+				<div class="row mb-4">
 				<div class="col-md-6"></div>
 				<div class="col-md-2"></div>
 					<div class="col-md-4">	
-						<button type="button" onclick="formSubmit(this,'menu2');return false;" style="padding-left: 15px;" class="btn  btn-success  btn-block btn-rounded align-button">Add</button>
+						<button type="button" onclick="formSubmit(this,'menu2');return false;" style="padding-left: 15px;" class="btn  btn-primary align-button">Add</button>
 				</div>
 				</div>
 				<input type="hidden" name="tab" value="doc">
 			</form>
 		</div>
 	</div>
-	<div class="full-width" style="padding-top: 2px; border-bottom-width: 0px; padding-bottom: 2px;">
+	<div class="full-width mt-2" style="padding-top: 2px; border-bottom-width: 0px; padding-bottom: 2px;">
 		<div class="col-md-13">
 			<div id="accordion" class="panel-group">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse2" data-parent="#" data-toggle="collapse">Mukiya</a>
 						</h4>
 					</div>
@@ -139,7 +139,7 @@
 										<td><?=$mDoc['doc_desc']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$mDoc['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$mDoc['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete1Off):?>
 											<?=x(array('link'=>'erp_vehicle/master/vhldocsdelete','ref'=>$encDocId1,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>
@@ -158,7 +158,7 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse3" data-parent="#" data-toggle="collapse">Fitness</a>
 						</h4>
 					</div>
@@ -190,7 +190,7 @@
 										<td><?=$fDoc['doc_desc']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId2,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$fDoc['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId2,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$fDoc['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete2Off):?>
 											<?=x(array('link'=>'erp_vehicle/master/vhldocsdelete','ref'=>$encDocId2,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>
@@ -208,7 +208,7 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse4" data-parent="#" data-toggle="collapse">PDO</a>
 						</h4>
 					</div>
@@ -240,7 +240,7 @@
 										<td><?=$pDoc['doc_desc']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId3,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$pDoc['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId3,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$pDoc['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete3Off):?>
 											<?=x(array('link'=>'erp_vehicle/master/vhldocsdelete','ref'=>$encDocId3,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>
@@ -258,7 +258,7 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse5" data-parent="#" data-toggle="collapse">IVMS</a>
 						</h4>
 					</div>
@@ -290,7 +290,7 @@
 										<td><?=$iDoc['doc_desc']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId4,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$iDoc['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId4,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$iDoc['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete4Off):?>
 											<?=x(array('link'=>'erp_vehicle/master/vhldocsdelete','ref'=>$encDocId4,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>
@@ -308,7 +308,7 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse6" data-parent="#" data-toggle="collapse">Insurance</a>
 						</h4>
 					</div>
@@ -340,7 +340,7 @@
 										<td><?=$insDoc['doc_desc']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId5,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$insDoc['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId5,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$insDoc['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete5Off):?>
 											<?=x(array('link'=>'erp_vehicle/master/vhldocsdelete','ref'=>$encDocId5,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>
@@ -359,7 +359,7 @@
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#collapse7" data-parent="#" data-toggle="collapse">Municipality Certificate</a>
 						</h4>
 					</div>
@@ -391,7 +391,7 @@
 										<td><?=$mnDoc['doc_desc']?></td>
 										<td class="center"><?=$doi?></td>
 										<td class="center"><?=$doe?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId6,'label'=>'<i class="glyphicon glyphicon-search text-info"></i>',array("exten"=>$mnDoc['file_exten'])))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId6,'label'=>'<i class="fas fa-search"></i>',array("exten"=>$mnDoc['file_exten'])))?></td>
 										<td class="center">
 										<?if(!$delete6Off):?>
 											<?=x(array('link'=>'erp_vehicle/master/vhldocsdelete','ref'=>$encDocId6,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>

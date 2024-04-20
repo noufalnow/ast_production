@@ -175,14 +175,14 @@ table.table-bordered td{
 	
 	<?if($this->enbleNew):?>
 	<div class="col-sm-6" style="margin-top: 10px; background-color: #6fd37545;margin-left: 20px;border-style: groove;border-radius: 10px;	">
-    	<div class="form-group row" style="margin-top: 15px;">
-    		<label class="col-sm-3 form-control-label">Status</label>
+    	<div class="row mb-4" style="margin-top: 15px;">
+    		<label class="col-sm-3 form-label">Status</label>
     		<div class="col-sm-9">
     			<?=$this->form->status->show();?>&nbsp;&nbsp;
     		</div>
     	</div>
-    	<div class="form-group row" style="margin-top: 15px;">
-    		<label class="col-sm-3 form-control-label">Note</label>
+    	<div class="row mb-4" style="margin-top: 15px;">
+    		<label class="col-sm-3 form-label">Note</label>
     		<div class="col-sm-9">
     			<?=$this->form->note->show();?>
     		</div>
@@ -191,7 +191,7 @@ table.table-bordered td{
 	<?php endif;?>
 	<div  class="card" style="margin-top: 10px; padding-left: 33%; border-right-width: 1px; margin-right: 0px; padding-right: 5px;">
     	<div class="col-sm-4">
-    	<button style="font-size: 120%; height: 33px; padding-top: 2px; padding-bottom: 2px; /*! margin-top: 8px; */width: 75%;" class="btn  btn-success  btn-block btn-rounded align-button" type="submit">Update</button>
+    	<button style="font-size: 120%; height: 33px; padding-top: 2px; padding-bottom: 2px; /*! margin-top: 8px; */width: 75%;" class="btn  btn-primary align-button" type="submit">Update</button>
     	</div>			
     </div>
 

@@ -1,11 +1,15 @@
-<div class="dynamic-popup" id="dynamic-popup"><!--  -->
-	<form name="form" method="post" id="edit" action='erp_property/master/status/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title">Propery Status
-		</h4>
-	</div>
-	<div class="modal-body">
+<div class="dynamic-popup" id="dynamic-popup">
+	<!--  -->
+	<form name="form" method="post" id="edit"
+		action='erp_property/master/status/ref/<?=$this->param['ref']?>'
+		style="margin-bottom: 0px;">
+		<div class="modal-header">
+			<h4 class="card-title">Propery Status</h4>
+			<button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
+				<span aria-hidden="true">×</span>
+			</button>
+		</div>
+		<div class="modal-body">
 		<?php if($this->propertyDet['psts_prop_id']):?>
 			<table class="table table-bordered">
 				<tr>
@@ -20,28 +24,28 @@
 				</tr>
 			</table>
 		<?php endif?>
-			<div class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-3 form-control-label" >Status</label>
+			<div class="row mb-4" style="margin-top: 15px;">
+					<label class="col-sm-3 form-label" >Status</label>
 					<div class="col-sm-9">
                     <?=$this->form->status->show()?>
                   </div>
 				</div>
-				<div id="div_prop" class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-3 form-control-label" >Attached Property</label>
+				<div id="div_prop" class="row mb-4" style="margin-top: 15px;">
+					<label class="col-sm-3 form-label" >Attached Property</label>
 					<div class="col-sm-9">
                     <?=$this->form->property->show()?>
                   </div>
 				</div>
-				<div class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-3 form-control-label" >Note</label>
+				<div class="row mb-4" style="margin-top: 15px;">
+					<label class="col-sm-3 form-label" >Note</label>
 					<div class="col-sm-9">
                     <?=$this->form->note->show()?>
                   </div>
 				</div>
 	</div>
-	<div class="modal-footer popup-footer">
-		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary submit-alias livepost" >Update</button>
+		<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
 	</div>
 </form>	
 </div>

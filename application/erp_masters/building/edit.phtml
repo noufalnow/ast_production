@@ -1,60 +1,62 @@
 <div class="dynamic-popup" id="dynamic-popup">
-	<!--  -->
 	<form name="form" method="post" id="edit"
 		action='erp_masters/building/edit/ref/<?=$this->param['ref']?>'
 		style="margin-bottom: 0px;">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">Update Buildng details</h4>
-		</div>
-		<div class="modal-body">
-			<div class="form-group row" style="margin-top: 15px;">
-				<label class="col-sm-2 form-control-label">Name</label>
+		<div class="modal-content modal-content-demo">
+			<div class="modal-header">
+				<h4 class="card-title">Update building details</h4>
+				<button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+			<div class="row mb-4" style="margin-top: 15px;">
+				<label class="col-sm-2 form-label">Name</label>
 				<div class="col-sm-5">
                     <?=$this->form->bld_name->show()?>
                   </div>
 
-				<label class="col-sm-1 form-control-label">No.</label>
+				<label class="col-sm-1 form-label">No.</label>
 				<div class="col-sm-4">
                     <?=$this->form->bld_no->show()?>
                   </div>
 			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 form-control-label">Area</label>
+			<div class="row mb-4">
+				<label class="col-sm-2 form-label">Area</label>
 				<div class="col-sm-4">
                     <?=$this->form->bld_area->show()?>
                   </div>
 
-				<label class="col-sm-2 form-control-label">Block No.</label>
+				<label class="col-sm-2 form-label">Block No.</label>
 				<div class="col-sm-4">
                     <?=$this->form->bld_block_no->show()?>
                   </div>
 			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 form-control-label">Plot</label>
+			<div class="row mb-4">
+				<label class="col-sm-2 form-label">Plot</label>
 				<div class="col-sm-4">
                     <?=$this->form->bld_plot_no->show()?>
                   </div>
-				<label class="col-sm-2 form-control-label">Way</label>
+				<label class="col-sm-2 form-label">Way</label>
 				<div class="col-sm-4">
                     <?=$this->form->bld_way->show()?>
                   </div>
 			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 form-control-label">Street</label>
+			<div class="row mb-4">
+				<label class="col-sm-2 form-label">Street</label>
 				<div class="col-sm-4">
                     <?=$this->form->bld_street->show()?>
                   </div>
-				<label class="col-sm-2 form-control-label">Block Name</label>
+				<label class="col-sm-2 form-label">Block Name</label>
 				<div class="col-sm-4">
                     <?=$this->form->bld_block->show()?>
                   </div>
 			</div>
 		</div>
-		<div class="modal-footer popup-footer">
+		<div class="modal-footer">
 			<button type="button"
-				class="btn btn  btn-success submit-alias btn-rounded livepost">Update</button>
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				class="btn btn-primary submit-alias livepost">Update</button>
+			<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
 		</div>
 	</form>
 </div>

@@ -83,9 +83,9 @@ $(document).ready(function($) {
 	    enable_split_word_search: true	
 	});
 	
-	$('#myModal').on('show.bs.modal', function () {
+	/*$('#myModal').on('show.bs.modal', function () {
 	    $.fn.modal.Constructor.prototype.enforceFocus = function () { };	
-	});
+	});*/
 })
 
 function getContent(postlink,refId,target) {
@@ -375,7 +375,19 @@ function initDatePicker()
 			 	);
 }
 function setDatePicker(dateElement){
-	dateElement.datepicker({ dateFormat: 'dd/mm/yy',changeMonth: true,changeYear: true,yearRange: '-70:+30' });
+	dateElement.datepicker({ dateFormat: 'dd/mm/yy',changeMonth: true,changeYear: true,yearRange: '-70:+30',
+		
+	    beforeShow: function () {                
+	        setTimeout(function () {
+	        	if($('#myModal').hasClass('show'))
+	       		 	$('#ui-datepicker-div').appendTo($('#myModal'));
+	        	else
+	        		$('#ui-datepicker-div').appendTo($('#ipage'));
+	       	
+        }, 0);
+    }
+		
+	});
 	if(dateElement.attr('maxdate')!= undefined && dateElement.attr('maxdate')!= null)
 	{
 		 var maxDate = dateElement.attr('maxdate');
@@ -388,14 +400,14 @@ function setDatePicker(dateElement){
 	}
 }
 
-function getJaxData(refId, refElement,url,refParam)
+function getJaxData(refId, refElement,url,refParam,pType)
 {
 	if((refId!='')&&(refId!=null)&&(refId!=undefined))
 	{
 		$.ajax({
 			  type: 'POST',
 			  url: url,
-			  data: {refId:refId,refParam:refParam},
+			  data: {refId:refId,refParam:refParam,pType:pType },
 			  beforeSend: function () { displayOverlay('Loading...'); },
 			  success: function(response)
 							  {
@@ -473,3 +485,12 @@ function displayOverlay(text) {
 function removeOverlay() {
     $("#overlay").remove();
 }
+
+
+
+$("form").bind("keypress", function (e) {
+    if (e.keyCode == 13) {
+
+        return false;
+    }
+});

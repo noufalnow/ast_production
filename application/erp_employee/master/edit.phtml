@@ -1,85 +1,87 @@
-<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+<div class="dynamic-popup" id="dynamic-popup">
 	<form name="form" method="post" id="edit" action='erp_employee/master/edit/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;">
 	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title">Update employee details</h4>
+				<h4 class="card-title">Update employee details</h4>
+				<button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
 	</div>
 	<div class="modal-body">
 
-			<div class="form-group row" style="margin-top: 15px;">
-				<label class="col-sm-2 form-control-label">Employee No</label>
+			<div class=" row mb-4" style="margin-top: 15px;">
+				<label class="col-sm-2 form-label">Employee No</label>
 				<div class="col-sm-4">
                     <?=$this->form->empno->show()?>
                   </div>
-				<label class="col-sm-2 form-control-label">First Name</label>
+				<label class="col-sm-2 form-label">First Name</label>
 				<div class="col-sm-4">
                     <?=$this->form->fname->show()?>
                   </div>
 			</div>
-			<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Middle
+			<div class=" row mb-4">
+					<label class="col-sm-2 form-label" >Middle
 						Name</label>
 					<div class="col-sm-4">
                     <?=$this->form->mname->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Last
+					<label class="col-sm-2 form-label" >Last
 						Name</label>
 					<div class="col-sm-4">
                     <?=$this->form->lname->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Nationality
+				<div class=" row mb-4">
+					<label class="col-sm-2 form-label" >Nationality
 						</label>
 					<div class="col-sm-4">
                     <?=$this->form->nation->show()?>
                   </div>
 
-					<label class="col-sm-2 form-control-label" >Date of Birth
+					<label class="col-sm-2 form-label" >Date of Birth
 						</label>
 					<div class="col-sm-4">
                     <?=$this->form->dob->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Date of Joining</label>
+				<div class=" row mb-4">
+					<label class="col-sm-2 form-label" >Date of Joining</label>
 					<div class="col-sm-4">
                     <?=$this->form->doj->show()?>
                   </div>
 
-					<label class="col-sm-2 form-control-label" >Company</label>
+					<label class="col-sm-2 form-label" >Company</label>
 					<div class="col-sm-4">
                     <?=$this->form->company->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Department</label>
+				<div class=" row mb-4">
+					<label class="col-sm-2 form-label" >Department</label>
 					<div class="col-sm-4">
                     <?=$this->form->dept->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Designation</label>
+					<label class="col-sm-2 form-label" >Designation</label>
 					<div class="col-sm-4">
                     <?=$this->form->desig->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >File No</label>
+				<div class=" row mb-4">
+					<label class="col-sm-2 form-label" >File No</label>
 					<div class="col-sm-4">
                     <?=$this->form->fileno->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Mobile No</label>
+					<label class="col-sm-2 form-label" >Mobile No</label>
 					<div class="col-sm-4">
                     <?=$this->form->mobile->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Native Mobile No</label>
+				<div class=" row mb-4">
+					<label class="col-sm-2 form-label" >Native Mobile No</label>
 					<div class="col-sm-4">
                     <?=$this->form->nativeno->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Bank Account</label>
+				<div class=" row mb-4">
+					<label class="col-sm-2 form-label" >Bank Account</label>
 						<div class="col-sm-9">
 							<table class="" style="max-width: 100%;float: left; ">
 								<thead>
@@ -94,9 +96,10 @@
                  </div>
                  
 	</div>
-	<div class="modal-footer popup-footer">
-		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary submit-alias livepost">Save
+			changes</button>
+		<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
 	</div>
 </form>	
 </div>

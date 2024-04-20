@@ -1,4 +1,264 @@
-<div>
+      <!-- APP-CONTENT OPEN -->
+      <div class="main-content app-content mt-0">
+        <div class="side-app">
+          <!-- CONTAINER -->
+          <div class="main-container container-fluid">
+            <!-- PAGE-HEADER -->
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Dashboard</h1>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="javascript:void(0);">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Dashboard
+                  </li>
+                </ol>
+              </div>
+              <div class="ms-auto pageheader-btn">
+              
+              <button type="button" class="btn btn-primary btn-icon text-white me-2">             
+               <?=x(array('link'=>'erp_expense/expense/add','label'=>'<span class="text-white">
+                    <i class="fe fe-plus"> Add Expense</i>
+                  </span>',array("param"=>'class="facebox"')),'<br><br>')?></button>
+              </div>
+            </div>
+            <!-- PAGE-HEADER END -->
+
+            <!-- ROW-1 OPEN -->
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="card bg-primary img-card box-primary-shadow">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="text-white">
+                        <h2 class="mb-0 number-font">23,536</h2>
+                        <p class="text-white mb-0">Total Requests</p>
+                      </div>
+                      <div class="ms-auto">
+                        <i class="fa fa-send-o text-white fs-30 me-2 mt-2"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- COL END -->
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="card bg-secondary img-card box-secondary-shadow">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="text-white">
+                        <h2 class="mb-0 number-font">45,789</h2>
+                        <p class="text-white mb-0">Total Revenue</p>
+                      </div>
+                      <div class="ms-auto">
+                        <i class="fa fa-bar-chart text-white fs-30 me-2 mt-2"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- COL END -->
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="card bg-success img-card box-success-shadow">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="text-white">
+                        <h2 class="mb-0 number-font">89,786</h2>
+                        <p class="text-white mb-0">Total Profit</p>
+                      </div>
+                      <div class="ms-auto">
+                        <i class="fa fa-dollar text-white fs-30 me-2 mt-2"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- COL END -->
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                <div class="card bg-info img-card box-info-shadow">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="text-white">
+                        <h2 class="mb-0 number-font">43,336</h2>
+                        <p class="text-white mb-0">Monthly Profit</p>
+                      </div>
+                      <div class="ms-auto">
+                        <i class="fa-solid fa-indian-rupee-sign text-white fs-30 me-2 mt-2"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- COL END -->
+            </div>
+            <!-- ROW-1 END -->
+
+            <!-- ROW-2 OPEN -->
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Total Transactions</h3>
+                  </div>
+                  <div class="card-body pb-0">
+                    <div id="chartArea" class="chart-donut"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- COL END -->
+              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4">
+                <div class="card">
+                  <div class="card-header text-center">
+                    <h2 class="card-title">Projects</h2>
+                  </div>
+                  <div class="card-body">
+                    <div class="mx-auto chart-circle chart-circle-md mt-3 mb-4 text-center" data-value="0.75"
+                      data-thickness="8" data-bs-color="#5e2dd8 "></div>
+                    <div class="text-center mt-3">
+                      <h3>Average Sales</h3>
+                      <p class="mb-4">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Quam velit quisquam veniam excepturi.
+                      </p>
+                      <div class="col p-1 mt-2">
+                        <div class="float-start">
+                          <h3 class="ms-5">
+                            <i class="fa fa-caret-up fa-1x text-primary me-1"></i>₹3.2
+                          </h3>
+                          <h6 class="ms-5 pb-0 mb-0">last month</h6>
+                        </div>
+                        <div class="float-end">
+                          <h3 class="me-5">
+                            <i class="fa fa-caret-up fa-1x text-primary me-1"></i>₹2.4
+                          </h3>
+                          <h6 class="me-5 mt-0 mb-0">last year</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- COL END -->
+            </div>
+            <!-- ROW-2 END -->
+
+            <!-- ROW-3 -->
+            <div class="row">
+              <div class="col-md-12 col-xl-4">
+                <div class="card">
+                  <div class="card-header border-bottom">
+                    <h5 class="card-title">Sales Summary</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="clearfix row mb-4">
+                      <div class="col">
+                        <div class="float-start">
+                          <h5 class="mb-0"><strong>Total Revenue</strong></h5>
+                          <small class="text-muted">weekly profit</small>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="float-end">
+                          <h4 class="fw-bold mb-0 mt-2 text-blue">₹15300</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix row mb-4">
+                      <div class="col">
+                        <div class="float-start">
+                          <h5 class="mb-0"><strong>Total Tax</strong></h5>
+                          <small class="text-muted">weekly profit</small>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="float-end">
+                          <h4 class="fw-bold mt-2 mb-0 text-success">
+                            ₹1625
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix row mb-4">
+                      <div class="col">
+                        <div class="float-start">
+                          <h5 class="mb-0"><strong>Total Income</strong></h5>
+                          <small class="text-muted">weekly profit</small>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="float-end">
+                          <h4 class="fw-bold mt-2 mb-0 text-warning">70%</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix row mb-4">
+                      <div class="col">
+                        <div class="float-start">
+                          <h5 class="mb-0"><strong>Total Income</strong></h5>
+                          <small class="text-muted">weekly profit</small>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="float-end">
+                          <h4 class="fw-bold mt-2 mb-0 text-danger">50%</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix row mb-4">
+                      <div class="col">
+                        <div class="float-start">
+                          <h5 class="mb-0"><strong>Total Loss</strong></h5>
+                          <small class="text-muted">weekly profit</small>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="float-end">
+                          <h4 class="fw-bold mt-2 mb-0 text-info">30%</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix row mb-0">
+                      <div class="col">
+                        <div class="float-start">
+                          <h5 class="mb-0"><strong>Total Loss</strong></h5>
+                          <small class="text-muted">weekly profit</small>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="float-end">
+                          <h4 class="fw-bold mt-2 mb-0 text-secondary">
+                            55%
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-8 col-md-12">
+                <!-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8"> -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Total Profit</h3>
+                  </div>
+                  <div class="card-body pb-0">
+                    <div id="linechart" class="chart-donut"></div>
+                  </div>
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+            <!-- COL END -->
+            <!-- ROW-3 END -->
+          </div>
+          <!-- CONTAINER END -->
+        </div>
+      </div>
+      <!-- APP-CONTENT END -->
+
+<!--  <div>
 	<div class="col-md-12">
 		<h3 class="card-title" style="margin-left: 2%; margin-top: 5px;">Dashboard</h3>
 	</div>
@@ -21,9 +281,9 @@
 		<div class="" id="container"	style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			
 </div>
-
+-->
 <script>
-baseurl = '<?=APPURL?>';
+baseurl = '<?=APPURL;?>';
 
 /*$(function () {
     $('#container').highcharts({
@@ -95,8 +355,8 @@ baseurl = '<?=APPURL?>';
         }]
     });
 });*/
-
-
+<?
+/*
 var link = {
 <?foreach ($this->link as $lky=> $lval):?>
 	<?="$lky:'$lval',"?>
@@ -446,7 +706,7 @@ Highcharts.chart('pcontainer', {
     yAxis: {
         allowDecimals: false,
         min: 0,
-        /*tickInterval : 1,*/
+
         title: {
             text: 'Number of Properties'
         }
@@ -489,7 +749,7 @@ Highcharts.chart('pcontainer', {
         {y:<?php echo $data['shop']['vacant'].",Total:".$data['shop_t']."},"; endforeach;?>],
         stack: 'male'
     }, {
-        /*linkedTo:':previous',*/
+
         name: 'Shop-agreement',
         color: 'green',
         data: [<?php foreach ($this->param as $data):?>
@@ -502,7 +762,7 @@ Highcharts.chart('pcontainer', {
         {y:<?php echo $data['flat']['vacant'].",Total:".$data['flat_t']."},"; endforeach;?>],
         stack: 'female'
     }, {
-        /*linkedTo:':previous',*/
+
         name: 'Flat-agreement',
         color: '#56baf8',
         data: [<?php foreach ($this->param as $data):?>
@@ -675,11 +935,11 @@ Highcharts.chart('ppcontainer', {
 			      } ]
 	});
 
+*/?>
+
 <?php  if(USER_GROUP<>99):?>
 $(document).ready(function($) {
 	getContent(baseurl+'default/default/notify');
 });	
 <?php endif; ?>
-
-
 </script>

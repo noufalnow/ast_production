@@ -1,95 +1,92 @@
-<div class="col-md-12" style="padding-top: 3%;">
-	<div class="card">
-		<div class="card-block">
-			<h5>Update property details</h5>
-			<div class="card-block">
-				<form name="form" method="post" id="edit" action='erp_property/master/edit/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;">
-						<div class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-2 form-control-label" >Building</label>
-					<div class="col-sm-4">
+<div class="dynamic-popup" id="dynamic-popup">
+	<!--  -->
+	<form name="form" method="post" id="edit"
+		action='erp_property/master/edit/ref/<?=$this->param['ref']?>'
+		style="margin-bottom: 0px;">
+		<div class="modal-header">
+			<h4 class="card-title">Update property details</h4>
+			<button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
+				<span aria-hidden="true">×</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div class=" row mb-4" style="margin-top: 15px;">
+				<label class="col-sm-2 form-label">Building</label>
+				<div class="col-sm-4">
                     <?=$this->form->building->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Property No</label>
-					<div class="col-sm-4">
+				<label class="col-sm-2 form-label">Property No</label>
+				<div class="col-sm-4">
                     <?=$this->form->propno->show()?>
                   </div>
 			</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Property Name
-						</label>
-					<div class="col-sm-4">
+			<div class="row mb-4">
+				<label class="col-sm-2 form-label">Property Name </label>
+				<div class="col-sm-4">
                     <?=$this->form->propname->show()?>
                   </div>
-                   <label class="col-sm-2 form-control-label" >Property</label>
-				 <div class="col-sm-4">
+				<label class="col-sm-2 form-label">Property</label>
+				<div class="col-sm-4">
                     <?=$this->form->prop_build->show()?>
                   </div>
-				</div>
-				<div id="prop_build">
-					<div class="form-group row">
-						<label class="col-sm-2 form-control-label" style="">Category
-							</label>
-						<div class="col-sm-3" style="width: 18%;">
+			</div>
+			<div id="prop_build">
+				<div class="row mb-4">
+					<label class="col-sm-1 form-label" style="">Category </label>
+					<div class="col-sm-2" style="width: 18%;margin-left: 8%;margin-top: 1%;">
 	                    <?=$this->form->prop_cat->show()?>
 	                  </div>
 
-						<label class="col-sm-2 form-control-label" style="width: 7%;">Type
-							</label>
-						<div class="col-sm-3">
+					<label class="col-sm-1 form-label" style="width: 7%;">Type </label>
+					<div class="col-sm-3">
 	                    <?=$this->form->prop_type->show()?>
 	                  </div>
-						<label class="col-sm-2 form-control-label" style="width: 7%;">Level
-							</label>
-						<div class="col-sm-3">
+					<label class="col-sm-1 form-label" style="width: 7%;">Level </label>
+					<div class="col-sm-3">
 	                    <?=$this->form->prop_level->show()?>
 	                  </div>
-					</div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label">Electric Meter</label>
-										<div class="col-sm-4">
+			</div>
+			<div class="row mb-4">
+				<label class="col-sm-2 form-label">Electric Meter</label>
+				<div class="col-sm-4">
                     <?=$this->form->prop_elec1->show()?>
                   </div>
-                  					<div class="col-sm-3">
+				<div class="col-sm-3">
                     <?=$this->form->prop_elec2->show()?>
                   </div>
-                  					<div class="col-sm-3">
+				<div class="col-sm-3">
                     <?=$this->form->prop_elec3->show()?>
                   </div>
-                 </div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Water Meter No
-						</label>
-					<div class="col-sm-4">
+			</div>
+			<div class="row mb-4">
+				<label class="col-sm-2 form-label">Water Meter No </label>
+				<div class="col-sm-4">
                     <?=$this->form->prop_water->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Remarks
-						</label>
-					<div class="col-sm-4">
+				<label class="col-sm-2 form-label">Remarks </label>
+				<div class="col-sm-4">
                     <?=$this->form->remarks->show()?>
                   </div>
-				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >File No
-						</label>
-					<div class="col-sm-4">
+			</div>
+			<div class="row mb-4">
+				<label class="col-sm-2 form-label">File No </label>
+				<div class="col-sm-4">
                     <?=$this->form->fileno->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Bank Account
-						</label>
-					<div class="col-sm-4">
+				<label class="col-sm-2 form-label">Bank Account </label>
+				<div class="col-sm-4">
                     <?=$this->form->bank_account->show()?>
                   </div>
-				</div>
-        	<div class="modal-footer popup-footer">
-        		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Update</button>
-        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        	</div>
+			</div>
 
-			</form>
 		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-primary submit-alias livepost">Save
+				changes</button>
+			<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
 		</div>
-	</div>
+	</form>
 </div>
 
 <script type="text/javascript">           

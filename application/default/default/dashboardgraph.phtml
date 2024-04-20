@@ -1,0 +1,609 @@
+<?php echo '<script src="http://' . $_SERVER['HTTP_HOST'] . '/js/highcharts.js"></script>';?>   
+  
+  <div>
+	<div class="col-md-12">
+		<h3 class="card-title" style="margin-left: 2%; margin-top: 5px;">Documents Status</h3>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-4 btn_b_grd" id="barplot1"
+			style=" width: 32.5%; height: 200px; margin-bottom: 20px; float: left; margin-right: .5%; margin-top: .7%;padding-top: 6px;"></div>
+		<div class="col-md-4 btn_b_grd" id="barplot2"
+			style=" width: 32.5%; height: 200px; margin-bottom: 20px; float: left; margin-right: .5%;margin-top: .7%;padding-top: 6px;"></div>
+		<div class="col-md-4 btn_b_grd" id="barplot3"
+			style=" width: 33%; height: 200px; margin-bottom: 20px; float: left;margin-top: .7%;padding-top: 6px;"></div>
+		<div class="btn_b_grd" id="pcontainer" style="margin-bottom: 20px;width: 100% !important;"></div>		
+	</div>
+	<div class="col-md-12">
+		<div class="btn_b_grd" id="ppcontainer" style="width: 100% !important; height: 350px; margin-bottom: 20px;"></div>
+	</div>
+	<div class="col-md-12">
+		<div class="btn_b_grd" id="excontainer" style="width: 100% !important; height: 350px; margin-bottom: 20px;"></div>
+	</div>		
+</div>
+
+<script>
+baseurl = '<?=APPURL;?>';
+
+var link = {
+<?foreach ($this->link as $lky=> $lval):?>
+	<?="$lky:'$lval',"?>
+<?endforeach;?>
+};
+
+
+$(document).ready(function(){
+	$(function () {
+		var chart1 = $(function () {
+
+			Highcharts.chart('barplot1', {
+		    //$('#barplot1').highcharts({
+		    	colors: ['#cd4410','blue','#004040'],
+		    	legend: {
+		            enabled: false
+		        },
+		    	chart: {
+		            type: 'column',
+		            //height :200,
+			    	backgroundColor: 'rgba(0,0,0,0)',
+			        spacingTop:15,
+			        spacingRight:30
+		        },
+		        credits: {
+		            text: '',
+		            href: 'http://www.creativesol.com'
+		        },
+		        title: {
+		            text: 'Employee Documets Expiry'
+		        },
+		        xAxis: {
+		            categories: [<?foreach($this->expList as $expk=>$expval):?>
+				            		'<?=$expk?>',
+									<?php endforeach?>],
+	            ref: [<?foreach($this->expList as $expk=>$expval):?>
+            		'<?=$expk?>',
+				<?php endforeach?>]
+		        },
+		        yAxis: {
+		            min:0,
+		            //max:76,
+		            title: {
+		                text: 'Count'
+		            }
+		        },
+		        tooltip: {
+		            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+		            shared: true
+		        },
+		        
+		        plotOptions: {
+		        	allowPointSelect: true,
+		            column: {
+		                stacking: 'number',
+		            },
+		            series: {
+		                cursor: 'pointer',
+		                point: {
+		                    events: {
+		                        click: function () {
+		                        	getOpener ('wide',baseurl+'erp_report/employee/empdocument/ref/'+link[this.category]);
+		                        	  
+		                        }
+		                    }
+		                },
+		                maxPointWidth: 35
+		            }
+		        },
+		        series: [{
+		            name: 'Passport',
+		            data: [<?foreach($this->expList as $pp):?>
+		            		<?=$pp['passport']?>,
+							<?php endforeach?>],		
+		        }, {
+		            name: 'Visa',
+		            data: [<?foreach($this->expList as $visa):?>
+		            		<?=$visa['visa']?>,
+							<?php endforeach?>],		
+		        }, {
+		            name: 'Resident Card',
+		            data: [<?foreach($this->expList as $id):?>
+		            		<?=$id['id']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'Lisence',
+		            data: [<?foreach($this->expList as $lic):?>
+		            		<?=$lic['license']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'Insurance',
+		            data: [<?foreach($this->expList as $ins):?>
+		            		<?=$ins['insurance']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'PDO Lisence',
+		            data: [<?foreach($this->expList as $pdolic):?>
+		            		<?=$pdolic['pdolicense']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'PDO Passport',
+		            data: [<?foreach($this->expList as $pdopp):?>
+		            		<?=$pdopp['pdopassport']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'H2S Card',
+		            data: [<?foreach($this->expList as $h2s):?>
+		            		<?=$h2s['h2scard']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'OXY Passport',
+		            data: [<?foreach($this->expList as $oxypass):?>
+		            		<?=$oxypass['oxypassport']?>, 
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'OXY License',
+		            data: [<?foreach($this->expList as $oxylic):?>
+		            		<?=$oxylic['oxylicense']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'OXY H2S',
+		            data: [<?foreach($this->expList as $oxyh2s):?>
+		            		<?=$oxyh2s['oxyh2s']?>,
+							<?php endforeach?>],
+					
+		        },
+		        {
+		            name: 'Work Contract',
+		            data: [<?foreach($this->expList as $workContract):?>
+		            		<?=$workContract['workContract']?>,
+							<?php endforeach?>],
+					
+		        }]
+		    });
+		});
+
+
+		var chart2 = $(function () {
+			Highcharts.chart('barplot2', {
+		    //$('#barplot2').highcharts({
+		    	colors: ['#c73ae4','#cd4410','#004040'],
+		    	legend: {
+		            enabled: false
+		        },
+		    	chart: {
+		            type: 'column',
+		            //height :200,
+		            backgroundColor: 'rgba(0,0,0,0)',
+		            spacingTop:15,
+		            spacingRight:30
+		        },
+		        credits: {
+		            text: '',
+		            href: 'http://www.creativesol.com'
+		        },
+		        title: {
+		            text: 'Property Documets Expiry'
+		        },
+		        xAxis: {
+		            categories: [<?foreach($this->propExpList as $expk=>$expval):?>
+				            		'<?=$expk?>',
+									<?php endforeach?>],
+	            ref: [<?foreach($this->expList as $expk=>$expval):?>
+            		'<?=$expk?>',
+				<?php endforeach?>]
+		        },
+		        yAxis: {
+		            min:0,
+		            //max:76,
+		            title: {
+		                text: 'Count'
+		            }
+		        },
+		        tooltip: {
+		            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+		            shared: true
+		        },
+		        
+		        plotOptions: {
+		        	allowPointSelect: true,
+		            column: {
+		                stacking: 'number',
+		            },
+		            series: {
+		                cursor: 'pointer',
+		                point: {
+		                    events: {
+		                        click: function () {
+		                        	getOpener ('wide',baseurl+'erp_report/property/propdocument/ref/'+link[this.category]);
+		                        	  
+		                        }
+		                    }
+		                },
+		                maxPointWidth: 35
+		            }
+		        },
+		        series: [{
+		            name: 'Agreement',
+		            data: [<?foreach($this->propExpList as $agr):?>
+		            		<?=$agr['Agreement']?>,
+							<?php endforeach?>],		
+		        },{
+		            name: 'Fire',
+		            data: [<?foreach($this->propExpList as $fire):?>
+		            		<?=$fire['Fire']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'Insurance',
+		            data: [<?foreach($this->propExpList as $bins):?>
+		            		<?=$fire['Insurance']?>,
+							<?php endforeach?>],
+					
+		        }]
+		    });
+		});
+
+		var chart3 = $(function () {
+			Highcharts.chart('barplot3', {
+		    //$('#barplot3').highcharts({
+		    	colors: ['#cd4410','blue','#004040'],
+		    	legend: {
+		            enabled: false
+		        },
+		    	chart: {
+		            type: 'column',
+		            //height :200,
+		            backgroundColor: 'rgba(0,0,0,0)',
+		            spacingTop:15,
+		            spacingRight:30
+		        },
+		        credits: {
+		            text: '',
+		            href: 'http://www.creativesol.com'
+		        },
+		        title: {
+		            text: 'Vehicle Documets Expiry'
+		        },
+		        xAxis: {
+		            categories: [<?foreach($this->VehExpList as $expk=>$expval):?>
+				            		'<?=$expk?>',
+									<?php endforeach?>],
+	            ref: [<?foreach($this->VehExpList as $expk=>$expval):?>
+            		'<?=$expk?>',
+				<?php endforeach?>]
+		        },
+		        yAxis: {
+		            min:0,
+		            //max:76,
+		            title: {
+		                text: 'Count'
+		            }
+		        },
+		        tooltip: {
+		            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+		            shared: true
+		        },
+		        
+		        plotOptions: {
+		        	allowPointSelect: true,
+		            column: {
+		                stacking: 'number',
+		            },
+		            series: {
+		                cursor: 'pointer',
+		                point: {
+		                    events: {
+		                        click: function () {
+		                        	getOpener ('wide',baseurl+'erp_report/vehicle/vhldocument/ref/'+link[this.category]);
+		                        	  
+		                        }
+		                    }
+		                },
+		                maxPointWidth: 35
+		            }
+		        },
+		        series: [{
+		            name: 'Mulkia',
+		            data: [<?foreach($this->VehExpList as $mulk):?>
+		            		<?=$mulk['Mulkia']?>,
+							<?php endforeach?>],		
+		        }, {
+		            name: 'PDO',
+		            data: [<?foreach($this->VehExpList as $pdo):?>
+		            		<?=$pdo['PDO']?>,
+							<?php endforeach?>],		
+		        }, {
+		            name: 'Fitness',
+		            data: [<?foreach($this->VehExpList as $fit):?>
+		            		<?=$fit['Fitness']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'IVMS',
+		            data: [<?foreach($this->VehExpList as $ivms):?>
+		            		<?=$ivms['IVMS']?>,
+							<?php endforeach?>],
+					
+		        },
+		        {
+		            name: 'Insurance',
+		            data: [<?foreach($this->VehExpList as $vins):?>
+		            		<?=$vins['Insurance']?>,
+							<?php endforeach?>],
+					
+		        },{
+		            name: 'Mun.Certificate',
+		            data: [<?foreach($this->VehExpList as $mns):?>
+		            		<?=$mns['Mun.Certificate']?>,
+							<?php endforeach?>],
+					
+		        }]
+		    });
+		});
+	});
+});
+
+
+Highcharts.chart('pcontainer', {
+	colors: ['#cd4410','green'],
+    chart: {
+        type: 'column',
+        height: 300,
+        backgroundColor: 'rgba(0,0,0,0)',
+        spacingTop:15,
+        spacingRight:30
+    },
+    credits: {
+        text: '',
+        href: ''
+    },
+
+    title: {
+        text: 'Shops and Flats Occupancy by Building'
+    },
+
+    xAxis: {
+        categories: [<?php foreach ($this->bldname as $data):
+ 						echo "'".$data."',"; endforeach;?>
+	 		]
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        min: 0,
+
+        title: {
+            text: 'Number of Properties'
+        }
+    },
+
+    tooltip: {
+        formatter: function () {
+            //console.log(this.series);
+            return '<b>' + this.x + '</b><br/>' +
+                this.series.name + ': ' + this.y + '<br/>' +
+                'Total: ' + this.point.Total;
+        }
+    },
+
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            
+        },
+	    series: {
+		      	events: {
+		        	legendItemClick: function(event) {
+		            	var s = this.chart.series;
+		                for(i = 0; i < s.length; i++) {
+		                	if(this.name == 'Show All' || this == s[i])
+		                    	s[i].setVisible(true);
+		                    else
+		                    	s[i].setVisible(false);
+		                }
+		            	return false;
+		            }
+		        }
+		    }
+    },
+    
+    series: [{
+        name: 'Shops-Vacant',
+        color: '#cd4410',
+        data: [<?php foreach ($this->param as $data):?>
+        {y:<?php echo $data['shop']['vacant'].",Total:".$data['shop_t']."},"; endforeach;?>],
+        stack: 'male'
+    }, {
+
+        name: 'Shop-agreement',
+        color: 'green',
+        data: [<?php foreach ($this->param as $data):?>
+        {y:<?php echo $data['shop']['agreement'].",Total:".$data['shop_t']."},"; endforeach;?>],
+        stack: 'male'
+    }, {
+        name: 'Flats-Vacant',
+        color: '#c73ae4',
+        data: [<?php foreach ($this->param as $data):?>
+        {y:<?php echo $data['flat']['vacant'].",Total:".$data['flat_t']."},"; endforeach;?>],
+        stack: 'female'
+    }, {
+
+        name: 'Flat-agreement',
+        color: '#56baf8',
+        data: [<?php foreach ($this->param as $data):?>
+        {y:<?php echo $data['flat']['agreement'].",Total:".$data['flat_t']."},"; endforeach;?>],
+        stack: 'female',
+    },{ name: 'Show All' 
+    }]
+});
+</script>
+
+<?php 
+require_once __DIR__ . '/../../admin/!model/expense.php';
+$expObj = new expense();
+$where = array(
+		'f_mode'=>3,
+);
+$expenseSummery = $expObj->geExpenseReportSummaryPlot();
+unset($expenseSummery['ven']);
+$i = 0;
+$prefix = '';
+$total = $expenseSummery['total']['0']['sum']+$expenseSummery['total']['1']['sum'];
+foreach ( $expenseSummery as $key => $section ) :
+	foreach ( $section as $sub ) :
+	$repeat.= "{
+			name: '".$sub ['label_name']."',
+			turboThreshold: 0,
+			data: [".$prefix.(round($sub ['sum']/$total*100,2))."]
+		},";
+	endforeach;
+	$prefix.= "'',";
+endforeach;
+?>
+<script>
+Highcharts.chart('excontainer', {
+
+	title: {
+	    text: 'Expense Summary in <b>%</b>'
+	  },
+	  exporting: {},
+	  chart: {
+	    type: 'bar',
+	    backgroundColor: 'rgba(0,0,0,0)',
+        spacingTop:15,
+        spacingRight:30
+	  },
+	  xAxis: {
+	    categories: ['Comp','Head','Category','Mode'],
+	  },
+	    credits: {
+	        text: '',
+	        href: ''
+	    },
+
+	   tooltip: {
+	        formatter: function () {
+	            return  this.x + '<br/>' + '<b>' + this.series.name + ': ' + this.y + '</b> %';
+	        }
+	    },
+	  
+	  yAxis: {
+	    min: 0,
+	    title: {
+	      'text': ''
+	    },
+	    max: 100
+	  },
+	  
+	  legend: {
+	    reversed: false
+	  },
+	  plotOptions: {
+		    series: {
+			   	  stacking: 'normal',
+			      animation: true,
+			      	events: {
+			        	legendItemClick: function(event) {
+			            	var s = this.chart.series;
+			                for(i = 0; i < s.length; i++) {
+			                	if(this.name == 'Show All' || this == s[i])
+			                    	s[i].setVisible(true);
+			                    else
+			                    	s[i].setVisible(false);
+			                }
+			            	return false;
+			            }
+			        }
+			    }
+	  },
+
+	  series: [ <?=$repeat?>{ name: 'Show All' 
+      } ]
+	});
+</script>
+<?php 
+$expenseSummery = $expObj->geExpenseReportSummaryPlotCredit($where);
+$i = 0;
+$prefix = '';
+$repeat = '';
+$total = $expenseSummery['total']['0']['sum']+$expenseSummery['total']['1']['sum'];
+foreach ( $expenseSummery as $key => $section ) :
+foreach ( $section as $sub ) :
+$repeat.= "{
+			name: '".$sub ['label_name']."',
+			turboThreshold: 0,
+			data: [".$prefix.$sub ['sum']."]
+		},";
+endforeach;
+$prefix.= "'',";
+endforeach;
+?>
+<script>
+Highcharts.chart('ppcontainer', {
+
+	title: {
+	    text: 'Pending Credit Payment Details'
+	  },
+	  exporting: {},
+	  chart: {
+	    type: 'bar',
+	    backgroundColor: 'rgba(0,0,0,0)',
+        spacingTop:15,
+        spacingRight:30
+	  },
+	  xAxis: {
+	    categories: ['Vendor','Credit'],
+	  },
+	    credits: {
+	        text: '',
+	        href: ''
+	    },
+
+	   tooltip: {
+	        formatter: function () {
+	            return  this.x + '<br/>' + '' + this.series.name + ': RO <b>' + this.y + '</b>';
+	        }
+	    },
+	  
+	  yAxis: {
+	    min: 0,
+	    title: {
+	      'text': ''
+	    },
+	    max :<?=$total;?>,
+	  },
+	  
+	  legend: {
+	    reversed: false
+	  },
+	  plotOptions: {
+	    series: {
+	   	  stacking: 'normal',
+	      animation: true,
+	      	events: {
+	        	legendItemClick: function(event) {
+	            	var s = this.chart.series;
+	                for(i = 0; i < s.length; i++) {
+	                	if(this.name == 'Show All' || this == s[i])
+	                    	s[i].setVisible(true);
+	                    else
+	                    	s[i].setVisible(false);
+	                }
+	            	return false;
+	            }
+	        }
+	    }
+	  },
+
+	  series: [ <?=$repeat?>
+				{ name: 'Show All' 
+			      } ]
+	});
+
+</script>

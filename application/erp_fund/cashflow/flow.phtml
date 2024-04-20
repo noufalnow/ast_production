@@ -1,28 +1,31 @@
-<div class="dynamic-popup" id="dynamic-popup"><!--  -->
+<div class="dynamic-popup" id="dynamic-popup">
 	<form name="form" method="post" id="edit" action='erp_fund/cashflow/flow' style="margin-bottom: 0px;">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title">Add Cash flow Details</h4>
-	</div>
-	<div class="modal-body">
-				<div class="form-group row" style="margin-top: 15px;">
-					<label class="col-sm-2 form-control-label" >Date</label>
+		<div class="modal-content modal-content-demo">
+			<div class="modal-header">
+				<h4 class="card-title">Add Cash flow Details</h4>
+				<button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row mb-4" style="margin-top: 15px;">
+					<label class="col-sm-2 form-label" >Date</label>
 					<div class="col-sm-3">
                     <?=$this->form->debitdt->show()?>
                   </div>
                   
-                  <label class="col-sm-2 form-control-label" >Source</label>
+                  <label class="col-sm-2 form-label" >Source</label>
 					<div class="col-sm-3">
                     <?=$this->form->srctype->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Debit Amount</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Debit Amount</label>
 					<div class="col-sm-3">
                     <?=$this->form->totamount->show()?>
                   </div>
                   
-                  <label class="col-sm-2 form-control-label" >Source Details</label>
+                  <label class="col-sm-2 form-label" >Source Details</label>
 					
 				   <div class="col-sm-3" id="src_input">
                     <?=$this->form->src_details->show()?>
@@ -33,13 +36,13 @@
                   </div>
                   
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Note</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Note</label>
 					<div class="col-sm-3">
                     <?=$this->form->srcnote->show()?>
                   </div>
 				</div>
-			<div class="form-group row" style="margin-top: 15px;">
+			<div class="row mb-4" style="margin-top: 15px;">
 				 <div id="mh_varis" class="col-sm-12">
                     <table width="100%" id="multi_table">
 					<tr style="font-size: 0.8em;">
@@ -91,25 +94,25 @@
 				</div>
 				</div>
 				
-				<div class="form-group row" style="margin-top: 15px;">
-				  <label class="col-sm-2 form-control-label" ></label>   
-				  <label class="col-sm-2 form-control-label" ></label>     
-                  <label class="col-sm-2 form-control-label text-right" >Total</label>
+				<div class="row mb-4" style="margin-top: 15px;">
+				  <label class="col-sm-2 form-label" ></label>   
+				  <label class="col-sm-2 form-label" ></label>     
+                  <label class="col-sm-2 form-label text-right" >Total</label>
 		
-                  <div class="col-sm-2 form-control-label" id="grandT" style="
+                  <div class="col-sm-2 form-label" id="grandT" style="
 									    font-size: 12pt;
 									    font-weight: bold;" >0.000</div>
-                  <label class="col-sm-1 form-control-label text-right" >Balance</label>
-                  <div class="col-sm-2 form-control-label" id="grandB" style="
+                  <label class="col-sm-1 form-label text-right" >Balance</label>
+                  <div class="col-sm-2 form-label" id="grandB" style="
 									    font-size: 12pt;
 									    font-weight: bold;" >0.000</div>
-                  <label class="col-sm-2 form-control-label" ></label>    
+                  <label class="col-sm-2 form-label" ></label>    
 				</div>			
 				
 	</div>
-	<div class="modal-footer popup-footer">
-		<button type="button" class="btn btn  btn-success submit-alias btn-rounded livepost" >Save</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary submit-alias livepost" >Save</button>
+		<button type="button" class="btn btn-light" data-bs-dismiss="modal" >Close</button>
 	</div>
 </form>	
 </div>

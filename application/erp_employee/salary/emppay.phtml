@@ -5,67 +5,67 @@
 		<div class="card-block">
 			<h5>Pay Details</h5>
 			<form name="payform" method="post" id="payform" action='erp_employee/salary/emppay/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;" enctype="multipart/form-data">
-				<div class="form-group row" style="margin-top: 15px;">
+				<div class="row mb-4" style="margin-top: 15px;">
 				<?if(count($this->empPay)>0):?>
-					<label class="col-sm-2 form-control-label" >Pay Particulers</label>
+					<label class="col-sm-2 form-label" >Pay Particulers</label>
 					<div class="col-sm-2">
                     <?=$this->form->paytran->show()?>
                   </div>
 				<?endif?>
-				<label class="col-sm-2 form-control-label" >Basic Pay</label>
+				<label class="col-sm-2 form-label" >Basic Pay</label>
 					<div class="col-sm-2">
                     <?=$this->form->bp->show()?>
                   </div>
-				<label class="col-sm-2 form-control-label" >DA</label>
+				<label class="col-sm-2 form-label" >DA</label>
 					<div class="col-sm-2">
                     <?=$this->form->da->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >HRA</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >HRA</label>
 					<div class="col-sm-2">
                     <?=$this->form->hra->show()?>
                   </div>
 
-					<label class="col-sm-2 form-control-label" >TA</label>
+					<label class="col-sm-2 form-label" >TA</label>
 					<div class="col-sm-2">
                     <?=$this->form->ta->show()?>
                   </div>
 
-					<label class="col-sm-2 form-control-label" >Other Allowance 1</label>
+					<label class="col-sm-2 form-label" >Other Allowance 1</label>
 					<div class="col-sm-2">
                     <?=$this->form->all1->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Other Allowance 2</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Other Allowance 2</label>
 					<div class="col-sm-2">
                     <?=$this->form->all2->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Other Allowance 3</label>
+					<label class="col-sm-2 form-label" >Other Allowance 3</label>
 					<div class="col-sm-2">
                     <?=$this->form->all3->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >With effect from</label>
+					<label class="col-sm-2 form-label" >With effect from</label>
 					<div class="col-sm-2">
                     <?=$this->form->wef->show()?>
                   </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-sm-2 form-control-label" >Next Revision</label>
+				<div class="row mb-4">
+					<label class="col-sm-2 form-label" >Next Revision</label>
 					<div class="col-sm-2">
                     <?=$this->form->dor->show()?>
                   </div>
-					<label class="col-sm-2 form-control-label" >Remarks</label>
+					<label class="col-sm-2 form-label" >Remarks</label>
 					<div class="col-sm-6">
                     <?=$this->form->remark->show()?>
                   </div>
 				</div>
 
-			<div class="form-group row">
+			<div class="row mb-4">
 					<div class="col-md-9"></div>
 					<div class="col-md-3">					
-						<button type="button" onclick="formSubmit(this,'menu3');return false;" style="padding-left: 15px;" class="btn  btn-success  btn-block btn-rounded align-button">Add</button>
+						<button type="button" onclick="formSubmit(this,'menu3');return false;" style="padding-left: 15px;" class="btn  btn-primary align-button">Add</button>
 					</div>
 				</div>
 				<input type="hidden" name="tab" value="sal">
@@ -77,7 +77,7 @@
 			<div id="accordion" class="panel-group">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title1">
 							<a href="#pcollapse2" data-parent="#" data-toggle="collapse">Pay Details</a>
 						</h4>
 					</div>
@@ -128,7 +128,7 @@
 										<td class="center"><?=$dor?></td>
 										<td class="center">
 										<?if(!$editOff):?>
-											<?=x(array('link'=>'erp_employee/salary/emppayedit','ref'=>$encPayId,'label'=>'<i class="glyphicon glyphicon-edit text-info"></i>',array("param"=>'class="facebox"')))?>  
+											<?=x(array('link'=>'erp_employee/salary/emppayedit','ref'=>$encPayId,'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>  
 										<?endif?>
 									</tr>
 								<?php
