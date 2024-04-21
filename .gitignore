@@ -211,3 +211,5 @@ lib/vendor/wixel/gump/tests/Validators/ValidNameValidatorTest.php
 lib/vendor/wixel/gump/tests/Validators/ValidTwitterValidatorTest.php
 lib/vendor/wixel/gump/tests/Validators/ValidUrlValidatorTest.php
 
+/.settings
+/db_script
