@@ -3,7 +3,7 @@ CREATE SEQUENCE mis_notification_notif_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 92
 CREATE TABLE "public"."mis_notification" (
     "notif_id" bigint DEFAULT nextval('mis_notification_notif_id_seq') NOT NULL,
     "notif_month" date NOT NULL,
-    "notif_email" json,
+    "notif_email" text,
     "notif_content" text,
     "notif_status" smallint,
     "u_created" bigint,
