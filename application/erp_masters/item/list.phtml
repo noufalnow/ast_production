@@ -1,0 +1,118 @@
+<?$offset = $this->itemObj->_voffset;?>
+<form method="get" id="filter" name="filter" action="list">
+	<div class="main-content mt-0 hor-content">
+		<div class="side-app">
+			<!-- CONTAINER -->
+			<div class="main-container container">
+				<!-- PAGE-HEADER -->
+				<div class="page-header">
+					<div>
+						<h1 class="page-title">List of Items</h1>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="javascript:void(0);">Home</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">Manage
+								Items</li>
+						</ol>
+					</div>
+					<div class="ms-auto pageheader-btn">
+						<?=x(array('link'=>'erp_masters/item/add','label'=>'<button class="btn btn-success pull-right" >Add</button>',array("param"=>'class="facebox"')))?>
+					</div>
+				</div>
+				<!-- PAGE-HEADER END -->
+				<!-- ROW -->
+				<div class="row row-sm">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Filters</h3>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="file_no" class="form-label">Code</label>
+                                            <?=$this->form->f_code->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="name" class="form-label">Item Name</label>
+                                            <?=$this->form->f_name->show()?>
+                                        </div>
+									</div>
+
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="file_no" class="form-label">Description</label>
+                                            <?=$this->form->f_remarks->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="name" class="form-label">Price</label>
+                                            <?=$this->form->f_price->show()?>
+                                        </div>
+									</div>
+								</div>
+								<button class="btn <?=$this->filter_class?> mt-4 mb-0"
+									type="submit">Filter</button>
+								<input class="btn btn-secondary mt-4 mb-0" name="clear"
+									type="submit" value="All"></input>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Properties</h3>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive export-table">
+                                        <table aria-describedby="" class="table table-bordered no-footer">
+                                                <thead class="border-top">
+                                                  <tr role="row">
+
+					<th width="5%" class="center">Sl No</th>
+					<th width="9%" class="center">Item Code</th>
+					<th width="15%" class="center">Item Name</th>
+					<th width="15%" class="center">Description</th>
+					<th width="15%" class="center">Price</th>
+					<th width="10%" class="center">Edit</th>
+					<th width="6%" class="center">View</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?if(count($this->ItemsList)>0):?>
+				<?php foreach($this->ItemsList as $item):
+					$encItemId = $this->encode($item['item_id']);
+				?>
+				<tr>
+					<td class="center"><?=@++$offset;?></td>
+					<td><?=$item['item_code']?></td>
+					<td><?=$item['item_name']?></td>
+					<td><?=$item['item_remarks']?></td>
+					<td><?=$item['item_price']?></td>
+					<td class="center">
+						<?=x(array('link'=>'erp_masters/item/edit','ref'=>array('ref'=>$encItemId),'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>  
+					</td>
+					<td class="center">
+						<?=x(array('link'=>'erp_masters/item/view','ref'=>array('ref'=>$encItemId),'label'=>'<i class="fas fa-search"></i>',array("param"=>'class="facebox"')))?> 
+					</td>
+				</tr>
+				<?php endforeach?>
+			<?endif?>
+			</tbody>
+		</table>
+		<?$this->itemObj->pagination();?>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>

@@ -1,0 +1,228 @@
+<?$offset = $this->empObj->_voffset;?>
+<form method="get" id="filter" name="filter" action="list">
+	<div class="main-content mt-0 hor-content">
+		<div class="side-app">
+			<!-- CONTAINER -->
+			<div class="main-container container">
+				<!-- PAGE-HEADER -->
+				<div class="page-header">
+					<div>
+						<h1 class="page-title">Expenses</h1>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="javascript:void(0);">Home</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">Expenses</li>
+						</ol>
+					</div>
+					<div class="ms-auto pageheader-btn">
+					<?=x(array('link'=>'erp_expense/expense/add','label'=>'<button class="btn btn-success pull-right" >Add</button>',array("param"=>'class="facebox"')),'<br><br>')?>
+					</div>
+				</div>
+				<!-- PAGE-HEADER END -->
+				<!-- ROW -->
+				<div class="row row-sm">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Filters</h3>
+							</div>
+							
+							
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="file_no" class="form-label">Ref No.</label>
+                                            <?=$this->form->f_refno->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="name" class="form-label">Company</label>
+                                            <?=$this->form->f_company->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"> Vendor</label>
+                                            <?=$this->form->f_selVendor->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"> Main Head</label>
+                                            <?=$this->form->f_mainhead->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"> Status</label>
+                                            <?=$this->form->f_status->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"> Main Category</label>
+                                            <?=$this->form->f_pCatSelect->show()?>
+                                        </div>
+									</div>
+
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="file_no" class="form-label">Sub Category</label>
+                                            <?=$this->form->f_sCatSelect->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label for="name" class="form-label">Category</label>
+                                            <?=$this->form->f_cCatSelect->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"> Particulers</label>
+                                            <?=$this->form->f_particulers->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"> Mode</label>
+                                            <?=$this->form->f_mode->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"> File No</label>
+                                            <?=$this->form->f_expid->show()?>
+                                        </div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label"></label>
+                                            
+                                        </div>
+									</div>
+								</div>
+								
+								<button class="btn <?=$this->filter_class?> mt-4 mb-0"
+									type="submit">Filter</button>
+								<input class="btn btn-secondary mt-4 mb-0" name="clear"
+									type="submit" value="All"></input>
+							</div>
+						</div>
+					</div>
+					<!-- ROW -->
+					<div class="">
+						<div class="">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Expenses</h3>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive export-table">
+                                        <table aria-describedby="" class="table table-bordered no-footer">
+                                                <thead class="border-top">
+                                                  <tr role="row">
+					<th width="5%" class="center">Sl No</th>
+					<th width="5%" class="center">Ref No</th>
+					<th width="15%" class="center">Vendor</th>
+					<th width="3%" class="center">Com.</th>
+					<th width="5%" class="center">Head</th>
+					<th width="15%" class="center">Category</th>
+					<th width="15%" class="center">Particulers</th>
+					<th width="4%" class="center">Amount</th>
+					<th width="4%" class="center">Credit</th>
+					<th width="4%" class="center">Mode</th>
+					<th width="5%" class="center"><i class="glyphicon glyphicon-search"></i><i class="glyphicon glyphicon-edit"></i> </th>
+					<th width="3%" class="center"><i class="glyphicon glyphicon-ok"></i></th>
+					<?php if($_SESSION['user_acl']['erp_expense/expense/update']):?>
+					<th width="5%" class="center"><i class="glyphicon glyphicon-transfer"></i></th>
+					<?php endif;?>
+					<th width="8%" class="center"><i class="glyphicon glyphicon-open-file"></i></th>
+					<!--  <th width="6%" class="center">Delete</th>-->
+				</tr>
+			</thead>
+			<tbody>
+			<?if(count($this->expenseList)>0):?>
+				<?php foreach($this->expenseList as $expense):
+					$encExpId = $this->encode($expense['exp_id']);
+					$encFileId = $this->encode($expense['file_id']);
+					$cellstyle = '';
+				?>
+				<tr class="<?if($expense['exp_update_status']==3){?>redrow<?}elseif($expense['exp_update_status']==4){?>yellowrow
+						<?}elseif($expense['exp_update_status']==5){?>owrenchrow<?}?>">
+					<td class="center"><?=@++$this->offset;?></td>
+					<td <?php if($expense['exp_app_status'] ==''):?>style="border-left: 3px solid red;" <?php endif?>>
+						<?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>$expense['exp_refno'],array("param"=>'opener')))?>
+					</td>
+					<td><?=$expense['ven_name']?></td>
+					<td><?=$expense['comp_disp_name']?></td>
+					<td><?=$expense['main_head']?></td>
+					<td><?=$expense['pcat']?>-<?=$expense['scat']?>-<?=$expense['ccat']?></td>
+					<td><?=$expense['exp_details']?></td>
+					<td><?=$expense['exp_amount']?></td>
+					<td><?=$expense['exp_credit_amt']?></td>
+					<td><?=$expense['pay_mod']?></td>
+
+					<?php if(in_array($expense['exp_id'], $this->editIDS)):?>	
+						<td class="center">
+							<?=x(array('link'=>'erp_expense/expense/edit','ref'=>$encExpId,'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>
+						</td>
+					<?php endif?>
+					<?php if($expense['exp_app_status']==1):?>
+						<td align="center">
+							<?=x(array('link'=>'erp_expense/expense/view','ref'=>$encExpId,'label'=>'<i class="fas fa-search"></i>',array("param"=>'class="facebox"')))?>
+						</td>
+					<?php else:?>	
+						<td class="center">
+							<?=x(array('link'=>'erp_expense/expense/edit','ref'=>$encExpId,'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>
+						</td>
+					<?php endif?>
+					<?php if($expense['file_id']):?>
+					<td class="center">
+						<?php if($expense['exp_app_status']==''):?>
+							<?=x(array('link'=>'erp_expense/expense/approval','ref'=>$encExpId,'label'=>'<span class="glyphicon glyphicon-ok-circle" style="color:#31708f;font-size: 1.2em;"> </span>',array("param"=>'class="facebox"')))?>
+						<?php endif?>
+					</td>
+					<?php if($_SESSION['user_acl']['erp_expense/expense/update']):?>
+					<td class="center">
+    					<?php if($expense['exp_app_status']=='1'):?>
+    						<?=x(array('link'=>'erp_expense/expense/update','ref'=>$encExpId,'label'=>'<i class="glyphicon glyphicon-transfer text-info"></i>',array("param"=>'class="facebox"')))?>
+    					<?php endif;?>
+					</td>
+					<?php endif?>
+					<?php endif?>
+					<td class="center" <?php if($expense['exp_cash_flow']): $cellstyle = "background-color: bisque;";  endif;?>
+						<?php if($expense['cb_id']): $cellstyle.="border-left: 3px solid green;"; endif;?> style="<?=$cellstyle;?>">
+						<?=lx(array('link'=>'erp_expense/expense/catedit','ref'=>$encExpId,'label'=>$expense['exp_file_no'],array("param"=>'class="facebox"')))?>
+						
+						<?php if($expense['exp_app_status']==''):?>
+							<?=$expense['exp_id'];?>
+						<?php endif?>	
+						
+					</td>
+				</tr>
+				<?php endforeach?>
+			<?endif?>
+			</tbody>
+		</table>
+		<?$this->expObj->pagination();?>
+	</div>
+</div></div></div></div></div></div></div></div>
+</form>
+<script type="text/javascript">     
+$(document).ready(function() {
+	var source = '<?=APPURL?>'+ 'erp_expense/expense/getlive';
+	$('#f_pCatSelect').on('change',function() {
+		getJaxData($('#f_pCatSelect').val(),'f_sCatSelect',source,'parent');
+		$('#f_cCatSelect').empty();
+	});
+	getJaxData($('#f_pCatSelect').val(),'f_sCatSelect',source,'parent');
+
+	$('#f_sCatSelect').on('change',function() {
+		getJaxData($('#f_sCatSelect').val(),'f_cCatSelect',source,'sub');
+	});
+	getJaxData($('#f_sCatSelect').val(),'f_cCatSelect',source,'sub');
+});
+</script>
