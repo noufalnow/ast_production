@@ -4,3 +4,11 @@ logs/**
 uploads/**
 
 lib/vendor/**
+
+.buildpath
+
+.project
+
+.settings/**
+
+yakpro-po/**
