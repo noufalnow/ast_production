@@ -283,90 +283,6 @@
 -->
 <script>
 
-function chartArea() {
-	  // Your dataset, calculated due_amount (total_amount - paid_amount)
-	  var dueAmount = totalAmount.map((total, index) => total - paidAmount[index]);
-
-	  // Year-month labels
-
-
-	  var options = {
-	    series: [
-	      {
-	        name: "Total Amount",
-	        type: "column",
-	        data: totalAmount,
-	      },
-	      {
-	        name: "Paid Amount",
-	        type: "area",
-	        data: paidAmount,
-	      },
-	      {
-	        name: "Due Amount",
-	        type: "line",
-	        data: dueAmount,
-	      },
-	    ],
-	    chart: {
-	      height: 350,
-	      type: "line",
-	      stacked: false,
-	    },
-	    stroke: {
-	      width: [0, 2, 5],
-	      curve: "smooth",
-	    },
-	    plotOptions: {
-	      bar: {
-	        columnWidth: "50%",
-	      },
-	    },
-	    fill: {
-	      opacity: [0.85, 0.25, 1],
-	      gradient: {
-	        inverseColors: false,
-	        shade: "light",
-	        type: "vertical",
-	        opacityFrom: 0.85,
-	        opacityTo: 0.55,
-	        stops: [0, 100, 100, 100],
-	      },
-	    },
-	    labels: labels,
-	    markers: {
-	      size: 0,
-	    },
-	    xaxis: {
-	      type: "datetime",
-	      categories: labels.map(label => new Date(label + "-01").getTime()),
-	    },
-	    yaxis: {
-	      title: {
-	        text: "Amount",
-	      },
-	      min: 0,
-	    },
-	    tooltip: {
-	      shared: true,
-	      intersect: false,
-	      y: {
-	        formatter: function (y) {
-	          if (typeof y !== "undefined") {
-	            return y.toFixed(2) + " units";
-	          }
-	          return y;
-	        },
-	      },
-	    },
-	  };
-
-	  document.querySelector("#chartArea").innerHTML = "";
-	  var chart = new ApexCharts(document.querySelector("#chartArea"), options);
-	  chart.render();
-	}
-
-
 baseurl = '<?=APPURL;?>';
 
 // Assuming data is already in JavaScript variables
@@ -376,6 +292,8 @@ var totalExpenditure = JSON.parse('<?= json_encode($this->totalExpenditure); ?>'
 var labels = JSON.parse('<?= json_encode($this->labels); ?>');
 
 function chartArea() {
+	  var maxAmount = Math.max(...paidAmount, ...billCollection, ...totalExpenditure) * 1.1;  // Get max value for Y-axis
+
 	  var options = {
 	    series: [
 	      {
@@ -424,37 +342,39 @@ function chartArea() {
 	      size: 0,
 	    },
 	    xaxis: {
-	    	  type: "category", // Ensure this is "category" instead of "datetime"
-	    	  categories: labels, // Dynamically use the labels
-	    	},
-	    yaxis: {
-	      title: {
-	        text: "Amount",
-	      },
-	      min: 0,
-	      max: Math.max(...paidAmount, ...billCollection, ...totalExpenditure) * 1.1,  // Set the max value dynamically with 10% padding
+	      type: "category", // Ensure this is "category" instead of "datetime"
+	      categories: labels, // Dynamically use the labels
 	    },
+	    yaxis: [
+	      {
+	        title: {
+	          text: "Amount",
+	        },
+	        min: 0,
+	        max: maxAmount,  // Set max Y-axis dynamically
+	        tickAmount: 5,  // Adjust the number of ticks on the Y-axis
+	      },
+	    ],
 	    tooltip: {
-	    	  shared: true,
-	    	  intersect: false,
-	    	  y: {
-	    	    formatter: function (y, { seriesIndex, dataPointIndex, w }) {
-	    	      if (typeof y !== "undefined") {
-	    	        return "RO "+ y.toFixed(3);  // Ensure the value is formatted with two decimal places
-	    	      }
-	    	      return y;
-	    	    },
-	    	  },
-	    	},
-
+	      shared: true,
+	      intersect: false,
+	      y: {
+	        formatter: function (y, { seriesIndex, dataPointIndex, w }) {
+	          if (typeof y !== "undefined") {
+	            return "RO " + y.toFixed(3);  // Ensure the value is formatted with two decimal places
+	          }
+	          return y;
+	        },
+	      },
+	    },
 	  };
-	  
+
+	  // Clear the previous chart if it exists and render a new one
 	  document.querySelector("#chartArea").innerHTML = "";
 	  var chart = new ApexCharts(document.querySelector("#chartArea"), options);
 	  chart.render();
 	}
-
-      
+  
 
 
 /*$(function () {
