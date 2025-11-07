@@ -1,9 +1,4 @@
-
-logs/**
-
-uploads/**
-
-lib/vendor/**
+/.project
 
 .buildpath
 
@@ -11,4 +6,10 @@ lib/vendor/**
 
 .settings/**
 
-yakpro-po/**
+uploads/
+
+noufals/
+
+logs/
+
+yakpro-po/
