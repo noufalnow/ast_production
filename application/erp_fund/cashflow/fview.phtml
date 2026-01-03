@@ -61,6 +61,17 @@ if (!empty($this->cashFlowDet)) {
             .table-report th, .table-report td { border: 1px solid #222 !important; font-size: 12px; }
             #container svg { width: 100% !important; height: auto !important; }
         }
+        
+        .switch {
+    cursor: default;
+}
+.switch input {
+    pointer-events: none;
+}
+        
+        
+        
+        /* */
     </style>
 </head>
 <body>
@@ -131,13 +142,26 @@ if (!empty($this->cashFlowDet)) {
                                     </div>
                                 </td>
                                 <?php if($_SESSION['user_acl']['erp_fund/cashflow/toggle']): ?>
-                                <td class="text-center">
-                                    <?php $checked = ($det['cf_approve'] == 1) ? 'checked' : '' ; ?>
-                                    <?= lx(array('link'=>'erp_fund/cashflow/toggle','ref'=>$encCfDetId,'label'=>
-                                        '<label class="switch"> <input type="checkbox" '.$checked.' onclick="return false;"> <span class="slider"></span> </label>',
-                                        array("param"=>'class="facebox"')
-                                    )) ?>
-                                </td>
+                                    <td class="text-center">
+                                    <?php
+                                        $isApproved = ($det['cf_approve'] == 2);
+                                        $checked    = $isApproved ? 'checked' : '';
+                                        $title      = $isApproved
+                                            ? 'Approved – Locked'
+                                            : 'Pending Approval';
+                                    ?>
+                                    
+                                    <?= lx([
+                                        'link'  => 'erp_fund/cashflow/toggle',
+                                        'ref'   => $encCfDetId,
+                                        'label' =>
+                                            '<label class="switch" title="'.$title.'">
+                                                <input type="checkbox" '.$checked.' onclick="return false;">
+                                                <span class="slider"></span>
+                                            </label>',['param' => 'class="facebox"']
+                                    ]) ?>
+                                    </td>
+
                                 <?php endif; ?>
                             </tr>
                             <?php endforeach; endif; ?>
