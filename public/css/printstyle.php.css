@@ -26,6 +26,14 @@ body {
 	margin-bottom: 0 !important;
 }
 
+/* Arabic text block */
+.ar {
+    direction: rtl;
+    unicode-bidi: isolate;
+    text-align: right;
+}
+
+
 .card {
 	background-color: #fff;
 	border-radius: 3px;
