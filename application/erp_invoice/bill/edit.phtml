@@ -70,9 +70,15 @@
 			<?php foreach($this->mfields as $i):?>
 			<tbody id="dup_body">
 								<tr class="dup_row" index="<?=$i?>">
-									<td>
-										<div class="mainselection" style="max-width: 400px !important;"><?=$this->form->particuler[$i]->show()?></div>
-									</td>
+									<td> 
+										<div class="mainselection" 
+											style=""><?=$this->form->particuler[$i]->show()?></div> 
+									</td> 
+									<td> 
+                                        <div class="mainselection"> 
+                                            <?=$this->form->add_or_ded[$i]->show()?> 
+                                        </div> 
+                                    </td> 
 									<td>
 										<div class="mainselection"><?=$this->form->remarks[$i]->show()?></div>
 									</td>
@@ -194,14 +200,29 @@ function addRow(elemId) {
 	$('#' + elemId + ' tbody>tr:last').attr('index',index);
 
 	$.each($('#' + elemId + ' tr:last').find(':input'), function() {
-		$(this).val('');
-
-		var name = $(this).attr('name');
-		if (name !== undefined) {
-			var arr = name.split('[');
-			$(this).attr('id', arr[0] + '[' + index+ ']').attr(
-					'name', arr[0] + '[' + index + ']');
-		}
+  var $el = $(this); 
+    var name = $el.attr('name'); 
+ 
+    // --- reset value properly --- 
+    if ($el.is('select')) { 
+ 
+        // 🔥 Force default: ADD 
+        if (name && name.indexOf('add_or_ded') === 0) { 
+            $el.val('1'); // default = Add 
+        } else { 
+            $el.prop('selectedIndex', 0); 
+        } 
+ 
+    } else { 
+        $el.val(''); 
+    } 
+ 
+    // --- fix name / id index --- 
+    if (name !== undefined) { 
+        var arr = name.split('['); 
+        $el.attr('id', arr[0] + '[' + index + ']') 
+           .attr('name', arr[0] + '[' + index + ']'); 
+    } 
 		$(".chosen-select").chosen({
 			no_results_text : "Oops, nothing found!",
 		    search_contains: true,
@@ -296,11 +317,19 @@ function showTotal(index) {
 	if (isNaN(amt))
 		var amt = 0;
 
-	$("input[name='total_[" + index + "]").val(amt * qty);
-	$("input[name='total_[" + index + "]").next('div').html(
-			parseFloat(amt * qty).toFixed(3));
-	
-}
+var mode = $("select[name='add_or_ded[" + index + "]']").val(); 
+var total = amt * qty; 
+ 
+if (mode == 2) { // Deduction 
+    total = -1 * total; 
+} 
+		 
+ 
+	$("input[name='total_[" + index + "]").val(total); 
+	$("input[name='total_[" + index + "]").next('div').html( 
+			parseFloat(total).toFixed(3)); 
+	 
+} 
 
 function enableVat(e) { 
     if ($('#vatoption1').is(':checked')) { 

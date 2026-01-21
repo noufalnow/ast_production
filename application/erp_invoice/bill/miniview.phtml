@@ -137,63 +137,146 @@ $encFileId = $this->encode($this->billInfo['file_id']);?>
 
 					</table>
 				</div>
+				
+				<?php 
+				
+				
+				$additions  = [];
+				$deductions = [];
+				
+				foreach ($this->billDetails as $det) {
+				    if ((int)$det['bdet_add_or_ded'] === 2) {
+				        $deductions[] = $det;
+				    } else {
+				        $additions[] = $det;
+				    }
+				}
+				
+				
+				?>
 
 
 				<div style="margin-bottom: 1%;" <?if(!$this->billInfo['bill_cancellation_status']):?><?php endif?> >
-					<table class="rpt_frame" style="margin-bottom: 1px;">
-						<thead>
-							<tr>
-								<th class="empty" colspan="6"></th>
-							</tr>
-							<tr style="border-bottom: 2px solid;" >
-								<th class="center" width="5%">Sl No</th>
-								<th class="center" width="58%">Description</th>
-								<th class="center" width="8%">Rate (OMR)</th>
-								<th class="center" width="3%">Quantity</th>
-								<th class="center" width="5%">Unit</th>
-								<th class="center" width="8%">Amount</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach($this->billDetails as $det):?>
-							<tr>
-								<td class="center"><?=++$j?></td>
-								<td class="left" ><?=$det['item_name']?> <?=$det['bdet_remarks']<>''?'-'.$det['bdet_remarks']:'';?></td>
-								<td align="right" ><?=$det['bdet_amt']?></td>
-								<td align="right" ><?=number_format($det['bdet_qty'],2)?></td>
-								<td class="left"> <?=$det['item_unit']?> </td>								
-								<td align="right" style="text-align: right;"><?=number_format($det['bdet_qty']*$det['bdet_amt'],3)?>  <?php $grandTotal +=$det['bdet_qty']*$det['bdet_amt']; ?></td>
-							</tr>
-							<?php endforeach;?>
-							<tr>
-								<td class="center">&nbsp;</td>
-								<td class="left" >&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-							</tr>
-                            <tr>
-                                <td class="center"></td>
-                                <td colspan="4" style="text-align: right;"><b>VAT :</b></td>
-                                <td style="text-align: right;"><b><?= number_format($this->billInfo['bill_vat_amt'], 3) ?></b></td>
-                            </tr>
-                            <tr>
-                                <td class="center" style="border-top: 2pt solid;"></td>
-                                <td colspan="4" style="text-align: right; border-top: 2pt solid;"><b>Total :</b></td>
-                                <td style="text-align: right; border-top: 2pt solid;"><b><?= number_format($grandTotal + ($this->billInfo['bill_vat_amt'] ?? 0), 3) ?></b></td>
-                            </tr>
 
-						</tbody>
+                `````
+                
+                <?php $grandAdd = 0; $j = 0; ?>
+                <table class="rpt_frame" style="margin-bottom: 5px;">
+                <thead>
+                <tr>
+                    <th class="center" colspan="6">ADDITIONS</th>
+                </tr>
+                <tr style="border-bottom: 2px solid;">
+                    <th class="center" width="5%">Sl No</th>
+                    <th class="center" width="58%">Description</th>
+                    <th class="center" width="8%">Rate (OMR)</th>
+                    <th class="center" width="3%">Qty</th>
+                    <th class="center" width="5%">Unit</th>
+                    <th class="center" width="8%">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($additions as $det): 
+                    $line = $det['bdet_qty'] * $det['bdet_amt'];
+                    $grandAdd += $line;
+                ?>
+                <tr>
+                    <td class="center"><?=++$j?></td>
+                    <td class="left"><?=$det['item_name']?><?=$det['bdet_remarks'] ? ' - '.$det['bdet_remarks'] : ''?></td>
+                    <td align="right"><?=$det['bdet_amt']?></td>
+                    <td align="right"><?=number_format($det['bdet_qty'],2)?></td>
+                    <td class="left"><?=$det['item_unit']?></td>
+                    <td align="right"><?=number_format($line,3)?></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+                
+                <tfoot>
+                <tr style="border-top: 2px solid;">
+                    <td colspan="5" align="right"><b>Total Additions :</b></td>
+                    <td align="right"><b><?=number_format($grandAdd,3)?></b></td>
+                </tr>
+                </tfoot>
+                
+                </table>
+                
+                
+                <?php $grandDed = 0; $j = 0; ?>
+                <?php if (!empty($deductions)): ?>
+                <table class="rpt_frame" style="margin-bottom: 5px;">
+                <thead>
+                <tr>
+                    <th class="center" colspan="6">DEDUCTIONS</th>
+                </tr>
+                <tr style="border-bottom: 2px solid;">
+                    <th class="center" width="5%">Sl No</th>
+                    <th class="center" width="58%">Description</th>
+                    <th class="center" width="8%">Rate (OMR)</th>
+                    <th class="center" width="3%">Qty</th>
+                    <th class="center" width="5%">Unit</th>
+                    <th class="center" width="8%">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($deductions as $det): 
+                    $line = $det['bdet_qty'] * $det['bdet_amt'];
+                    $grandDed += $line;
+                ?>
+                <tr>
+                    <td class="center"><?=++$j?></td>
+                    <td class="left"><?=$det['item_name']?><?=$det['bdet_remarks'] ? ' - '.$det['bdet_remarks'] : ''?></td>
+                    <td align="right"><?=$det['bdet_amt']?></td>
+                    <td align="right"><?=number_format($det['bdet_qty'],2)?></td>
+                    <td class="left"><?=$det['item_unit']?></td>
+                    <td align="right">-<?=number_format($line,3)?></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+                
+                <tfoot>
+                <tr style="border-top: 2px solid;">
+                    <td colspan="5" align="right"><b>Total Deductions :</b></td>
+                    <td align="right"><b>-<?=number_format($grandDed,3)?></b></td>
+                </tr>
+                </tfoot>
+                
+                </table>
+                <?php endif; ?>
+                
+                
+                <?php
+                $netItems = $grandAdd - $grandDed;
+                $vat      = $this->billInfo['bill_vat_amt'] ?? 0;
+                $netTotal = $netItems + $vat;
+                ?>
+                
+                <table class="rpt_frame">
+                <tbody>
+                <tr>
+                    <td class="right" align="right"><b>Sub Total :</b></td>
+                    <td class="right" align="right"><b><?=number_format($netItems,3)?></b></td>
+                </tr>
+                <tr>
+                    <td class="right" align="right"><b>VAT :</b></td>
+                    <td class="right" align="right"><b><?=number_format($vat,3)?></b></td>
+                </tr>
+                <tr>
+                    <td width="90%" class="right" align="right" style="border-top: 2px solid;"><b>NET TOTAL :</b></td>
+                    <td width="10%" class="right" align="right" style="border-top: 2px solid;"><b><?=number_format($netTotal,3)?></b></td>
+                </tr>
+                </tbody>
+                </table>
 
-					</table>
+
+
+
 				</div>
 				<div style="  bottom: 0;    left: 0;">
 					<table class="rpt_tbl" style="font-size: 9pt;">
 						<tr>
 							<td colspan="2" class="left">Amount Chargeable (in words) <br> <b><?
 							
-							$gTotal = explode ( '.', number_format( $grandTotal + ($this->billInfo['bill_vat_amt'] ?? 0), 3));						
+							$gTotal = explode ( '.', number_format( $netTotal + ($this->billInfo['bill_vat_amt'] ?? 0), 3));						
 							$gTotal [0]= str_replace( ',', '', $gTotal [0]);
 							$gTotal [1]= str_replace( ',', '', $gTotal [1]);
 							
@@ -788,7 +871,7 @@ return $rettxt;}
 ?>
 <style>
 th,td {
-    text-align: center;
+    /*text-align: center;*/
 }
 td.left {
     text-align: left;
