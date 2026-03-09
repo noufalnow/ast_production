@@ -81,87 +81,114 @@
 						</div>
 					</div>
 					<!-- ROW -->
-					<div class="">
-						<div class="">
-							<div class="card">
-								<div class="card-header">
-									<h3 class="card-title">Employees</h3>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive export-table">
-                                        <table aria-describedby="" class="table table-bordered text-nowrap no-footer">
-                                                <thead class="border-top">
-                                                  <tr role="row">
-													<th class="border-bottom-0">Sl No</th>
-													<th class="border-bottom-0">File No</th>
-													<th class="border-bottom-0">Name</th>
-													<th class="border-bottom-0">Company</th>
-													<th class="border-bottom-0">Department</th>
-													<th class="border-bottom-0">Designation</th>
-													<th class="border-bottom-0">Contact</th>
-													<th class="border-bottom-0">Status</th>
-													<th class="border-bottom-0">Edit</th>
-													<th class="border-bottom-0">View</th>
-												</tr>
-											</thead>
-											<tbody>
-                                                <?if(count($this->employeeList)>0):?>
-                                                <?php
 
-                                                    foreach ($this->employeeList as $employee) :
-                                                        $encEmpId = $this->encode($employee['emp_id']);
-                                                        ?>
-                                                <tr>
-													<td class="center">
-                                                        <?=@++$offset;?>
-                                                    </td>
-													<td>
-                                                        <?=$employee['emp_fileno']?>
-                                                    </td>
-													<td>
-                                                        <?=$employee['emp_fname']?>&nbsp;
-                                                        <?=$employee['emp_mname']?>&nbsp;
-                                                        <?=$employee['emp_lname']?>
-                                                    </td>
-													<td>
-                                                        <?=$employee['comp_disp_name']?>
-                                                    </td>
-													<td>
-                                                        <?=$employee['dept_name']?>
-                                                    </td>
-													<td>
-                                                        <?=$employee['desig_name']?>
-                                                    </td>
-													<td class="center">
-                                                        <?//=$nation[$employee['emp_nationality']]?>
-                                                        <?=$employee['emp_mobileno']?>
-                                                    </td>
-													<td class="center">
-                                                        <?php if(!$employee['emp_mstatus']):?> Active
-                                                        <?php else:?>
-                                                        <?=$employee['emp_mstatus']?>
-                                                        <?php endif;?>
-                                                        <?=x(array('link'=>'erp_employee/master/status','ref'=>array('ref'=>$encEmpId),'label'=>'<i class="fas fa-star-half-alt"></i>',array("param"=>'class="facebox"')))?>
-                                                    </td>
-													</td>
-													<td class="center">
-                                                        <?=x(array('link'=>'erp_employee/master/edit','ref'=>array('ref'=>$encEmpId),'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>
-                                                    </td>
-													<td class="center">
-                                                        <?=x(array('link'=>'erp_employee/master/view','ref'=>array('ref'=>$encEmpId),'label'=>'<i class="fas fa-search"></i>'))?>
-                                                    </td>
-												</tr>
-                                                <?php endforeach?>
-                                                <?endif?>
-                                            </tbody>
-										</table>
-                                        <?$this->empObj->pagination();?>
-									</div>
-								</div>
-							</div>
+<div class="row">
 
-						</div>
-					</div>
+<?if(count($this->employeeList)>0):?>
+<?php foreach ($this->employeeList as $employee): 
+$encEmpId = $this->encode($employee['emp_id']);
+?>
+
+<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+
+<div class="card employee-card h-100">
+<div class="card-body">
+
+<div class="d-flex">
+
+<!-- PHOTO -->
+<div class="emp-photo-wrap">
+
+<img 
+src="<?=IMAGEURL?><?=$this->encode($employee['file_id']);?>" 
+class="emp-photo"
+onerror="this.onerror=null;this.src='<?=IMAGEURL?>no-photo.png';"
+/>
+
+</div>
+
+
+<!-- EMPLOYEE DETAILS -->
+<div class="flex-grow-1 ms-3">
+
+<h5 class="emp-name mb-1">
+<?=trim($employee['emp_fname'].' '.$employee['emp_mname'].' '.$employee['emp_lname'])?>
+</h5>
+
+<div class="text-muted small mb-2">
+File No : <?=$employee['emp_fileno']?>
+</div>
+
+
+<div class="emp-meta">
+
+<div><strong>Company</strong> : <?=$employee['comp_disp_name']?></div>
+
+<div><strong>Department</strong> : <?=$employee['dept_name']?></div>
+
+<div><strong>Designation</strong> : <?=$employee['desig_name']?></div>
+
+<div><strong>Contact</strong> : <?=$employee['emp_mobileno']?></div>
+
+<div>
+<strong>Status</strong> :
+
+<?php if(!$employee['emp_mstatus']): ?>
+<span class="badge bg-success">Active</span>
+<?php else: ?>
+<span class="badge bg-warning"><?=$employee['emp_mstatus']?></span>
+<?php endif; ?>
+
+<?=x(array(
+'link'=>'erp_employee/master/status',
+'ref'=>array('ref'=>$encEmpId),
+'label'=>'<i class="fas fa-star-half-alt"></i>',
+array("param"=>'class="facebox ms-1"')
+))?>
+
+</div>
+
+</div>
+
+
+<!-- ACTIONS -->
+<div class="emp-actions mt-3">
+
+<?=x(array(
+'link'=>'erp_employee/master/edit',
+'ref'=>array('ref'=>$encEmpId),
+'label'=>'<i class="fas fa-edit"></i> Edit',
+array("param"=>'class="btn btn-sm btn-primary facebox"')
+))?>
+
+<?=x(array(
+'link'=>'erp_employee/master/view',
+'ref'=>array('ref'=>$encEmpId),
+'label'=>'<i class="fas fa-search"></i> View',
+array("param"=>'class="btn btn-sm btn-secondary ms-1"')
+))?>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<?php endforeach ?>
+<?endif?>
+
+</div>
+
+
+					<div class="mt-3">
+<?$this->empObj->pagination();?>
+</div>
+
 				</div>
 
 			</div>
@@ -172,6 +199,42 @@
 
 
 </form>
+
+<style>
+.employee-card{
+border-radius:10px;
+transition:all .2s ease;
+border:1px solid #e5e5e5;
+}
+
+.employee-card:hover{
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transform:translateY(-2px);
+}
+
+.emp-photo-wrap{
+width:90px;
+flex-shrink:0;
+}
+
+.emp-photo{
+width:90px;
+height:90px;
+border-radius:8px;
+object-fit:cover;
+border:1px solid #ddd;
+}
+
+.emp-name{
+font-weight:600;
+}
+
+.emp-meta div{
+margin-bottom:3px;
+font-size:14px;
+}
+
+</style>
 
 <script type="text/javascript">
 $(document).ready(function() {
