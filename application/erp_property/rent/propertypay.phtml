@@ -308,157 +308,189 @@ document.addEventListener("DOMContentLoaded", function () {
 </table>
 
 							</div>
-<table class="rpt_frame">
-    <thead>
-        <tr><th class="empty" colspan="13"></th></tr>
+<table class="rpt_frame ledger-table" style="table-layout:fixed;width:100%;">
+
+<thead>
 <tr>
-    <th width="4%" class="center">Sl No</th>
-    <th width="6%" class="center">File No</th>
-    <th width="11%" class="center">Building</th>
-    <th width="4%" class="center">Category</th>
-    <th width="21%" class="center">Agreement By</th>
-    <th width="6%" class="center">Doc No</th>
-    <th width="8%" class="center">Start Date</th>
-    <th width="8%" class="center">End Date</th>
-    <th width="5%" class="center">Payment Option</th>
-    <th width="9%" class="center">Rent Amount</th>
-    <th width="8%" class="center">Date</th>
+    <th width="5%" class="center">#</th>
+    <th width="18%">Property</th>
+    <th width="25%">Tenant</th>
+    <th width="12%">Payment Type</th>
+    <th width="12%" class="right">Rent</th>
+    <th width="12%" class="center">Date</th>
+</tr>
+</thead>
+
+<tbody>
+
+<?php if(count($this->propertyList) > 0): ?>
+
+<?php foreach ($this->propertyList as $property): ?>
+
+<?php
+
+$encPropId    = $this->encode($property['prop_id']);
+$encFileId    = $this->encode($property['file_id']);
+$encPayOption = $this->encode($property['popt_id']);
+$encCdmdId    = $this->encode($property['cdmd_id']);
+
+?>
+
+<tr>
+
+<td class="center"><?=@$sl++;?></td>
+
+<td>
+
+<strong>
+
+<?= x([
+    'link'=>'erp_report/property/paymentcollection',
+    'ref'=>['f_property'=>$property['prop_id']],
+    'label'=>$property['prop_fileno'],
+    ['param'=>'opener']
+]) ?>
+
+</strong>
+
+<br>
+
+<small><?=$property['bld_name']?> /
+<?=($property['prop_cat']==1)?"Shop":"Flat"?></small>
+
+</td>
+
+<td>
+
+<b><?=$property['agr_tenant']?></b>
+
+<br>
+
+<small>
+
+<?= x([
+    'link'=>'default/default/download',
+    'ref'=>$encFileId,
+    'label'=>$property['doc_no'],
+    ['param'=>'opener']
+]) ?>
+
+&nbsp; | &nbsp;
+
+<?=$property['doc_issue_date']?> → <?=$property['doc_expiry_date']?>
+
+</small>
+
+</td>
+
+<td
+<?php if($property['popt_type_id']==3): ?>
+style="color:red;font-weight:bold"
+<?php endif ?>
+>
+
+<?=$property['popt_type']?>
+
+</td>
+
+<td class="right">
+
+<?php $total += $property['popt_amount']; ?>
+
+<?=number_format($property['popt_amount'],3)?>
+
+</td>
+
+<td class="center">
+
+<div style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;">
+
+<?php if($property['cdmd_pstatus']<>1): ?>
+
+<?php if($property['cdet_bill_id']==NULL && $property['cdmd_id']== NULL): ?>
+
+<div style="display:flex;align-items:center;justify-content:center;gap:6px;">
+
+<?= x([
+    'link'=>'erp_property/rent/adddemand',
+    'ref'=>$encPayOption,
+    'label'=>'<i class="fas fa-exclamation-circle"></i> '.$property['popt_date'],
+    ['param'=>'class="facebox btn btn-danger btn-sm"
+               style="width:85%;font-size:large;"
+               title="Create Cash Demand"']
+]) ?>
+
+<span
+    data-bs-toggle="tooltip"
+    data-bs-html="true"
+    style="cursor:pointer;color:#0d6efd;font-size:18px;"
+    title="
+<b>Step 1:</b> If Date due – create the Cash Demand and send the cheque for clearance or deposit the cash in the bank.<br><br>
+">
+    <i class="fas fa-info-circle"></i>
+</span>
+
+</div>
+
+
+    
+        <?php elseif($property['cdmd_id']!=NULL): ?>
+
+        <span style="display:flex;align-items:center;gap:6px;">
+            <i class="fas fa-file-invoice text-warning"></i>
+            <?=$property['popt_date']?>
+        </span>
+        
+        
+        <span
+    data-bs-toggle="tooltip"
+    data-bs-html="true"
+    style="cursor:pointer;color:#0d6efd;font-size:18px;"
+    title="
+<b>Step 2:</b> Once the cash clears the account, the cashier should create the Cash Receipt and the accountant must approve and file the receipt.
+">
+    <i class="fas fa-info-circle"></i>
+</span>
+
+    <?php endif ?>
+
+    <?php if($property['cdet_bill_id']==NULL && $property['cdmd_id']!=NULL): ?>
+
+        <?= x([
+            'link'=>'erp_property/rent/deletedemand',
+            'ref'=>$encCdmdId,
+            'label'=>'<i class="fas fa-trash text-danger"></i>',
+            ['param'=>'class="facebox" title="Delete Cash Demand"']
+        ]) ?>
+
+    <?php endif ?>
+
+<?php else: ?>
+
+    <span style="display:flex;align-items:center;gap:6px;">
+        <i class="fas fa-check-circle text-success"></i>
+        <?=$property['popt_date']?>
+    </span>
+
+<?php endif ?>
+
+</div>
+
+</td>
+
 </tr>
 
-    </thead>
+<?php endforeach ?>
 
-    <tbody>
-    <?php if (count($this->propertyList) > 0): ?>
+<tr>
+<th colspan="4" style="text-align:right;">Total</th>
+<th style="text-align:right;"><?=number_format($total,3)?></th>
+<th></th>
+</tr>
 
-        <?php foreach ($this->propertyList as $property): ?>
+<?php endif ?>
 
-            <?php
-                if ($ref != '') {
-                    if ($property['doc_type'] == 3) {
-                        $tpropPropList[$property['prop_id']] = $property['doc_type'];
-                    }
-
-                    if ($property['doc_type'] == 2 && isset($tpropPropList[$property['prop_id']])) {
-                        continue;
-                    }
-                }
-
-                $encPropId     = $this->encode($property['prop_id']);
-                $encFileId     = $this->encode($property['file_id']);
-                $encPayOption  = $this->encode($property['popt_id']);
-                $encCdmdId     = $this->encode($property['cdmd_id']);
-
-                if ($grouph != $property['doc_type']) {
-                    $sl = 1;
-                }
-            ?>
-
-            <tr>
-                <td class="center"><?= @$sl++; ?></td>
-
-                <td>
-                    <?= x(['link' => 'erp_report/property/paymentcollection',
-                           'ref'  => ['f_property' => $property['prop_id']],
-                           'label'=> $property['prop_fileno'],
-                           ['param' => 'opener']
-                    ]) ?>
-                </td>
-
-                <td><?= $property['bld_name'] ?></td>
-                <td><?= ($property['prop_cat'] == 1) ? "Shop" : "Flat" ?></td>
-                <td><?= $property['agr_tenant'] ?></td>
-
-                <td class="center">
-                    <?= x(['link'  => 'default/default/download',
-                           'ref'   => $encFileId,
-                           'label' => $property['doc_no'],
-                           ['param' => 'opener']
-                    ]) ?>
-                </td>
-
-                <td class="center"><?= $property['doc_issue_date'] ?></td>
-                <td class="center"><?= $property['doc_expiry_date'] ?></td>
-
-                <?php if ($property['popt_type']): ?>
-
-
-                    <td
-                        <?php if ($property['popt_type_id'] == 3): ?>
-                            style="font-weight:bold;color:red"
-                        <?php endif; ?>
-                    >
-                        <?= $property['popt_type'] ?>
-                    </td>
-
-                    <td align="right">
-                        <?php $total += $property['popt_amount']; ?>
-                        <?= $property['popt_amount'] ?>
-                    </td>
-                    
-                    <td style="
-                        background-image: <?= ($property['cdmd_pstatus'] != 1)
-                        ? 'repeating-linear-gradient(165deg, white, orange 30px, orange 30px, white 60px)'
-                        : 'repeating-linear-gradient(165deg, white, greenyellow 30px, greenyellow 30px, white 60px)' ?>;
-                        padding:0; align-items:center; justify-content:center;
-                    ">
-
-                        <?php $grouph = $property['doc_type']; ?>
-
-                        <?php if ($property['cdmd_pstatus'] <> 1): ?>
-                            <div style="display:flex; gap:8px; line-height:1; padding-left:1rem;">
-
-                                <?php if ($property['cdet_bill_id'] == NULL): ?>
-                                    <?= x([
-                                        'link'  => 'erp_property/rent/adddemand',
-                                        'ref'   => $encPayOption,
-                                        'label' => '<b>'.$property['popt_date'].'</b>',
-                                        ['param' => ' class="facebox btn btn-secondary" '],
-                                        'style' => ' style="
-                                            background-color:#eeeeee30 !important;
-                                            padding:0px 3px;
-                                            color:blue;
-                                            line-height:2;
-                                        " title="Cash Demand"'
-                                    ]) ?>
-                                <?php else: ?>
-                                    <span style="line-height:1;"><?= $property['popt_date'] ?></span>
-                                <?php endif; ?>
-
-                                <?php if ($property['cdet_bill_id'] == NULL && $property['cdmd_id'] != NULL): ?>
-                                    <?= x([
-                                        'link'  => 'erp_property/rent/deletedemand',
-                                        'ref'   => $encCdmdId,
-                                        'label' => '<i class="fas fa-trash" style="line-height:2;"></i>',
-                                        ['param' => ' class="facebox" '],
-                                        'style' => ' style="line-height:1;" title="Delete Cash Demand"'
-                                    ]) ?>
-                                <?php endif; ?>
-
-                            </div>
-                        <?php else: ?>
-                            <div style="display:flex; gap:8px; line-height:1; padding-left:1rem;">
-                                <?= $property['popt_date'] ?>
-                            </div>
-                        <?php endif; ?>
-                    </td>
-
-                <?php else: ?>
-                    <td colspan="4" align="left"><?= $property['agr_paydet'] ?></td>
-                <?php endif; ?>
-
-            </tr>
-
-        <?php endforeach; ?>
-
-    <?php endif; ?>
-
-        <tr>
-            <th colspan="9" style="text-align:right;">Total</th>
-            <th style="text-align:right;"><?= number_format((float)$total, 3) ?></th>
-            <th></th>
-        </tr>
-
-    </tbody>
+</tbody>
 </table>
 
 							<div>
