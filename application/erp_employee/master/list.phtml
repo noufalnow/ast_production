@@ -82,100 +82,120 @@
 					</div>
 					<!-- ROW -->
 
-<div class="row">
+					<div class="row">
 
 <?if(count($this->employeeList)>0):?>
-<?php foreach ($this->employeeList as $employee): 
-$encEmpId = $this->encode($employee['emp_id']);
-?>
+<?php
 
-<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+foreach ($this->employeeList as $employee) :
+        $encEmpId = $this->encode($employee['emp_id']);
+        ?>
 
-<div class="card employee-card h-100">
-<div class="card-body">
+<div class="col-xl-3 col-lg-4 col-md-6 mb-4" style="height: fit-content;">
 
-<div class="d-flex">
+	<div class="card employee-card h-100">
+		<div class="card-body">
 
-<!-- PHOTO -->
-<div class="emp-photo-wrap">
+			<div class="d-flex">
 
-<img 
-src="<?=IMAGEURL?><?=$this->encode($employee['file_id']);?>" 
-class="emp-photo"
-onerror="this.onerror=null;this.src='<?=IMAGEURL?>no-photo.png';"
-/>
+				<!-- PHOTO -->
+				<div class="emp-photo-wrap">
 
-</div>
+					<img
+						src="<?=IMAGEURL?><?=$this->encode($employee['file_id']);?>"
+						class="emp-photo"
+						onerror="this.onerror=null;this.src='<?=IMAGEURL?>no-photo.png';" />
 
+				</div>
 
-<!-- EMPLOYEE DETAILS -->
-<div class="flex-grow-1 ms-3">
+				<!-- EMPLOYEE DETAILS -->
+				<div class="flex-grow-1 ms-3 d-flex flex-column">
 
-<h5 class="emp-name mb-1">
-<?=trim($employee['emp_fname'].' '.$employee['emp_mname'].' '.$employee['emp_lname'])?>
-</h5>
+					<h5 class="emp-name mb-1">
+						<?=trim($employee['emp_fname'].' '.$employee['emp_mname'].' '.$employee['emp_lname'])?>
+					</h5>
 
-<div class="text-muted small mb-2">
-File No : <?=$employee['emp_fileno']?>
-</div>
+					<div class="text-muted small mb-2">
+						File No : <?=$employee['emp_fileno']?>
+					</div>
 
+					<div class="emp-meta">
 
-<div class="emp-meta">
+						<div>
+							<strong>Company</strong> : <?=$employee['comp_disp_name']?>
+						</div>
 
-<div><strong>Company</strong> : <?=$employee['comp_disp_name']?></div>
+						<div>
+							<strong>Department</strong> : <?=$employee['dept_name']?>
+						</div>
 
-<div><strong>Department</strong> : <?=$employee['dept_name']?></div>
+						<div>
+							<strong>Designation</strong> : <?=$employee['desig_name']?>
+						</div>
 
-<div><strong>Designation</strong> : <?=$employee['desig_name']?></div>
+						<div>
+							<strong>Contact</strong> : <?=$employee['emp_mobileno']?>
+						</div>
 
-<div><strong>Contact</strong> : <?=$employee['emp_mobileno']?></div>
-
-<div>
-<strong>Status</strong> :
-
-<?php if(!$employee['emp_mstatus']): ?>
-<span class="badge bg-success">Active</span>
-<?php else: ?>
-<span class="badge bg-warning"><?=$employee['emp_mstatus']?></span>
-<?php endif; ?>
-
-<?=x(array(
-'link'=>'erp_employee/master/status',
-'ref'=>array('ref'=>$encEmpId),
-'label'=>'<i class="fas fa-star-half-alt"></i>',
-array("param"=>'class="facebox ms-1"')
-))?>
-
-</div>
-
-</div>
+					</div>
 
 
-<!-- ACTIONS -->
-<div class="emp-actions mt-3">
 
-<?=x(array(
-'link'=>'erp_employee/master/edit',
-'ref'=>array('ref'=>$encEmpId),
-'label'=>'<i class="fas fa-edit"></i> Edit',
-array("param"=>'class="btn btn-sm btn-primary facebox"')
-))?>
+				</div>
+				
 
-<?=x(array(
-'link'=>'erp_employee/master/view',
-'ref'=>array('ref'=>$encEmpId),
-'label'=>'<i class="fas fa-search"></i> View',
-array("param"=>'class="btn btn-sm btn-secondary ms-1"')
-))?>
+			</div>
+								<!-- PUSH TO BOTTOM -->
+					<div class="mt-auto pt-2">
 
-</div>
+						<div class="d-flex justify-content-between align-items-center">
 
-</div>
+							<!-- STATUS -->
+							<div>
 
-</div>
+								<strong>Status</strong> :
 
-</div>
-</div>
+								<?php if(!$employee['emp_mstatus']): ?>
+									<span class="badge bg-success">Active</span>
+								<?php else: ?>
+									<span class="badge bg-warning"><?=$employee['emp_mstatus']?></span>
+								<?php endif; ?>
+
+								<?=x(array(
+									'link' => 'erp_employee/master/status',
+									'ref' => array('ref' => $encEmpId),
+									'label' => '<i class="fas fa-star-half-alt"></i>',
+									array("param" => 'class="facebox ms-1"')
+								))?>
+
+							</div>
+
+							<!-- ACTION BUTTONS -->
+							<div class="emp-actions">
+
+								<?=x(array(
+									'link' => 'erp_employee/master/edit',
+									'ref' => array('ref' => $encEmpId),
+									'label' => '<i class="fas fa-edit"></i> Edit',
+									array("param" => 'class="btn btn-sm btn-primary facebox"')
+								))?>
+
+								<?=x(array(
+									'link' => 'erp_employee/master/view',
+									'ref' => array('ref' => $encEmpId),
+									'label' => '<i class="fas fa-search"></i> View',
+									array("param" => 'class="btn btn-sm btn-secondary ms-1"')
+								))?>
+								
+
+							</div>
+
+						</div>
+
+					</div>
+
+		</div>
+	</div>
 
 </div>
 
@@ -201,39 +221,38 @@ array("param"=>'class="btn btn-sm btn-secondary ms-1"')
 </form>
 
 <style>
-.employee-card{
-border-radius:10px;
-transition:all .2s ease;
-border:1px solid #e5e5e5;
+.employee-card {
+	border-radius: 10px;
+	transition: all .2s ease;
+	border: 1px solid #e5e5e5;
 }
 
-.employee-card:hover{
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-transform:translateY(-2px);
+.employee-card:hover {
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+	transform: translateY(-2px);
 }
 
-.emp-photo-wrap{
-width:90px;
-flex-shrink:0;
+.emp-photo-wrap {
+	width: 120px;
+	flex-shrink: 0;
 }
 
-.emp-photo{
-width:90px;
-height:90px;
-border-radius:8px;
-object-fit:cover;
-border:1px solid #ddd;
+.emp-photo {
+	width: 120px;
+	height: 120px;
+	border-radius: 8px;
+	object-fit: cover;
+	border: 1px solid #ddd;
 }
 
-.emp-name{
-font-weight:600;
+.emp-name {
+	font-weight: 600;
 }
 
-.emp-meta div{
-margin-bottom:3px;
-font-size:14px;
+.emp-meta div {
+	margin-bottom: 3px;
+	font-size: 14px;
 }
-
 </style>
 
 <script type="text/javascript">
