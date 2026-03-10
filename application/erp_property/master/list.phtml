@@ -10,12 +10,13 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="javascript:void(0);">Home</a>
 							</li>
-							<li class="breadcrumb-item active" aria-current="page">Manage Properties</li>
+							<li class="breadcrumb-item active" aria-current="page">Manage
+								Properties</li>
 						</ol>
 					</div>
 					<div class="ms-auto pageheader-btn">
-                        <?=x(array('link'=>'erp_property/master/add','label'=>'<button class="btn btn-success pull-right btn btn-primary btn-icon text-white me-2" >Add Property <i
-							class="fe fe-plus"></i></button>',array("param"=>'class="facebox"')),'<br><br>')?>
+                        <?=x(array('link' => 'erp_property/master/add','label' => '<button class="btn btn-success pull-right btn btn-primary btn-icon text-white me-2" >Add Property <i
+							class="fe fe-plus"></i></button>',array("param" => 'class="facebox"')), '<br><br>')?>
 					</div>
 				</div>
 				<!-- PAGE-HEADER END -->
@@ -78,88 +79,226 @@
 								<div class="card-header">
 									<h3 class="card-title">Properties</h3>
 								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-                                        <table aria-describedby="" class="table table-bordered text-nowrap no-footer">
-                                                <thead class="border-top">
-                                                  <tr role="row">
-													<th width="5%" class="center">Sl No</th>
-													<th width="5%" class="center">File No.</th>
-													<th width="6%" class="center">Property No</th>
-													<th width="10%" class="center">Building Name</th>
-													<th width="7%" class="center">Category</th>
-													<th width="15%" class="center">Tenant</th>
-													<th width="7%" class="center">Level</th>
-													<th width="10%" class="center">Status</th>
-													<th width="5%" class="center">Rent</th>
-													<th width="5%" class="center">Edit</th>
-													<th width="5%" class="center">View</th>
-													<!--<th width="6%" class="center">Delete</th>-->
-												</tr>
-											</thead>
-											<tbody>
-                                                <?if(count($this->propertyList)>0):?>
-                                                <?php
 
-                                                    foreach ($this->propertyList as $property) :
-                                                        $encPropId = $this->encode($property['prop_id']);
-                                                        ?>
-                                                <tr>
-													<td class="center">
-                                                        <?=@++$this->offset;?>
-                                                    </td>
-													<td>
-                                                        <?=$property['prop_fileno']?>
-                                                    </td>
-													<td>
-                                                        <?=$property['prop_no']?>
-                                                    </td>
-													<td>
-                                                        <?=$property['bld_name']?>
-                                                    </td>
-													<td class="center">
-                                                        <?
+<div class="row">
 
-                                                        echo $property['prop_cat'] == 1 ? "Shop" : ($property['prop_building_type'] == 1 ? "Building" : "Flat");
-                                                        ?>
-                                                    </td>
-													<td>
-                                                        <? if($property['prop_status']==2): ?>
-                                                        <? echo $property['agr_tenant']?>
-                                                        <?php endif?>
-                                                    </td>
-													<td>
-                                                        <? echo $this->propLevel[$property['prop_level']]?>
-                                                    </td>
-													<td class="center" <? if($property['prop_status']==1): ?>
-														style="color: red; font-weight: bold" <?php endif?>>
-                                                        <?=$property['property_status']?>
-                                                        <?php if($property['prop_building_type']==""):?>
-                                                        <?=x(array('link'=>'erp_property/master/status','ref'=>$encPropId,'label'=>'<i class="fas fa-star-half-alt"></i>',array("param"=>'class="facebox"')))?>
-                                                        <?php endif?>
-                                                    </td>
-													<td class="center">
-                                                        <?=x(array('link'=>'erp_report/property/paymentcollection','ref'=>array('f_property'=>$property['prop_id']),'label'=>'<i class="fas fa-tasks"></i>',array("param"=>'wide_opener')))?>
-                                                    </td>
-													<td class="center">
-                                                        <?=x(array('link'=>'erp_property/master/edit','ref'=>$encPropId,'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>
-                                                    </td>
-													<td class="center">
-                                                        <?=x(array('link'=>'erp_property/master/view','ref'=>$encPropId,'label'=>'<i class="fas fa-search"></i>'))?>
-                                                    </td>
-												</tr>
-                                                <?php endforeach?>
-                                                <?endif?>
-                                            </tbody>
-										</table>
-                                        <?$this->propertyObj->pagination();?>
-									</div>
-								</div>
+    <? if (count($this->propertyList) > 0): ?>
+        <?php foreach ($this->propertyList as $property): 
+
+            $encPropId = $this->encode($property['prop_id']);
+
+            $type = $property['prop_cat'] == 1 
+                ? "shop" 
+                : ($property['prop_building_type'] == 1 ? "building" : "flat");
+
+            /* due placeholder */
+            $dueAmount = $property['due_amount'] ?? 0;
+        ?>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+
+            <div class="card employee-card h-100">
+                <div class="card-body">
+
+                    <div class="d-flex">
+
+                        <!-- IMAGE -->
+                        <div class="emp-photo-wrap">
+                            <img
+                                src="<?= IMAGEURL ?><?= $this->encode($property['bld_file_id']); ?>"
+                                class="emp-photo"
+                                onerror="this.onerror=null;this.src='<?= IMAGEURL ?>no-photo.png';"
+                            />
+                        </div>
+
+                        <!-- DETAILS -->
+                        <div class="flex-grow-1 ms-3 d-flex flex-column">
+
+                            <h5 class="emp-name mb-1">
+                                <?= $property['prop_fileno'] ?>
+                            </h5>
+
+                            <div class="emp-meta">
+
+                                <div>
+                                    <strong>Building</strong> : <?= $property['bld_name'] ?>
+                                </div>
+
+                                <div>
+                                    <strong>Category</strong> :
+                                    <?
+                                        echo $property['prop_cat'] == 1
+                                            ? "Shop"
+                                            : ($property['prop_building_type'] == 1 ? "Building" : "Flat");
+                                    ?>
+                                </div>
+
+                                <div>
+                                    <strong>Level</strong> :
+                                    <?= $this->propLevel[$property['prop_level']] ?>
+                                </div>
+
+                                <div>
+                                    <strong>Tenant</strong> :
+                                    <? if ($property['prop_status'] == 2): ?>
+                                        <?= $property['agr_tenant'] ?>
+                                    <? else: ?>
+                                        -
+                                    <? endif ?>
+                                </div>
+
+                            </div>
+
+                            <!-- BOTTOM SECTION -->
+                            <div class="mt-auto pt-2">
+
+                                <!-- STATUS -->
+                                <div class="mb-1">
+
+                                    <strong>Status</strong> :
+
+                                    <span
+                                        <? if ($property['prop_status'] == 1): ?>
+                                            style="color:red;font-weight:bold"
+                                        <? endif ?>
+                                    >
+                                        <?= $property['property_status'] ?>
+                                    </span>
+
+                                    <?php if ($property['prop_building_type'] == ""): ?>
+
+                                        <?= x(array(
+                                            'link'  => 'erp_property/master/status',
+                                            'ref'   => $encPropId,
+                                            'label' => '<i class="fas fa-star-half-alt"></i>',
+                                            array("param" => 'class="facebox ms-1"')
+                                        )) ?>
+
+                                    <?php endif ?>
+
+                                </div>
+
+                                <!-- DUE -->
+                                <div class="mb-2">
+
+                                    <?php if ($dueAmount > 0): ?>
+									<?php $propNo = urlencode($property['prop_fileno']); ?>
+                                    <a href="<?= APPURL ?>erp_property/rent/propertypay?f_propno=<?=$propNo?>&f_status=2"
+                                       target="_blank"
+                                       title="View Due Details">
+                                    
+                                        <span class="badge bg-danger">
+                                            Due : <?= number_format($dueAmount,2) ?>
+                                        </span>
+                                    
+                                    </a>
+                                        
+                                        
+
+                                    <?php else: ?>
+
+                                        <span class="badge bg-success">
+                                            No Due
+                                        </span>
+
+                                    <?php endif; ?>
+
+                                </div>
+
+                                <!-- ACTIONS -->
+                                <div class="d-flex gap-1">
+
+                                    <?= x(array(
+                                        'link' => 'erp_report/property/paymentcollection',
+                                        'ref'  => array('f_property' => $property['prop_id']),
+                                        'label'=> '<i class="fas fa-tasks"></i>',
+                                        array(
+                                            "param" => 'wide_opener',
+                                            "class" => "btn btn-sm btn-info"
+                                        )
+                                    )) ?>
+
+                                    <?= x(array(
+                                        'link'  => 'erp_property/master/edit',
+                                        'ref'   => $encPropId,
+                                        'label' => '<i class="fas fa-edit"></i>',
+                                        array("param" => 'class="btn btn-sm btn-primary facebox"')
+                                    )) ?>
+
+                                    <?= x(array(
+                                        'link'  => 'erp_property/master/view',
+                                        'ref'   => $encPropId,
+                                        'label' => '<i class="fas fa-search"></i>',
+                                        array("param" => 'class="btn btn-sm btn-secondary"')
+                                    )) ?>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <?php endforeach ?>
+    <? endif ?>
+
+</div>
+
+
+<?$this->propertyObj->pagination();?>
+
+
+
+
+
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-</div>
+	</div>
 </form>
+
+
+<style>
+.employee-card {
+	border-radius: 10px;
+	transition: all .2s ease;
+	border: 1px solid #e5e5e5;
+}
+
+.employee-card:hover {
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+	transform: translateY(-2px);
+}
+
+.emp-photo-wrap {
+	width: 120px;
+	flex-shrink: 0;
+}
+
+.emp-photo {
+	width: 120px;
+	height: 120px;
+	border-radius: 8px;
+	object-fit: cover;
+	border: 1px solid #ddd;
+}
+
+.emp-name {
+	font-weight: 600;
+}
+
+.emp-meta div {
+	margin-bottom: 3px;
+	font-size: 14px;
+}
+</style>

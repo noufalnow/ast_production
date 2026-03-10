@@ -67,76 +67,133 @@
 								<div class="card-header">
 									<h3 class="card-title">Properties</h3>
 								</div>
-								<div class="card-body">
-									<div class="table-responsive export-table">
-                                        <table aria-describedby="" class="table table-bordered no-footer">
-                                                <thead class="border-top">
-                                                  <tr role="row">
-											<th width="5%" class="center">Sl No</th>
-											<th width="20%" class="center">Tenants Name</th>
-											<th width="20%" class="center">Company Name</th>
-											<th width="12%" class="center">Tenant Type</th>
-											<th width="12%" class="center">National/Expart</th>
-											<th width="8%" class="center">Phone No.</th>
-											<th width="8%" class="center">Mobile No.</th>
-											<th width="8%" class="center">Id. No.</th>
-											<th width="8%" class="center">CR. No.</th>
-											<th width="5%" class="center">Edit</th>
-											<th width="5%" class="center">View</th>
-										</tr>
-									</thead>
-									<tbody>
-                                        <?if(count($this->TenantsList)>0):?>
-                                        <?php
-                                            foreach ($this->TenantsList as $tenant) :
-                                                $encTntId = $this->encode($tenant['tnt_id']);
-                                                ?>
-                                        <tr
-											onclick="getContentX('<?=APPURL.'erp_property/tenants/'?>tenant_agr','<?=$encTntId;?>','tnt_target_<?=$tenant['tnt_id'];?>');"
-											style="cursor: pointer;">
-											<td class="center">
-                                                <?=@++$offset;?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_full_name']?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_comp_name']?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_expat']?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_agr_type']?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_phone']?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_tele']?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_id_no']?>
-                                            </td>
-											<td>
-                                                <?=$tenant['tnt_crno']?>
-                                            </td>
-											<td class="center">
-                                                <?=x(array('link'=>'erp_property/tenants/edit','ref'=>array('ref'=>$encTntId),'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>
-                                            </td>
-											<td class="center">
-                                                <?=x(array('link'=>'erp_property/tenants/view','ref'=>array('ref'=>$encTntId),'label'=>'<i class="fas fa-search"></i>',array("param"=>'class="facebox"')))?>
-                                            </td>
-										</tr>
-										<tr id='tnt_target_<?=$tenant['tnt_id'];?>'
-											class="tnt_target"></tr>
-                                        <?php endforeach?>
-                                        <?endif?>
-                                    </tbody>
-								</table>
-                                <?$this->tenantsObj->pagination();?>
-									</div>
-								</div>
+
+
+<div class="card-body">
+
+    <div class="table-responsive export-table">
+
+        <table class="table table-bordered table-hover align-middle">
+
+            <thead class="table-light">
+                <tr>
+                    <th width="5%" class="text-center">#</th>
+                    <th width="22%">Tenant</th>
+                    <th width="18%">Company</th>
+                    <th width="10%" class="text-center">Type</th>
+                    <th width="10%" class="text-center">National</th>
+                    <th width="12%">Mobile</th>
+                    <th width="10%" class="text-center">Due</th>
+                    <th width="6%" class="text-center">Edit</th>
+                    <th width="6%" class="text-center">View</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            <?php if(count($this->TenantsList) > 0): ?>
+
+            <?php foreach ($this->TenantsList as $tenant):
+
+                $encTntId = $this->encode($tenant['tnt_id']);
+                $dueAmount = $tenant['due_amount'] ?? 0;
+
+            ?>
+
+            <tr
+                onclick="getContentX('<?=APPURL.'erp_property/tenants/'?>tenant_agr','<?=$encTntId;?>','tnt_target_<?=$tenant['tnt_id'];?>');"
+                style="cursor:pointer"
+            >
+
+                <td class="text-center"><?=++$offset?></td>
+
+                <td>
+                    <strong><?=$tenant['tnt_full_name']?></strong><br>
+                    <small class="text-muted">
+                        ID : <?=$tenant['tnt_id_no']?> | CR : <?=$tenant['tnt_crno']?>
+                    </small>
+                </td>
+
+                <td><?=$tenant['tnt_comp_name']?></td>
+
+                <td class="text-center">
+                    <span class="badge bg-secondary">
+                        <?=$tenant['tnt_agr_type']?>
+                    </span>
+                </td>
+
+                <td class="text-center">
+                    <span class="badge bg-info">
+                        <?=$tenant['tnt_expat']?>
+                    </span>
+                </td>
+
+                <td><?=$tenant['tnt_tele']?></td>
+
+                <td class="text-center">
+
+                <?php if($dueAmount > 0): ?>
+
+                    <a href="<?=APPURL?>erp_property/rent/propertypay?f_tenant=<?=$tenant['tnt_full_name']?>&f_status=2"
+                       target="_blank"
+                       style="text-decoration:none">
+
+                        <span class="badge bg-danger">
+                            <?=number_format($dueAmount,2)?>
+                        </span>
+
+                    </a>
+
+                <?php else: ?>
+
+                    <span class="badge bg-success">
+                        No Due
+                    </span>
+
+                <?php endif; ?>
+
+                </td>
+
+                <td class="text-center">
+
+                    <?=x([
+                        'link'=>'erp_property/tenants/edit',
+                        'ref'=>['ref'=>$encTntId],
+                        'label'=>'<i class="fas fa-edit"></i>',
+                        ["param"=>'class="facebox btn btn-sm btn-primary"']
+                    ])?>
+
+                </td>
+
+                <td class="text-center">
+
+                    <?=x([
+                        'link'=>'erp_property/tenants/view',
+                        'ref'=>['ref'=>$encTntId],
+                        'label'=>'<i class="fas fa-search"></i>',
+                        ["param"=>'class="facebox btn btn-sm btn-secondary"']
+                    ])?>
+
+                </td>
+
+            </tr>
+
+            <tr id="tnt_target_<?=$tenant['tnt_id']?>" class="tnt_target"></tr>
+
+            <?php endforeach ?>
+
+            <?php endif ?>
+
+            </tbody>
+
+        </table>
+
+        <?php $this->tenantsObj->pagination(); ?>
+
+    </div>
+
+</div>
+
 							</div>
 
 						</div>

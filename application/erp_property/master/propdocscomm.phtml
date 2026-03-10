@@ -6,7 +6,7 @@
 <div id="photo_target" class="card" style="top: 38px; margin-bottom: 40px; <?=$this->imgDisplay?>">
 		<div class="card-block">
 			<h5>Add Photo</h5>
-			<form name="$this->imgform" method="post" id="$this->imgform" action='erp_property/master/propdocscomm/ref/<?=$this->param['ref']?>' style="margin-bottom: 0px;" enctype="multipart/form-data">
+			<form name="imgform" method="post" id="imgform" action="erp_property/master/propdocscomm/ref/<?=$this->param['ref']?>" style="margin-bottom: 0px;" enctype="multipart/form-data">
 			<div class="panel-body">
 				<table style="max-width: 60%; float: left;" class="table">
 					<thead>
@@ -15,7 +15,8 @@
 						</tr>
 						<tr>
 							<td>
-								<button type="submit" name="image" value="image" class="btn  btn-success btn-rounded" style="font-size: 120%; height: 33px; padding-top: 2px; padding-bottom: 2px; margin-top: 8px; float: left;">Upload</button>
+								<input type="hidden" name="image" value="image">
+								<button type="button" onclick="formSubmit(this,'menu2');return false;" class="btn  btn-primary align-button" style="float: left;">Upload</button>
 							</td>
 							</tr>
 					</thead>
@@ -23,11 +24,10 @@
 				<div>
 					<table class="" style="max-width: 40%; display: table;">
 						<thead>
-						<tr>
-							<td>
-								<input type="hidden" name="image" value="image">
-								<button type="button" onclick="formSubmit(this,'menu2');return false;" class="btn  btn-success btn-rounded" style="font-size: 120%; height: 33px; padding-top: 2px; padding-bottom: 2px; margin-top: 8px; float: left;">Upload</button>
-							</td>
+							<tr>
+								<th class="center"><div>
+										<img width="244" alt="" src="<?=IMAGEURL?><?=$this->encode($this->propImage['file_id']);?>">
+									</div></th>
 							</tr>
 						</thead>
 					</table>
