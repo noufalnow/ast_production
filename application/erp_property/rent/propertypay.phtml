@@ -411,11 +411,22 @@ style="color:red;font-weight:bold"
 
 <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
 
+<?php
+
+$poptDate   = strtotime($property['popt_date']);
+$today      = strtotime(date('Y-m-d'));
+
+$btnClass = ($poptDate < $today)
+    ? 'btn btn-danger btn-sm'          // overdue → filled red
+    : 'btn btn-outline-danger btn-sm'; // future → outline
+
+?>
+
 <?= x([
     'link'=>'erp_property/rent/adddemand',
     'ref'=>$encPayOption,
     'label'=>'<i class="fas fa-exclamation-circle"></i> '.$property['popt_date'],
-    ['param'=>'class="facebox btn btn-danger btn-sm"
+    ['param'=>'class="facebox '.$btnClass.'"
                style="width:85%;font-size:large;"
                title="Create Cash Demand"']
 ]) ?>
