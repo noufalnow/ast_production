@@ -130,34 +130,35 @@
                 ?>
                 
                 <span class="badge badge-eq <?=$typeClass?>">
-                    <?=$typeIcon?> &ensp; <?=$tenant['tnt_agr_type']?>
+                    <?=$typeIcon?>  <?=$tenant['tnt_agr_type']?>
                 </span>
                 
                 </td>
                 
                 
                 
-                <td class="text-center">
-                
-                <?php
-                $natIcon = ($tenant['tnt_expat'] == 'National')
-                    ? '🇴🇲'
-                    : '🌍';
-                
-                $natLabel = ($tenant['tnt_expat'] == 'National')
-                    ? ' Omani'
-                    : ' Expat';
-                
-                $natClass = ($tenant['tnt_expat'] == 'National')
-                    ? 'border border-success text-success'
-                    : 'border border-warning text-warning';
-                ?>
-                
-                <span class="badge badge-eq <?=$natClass?>">
-                    <?=$natIcon?> <?=$natLabel?>
-                </span>
-                
-                </td>
+<td class="text-center">
+
+<?php
+$natIcon = ($tenant['tnt_expat'] == 'National')
+    ? '🇴🇲'
+    : '🌍';
+
+$natLabel = ($tenant['tnt_expat'] == 'National')
+    ? 'Omani'
+    : 'Expat';
+
+$natClass = ($tenant['tnt_expat'] == 'National')
+    ? 'border border-success text-success'
+    : 'border border-warning text-warning';
+?>
+
+<span class="badge badge-eq <?=$natClass?>">
+    <span class="me-1"><?=$natIcon?></span>
+    <?=$natLabel?>
+</span>
+
+</td>
 
                 <td class="text-center"  style="font-size: 1.2rem !important;"><?=$tenant['tnt_tele']?></td>
 
