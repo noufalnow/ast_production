@@ -29,6 +29,13 @@
 							</div>
 							<div class="card-body">
 								<div class="row">
+								
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="form-label">Due Status</label>
+                                            <?=$this->form->tnt_due->show()?>
+                                        </div>
+									</div>
 									<div class="col-lg-3">
 										<div class="form-group">
 											<label for="file_no" class="form-label">Name</label>
@@ -39,12 +46,6 @@
 										<div class="form-group">
 											<label for="name" class="form-label">Phone No.</label>
                                             <?=$this->form->tnt_phone->show()?>
-                                        </div>
-									</div>
-									<div class="col-lg-3">
-										<div class="form-group">
-											<label class="form-label"> Mobile No.</label>
-                                            <?=$this->form->tnt_tele->show()?>
                                         </div>
 									</div>
 									<div class="col-lg-3">
@@ -82,7 +83,7 @@
                     <th width="18%">Company</th>
                     <th width="10%" class="text-center">Type</th>
                     <th width="10%" class="text-center">National</th>
-                    <th width="12%">Mobile</th>
+                    <th width="12%" class="text-center" >Mobile</th>
                     <th width="10%" class="text-center">Due</th>
                     <th width="6%" class="text-center">Edit</th>
                     <th width="6%" class="text-center">View</th>
@@ -117,42 +118,72 @@
                 <td><?=$tenant['tnt_comp_name']?></td>
 
                 <td class="text-center">
-                    <span class="badge bg-secondary">
-                        <?=$tenant['tnt_agr_type']?>
-                    </span>
+                
+                <?php
+                $typeIcon = ($tenant['tnt_agr_type'] == 'Company')
+                    ? '<i class="fas fa-building"></i> '
+                    : '<i class="fas fa-user"></i> ';
+                
+                $typeClass = ($tenant['tnt_agr_type'] == 'Company')
+                    ? 'border border-purple text-purple'
+                    : 'border border-primary text-primary';
+                ?>
+                
+                <span class="badge badge-eq <?=$typeClass?>">
+                    <?=$typeIcon?> &ensp; <?=$tenant['tnt_agr_type']?>
+                </span>
+                
                 </td>
-
+                
+                
+                
                 <td class="text-center">
-                    <span class="badge bg-info">
-                        <?=$tenant['tnt_expat']?>
-                    </span>
+                
+                <?php
+                $natIcon = ($tenant['tnt_expat'] == 'National')
+                    ? '🇴🇲'
+                    : '🌍';
+                
+                $natLabel = ($tenant['tnt_expat'] == 'National')
+                    ? ' Omani'
+                    : ' Expat';
+                
+                $natClass = ($tenant['tnt_expat'] == 'National')
+                    ? 'border border-success text-success'
+                    : 'border border-warning text-warning';
+                ?>
+                
+                <span class="badge badge-eq <?=$natClass?>">
+                    <?=$natIcon?> <?=$natLabel?>
+                </span>
+                
                 </td>
 
-                <td><?=$tenant['tnt_tele']?></td>
+                <td class="text-center"  style="font-size: 1.2rem !important;"><?=$tenant['tnt_tele']?></td>
 
-                <td class="text-center">
+<td class="text-center">
 
-                <?php if($dueAmount > 0): ?>
+<?php if($dueAmount > 0): ?>
 
-                    <a href="<?=APPURL?>erp_property/rent/propertypay?f_tenant=<?=$tenant['tnt_full_name']?>&f_status=2"
-                       target="_blank"
-                       style="text-decoration:none">
+<a href="<?=APPURL?>erp_property/rent/propertypay?f_tenant=<?=$tenant['tnt_full_name']?>&f_status=2"
+   target="_blank"
+   style="text-decoration:none">
 
-                        <span class="badge bg-danger">
-                            <?=number_format($dueAmount,2)?>
-                        </span>
+<span class="badge badge-eq border border-danger text-danger">
+    <?=number_format($dueAmount,2)?>
+</span>
 
-                    </a>
+</a>
 
-                <?php else: ?>
+<?php else: ?>
 
-                    <span class="badge bg-success">
-                        No Due
-                    </span>
+<span class="badge badge-eq border border-success text-success">
+    No Due
+</span>
 
-                <?php endif; ?>
+<?php endif; ?>
 
-                </td>
+</td>
 
                 <td class="text-center">
 
@@ -223,5 +254,142 @@ function getContentX(postlink, refId, target) {
 
 .table>:not(:last-child)>:last-child>* {
 	border-bottom-color: #9fb3ce;
+}
+
+
+.badge{
+    font-size:12px;
+    padding:5px 8px;
+}
+.badge-eq{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:105px;
+    height:26px;
+
+    font-size: 1rem !important;
+    padding:0 8px;
+
+    border-radius:6px;
+    font-weight:500;
+}
+
+
+.lease-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:14px;
+    padding:8px;
+}
+
+.lease-card{
+    border:1px solid #e5e5e5;
+    border-radius:8px;
+    background:#fff;
+    padding:12px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.04);
+}
+
+.lease-header{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.lease-doc{
+    float:right;
+    font-size:13px;
+}
+
+.lease-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    padding:2px 0;
+}
+
+.lease-row .label{
+    color:#777;
+}
+
+.lease-actions{
+    margin-top:10px;
+    display:flex;
+    gap:12px;
+    justify-content:flex-end;
+    font-size:16px;
+}
+
+.lease-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:12px;
+}
+
+.lease-card{
+    background:white;
+    border:1px solid #e4e4e4;
+    border-radius:8px;
+    padding:12px;
+    position:relative;
+}
+
+.lease-header{
+    display:flex;
+    justify-content:space-between;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.lease-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:4px;
+}
+
+.lease-actions{
+    margin-top:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.lease-status{
+    font-size:11px;
+    padding:4px 8px;
+    border-radius:4px;
+    font-weight:600;
+}
+
+.status-active{
+    background:#e6f7ee;
+    color:#1a7f37;
+}
+
+.status-expired{
+    background:#fde8e8;
+    color:#c81e1e;
+}
+
+.lease-ribbon{
+    position:absolute;
+    top:6px;
+    right:-6px;
+    padding:3px 10px;
+    font-size:11px;
+    font-weight:600;
+    color:white;
+    border-radius:4px;
+}
+
+.ribbon-green{
+    background:#28a745;
+}
+
+.ribbon-red{
+    background:#dc3545;
 }
 </style>
