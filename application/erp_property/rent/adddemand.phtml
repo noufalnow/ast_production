@@ -7,32 +7,104 @@
 					<span aria-hidden="true" >×</span>
 				</button>
 			</div>
+			
 			<div class="modal-body">
-		<div class="row mb-4" style="margin-top: 15px;">
-					<label class="col-sm-3 form-label" > Demand Amount
-						</label>
-					<div class="col-sm-3">
-						<?= $this->payoptionDet['popt_amount']?>
-                  	</div>
-		</div>
-		<div class="row mb-4" style="margin-top: 15px;">
-					<label class="col-sm-3 form-label" > Due Date
-						</label>
-					<div class="col-sm-3">
-						<?= $this->payoptionDet['pay_date']?>
-                  	</div>
-		</div>
-		<div class="row mb-4" style="margin-top: 15px;">
-					<label class="col-sm-3 form-label" > Demand Note 
-						</label>
-					<div class="col-sm-6">
-						<?=$this->form->note->show()?>
-                  	</div>
-		</div>	
-	</div>
+
+<!-- Property & Lease Details -->
+<div class="mb-3">
+<h6 class="border-bottom pb-1 mb-2">Property & Lease Details</h6>
+
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">File No</div>
+    <div class="col-3"><?= $this->payoptionDet['prop_fileno']?></div>
+
+    <div class="col-3 fw-semibold">Building</div>
+    <div class="col-3"><?= $this->payoptionDet['bld_name']?></div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">Tenant</div>
+    <div class="col-3"><?= $this->payoptionDet['agr_tenant']?></div>
+
+    <div class="col-3 fw-semibold">Document No</div>
+    <div class="col-3"><?= $this->payoptionDet['doc_no']?></div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">Issue Date</div>
+    <div class="col-3"><?= $this->payoptionDet['doc_issue_date']?></div>
+
+    <div class="col-3 fw-semibold">Expiry Date</div>
+    <div class="col-3"><?= $this->payoptionDet['doc_expiry_date']?></div>
+</div>
+
+</div>
+
+
+<!-- Demand + Payment Details -->
+<div class="mb-3">
+<h6 class="border-bottom pb-1 mb-2">Demand & Payment Details</h6>
+
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">Demand Amount</div>
+    <div class="col-3"><?= $this->payoptionDet['popt_amount']?></div>
+
+    <div class="col-3 fw-semibold">Due Date</div>
+    <div class="col-3"><?= $this->payoptionDet['pay_date']?></div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">Payment Type</div>
+    <div class="col-3"><?= $this->payoptionDet['popt_type_txt']?></div>
+
+    <div class="col-3 fw-semibold">Mode</div>
+    <div class="col-3"><?= $this->payoptionDet['agr_paydet']?></div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">Bank</div>
+    <div class="col-3"><?= $this->payoptionDet['popt_bank']?></div>
+
+    <div class="col-3 fw-semibold">Cheque No</div>
+    <div class="col-3"><?= $this->payoptionDet['popt_chqno']?></div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">Bank Details</div>
+    <div class="col-9"><?= $this->payoptionDet['popt_bank_det']?></div>
+</div>
+
+</div>
+
+
+<!-- Demand Note -->
+<div>
+<h6 class="border-bottom pb-1 mb-2">Demand Note</h6>
+
+<div class="row">
+    <div class="col-12">
+        <?=$this->form->note->show()?>
+    </div>
+</div>
+
+</div>
+
+</div>
+
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary submit-alias livepost" >Update</button>
 		<button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="$('#myModal').modal('hide');">Close</button>
 	</div>
 </form>	
 </div>
+
+
+<script type="text/javascript">
+$(document).ready(function($) {
+	$('.modal-dialog').css('width', '60%');
+})
+</script>
+
+<style>.modal-body .fw-semibold {
+    color:#495057;
+}</style>

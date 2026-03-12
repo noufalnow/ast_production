@@ -413,12 +413,28 @@ style="color:red;font-weight:bold"
 
 <?php
 
-$poptDate = DateTime::createFromFormat('d/m/Y', $property['popt_date'])->format('Y-m-d');
-$today = date('Y-m-d');
+$poptDate = DateTime::createFromFormat('d/m/Y', $property['popt_date']);
+$today = new DateTime();
 
-$btnClass = ($poptDate <= $today)
-? 'btn btn-danger btn-sm'
-			    : 'btn btn-outline-danger btn-sm';
+$todayDate = $today->format('Y-m-d');
+$poptDateFormatted = $poptDate->format('Y-m-d');
+
+$poptYM = $poptDate->format('Y-m');
+$todayYM = $today->format('Y-m');
+
+if ($poptDateFormatted < $todayDate) {
+    // Past date
+    $btnClass = 'btn btn-danger btn-sm';
+    $btnIcon = '<i class="fas fa-exclamation-circle"></i>';
+} elseif ($poptYM == $todayYM) {
+    // Current month but date not passed
+    $btnClass = 'btn btn-outline-danger btn-sm';
+    $btnIcon = '<i class="fas fa-clock text-danger"></i>';
+} else {
+    // Future month
+    $btnClass = 'btn btn-outline-success btn-sm';
+    $btnIcon = '<i class="fas fa-calendar-alt text-primary"></i>';
+}
     
 
 ?>
@@ -426,7 +442,7 @@ $btnClass = ($poptDate <= $today)
 <?= x([
     'link'=>'erp_property/rent/adddemand',
     'ref'=>$encPayOption,
-    'label'=>'<i class="fas fa-exclamation-circle"></i> '.$property['popt_date'],
+    'label'=>$btnIcon.' '.$property['popt_date'],
     ['param'=>'class="facebox '.$btnClass.'"
                style="width:85%;font-size:large;"
                title="Create Cash Demand"']
