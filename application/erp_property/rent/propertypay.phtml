@@ -422,7 +422,7 @@ $poptDateFormatted = $poptDate->format('Y-m-d');
 $poptYM = $poptDate->format('Y-m');
 $todayYM = $today->format('Y-m');
 
-if ($poptDateFormatted < $todayDate) {
+if ($poptDateFormatted <= $todayDate) {
     // Past date
     $btnClass = 'btn btn-danger btn-sm';
     $btnIcon = '<i class="fas fa-exclamation-circle"></i>';

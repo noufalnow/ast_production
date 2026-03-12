@@ -1,0 +1,281 @@
+<?php $offset = 0; ?>
+<?php
+$offset = 0;
+$total_due = 0;
+$total_tenants = 0;
+
+$today = date('d/m/Y');
+?>
+
+<div style="margin-top: 1%;">
+
+	<div class="col-md-12 card filter-card" style="margin-bottom: 0px;">
+
+		<div class="card-block" style="padding-top: 1%;">
+
+			<div class="full-width">
+				<button name="cmdPrint" onclick="$('#report').printElement();"
+					class="btn btn-primary pull-right" style="padding: 2px 12px;">
+					Print</button>
+			</div>
+
+			<h5 class="title-margin"><b>Rent Due by Tenants up to <?=$today?></b></h5>
+			
+			
+
+		</div>
+
+		<form method="get" id="filter" name="filter" action="">
+
+			<table>
+
+				<tr style="font-size: 0.8em;">
+
+					<th width="20%">Tenant</th>
+					<th width="20%">Company</th>
+					<th width="15%">Phone</th>
+					<th width="15%">Due Status</th>
+					<th width="30%"></th>
+
+				</tr>
+
+				<tr>
+
+					<td>
+						<div class="form-group">
+<?=$this->form->tnt_full_name->show()?>
+</div>
+					</td>
+
+					<td>
+						<div class="form-group">
+<?=$this->form->tnt_comp_name->show()?>
+</div>
+					</td>
+
+					<td>
+						<div class="form-group">
+<?=$this->form->tnt_phone->show()?>
+</div>
+					</td>
+
+					<td>
+						<div class="form-group">
+<?=$this->form->tnt_due->show()?>
+</div>
+					</td>
+
+					<td align="center">
+
+						<div class="form-group">
+
+							<button class="btn <?=$this->filter_class?>" type="submit">Filter</button>
+
+							<input class="btn btn-secondary" name="clear" type="submit"
+								value="All">
+
+						</div>
+
+					</td>
+
+				</tr>
+
+			</table>
+
+		</form>
+
+	</div>
+
+
+
+	<div class="col-md-12"
+		style="height: 100%; padding-left: 1%; padding-right: 1%;">
+
+		<div id="report">
+
+<?php include __DIR__ . '/../../../public/css/printstyle_rpt.php.css';?>
+
+<div class="card"
+				style="margin-top: 10px; padding-left: 5px; padding-right: 5px;">
+
+				<!-- REPORT HEADER -->
+
+				<div style="margin-top: 3%;">
+
+					<table class="rpt_tbl">
+
+						<thead>
+
+							<tr>
+
+								<th width="1%" rowspan="3">
+
+									<div class="title-margin">
+
+										<img width="50"
+											src="http://<?=$_SERVER['HTTP_HOST']?>/css/images/ast.png"
+											style="padding-top: 6px; margin-left: 42px; margin-top: 5px;">
+
+									</div>
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+									<div class="center" style="width: 79%;">Abdullah Salem Trading
+										Est</div>
+
+								</th>
+
+							</tr>
+
+							<tr>
+
+								<th>
+
+<div class="center" style="margin-bottom:10px;width:79%;">
+
+<b>Rent Due by Tenants up to <?=$today?></b>
+
+</div>
+
+								</th>
+
+							</tr>
+
+						</thead>
+
+					</table>
+
+				</div>
+
+
+
+				<!-- REPORT TABLE -->
+
+				<table class="rpt_frame">
+
+					<thead>
+
+						<tr>
+							<th class="empty" colspan="8"></th>
+						</tr>
+
+						<tr>
+
+							<th width="5%" class="center">Sl No</th>
+							<th width="20%" class="center">Tenant</th>
+							<th width="20%" class="center">Company</th>
+							<th width="10%" class="center">Type</th>
+							<th width="10%" class="center">Nationality</th>
+							<th width="15%" class="center">Mobile</th>
+							<th width="10%" class="center">ID No</th>
+							<th width="10%" class="center">Due Amount</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+<?php if(count($this->TenantsList)>0): ?>
+
+
+
+<?php foreach($this->TenantsList as $tenant):
+
+$dueAmount = $tenant['due_amount'] ?? 0;
+
+$total_due += $dueAmount;
+$total_tenants++;
+
+?>
+
+<tr>
+
+    <td class="center"><?=++$offset?></td>
+
+    <td><?=$tenant['tnt_full_name']?></td>
+
+    <td><?=$tenant['tnt_comp_name']?></td>
+
+    <td class="center"><?=$tenant['tnt_agr_type']?></td>
+
+    <td class="center">
+        <?=($tenant['tnt_expat']=='National') ? 'Omani' : 'Expat'?>
+    </td>
+
+    <td class="center"><?=$tenant['tnt_tele']?></td>
+
+    <td class="right pr-10"><?=$tenant['tnt_id_no']?></td>
+
+    <td class="right" align="right">
+        <?=number_format($dueAmount,3)?>
+    </td>
+
+</tr>
+
+<?php endforeach ?>
+
+<tr style="font-weight:bold;background:#f2f2f2">
+
+<td colspan="6" class="right">TOTAL</td>
+
+<td class="center"><?=$total_tenants?></td>
+
+<td class="right" align="right">OMR <?=number_format($total_due,3)?> </td>
+
+</tr>
+
+<?php endif ?>
+
+</tbody>
+
+				</table>
+
+
+
+				<!-- FOOTER -->
+
+				<div>
+
+					<table class="rpt_tbl">
+
+						<thead>
+
+							<tr>
+
+<?php
+$date = new DateTime();
+$date = $date->format('d/m/Y');
+?>
+
+<th>
+
+									<div class="title-margin rpt_footer">
+
+										<h5>Tenant MIS Report (<?=$date?>)</h5>
+
+									</div>
+
+								</th>
+
+							</tr>
+
+						</thead>
+
+					</table>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

@@ -185,4 +185,16 @@ table.rpt_frame  thead th.empty {
 
 .filter-card tr { line-height: 18px; }
 
+.right{
+    text-align:right;
+}
+
+.center{
+    text-align:center;
+}
+
+.pr-10{
+    padding-right:10px;
+}
+
 </style>

@@ -1547,6 +1547,13 @@
 					<resource>application</resource>
 					<type>view</type>
 				</action>
+				<action>
+					<name>tenantdues</name>
+					<label>Rent dues By Tenant</label>
+					<description>Rent dues By Tenant</description>
+					<resource>application</resource>
+					<type>view</type>
+				</action>
 			</controller>
 			<controller>
 				<name>vehicle</name>
