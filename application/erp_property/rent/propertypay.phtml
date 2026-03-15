@@ -92,7 +92,7 @@
 
               <div class="col-lg-3">
                 <div class="form-group">
-                    <label class="form-label">Pay Month</label>
+                    <label class="form-label">Due/ Demand Month</label>
                     <?=$this->form->f_monthpick->show()?>
                 </div>
               </div>
@@ -313,10 +313,10 @@ document.addEventListener("DOMContentLoaded", function () {
 <thead>
 <tr>
     <th width="5%" class="center">#</th>
-    <th width="18%">Property</th>
-    <th width="25%">Tenant</th>
-    <th width="12%">Payment Type</th>
-    <th width="12%" class="right">Rent</th>
+    <th width="18%" class="center">Property</th>
+    <th width="25%" class="center">Tenant</th>
+    <th width="12%" class="center">Aging</th>
+    <th width="12%" class="center">Rent</th>
     <th width="12%" class="center">Date</th>
 </tr>
 </thead>
@@ -383,21 +383,51 @@ $encCdmdId    = $this->encode($property['cdmd_id']);
 
 </td>
 
-<td
-<?php if($property['popt_type_id']==3): ?>
-style="color:red;font-weight:bold"
-<?php endif ?>
->
+<?php
+$age = (int)$property['aging_month'];
+$balance = (float)$property['balance'];
 
-<?=$property['popt_type']?>
+$class = 'secondary';
+$label = '';
 
+if ($balance <= 0) {
+
+    $class = 'success';
+    $label = 'Paid';
+
+} else {
+
+    if ($age <= 0) {
+        $class = 'primary';
+        $label = 'Current';
+    }
+    elseif ($age == 1) {
+        $class = 'warning';
+        $label = '1 Month';
+    }
+    elseif ($age == 2) {
+        $class = 'danger';
+        $label = '2 Months';
+    }
+    else {
+        $class = 'danger';
+        $label = $age . ' Months';
+    }
+
+}
+?>
+
+<td class="text-center">
+    <span class="text-<?= $class ?> fw-semibold">
+        <?= htmlspecialchars($label) ?>
+    </span>
 </td>
 
 <td class="right">
 
 <?php $total += $property['popt_amount']; ?>
 
-<?=number_format($property['popt_amount'],3)?>
+<b><?=number_format($property['popt_amount'],3)?></b>
 
 </td>
 
@@ -413,7 +443,7 @@ style="color:red;font-weight:bold"
 
 <?php
 
-$poptDate = DateTime::createFromFormat('d/m/Y', $property['popt_date']);
+$poptDate = new DateTime($property['popt_date']); // postgres date: Y-m-d
 $today = new DateTime();
 
 $todayDate = $today->format('Y-m-d');

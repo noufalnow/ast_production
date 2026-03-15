@@ -34,7 +34,7 @@
                   <div class="card-body">
                     <div class="d-flex">
                       <div class="text-white">
-                        <h2 class="mb-0 number-font"><?=number_format($this->propertyData['total_amount'] ?? 0, 3); ?></h2>
+                        <h2 class="mb-0 number-font"><?=number_format($this->dueUptoMonth['0']['due_amount_month'] ?? 0, 3); ?></h2>
                         <p class="text-white mb-0">Total Rent   <?=date('M,Y', strtotime($this->propertyData['year_month'] ?? date('M,Y')));?></p>
                       </div>
                       <div class="ms-auto" title="Due Details">
@@ -51,7 +51,7 @@
                   <div class="card-body">
                     <div class="d-flex">
                       <div class="text-white">
-                        <h2 class="mb-0 number-font"> <?=number_format(($this->propertyData['total_amount']-$this->propertyData['paid_amount']) ?? 0, 3); ?></h2>
+                        <h2 class="mb-0 number-font"> <?=number_format(($this->dueUptoMonth['0']['due_amount_month']-$this->propertyData['paid_amount']) ?? 0, 3); ?></h2>
                         <p class="text-white mb-0">Rent Due  <?=date('M,Y', strtotime($this->propertyData['year_month'] ?? date('M,Y')));?></p>
                       </div>
                       <div class="ms-auto">
@@ -203,7 +203,7 @@
                       </div>
                       <div class="col">
                         <div class="float-end">
-                          <h4 class="fw-bold mt-2 mb-0 text-danger">OMR <?=number_format(($this->propertyData['total_amount']-$this->propertyData['paid_amount']) ?? 0, 3); ?></h4>
+                          <h4 class="fw-bold mt-2 mb-0 text-danger">OMR <?=number_format(($this->dueUptoMonth['0']['due_amount_month']-$this->propertyData['paid_amount']) ?? 0, 3); ?></h4>
                         </div>
                       </div>
                     </div>
