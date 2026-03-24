@@ -38,7 +38,25 @@
     <div class="col-3"><?= $this->payoptionDet['doc_expiry_date']?></div>
 </div>
 
+<div class="row mb-1">
+    <div class="col-3 fw-semibold">Due Date</div>
+    <div class="col-3"><?= $this->payoptionDet['pay_date']?></div>
+
+    <div class="col-3 fw-semibold">Due Amount</div>
+    <div class="col-3"><?= $this->payoptionDet['popt_amount']?></div>
 </div>
+
+</div>
+
+
+<?php
+$total = (float)($this->casDmdDet['cdmd_total'] ?? 0);
+$amount = (float)($this->payoptionDet['popt_amount'] ?? 0);
+
+$isMismatch = !empty($total) && $total != $amount;
+?>
+
+
 
 
 <!-- Demand + Payment Details -->
@@ -47,10 +65,12 @@
 
 <div class="row mb-1">
     <div class="col-3 fw-semibold">Demand Amount</div>
-    <div class="col-3"><?= $this->payoptionDet['popt_amount']?></div>
+    <div class="col-3" style="<?= $isMismatch ? 'color:red;font-weight:bold;' : '' ?>">
+    <?= number_format($total, 3) ?>
+	</div>
 
-    <div class="col-3 fw-semibold">Due Date</div>
-    <div class="col-3"><?= $this->payoptionDet['pay_date']?></div>
+    <div class="col-3 fw-semibold">Demand Date</div>
+    <div class="col-3"><?= $this->casDmdDet['cdmd_date_dd']?></div>
 </div>
 
 <div class="row mb-1">

@@ -494,21 +494,28 @@ if ($poptDateFormatted <= $todayDate) {
     
         <?php elseif($property['cdmd_id']!=NULL): ?>
 
-        <span style="display:flex;align-items:center;gap:6px;">
-            <i class="fas fa-file-invoice text-warning"></i>
-            <?=$property['popt_date']?>
-        </span>
+
+        
+        
+        <?= x([
+        'link'=>'erp_property/rent/adddemand',
+        'ref'=>$encPayOption,
+        'label'=>' <i class="fas fa-file-invoice text-warning"></i>'.$property['popt_date'],
+        ['param'=>'class="facebox '.$btnClass.'"
+                       style="font-size:large;"
+                       title="Update Cash Demand"']
+        ]) ?>
         
         
         <span
-    data-bs-toggle="tooltip"
-    data-bs-html="true"
-    style="cursor:pointer;color:#0d6efd;font-size:18px;"
-    title="
-<b>Step 2:</b> Once the cash clears the account, the cashier should create the Cash Receipt and the accountant must approve and file the receipt.
-">
-    <i class="fas fa-info-circle"></i>
-</span>
+                data-bs-toggle="tooltip"
+                data-bs-html="true"
+                style="cursor:pointer;color:#0d6efd;font-size:18px;"
+                title="
+            <b>Step 2:</b> Once the cash clears the account, the cashier should create the Cash Receipt and the accountant must approve and file the receipt.
+            ">
+                <i class="fas fa-info-circle"></i>
+		</span>
 
     <?php endif ?>
 
