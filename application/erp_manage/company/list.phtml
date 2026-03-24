@@ -22,149 +22,175 @@
 			<div class="row row-sm">
 				<div class="">
 					<div class="">
-						<div class="card">
-							<div class="card-header">
-								<h3 class="card-title">Company Documents</h3>
-							</div>
-							<div class="card-body">
-								<div class="table-responsive export-table">
-                                    <?$offset = $this->companyObj->_voffset;?>
-                                    <form method="get" id="filter"
-										name="filter" action="list">
-										<table aria-describedby=""
-											class="table table-bordered no-footer">
-											<thead class="border-top">
-												<tr role="row">
-													<th width="5%" class="center">Sl No</th>
-													<th width="15%" class="center">Document Name</th>
-													<th width="8%" class="center">Document No</th>
-													<th width="8%" class="center">Issue Date</th>
-													<th width="8%" class="center">Expiry Date</th>
-													<th width="3%" class="center">View</th>
-													<th align="center" width="3%" class="center">Edit</th>
-													<th align="center" width="3%" class="center">Renew</th>
-												</tr>
-											</thead>
-											<tbody>
-                                                <?if(count($this->compList)>0):?>
-                                                <?php
 
-                                                    foreach ($this->compList as $comp) :
-                                                        if ($comp['doc_id']) {
-                                                            $encFileId = $this->encode($comp['file_id']);
-                                                            $encId = $this->encode($comp['doc_id']);
-                                                        }
-                                                        if ($temp == '' || $temp != $comp['comp_id']) :
-                                                            ?>
-                                                <tr>
-													<th colspan="7">
-                                                        <?=$comp['comp_name']?>
-                                                    </th>
-												</tr>
-                                                <?php endif?>
-                                            <tr onclick="getContentX('<?=APPURL.'erp_manage/company/'?>docversion','<?=$encId;?>','doc_target_<?=$comp['doc_id'];?>');"
-											style="cursor: pointer;">
-													<td class="center">
-                                                        <?=@++$offset;?>
-                                                    </td>
-													<td>
-                                                        <?=$comp['doc_dyn_label']?>
-                                                    </td>
-													<td>
-                                                        <?=$comp['doc_no']?>
-                                                    </td>
-													<td>
-                                                        <?=$comp['doc_issue_date']?>
-                                                    </td>
-													<td>
-                                                        <?=$comp['doc_expiry_date']?>
-                                                    </td>
-													<td>
-                                                        <?php if($comp['doc_id']):?>
-                                                        <?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-file text-info">'.$comp['file_name'].'</i>',array("param"=>'opener')))?>
-                                                        <?php endif;?>
-                                                    
-													
-													
-													
-													<td align="center">
-                                                        <?php if($comp['doc_id']):?>
-                                                        <?=x(array('link'=>'erp_manage/company/edit','ref'=>$encId,'label'=>'<i class="fas fa-edit"></i>',array("param"=>'class="facebox"')))?>
-                                                        <?php endif;?>
-                                                    </td>
-                                                    
-                                                    <td align="center">
-                                                        <?php if($comp['doc_id']):?>
-                                                        <?=x(array('link'=>'erp_manage/company/renew','ref'=>$encId,'label'=>'<i class="fas fa-clone"></i>',array("param"=>'class="facebox"')))?>
-                                                        <?php endif;?>
-                                                    </td>
-												</tr>
-                                                <?php $temp = $comp['comp_id'];?>
-                                                
-                                              <tr id='doc_target_<?=$comp['doc_id'];?>'
-														class="doc_target"></tr>
-                                                
-                                                <?php endforeach?>
-                                                <?endif?>
-                                            </tbody>
-										</table>
-                                        <?$this->companyObj->pagination();?>
-                                    </form>
-								</div>
-							</div>
-							</div>
-							<div class="card-block" style="padding-top: 2%;">
-								<div class="full-width"></div>
-								<h5 class="title-margin">Bank Account Details</h5>
-							</div>
-							<div class="col-md-12">
-								<div class="card">
-									<table class="table table-bordered grid">
-										<thead>
-											<tr>
-												<th class="center" width="5%">Sl No</th>
-												<th class="center" width="5%">Type</th>
-												<th class="center" width="5%">Company</th>
-												<th class="center" width="20%">Account Name</th>
-												<th class="center" width="15%">Account No</th>
-												<th class="center" width="10%">Bank</th>
-												<th class="center" width="6%">Branch</th>
-												<th class="center" width="6%">Short Name</th>
-											</tr>
-										</thead>
-										<tbody>
-                <?php foreach ( $this->bankAccountList as $account):?>
-                <tr>
-												<td class="center">
-                        <?=@++$sl;?>
-                    </td>
-												<td>
-                        <?=$account['account_disp_type']?>
-                    </td>
-												<td>
-                        <?=$account['comp_disp_name']?>
-                    </td>
-												<td>
-                        <?=$account['acnt_name']?>
-                    </td>
-												<td>
-                        <?=$account['acnt_number']?>
-                    </td>
-												<td>
-                        <?=$this->bankList[$account['acnt_bank']]?>
-                    </td>
-												<td>
-                        <?=$account['acnt_branch']?>
-                    </td>
-												<td>
-                        <?=$account['acnt_disp_name']?>
-                    </td>
-											</tr>
+
+<div class="doc-scope">
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Company Documents</h3>
+    </div>
+
+								<div class="card-body">
+        <div class="table-responsive export-table">
+            <?$offset = $this->companyObj->_voffset;?>
+
+            <form method="get" id="filter" name="filter" action="list">
+                <table class="table table-bordered no-footer">
+                    <thead class="border-top">
+                        <tr>
+                            <th width="5%" class="center">Sl No</th>
+                            <th width="15%" class="center">Document Name</th>
+                            <th width="8%" class="center">Document No</th>
+                            <th width="8%" class="center">Issue Date</th>
+                            <th width="8%" class="center">Expiry Date</th>
+                            <th width="3%" class="center">View</th>
+                            <th width="3%" class="center">Edit</th>
+                            <th width="3%" class="center">Renew</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    <?if(count($this->compList)>0):?>
+                    <?php foreach ($this->compList as $comp):
+
+                        if ($comp['doc_id']) {
+                            $encFileId = $this->encode($comp['file_id']);
+                            $encId = $this->encode($comp['doc_id']);
+                        }
+
+                        // expiry check (SAFE — no logic interference)
+                        $isExpired = false;
+                        $isExpiringSoon = false;
+                        
+                        if (!empty($comp['doc_expiry_date'])) {
+                            $expiryObj = DateTime::createFromFormat('d/m/Y', $comp['doc_expiry_date']);
+                            
+                            if ($expiryObj) {
+                                $today = new DateTime('today');
+                                $warningDate = (clone $today)->modify('+7 days');
+                                
+                                if ($expiryObj < $today) {
+                                    $isExpired = true;
+                                } elseif ($expiryObj <= $warningDate) {
+                                    $isExpiringSoon = true;
+                                }
+                            }
+                        }
+
+                        if ($temp == '' || $temp != $comp['comp_id']): ?>
+                            <tr>
+                                <th colspan="7"><?=$comp['comp_name']?></th>
+                            </tr>
+                        <?php endif; ?>
+
+                        <tr onclick="getContentX('<?=APPURL.'erp_manage/company/'?>docversion','<?=$encId;?>','doc_target_<?=$comp['doc_id'];?>');"
+                            style="cursor: pointer;">
+
+                            <td class="center"><?=@++$offset;?></td>
+                            <td><?=$comp['doc_dyn_label']?></td>
+                            <td><?=$comp['doc_no']?></td>
+                            <td><?=$comp['doc_issue_date']?></td>
+
+                            <!-- ✅ expiry highlight -->
+                            <td class="center <?=
+                                $isExpired ? 'doc-expired' :
+                                ($isExpiringSoon ? 'doc-warning' : '')
+                            ?>">
+                                <?=$comp['doc_expiry_date']?>
+                            </td>
+
+                            <td>
+                                <?php if($comp['doc_id']):?>
+                                <?=x(array(
+                                    'link'=>'default/default/download',
+                                    'ref'=>$encFileId,
+                                    'label'=>'<i class="glyphicon glyphicon-file text-info">'.$comp['file_name'].'</i>',
+                                    array("param"=>'opener')
+                                ))?>
+                                <?php endif;?>
+                            </td>
+
+                            <td align="center">
+                                <?php if($comp['doc_id']):?>
+                                <?=x(array(
+                                    'link'=>'erp_manage/company/edit',
+                                    'ref'=>$encId,
+                                    'label'=>'<i class="fas fa-edit"></i>',
+                                    array("param"=>'class="facebox"')
+                                ))?>
+                                <?php endif;?>
+                            </td>
+
+                            <td align="center">
+                                <?php if($comp['doc_id']):?>
+                                <?=x(array(
+                                    'link'=>'erp_manage/company/renew',
+                                    'ref'=>$encId,
+                                    'label'=>'<i class="fas fa-clone"></i>',
+                                    array("param"=>'class="facebox"')
+                                ))?>
+                                <?php endif;?>
+                            </td>
+                        </tr>
+
+                        <?php $temp = $comp['comp_id']; ?>
+
+                        <tr id='doc_target_<?=$comp['doc_id'];?>' class="doc_target"></tr>
+
+                    <?php endforeach; endif;?>
+                    </tbody>
+                </table>
+
+                <?$this->companyObj->pagination();?>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+							
+							
+<div class="doc-scope">
+    <div class="card-block" style="padding-top: 2%;">
+        <div class="full-width"></div>
+        <h5 class="title-margin">Bank Account Details</h5>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card">
+            <table class="table table-bordered grid doc-table">
+                <thead>
+                    <tr>
+                        <th class="center">Sl No</th>
+                        <th class="center">Type</th>
+                        <th class="center">Company</th>
+                        <th class="center">Account Name</th>
+                        <th class="center">Account No</th>
+                        <th class="center">Bank</th>
+                        <th class="center">Branch</th>
+                        <th class="center">Short Name</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                <?php foreach ($this->bankAccountList as $account):?>
+                    <tr class="doc-row">
+                        <td class="center"><?=@++$sl;?></td>
+                        <td><?=$account['account_disp_type']?></td>
+                        <td><?=$account['comp_disp_name']?></td>
+                        <td><?=$account['acnt_name']?></td>
+                        <td><?=$account['acnt_number']?></td>
+                        <td><?=$this->bankList[$account['acnt_bank']]?></td>
+                        <td><?=$account['acnt_branch']?></td>
+                        <td><?=$account['acnt_disp_name']?></td>
+                    </tr>
                 <?php endforeach;?>
-            </tbody>
-									</table>
-								</div>
-							</div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
 <?php  viewAction(array('module'=>'erp_manage', 'controller'=>'updates', 'action'=>'updates', 'param'=>array('type'=>UPD_TYP_COMP,'ref'=>UPD_TYP_COMP)));?>
 <?php  viewAction(array('module'=>'erp_manage', 'controller'=>'documents', 'action'=>'documents', 'param'=>array('type'=>DOC_TYPE_COM_COMP,'ref'=>DOC_TYPE_COM_COMP)));?>
 							
@@ -197,5 +223,122 @@ function getContentX(postlink, refId, target) {
 
 .table>:not(:last-child)>:last-child>* {
 	border-bottom-color: #9fb3ce;
+}
+
+
+.doc-scope .card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+}
+
+.doc-scope .card-header {
+    background: linear-gradient(135deg, #4e73df, #224abe);
+    color: #fff;
+}
+
+.doc-scope .card-title {
+    font-weight: 600;
+}
+
+/* Table */
+.doc-scope .table thead th {
+    background: #f8f9fc;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #5a5c69;
+    border-bottom: 2px solid #e3e6f0;
+}
+
+.doc-scope .table td,
+.doc-scope .table th {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* Company row */
+.doc-scope .table tbody tr th[colspan] {
+    background: #eef2ff;
+    font-weight: 600;
+    border-left: 4px solid #4e73df;
+}
+
+/* Hover */
+.doc-scope .table tbody tr[onclick] {
+    transition: 0.2s;
+}
+
+.doc-scope .table tbody tr[onclick]:hover {
+    background: #f1f5ff;
+}
+
+/* Icons */
+.doc-scope .table i {
+    transition: 0.2s;
+}
+
+.doc-scope .table i:hover {
+    transform: scale(1.15);
+}
+
+/* Expired highlight */
+.doc-scope .doc-expired {
+    background: #ffe5e5;
+    color: #d63031;
+    font-weight: 600;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Expand row */
+.doc-scope .doc_target {
+    background: #fafbff;
+}
+
+.doc-scope .doc-warning {
+    background: #fff3cd;
+    color: #856404;
+    font-weight: 600;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Reusable table class */
+.doc-scope .doc-table thead th {
+    background: #f8f9fc;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #5a5c69;
+    border-bottom: 2px solid #e3e6f0;
+}
+
+/* Apply same row behavior */
+.doc-scope .doc-row {
+    transition: 0.2s;
+}
+
+.doc-scope .doc-row:hover {
+    background: #f1f5ff;
+}
+
+/* Fix title consistency */
+.doc-scope .title-margin {
+    font-weight: 600;
+    color: #4e73df;
+    margin-bottom: 10px;
+}
+
+/* Card spacing consistency */
+.doc-scope .card {
+    border-radius: 10px;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+    border: none;
+}
+
+/* Grid compatibility (your legacy class) */
+.doc-scope .grid td,
+.doc-scope .grid th {
+    padding: 10px;
+    vertical-align: middle;
 }
 </style>
