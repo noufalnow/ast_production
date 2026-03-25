@@ -1,528 +1,519 @@
-<div style="margin-top: 1%;">
-	<div class="col-md-12 card filter-card" style="margin-bottom: 0px;">
-		<div class="card-block" style="padding-top: 1%;">
-		
-		
-		
-            <div class="full-width">
-                <button id="toggle-all" class="btn btn-primary pull-right" style="padding: 2px 12px; margin-left: 10px;">Expand All</button>
-                <button name="cmdPrint" value="Print" onclick="$('#report').printElement();" class="btn btn btn-primary pull-right" style="padding: 2px 12px;">Print</button>
-            </div>
-			
-			
-			<h5 class="title-margin">Report: Company Monthly Financial Statement for the month of : <?=$this->f_monthpick;?></h5>
-		</div>
-		<form method="get" id="filter" name="filter" action="statement">
-		
-				<div class="row">
-					<div class="col-lg-3">
-						<div class="form-group">
-							<label for="file_no" class="form-label">Company</label>
-                    <?=$this->form->f_company->show()?>
-                </div>
-					</div>
+<?php
+// =========================
+// HEADER / META
+// =========================
+$dateNow = date('d/m/Y h:i A');
+?>
 
-					<div class="col-lg-3">
-						<div class="form-group">
-							<label for="file_no" class="form-label">Month</label>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Financial Statement</title>
+
+
+</head>
+<body>
+
+<div class="container">
+
+<!-- =========================
+FILTER SECTION
+========================= -->
+<div class="filter-bar" style="background-color: beige;border-radius: 10px;padding: 1rem;margin: 1rem;">
+
+    <h4 style="margin-top:10px;">
+        Company Monthly Financial Statement :
+        <?=$this->f_monthpick;?>
+    </h4>
+    <form method="get" action="statement">
+        <div class="filter-row">
+
+            <div class="filter-group">
+                <label>Company</label>
+                <?=$this->form->f_company->show()?>
+            </div>
+
+            <div class="filter-group">
+                <label>Month</label>
                 <?=$this->form->f_monthpick->show()?>
             </div>
-					</div>
-                    <div class="col-lg-3">
-                    <div class="form-group">
-							<label for="file_no" class="form-label">Filter</label>
-					<button class="btn <?=$this->filter_class?>  mb-0"
-						type="submit">Filter</button>
-					<input class="btn btn-secondary  mb-0" name="clear"
-						type="submit" value="All"></input>
-						</div>
-						</div></div>
-		</form>
-	</div>
-	<div class="col-md-12 "
-		style="height: 100%; padding-left: 1%; padding-right: 1%;">
-		<div id="report">
-<?php include __DIR__ . '/../../../public/css/printstyle_rpt.php.css';?>
-	<div class="card"
-				style="margin-top: 10px; padding-left: 5px; border-right-width: 1px; margin-right: 0px; padding-right: 5px;">
 
+            <div class="filter-actions">
+                <button class="btn btn-primary">Filter</button>
+                <button class="btn btn-secondary" name="clear">All</button>
+            
+                <button type="button" class="btn btn-print" onclick="window.print()">
+                    Print
+                </button>
+            
+                <button type="button" class="btn btn-success" onclick="downloadPDF()">
+                    Export PDF
+                </button>
+            </div>
+
+        </div>
+    </form>
+
+
+</div>
 
 <?php
+// =========================
+// DATA PROCESSING (NO DATA LOSS)
+// =========================
 
 $incomeData = $this->financialRevanew;
 $expenseData = $this->financialExpense;
 
 $combinedData = [];
 
-// Process income data first
+// Merge income
 foreach ($incomeData as $income) {
     $key = $income['comp_id'] . '-' . $income['ref_source'];
     $combinedData[$key] = [
         'comp_id' => $income['comp_id'],
-        'type' => $income['ref_source'],
+        'type' => strtolower($income['ref_source']),
         'income' => $income['total_income'],
-        'expense' => null
+        'expense' => 0
     ];
 }
 
-// Process expense data and merge with income data
+// Merge expense
 foreach ($expenseData as $expense) {
     $key = $expense['comp_id'] . '-' . $expense['ref_source'];
+
     if (isset($combinedData[$key])) {
-        // If already exists from income data, just update the expense
         $combinedData[$key]['expense'] = $expense['total_expense'];
     } else {
-        // If not, add a new record with expense and no income
         $combinedData[$key] = [
             'comp_id' => $expense['comp_id'],
-            'type' => $expense['ref_source'],
-            'income' => null,
+            'type' => strtolower($expense['ref_source']),
+            'income' => 0,
             'expense' => $expense['total_expense']
         ];
     }
 }
 
-// Custom sort function to order by 'comp_id' and 'type'
-usort($combinedData, function ($a, $b) {
-    if ($a['comp_id'] == $b['comp_id']) {
-        return strcmp($b['type'], $a['type']);
+// =========================
+// BUILD REPORT STRUCTURE
+// =========================
+
+$report = [];
+
+foreach ($combinedData as $row) {
+
+    $compId = $row['comp_id'];
+    $type   = $row['type'];
+
+    if (!isset($report[$compId])) {
+        $report[$compId] = [
+            'name' => $this->compList[$compId],
+            'income' => 0,
+            'expense' => 0,
+            'segments' => []
+        ];
     }
-    return ($a['comp_id'] < $b['comp_id']) ? - 1 : 1;
-});
 
-// Initialize variables for subtotals and grand totals
-$currentCompId = null;
-$companyIncomeSum = 0;
-$companyExpenseSum = 0;
-$grandTotalIncome = 0;
-$grandTotalExpense = 0;
+    $income  = $row['income'] ?? 0;
+    $expense = $row['expense'] ?? 0;
 
+    $report[$compId]['income'] += $income;
+    $report[$compId]['expense'] += $expense;
 
-echo "<style>
+    // Segment totals
+    $report[$compId]['segments'][$type]['income']  = $income;
+    $report[$compId]['segments'][$type]['expense'] = $expense;
 
+    // DETAILS
+    if ($type == 'vehicle') {
+        $report[$compId]['segments'][$type]['income_details'] =
+            $this->collectionObj->getVehicleRevenueByCompany([
+                'f_monthpick'=>$this->f_monthval,
+                'vhl_company'=>$compId
+            ]);
 
-.financial-table,
-.details-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    margin: 20px 0;
-    border: 1px solid #ddd;
-    background-color: #ffffff; /* Default background for parent table */
-}
+        $report[$compId]['segments'][$type]['expense_details'] =
+            $this->expenseObj->getVehicleExpenseByCompany([
+                'f_monthpick'=>$this->f_monthval,
+                'f_company'=>$compId
+            ]);
+    }
 
-.financial-table th,
-.financial-table td,
-.details-table th,
-.details-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: right;
-}
+    if ($type == 'property') {
+        $report[$compId]['segments'][$type]['income_details'] =
+            $this->collectionObj->getPropertyRevenueByBuilding([
+                'f_monthpick'=>$this->f_monthval,
+                'bld_comp'=>$compId
+            ]);
 
-.financial-table th,
-.details-table th {
-    font-weight: bold;
-    background-color: #f2f2f2; /* Default header background */
-    text-align: center;
-}
+        $report[$compId]['segments'][$type]['expense_details'] =
+            $this->expenseObj->getPropertyExpenseByCompany([
+                'f_monthpick'=>$this->f_monthval,
+                'f_company'=>$compId
+            ]);
+    }
 
-.financial-table .company-heading {
-    background-color: #e8e8e8; /* Distinct light gray for company heading */
-    font-weight: bold;
-    text-align: left;
-    font-size: 18px;
-}
+    if ($type == 'other') {
+        $report[$compId]['segments'][$type]['income_details'] = [];
 
-.financial-table .subtotal-row {
-    background-color: #f5f5f5; /* Subtotal row */
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.financial-table .grand-total-row {
-    background-color: #d0d0d0; /* Grand total row */
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.financial-table .details-row {
-    background-color: #fef8e0; /* Highlighted yellowish background for details */
-    overflow: hidden;
-    display: none; /* Hidden by default */
-    height: 0px; /* Start with no height */
-    transition: height 0.3s ease; /* Smooth toggle animation */
-}
-
-.details-table {
-    margin-top: 10px;
-    background-color: azure; /* Slightly darker yellow to highlight */
-}
-
-.details-table th {
-    background-color: #ffeeb8; /* Header with distinct yellow */
-    text-align: left;
-}
-
-.details-table td {
-    text-align: left;
-    color: #333; /* Standard text color for better readability */
-}
-
-tr.content-row:hover {
-    background-color: #f0f8ff; /* Highlight content row on hover */
-    cursor: pointer;
-}
-
-#toggle-all {
-    margin-bottom: 10px;
-}
-
-@media print {
-    .info-button {
-        display: none;
+        $report[$compId]['segments'][$type]['expense_details'] =
+            $this->expenseObj->getOtherExpenseByCompany([
+                'f_monthpick'=>$this->f_monthval,
+                'f_company'=>$compId
+            ]);
     }
 }
-
-.tooltip {
-    z-index: 1050 !important; /* Ensure it appears on top of all other elements */
-}
-
-
-</style>";
-
 ?>
 
 
-<table class="financial-table">
-    <tbody>
-        <?php
-        $currentCompId = null;
-        $companyIncomeSum = 0;
-        $companyExpenseSum = 0;
 
-        foreach ($combinedData as $index => $row) {
-            if (!empty($this->compList[$row['comp_id']])) {
-                // When moving to a new company
-                if ($currentCompId !== $row['comp_id']) {
-                    // Display the subtotal row for the previous company
-                    if ($currentCompId !== null) {
-                        echo "<tr class='subtotal-row'>";
-                        echo "<td style='text-align: left;'>Subtotal</td>";
-                        echo "<td>" . number_format($companyIncomeSum, 3) . "</td>";
-                        echo "<td>" . number_format($companyExpenseSum, 3) . "</td>";
-                        echo "</tr>";
-                    }
 
-                    // Reset subtotals and update the current company ID
-                    $currentCompId = $row['comp_id'];
-                    $companyIncomeSum = 0;
-                    $companyExpenseSum = 0;
 
-                    // Display the company header
-                    echo "<tr class='company-heading'>";
-                    echo "<td colspan='3' style='text-align: left;'>" . $this->compList[$currentCompId] . "</td>";
-                    echo "</tr>";
-                }
-                
-                
-                ?>
-                
-                <tr>
-                <th style="text-align: left;"><? echo"{$row['type']}" ?></th>
-                <th style="text-align: right;"><?php if($row['type'] != "Other"):?>Income <?php endif;?></th>
-                <th style="text-align: right;">Expense</th>
-                </tr>
 
-                
-				<?php 
+<style>
 
-                // Accumulate the income and expense for the current company
-                $companyIncomeSum += is_null($row['income']) ? 0 : $row['income'];
-                $companyExpenseSum += is_null($row['expense']) ? 0 : $row['expense'];
+/* =========================
+PAGE SETUP
+========================= */
+@page {
+    size: A4;
+    margin: 18mm 12mm 15mm 12mm; /* bottom space for footer */
+}
 
-                // Display the main row
-                echo "<tr class='content-row' data-index='{$index}' style='background-color: #f9f9f9; cursor: pointer;'>";
-                echo "<td><span class='toggle-icon'>+</span> " . $row['type'] . "</td>";
-                echo "<td>" . (is_null($row['income']) ? '' : number_format($row['income'], 3)) . "</td>";
-                echo "<td>" . (is_null($row['expense']) ? '' : number_format($row['expense'], 3)) . "</td>";
-                echo "</tr>";
+/* =========================
+BASE
+========================= */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #000;
+    margin: 0;
+}
 
-                // Sub-row for details (initially hidden)
-                
-                $incomeVehicle  = $this->collectionObj->getVehicleRevenueByCompany(['f_monthpick'=>$this->f_monthval,'vhl_company'=>$row['comp_id']]);
-                $expenseVehicle = $this->expenseObj->getVehicleExpenseByCompany(['f_monthpick'=>$this->f_monthval,'f_company'=>$row['comp_id']]);
- 
-                
-                if($row['type'] == "Vehicle"):
-                
-                echo "<tr class='details-row' data-index='{$index}' style='display: none;'>";
-                echo "<td colspan='4' style='padding: 10px; background-color: #f9f9f9;'>"; ?>
 
-                <div style="display: flex; justify-content: space-between; gap: 20px;">
-                
-                    <!-- First Table -->
-                    <table class="details-table" style="width: 48%; border-collapse: collapse; border: 1px solid #ddd;">
-                        <thead>
-                            <tr style="background-color: #f2f2f2;">
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Vehicle</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if(is_array($incomeVehicle) && count($incomeVehicle) > 0): ?>
-                            <?php foreach ($incomeVehicle as $vehinc): ?>
-                                <tr>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehinc['vhl_no']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehinc['total_amount']?><button type="button" 
-                                            class="info-button" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
-                                            title="<?=htmlspecialchars($vehinc['inc_details'])?>">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                
-                    <!-- Second Table -->
-                    <table class="details-table" style="width: 48%; border-collapse: collapse; border: 1px solid #ddd;">
-                        <thead>
-                            <tr style="background-color: #f2f2f2;">
-                            
-                            	<th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Transaction</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Category</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if(is_array($expenseVehicle) && count($expenseVehicle) > 0): ?>
-                            <?php foreach ($expenseVehicle as $vehexp): ?>
-                                <tr>
-                                	<td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['ref_source']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['category']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['total_amount']?>
-                                    
-                                    <button type="button" 
-                                            class="info-button" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="top" 
-                                            title="<?=htmlspecialchars($vehexp['exp_details'])?>">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                    
-                                    
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                
-                </div>
+.filter-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    flex-wrap: wrap; /* allows wrap on small screens */
+}
 
-                
-                
-                
-                <?php 
-                echo "</td>";
-                echo "</tr>";
-                
-                endif;
-                
-                $incomeProperty  = $this->collectionObj->getPropertyRevenueByBuilding(['f_monthpick'=>$this->f_monthval,'bld_comp'=>$row['comp_id']]);
-                $expenseProperty = $this->expenseObj->getPropertyExpenseByCompany(['f_monthpick'=>$this->f_monthval,'f_company'=>$row['comp_id']]);
-                
-                
-                
-                if($row['type'] == "Property"):
-                
-                echo "<tr class='details-row' data-index='{$index}' style='display: none;'>";
-                echo "<td colspan='4' style='padding: 10px; background-color: #f9f9f9;'>"; ?>
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
 
-                <div style="display: flex; justify-content: space-between; gap: 20px;">
-                
-                    <!-- First Table -->
-                    <table class="details-table" style="width: 48%; border-collapse: collapse; border: 1px solid #ddd;">
-                        <thead>
-                            <tr style="background-color: #f2f2f2;">
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Building</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if(is_array($incomeProperty) && count($incomeProperty) > 0): ?>
-                            <?php foreach ($incomeProperty as $buildinc): ?>
-                                <tr>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$buildinc['bld_name']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$buildinc['total_income']?><button type="button" 
-                                            class="info-button" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="right" 
-                                            title="<?=htmlspecialchars($buildinc['inc_details'])?>">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                
-                    <!-- Second Table -->
-                    <table class="details-table" style="width: 48%; border-collapse: collapse; border: 1px solid #ddd;">
-                        <thead>
-                            <tr style="background-color: #f2f2f2;">
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Transaction</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Category</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if(is_array($expenseProperty) && count($expenseProperty) > 0): ?>
-                            <?php foreach ($expenseProperty as $vehexp): ?>
-                                <tr>
-                                	<td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['ref_source']?></td>                                
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['category']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['total_amount']?>
-                                                                        <button type="button" 
-                                            class="info-button" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="top" 
-                                            title="<?=htmlspecialchars($vehexp['exp_details'])?>">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                
-                </div>
+.filter-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
 
-                
-                
-                
-                <?php 
-                echo "</td>";
-                echo "</tr>";
-                
-                endif;
-                
-                
-                $incomeOther  = [];
-                $expenseOther = $this->expenseObj->getOtherExpenseByCompany(['f_monthpick'=>$this->f_monthval,'f_company'=>$row['comp_id']]);
-                
-                
-                
-                if($row['type'] == "Other"):
-                
-                echo "<tr class='details-row' data-index='{$index}' style='display: none;'>";
-                echo "<td colspan='4' style='padding: 10px; background-color: #f9f9f9;'>"; ?>
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
 
-                <div style="display: flex; justify-content: space-between; gap: 20px;">
-                
-                    <!-- First Table -->
-                    <table class="details-table" style="width: 48%; border-collapse: collapse; border: 1px solid #ddd;">
-                        <thead>
-                            <tr style="background-color: #f2f2f2;">
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Building</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if(is_array($incomeOther) && count($incomeOther) > 0): ?>
-                            <?php foreach ($incomeOther as $buildinc): ?>
-                                <tr>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$buildinc['bld_name']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$buildinc['total_income']?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                
-                    <!-- Second Table -->
-                    <table class="details-table" style="width: 48%; border-collapse: collapse; border: 1px solid #ddd;">
-                        <thead>
-                            <tr style="background-color: #f2f2f2;">
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Transaction</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Category</th>
-                                <th style="text-align: right; padding: 8px; border: 1px solid #ddd;">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if(is_array($expenseOther) && count($expenseOther) > 0): ?>
-                            <?php foreach ($expenseOther as $vehexp): ?>
-                                <tr>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['ref_source']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['category']?></td>
-                                    <td style="text-align: right; padding: 8px; border: 1px solid #ddd;"><?=$vehexp['total_amount']?>
-                                                                        <button type="button" 
-                                            class="info-button" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="top" 
-                                            title="<?=htmlspecialchars($vehexp['exp_details'])?>">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                
-                </div>
+/* =========================
+HEADER
+========================= */
+.report-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
 
-                
-                
-                
-                <?php 
-                echo "</td>";
-                echo "</tr>";
-                
-                endif;
-                
-            }
-            
-            $incomeVehicle = [];
-            $expenseVehicle = [];
-        }
-        
-        if ($currentCompId !== null) {
-            echo "<tr class='subtotal-row'>";
-            echo "<td style='text-align: left;'>Subtotal</td>";
-            echo "<td>" . number_format($companyIncomeSum, 3) . "</td>";
-            echo "<td>" . number_format($companyExpenseSum, 3) . "</td>";
-            echo "</tr>";
-        }
-        
-        ?>
-    </tbody>
+.report-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.report-subtitle {
+    font-size: 12px;
+}
+
+/* =========================
+TABLE
+========================= */
+.ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.ledger-table thead {
+    display: table-header-group;
+}
+
+.ledger-table th {
+    border-bottom: 2px solid #000;
+    padding: 6px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.ledger-table td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+.num {
+    text-align: right;
+    font-family: monospace;
+}
+
+/* =========================
+SECTIONS
+========================= */
+.company-header {
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px solid #000;
+    padding: 8px 0;
+}
+
+.section {
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.total {
+    border-top: 1px solid #000;
+    font-weight: bold;
+}
+
+.negative {
+    color: #c00000;
+}
+
+/* =========================
+ANNEXURE
+========================= */
+.annexure-row td {
+    padding-left: 15px;
+    font-size: 11px;
+}
+
+/* =========================
+FOOTER (DEFAULT)
+========================= */
+.footer {
+    font-size: 10px;
+}
+
+/* =========================
+PRINT MODE
+========================= */
+@media print {
+
+    body {
+        background: #fff;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    /* HIDE UI */
+    .filter-bar,
+    .btn,
+    button {
+        display: none !important;
+    }
+
+    /* PREVENT BAD BREAKS */
+    table {
+        page-break-inside: auto;
+    }
+
+    tr, td {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tfoot {
+        display: table-footer-group;
+    }
+
+    /* FOOTER ON EVERY PAGE 
+    .footer {
+        position: fixed;
+        bottom: 8mm;
+        left: 12mm;
+        right: 12mm;
+        display: flex;
+        justify-content: space-between;
+    }*/
+
+    /* PAGE NUMBER (WORKING) */
+    .page-number::after {
+        content: counter(page);
+    }
+
+}
+</style>
+
+<div class="report-header no-print">
+    <div class="report-title">Company Monthly Financial Statement</div>
+    <div class="report-subtitle">
+        Period: <?=$this->f_monthpick;?>
+    </div>
+</div>
+
+
+<div id="reportContent">
+
+<?php foreach ($report as $company): 
+    $net = $company['income'] - $company['expense'];
+?>
+
+<table class="ledger-table company-block">
+
+<thead>
+<tr>
+    <th colspan="3" class="company-header">
+        <?= $company['name'] ?>
+    </th>
+</tr>
+
+<tr>
+    <th>Description</th>
+    <th style="width:120px;">Income</th>
+    <th style="width:120px;">Expense</th>
+</tr>
+</thead>
+
+<tbody>
+
+<!-- EXEC SUMMARY -->
+<tr class="section">
+    <td colspan="3">Executive Summary</td>
+</tr>
+
+<tr>
+    <td>Total Income</td>
+    <td class="num"><?= number_format($company['income'],3) ?></td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Total Expense</td>
+    <td></td>
+    <td class="num"><?= number_format($company['expense'],3) ?></td>
+</tr>
+
+<tr class="total">
+    <td>Net Result</td>
+    <td colspan="2" class="num <?= $net < 0 ? 'negative':'' ?>">
+        <?= number_format($net,3) ?>
+    </td>
+</tr>
+
+<!-- SEGMENTS -->
+<tr class="section">
+    <td colspan="3">Profit & Loss Breakdown</td>
+</tr>
+
+<?php foreach ($company['segments'] as $k=>$seg): ?>
+
+<tr>
+    <td><?= ucfirst($k) ?> Income</td>
+    <td class="num"><?= number_format($seg['income'] ?? 0,3) ?></td>
+    <td></td>
+</tr>
+
+<?php if (!empty($seg['income_details'])): ?>
+    <?php foreach ($seg['income_details'] as $d): ?>
+    <tr class="annexure-row">
+        <td>↳ <?= $d['vhl_no'] ?? $d['bld_name'] ?></td>
+        <td class="num"><?= $d['total_amount'] ?? $d['total_income'] ?></td>
+        <td></td>
+    </tr>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<tr>
+    <td><?= ucfirst($k) ?> Expense</td>
+    <td></td>
+    <td class="num"><?= number_format($seg['expense'] ?? 0,3) ?></td>
+</tr>
+
+<?php if (!empty($seg['expense_details'])): ?>
+    <?php foreach ($seg['expense_details'] as $d): ?>
+    <tr class="annexure-row">
+        <td>↳ <?= $d['ref_source'] ?> | <?= $d['category'] ?></td>
+        <td></td>
+        <td class="num"><?= $d['total_amount'] ?></td>
+    </tr>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php endforeach; ?>
+
+</tbody>
 </table>
 
+<?php endforeach; ?>
 
-
-
-		<div>
-					<table class="rpt_tbl">
-						<thead>
-							<tr><?php
-
-                                $date = new DateTime();
-                                $date = $date->format('d/m/y h:i A');
-                                ?>
-						    <th style="align-items: end;text-align: right;padding-top: 5px;"><div class="title-margin rpt_footer">
-										<small>Company Monthly Financial Statement (<?=$date?>)</small>
-									</div></th>
-							</tr>
-						</thead>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="footer1">
+    <span>Generated on <?=$dateNow?></span>
 </div>
+</div>
+
+
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+<script>
+window.onafterprint = function() {};
+</script>
+<script>
+function downloadPDF() {
+
+    let element = document.getElementById('reportContent');
+
+    const opt = {
+        margin: 0.3,
+        filename: 'financial_statement.pdf',
+        image: { type: 'jpeg', quality: 1 },
+
+        html2canvas: {
+            scale: 2,
+            useCORS: true,
+            letterRendering: true
+        },
+
+        jsPDF: {
+            unit: 'in',
+            format: 'a4',
+            orientation: 'portrait'
+        },
+
+        pagebreak: {
+            mode: ['avoid-all', 'css', 'legacy']
+        }
+    };
+
+    html2pdf().set(opt).from(element).save();
+}
+
+
+
+</script>
+
+
+
+
 <script type="text/javascript"> 
 
 
@@ -537,53 +528,6 @@ document.addEventListener("DOMContentLoaded", function () {
             html: true, // Enable HTML content
             container: 'body', // Attach tooltip to <body> to avoid layout constraints
         });
-    });
-});
-
-
-
-
-
-$(document).ready(function () {
-
-
-
-	
-    // Toggle the visibility of details rows when clicking on a content row
-    $('body').on('click', '.content-row', function () {
-        const detailsRow = $(this).next('.details-row');
-        const expanded = detailsRow.is(':visible');
-
-        if (expanded) {
-            detailsRow.stop().animate({ height: '0px' }, 300, function () {
-                $(this).hide(); // Hide element after collapsing
-            });
-            $(this).find('.toggle-icon').text('+');
-        } else {
-            detailsRow.stop().show().animate({ height: detailsRow.get(0).scrollHeight + 'px' }, 300);
-            $(this).find('.toggle-icon').text('-');
-        }
-    });
-
-    // Expand/Collapse All Rows
-    $('#toggle-all').click(function () {
-        const allRows = $('.details-row');
-        const shouldExpand = $(this).text() === 'Expand All';
-
-        allRows.each(function () {
-            const contentRow = $(this).prev('.content-row');
-            if (shouldExpand && !$(this).is(':visible')) {
-                $(this).stop().show().animate({ height: $(this).get(0).scrollHeight + 'px' }, 300);
-                contentRow.find('.toggle-icon').text('-');
-            } else if (!shouldExpand && $(this).is(':visible')) {
-                $(this).stop().animate({ height: '0px' }, 300, function () {
-                    $(this).hide();
-                });
-                contentRow.find('.toggle-icon').text('+');
-            }
-        });
-
-        $(this).text(shouldExpand ? 'Collapse All' : 'Expand All');
     });
 });
 
