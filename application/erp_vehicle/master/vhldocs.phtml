@@ -144,7 +144,7 @@
 										<?if(!$delete1Off):?>
 											<?=x(array('link'=>'erp_vehicle/master/vhldocsdelete','ref'=>$encDocId1,'label'=>'<i class="glyphicon glyphicon-trash text-info"></i>',array("param"=>'class="facebox"')))?>
 										<?endif?></td>
-										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encDocId1,'label'=>'<i class="glyphicon glyphicon-download-alt text-info"></i>',array("param"=>'opener')))?></td>
+										<td class="center"> <?=x(array('link'=>'default/default/download','ref'=>$encFileId,'label'=>'<i class="glyphicon glyphicon-download-alt text-info"></i>',array("param"=>'opener')))?></td>
 									</tr>
 								<?php 
 								$delete1Off = true;
