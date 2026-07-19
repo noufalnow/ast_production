@@ -273,7 +273,7 @@
 						<tr> 
 							<td colspan="2" class="left">Amount Chargeable (in words) <br> <b><? 
 							 
-							$gTotal = explode ( '.', number_format($grandTotal,3));						 
+							$gTotal = explode ( '.',  number_format( $grandTotal + ($this->billInfo['bill_vat_amt'] ?? 0), 3));						 
 							$gTotal [0]= str_replace( ',', '', $gTotal [0]); 
 							$gTotal [1]= str_replace( ',', '', $gTotal [1]); 
 							 
